@@ -15,23 +15,30 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     static let sharedInstance = MyTourTableViewController()
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
-    var tours = [Tour]()
-    var filteredTours = [Tour]()
+    //var tours = [Tour]()
+    //var filteredTours = [Tour]()
     var counter = 0
     var song = ["1","2","3"]
     var player = AVAudioPlayer()
     fileprivate var modalVC : ModalViewController!
     //let searchController = UISearchController(searchResultsController: nil)
     
+    var urlString:String?
+    var downloadTours = [DownloadTour]()
+    var downloadTour:DownloadTour?
+    var myGroup = DispatchGroup()
+    var fileName:String? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        tours = [
-            Tour(songid: 1,category:"walking", name:"Melbourne Central",locations:CLLocationCoordinate2D(latitude: -37.8426083, longitude: 144.9685646), desc: "This is the largest shopping centre, office and public transport hub in the city of Melbourne.", address:"211 La Trobe St, Melbourne", star:"1",length:"1",difficulty:"Pleasant"),
-            Tour(songid: 2,category:"walking", name:"Victoria Gallery",locations:CLLocationCoordinate2D(latitude: -35.8426083, longitude: 142.9685646), desc: "The public national gallery, popularly known as NGV, is an art museum in Melbourne.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
-            Tour(songid: 3,category:"driving", name:"The Great Ocean Road",locations:CLLocationCoordinate2D(latitude: -38.6805638, longitude: 143.3894295), desc: "The Great Ocean Road is an Austrilian national heritage, a road along with the south-eastern coast of Austrilian.", address:"Great Ocean Rd, Victoria",star:"1",length:"1",difficulty:"Brisk")]
-        
+         fetchTours()
+
+//        tours = [
+//            Tour(songid: 1,category:"walking", name:"Melbourne Central",locations:CLLocationCoordinate2D(latitude: -37.8426083, longitude: 144.9685646), desc: "This is the largest shopping centre, office and public transport hub in the city of Melbourne.", address:"211 La Trobe St, Melbourne", star:"1",length:"1",difficulty:"Pleasant"),
+//            Tour(songid: 2,category:"walking", name:"Victoria Gallery",locations:CLLocationCoordinate2D(latitude: -35.8426083, longitude: 142.9685646), desc: "The public national gallery, popularly known as NGV, is an art museum in Melbourne.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
+//            Tour(songid: 3,category:"driving", name:"The Great Ocean Road",locations:CLLocationCoordinate2D(latitude: -38.6805638, longitude: 143.3894295), desc: "The Great Ocean Road is an Austrilian national heritage, a road along with the south-eastern coast of Austrilian.", address:"Great Ocean Rd, Victoria",star:"1",length:"1",difficulty:"Brisk")]
+//        
         //        // Setup the Search Controller
     }
     
@@ -69,59 +76,98 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     }
     
     func fetchTours(){
+        var i = 1
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         
         ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
+            
             let dictionary = snapshot.value as!  [String : Any]
             // tour.setValuesForKeys(dictionary)
-            let location = dictionary["StartPoint"] as!  [String : Any]
-            let latitude1 = String(describing: location["lat"]!)
-            print("latitude1 is \(latitude1)")
-            let latitude = Double(latitude1)
-            print("latitude is \(latitude)")
-            let longitude1 = String(describing: location["lon"]!)
-            let longitude = Double(longitude1)
-            //let longitude = (location["lon"] as! NSString).doubleValue
-            let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+            let startLocation = dictionary["startPoint"] as!  [String : Any]
             
-            let tour = Tour(songid: dictionary["id"] as! Int,category:dictionary["TourType"] as! String, name:dictionary["Name"] as! String,locations:coordinate, desc: dictionary["desc"] as! String, address: dictionary["address"] as! String,star:"1",length:"1",difficulty:"Pleasant")
+            let endLocation = dictionary["endPoint"] as!  [String : Any]
+            
+            let latitude1 = String(describing: startLocation["lat"]!)
+            
+            let latitude = Double(latitude1)
+            
+            let longitude1 = String(describing: startLocation["lon"]!)
+            
+            let longitude = Double(longitude1)
+            let latitude2 = String(describing: endLocation["lat"]!)
+            
+            let latitude22 = Double(latitude2)
+            
+            let longitude2 = String(describing: endLocation["lon"]!)
+            
+            let longitude22 = Double(longitude2)
+            
+            //let longitude = (location["lon"] as! NSString).doubleValue
+            let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+            let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+            
+            
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String)
+            
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
             //            tour.StartPoint = dictionary["StartPoint"] as! String?
             //            tour.Time = dictionary["Time"] as! String?
             //            tour.TourType = dictionary["TourType"] as! String?
             //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            print(tour)
-            print("tourn is \(tour.locations)")
-            self.tours.removeAll()
-            if self.tourCategory == tour.category{
-                self.tours.append(tour)
-            }
+            
             //self.artworks.removeAll()
-            DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
+            if let user = FIRAuth.auth()?.currentUser{
+                let uid = user.uid
+                if downloadTour.uploadUser == uid
+                {
+                    self.downloadTours.append(downloadTour)
+                    print(self.downloadTours)
+                    let httpsReference = FIRStorage.storage().reference(forURL: downloadTour.downloadUrl)
+                    DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
+
+                    let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                    let documentsDirectory = paths[0]
+                    let filePath = "file:\(documentsDirectory)/voices/\(i).m4a"
+                    i += 1
+                    let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+                    httpsReference.write(toFile:fileURL!, completion: { (URL, error) -> Void in
+                        if (error != nil) {
+                            print("error:"+(error?.localizedDescription)!)
+                        }
+                        else{
+                            print("file path:"+filePath)
+                        }
+                    })
+                }
+                
+            }
+            else{
+                print("no permission")
+            }
             
         })
-        { (error) in
-            print(error.localizedDescription)
-        }
+        
         
     }
+
+    
     
     // MARK: - Segues
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let tour: Tour
-
-                    tour = tours[indexPath.row]
-                let controller = segue.destination as! DetailViewController
-                controller.detailTour = tour
-                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
-                controller.navigationItem.leftItemsSupplementBackButton = true
-            }
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "showDetail" {
+//            if let indexPath = tableView.indexPathForSelectedRow {
+//                let tour: DownloadTour
+//
+//                    tour = downloadTours[indexPath.row]
+//                let controller = segue.destination as! DetailViewController
+//                controller.detailTour = tour
+//                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+//                controller.navigationItem.leftItemsSupplementBackButton = true
+//            }
+//        }
+//    }
     
     
     
@@ -140,7 +186,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return tours.count
+        return downloadTours.count
         
     }
     
@@ -161,15 +207,15 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniDownloadCell", for: indexPath) as! MyRoamniDownloadCell
-        let tour: Tour
+        let tour: DownloadTour
 
-            tour = tours[indexPath.row]
+            tour = downloadTours[indexPath.row]
 
         cell.textlabel!.text = tour.name
-        cell.detailTextlabel!.text = tour.category
+        cell.detailTextlabel!.text = tour.tourType
         cell.StarLabel.text = tour.length + " hr"//tour.star
 //        cell.diffTextlabel.text = tour.difficulty
-        cell.counter = tour.songid - 1
+       // cell.counter = tour.songid - 1
         
         let locationManager = CLLocationManager()
         locationManager.delegate = self
@@ -195,15 +241,20 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     func music(){
         // isPlaying = true
        // print("counter is \(counter)")
-        let audioPath = Bundle.main.path(forResource: "\(counter)", ofType: "m4a")!
+        //let audioPath = Bundle.main.path(forResource: "\(counter)", ofType: "m4a")!
         let error : NSError? = nil
         //player = AVAudioPlayer(contentsOfURL: URL(string: audioPath), error: error)
-        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let filePath = "file:\(documentsDirectory)/voices/\(self.counter).m4a"
+         let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         do {
-            player = try AVAudioPlayer(contentsOf: URL(string: audioPath)!)
-     //       print("hello")
+            print(fileURL)
+            player = try AVAudioPlayer(contentsOf: fileURL!)
+           print("hello")
         } catch {
-            // couldn't load file :(
+            print("couldn't load file :(")
+            
         }
         
 //        musicSlider.maximumValue = Float(player.duration)

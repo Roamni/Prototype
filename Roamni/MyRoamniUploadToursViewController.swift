@@ -25,8 +25,13 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBOutlet weak var progressView: UIProgressView!
     
-    @IBOutlet weak var categoryPicker: UIPickerView!
-    let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Accessiable"]
+    @IBAction func dissmissButton(_ sender: Any) {
+       
+    }
+   
+       @IBOutlet weak var categoryPicker: UIPickerView!
+   
+        let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Accessiable"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -50,24 +55,24 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             let voiceRef = storageRef.child("\(uid)/\(FilenameLabel.text!)")
             let uploadMetadata = FIRStorageMetadata()
             uploadMetadata.contentType = "voice/m4a"
-//            let uploadTask = voiceRef.put(data as! Data, metadata: uploadMetadata) { metadata, error in
-//                if let error = error {
-//                    // Uh-oh, an error occurred!
-//                    print(error.localizedDescription)
-//                } else {
-//                    // Metadata contains file metadata such as size, content-type, and download URL.
-//                    let downloadURL = metadata!.downloadURL()
-//                    let downloadurl:String = (downloadURL?.absoluteString)!
-//                    print(downloadURL)
-                   self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.descText.text!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":"https://firebasestorage.googleapis.com/v0/b/romin-ff29a.appspot.com/o/HtiJDjTOLgfMCY13qtaAhpT2a033%2FNew%20Recording-11.m4a?alt=media&token=e2b25930-80ed-4981-b454-40d0b96a8703"])
-//                }
-//            }
-//          
-//            uploadTask.observe(.progress) { [weak self] (snapshot) in
-//                guard let strongSelf = self else { return }
-//                guard let progress = snapshot.progress else {return}
-//                strongSelf.progressView.progress  = Float(progress.fractionCompleted)
-//            }
+            let uploadTask = voiceRef.put(data as! Data, metadata: uploadMetadata) { metadata, error in
+                if let error = error {
+                    // Uh-oh, an error occurred!
+                    print(error.localizedDescription)
+                } else {
+                    // Metadata contains file metadata such as size, content-type, and download URL.
+                    let downloadURL = metadata!.downloadURL()
+                    let downloadurl:String = (downloadURL?.absoluteString)!
+                    print(downloadURL)
+                   self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.descText.text!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl])
+                }
+            }
+          
+            uploadTask.observe(.progress) { [weak self] (snapshot) in
+                guard let strongSelf = self else { return }
+                guard let progress = snapshot.progress else {return}
+                strongSelf.progressView.progress  = Float(progress.fractionCompleted)
+            }
         }
         else{
             
@@ -77,6 +82,10 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
+        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+
         self.hideKeyboardWhenTappedAround()
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         descText.layer.borderWidth = 0.5

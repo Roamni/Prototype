@@ -17,32 +17,12 @@ class MyRoamniDownloadToursViewController: UIViewController {
     var fileName:String? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("here")
-        myGroup.enter()
-        fetchTours()
-        myGroup.notify(queue: DispatchQueue.main, execute:{
-        var i = 1
-        for tour in self.downloadTours {
-            self.urlString = "https://firebasestorage.googleapis.com/v0/b/romin-ff29a.appspot.com/o/HtiJDjTOLgfMCY13qtaAhpT2a033%2FNew%20Recording-11.m4a?alt=media&token=e2b25930-80ed-4981-b454-40d0b96a8703"
-            let httpsReference = FIRStorage.storage().reference(forURL: tour.downloadUrl)
-            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-                    let documentsDirectory = paths[0]
-                    let filePath = "file:\(documentsDirectory)/voices/\(i).m4a"
-                    i += 1
-                    let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-                    httpsReference.write(toFile:fileURL!, completion: { (URL, error) -> Void in
-                        if (error != nil) {
-                            print("error:"+(error?.localizedDescription)!)
-                        }
-                        else{
-                            print("file path:"+filePath)
-                        }
-                        })
-            }
-        })
-
-    }
         
+        print("here")
+        fetchTours()
+    
+        
+
       //   let downloadTask =  httpsReference.data(withMaxSize: 10*1024*1024, completion: {(data, error) -> Void in
 //            if (error != nil) {
 //                // Uh-oh, an error occurred!
@@ -81,11 +61,14 @@ class MyRoamniDownloadToursViewController: UIViewController {
 //            })
 //        })
 //
-    
+    }
         func fetchTours(){
+        var i = 1
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
+            
         ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
+            
             let dictionary = snapshot.value as!  [String : Any]
             // tour.setValuesForKeys(dictionary)
             let startLocation = dictionary["startPoint"] as!  [String : Any]
@@ -112,7 +95,7 @@ class MyRoamniDownloadToursViewController: UIViewController {
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
 
             
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: startCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String)
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String)
             
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
@@ -128,18 +111,30 @@ class MyRoamniDownloadToursViewController: UIViewController {
                 {
                     self.downloadTours.append(downloadTour)
                     print(self.downloadTours)
-                    self.myGroup.leave()
+                    let httpsReference = FIRStorage.storage().reference(forURL: downloadTour.downloadUrl)
+                    let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                    let documentsDirectory = paths[0]
+                    let filePath = "file:\(documentsDirectory)/voices/\(i).m4a"
+                    i += 1
+                    let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+                    httpsReference.write(toFile:fileURL!, completion: { (URL, error) -> Void in
+                        if (error != nil) {
+                            print("error:"+(error?.localizedDescription)!)
+                        }
+                        else{
+                            print("file path:"+filePath)
+                        }
+                    })
+                }
 
                 }
                 else{
                     print("no permission")
                 }
-            }
             
             })
             
-        
-        
+            
     }
 
     override func didReceiveMemoryWarning() {
