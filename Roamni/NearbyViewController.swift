@@ -19,7 +19,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var tours = [Tour]()
     var tourInFive = [Tour]()
     var controller : SearchContainerViewController!
-    
+    var locationManager = CLLocationManager()
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
         // self.tableView.dataSource = self
@@ -33,6 +33,9 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     override func viewDidLoad() {
+        locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
          navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
@@ -52,9 +55,28 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
         //change here to apply 5 km
+        locationManager.startUpdatingLocation()
         controller.tours = tours
     }
-    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let location = locations.first{
+            let locValue:CLLocationCoordinate2D = location.coordinate
+            let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+            for tour in tours{
+                let initialLocation = CLLocation(latitude: tour.locations.latitude, longitude: tour.locations.longitude)
+                let distance = currentlocation.distance(from: initialLocation)
+                if distance < 5000 {
+                    
+                    tourInFive.append(tour)
+                }
+            }
+            
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print("Failed to find user's location: \(error.localizedDescription)")
+    }
+
     func fetchTours(){
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()

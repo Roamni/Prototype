@@ -30,7 +30,6 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
         tableView.reloadData()
 
         //tableView
-        print("dijici")
         //fetchTours()
       tableView.tableFooterView = UIView()
     }
@@ -134,14 +133,14 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-//        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-//        let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-//        let initialLocation = CLLocation(latitude: tour.locations.latitude, longitude: tour.locations.longitude)
-//        let distance = currentlocation.distance(from: initialLocation)
-//        let doubleDis : Double = distance
-//        let intDis : Int = Int(doubleDis)
-//        cell.distanceLabel.text = "\(intDis/1000) km"
-        //cell.starrating = CGFloat((tour.star as NSString).floatValue)
+        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
+        let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        let initialLocation = CLLocation(latitude: tour.locations.latitude, longitude: tour.locations.longitude)
+        let distance = currentlocation.distance(from: initialLocation)
+        let doubleDis : Double = distance
+        let intDis : Int = Int(doubleDis)
+        cell.distanceLabel.text = "\(intDis/1000) km"
+        cell.starrating = CGFloat((tour.star as NSString).floatValue)
         let starView = StarViewController()
         cell.delegate = starView
         cell.Pass()

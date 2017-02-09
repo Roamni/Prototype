@@ -34,8 +34,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UISplitViewControllerDel
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
-        let handled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
-        return handled
+        let Facebookhandled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])
+        
+        if url.absoluteString.contains("com.facebook.sdk")
+        {
+            
+            return Facebookhandled
+        }
+        else
+        {
+            let filename = url.lastPathComponent
+            let mainStoryboardIpad:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad = mainStoryboardIpad.instantiateViewController(withIdentifier: "uploadView") as! MyRoamniUploadToursViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            self.window?.makeKeyAndVisible()
+            initialViewControlleripad.FilenameLabel.text = filename
+            let voiceData = NSData(contentsOf: url)
+            initialViewControlleripad.data = voiceData
+            print(url)
+            
+            return true
+        }
+
     }
     
     // MARK: - Split view

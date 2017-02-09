@@ -23,6 +23,8 @@
 		A60834471E24F2DC00775187 /* MyRoamniAboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60834461E24F2DC00775187 /* MyRoamniAboutViewController.swift */; };
 		A60834491E24F41400775187 /* MyRoamniUserLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60834481E24F41400775187 /* MyRoamniUserLoginViewController.swift */; };
 		A608344D1E27592F00775187 /* MyRoamniLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608344C1E27592F00775187 /* MyRoamniLoginCell.swift */; };
+		A60A3BEC1E4CA156005E2D0A /* KeyboardHideExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */; };
+		A60A3BEE1E4CE4B2005E2D0A /* DownloadTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */; };
 		A6A639921E1DF5AA0026E207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A639911E1DF5AA0026E207 /* GoogleService-Info.plist */; };
 		A6A639941E1E05D10026E207 /* MyRoamniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A639931E1E05D10026E207 /* MyRoamniViewController.swift */; };
 		A6B901971E39252400516908 /* ContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B901961E39252400516908 /* ContainerTableViewCell.swift */; };
@@ -108,6 +110,8 @@
 		A60834461E24F2DC00775187 /* MyRoamniAboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniAboutViewController.swift; sourceTree = "<group>"; };
 		A60834481E24F41400775187 /* MyRoamniUserLoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniUserLoginViewController.swift; sourceTree = "<group>"; };
 		A608344C1E27592F00775187 /* MyRoamniLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniLoginCell.swift; sourceTree = "<group>"; };
+		A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHideExtension.swift; sourceTree = "<group>"; };
+		A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTour.swift; sourceTree = "<group>"; };
 		A6A639911E1DF5AA0026E207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6A639931E1E05D10026E207 /* MyRoamniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniViewController.swift; sourceTree = "<group>"; };
 		A6B901961E39252400516908 /* ContainerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTableViewCell.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 			children = (
 				F063DE1E1E2355DC00424985 /* Tour.swift */,
 				F080D7661E2DF5AC0031B1CD /* TourForMap.swift */,
+				A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -342,6 +347,7 @@
 				F0296EBF1E49D7DB00652816 /* LineView.swift */,
 				F0296EC11E49D7E200652816 /* ModalViewController.swift */,
 				F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */,
+				A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */,
 				F05F19D01E1BC26C00556CD6 /* Info.plist */,
 				F0296EB91E49528B00652816 /* 1.m4a */,
 				F0296EBA1E49528B00652816 /* 2.m4a */,
@@ -726,6 +732,7 @@
 				F05F1A0B1E1D379800556CD6 /* ShopTableViewCell.swift in Sources */,
 				F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */,
 				A608343F1E24F29A00775187 /* MyRoamniDownloadToursViewController.swift in Sources */,
+				A60A3BEC1E4CA156005E2D0A /* KeyboardHideExtension.swift in Sources */,
 				F05F1A0F1E1D37BE00556CD6 /* AccTableViewCell.swift in Sources */,
 				F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */,
 				F02617FB1E2F97CA004697EA /* EmptySegue.swift in Sources */,
@@ -736,6 +743,7 @@
 				A60834381E24F12B00775187 /* MyRoamniHowCell.swift in Sources */,
 				A60834491E24F41400775187 /* MyRoamniUserLoginViewController.swift in Sources */,
 				F02618071E3266F1004697EA /* DifficultyTableViewCell.swift in Sources */,
+				A60A3BEE1E4CE4B2005E2D0A /* DownloadTour.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

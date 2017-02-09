@@ -30,7 +30,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         
         // Ask user for permission to use location
         // Uses description from NSLocationAlwaysUsageDescription in Info.plist
-        locationManager.requestAlwaysAuthorization()
+       // locationManager.requestAlwaysAuthorization()
         
         
         self.mapView.showsUserLocation = true
@@ -39,7 +39,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         mapView.showsUserLocation = true
         
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        self.locationManager.requestWhenInUseAuthorization()
+        //self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
         let span = MKCoordinateSpanMake(0.0018, 0.0018)
