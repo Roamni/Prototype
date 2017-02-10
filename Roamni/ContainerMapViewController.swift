@@ -14,10 +14,10 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
-    var tours = [Tour]()
+    var tours = [DownloadTour]()
     var places = [TourForMap]()
     var aTour : TourForMap?
-    var realTour: Tour?
+    var realTour: DownloadTour?
     let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
                 //self.places.removeAll()
         mapView.removeAnnotations(mapView.annotations)
         for thetour in tours{
-            let place = TourForMap(title: thetour.name, info: thetour.address, coordinate: thetour.locations)
+            let place = TourForMap(title: thetour.name, info: thetour.tourType, coordinate: thetour.startLocation)
             places.append(place)
         }
         
@@ -83,48 +83,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
 
         // Do any additional setup after loading the view.
     }
-    
-    func fetchTours(){
-        var ref:FIRDatabaseReference?
-        ref = FIRDatabase.database().reference()
-        
-        ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
-            let dictionary = snapshot.value as!  [String : Any]
-            // tour.setValuesForKeys(dictionary)
-            let location = dictionary["StartPoint"] as!  [String : Any]
-            let latitude1 = String(describing: location["lat"]!)
-            print("latitude1 is \(latitude1)")
-            let latitude = Double(latitude1)
-            print("latitude is \(latitude)")
-            let longitude1 = String(describing: location["lon"]!)
-            let longitude = Double(longitude1)
-            //let longitude = (location["lon"] as! NSString).doubleValue
-            let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            
-            let tour = Tour(songid:dictionary["id"] as! Int,category:dictionary["TourType"] as! String, name:dictionary["Name"] as! String,locations:coordinate, desc: dictionary["desc"] as! String, address:dictionary["desc"] as! String ,star:"1",length:"1",difficulty:"Pleasant")
-            //            tour.Price = dictionary["Price"] as! String?
-            //            tour.Star = dictionary["Star"] as! String?
-            //            tour.StartPoint = dictionary["StartPoint"] as! String?
-            //            tour.Time = dictionary["Time"] as! String?
-            //            tour.TourType = dictionary["TourType"] as! String?
-            //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            print(tour)
-            print("tourn is \(tour.locations)")
-            //self.tours.append(tour)
-            
-            let place = TourForMap(title: tour.name, info: tour.address, coordinate: coordinate)
-            self.mapView.addAnnotation(place)
-            
-            //self.artworks.removeAll()
-            //DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
-            
-        })
-        { (error) in
-            print(error.localizedDescription)
-        }
-        
-    }
-    
+       
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,

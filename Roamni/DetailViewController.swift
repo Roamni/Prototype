@@ -31,7 +31,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
-    var detailTour: Tour?
+    var detailTour: DownloadTour?
     
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -44,11 +44,11 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
 
     //self.title = detailTour?.name
     self.lengthLabel.text = detailTour?.length
-    self.ratingLabel.text = detailTour?.star
+    self.ratingLabel.text = String(describing: detailTour?.star)
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self
-    let sourceLocation = detailTour?.locations
-    let destinationLocation = CLLocationCoordinate2D(latitude: -37.8378656, longitude: 144.9823664)
+    let sourceLocation = detailTour?.startLocation
+    let destinationLocation = CLLocationCoordinate2D(latitude: (detailTour?.endLocation.latitude)!, longitude: (detailTour?.endLocation.latitude)!)
     let sourcePlacemark = MKPlacemark(coordinate: sourceLocation!, addressDictionary: nil)
     let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
     let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)

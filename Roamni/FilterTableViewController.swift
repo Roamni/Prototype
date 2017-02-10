@@ -15,10 +15,10 @@ class FilterTableViewController: UITableViewController,ValueReturner {
     var Length:Int?
     var Difficulty:Int?
     var Fcontroller:SearchContainerViewController?
-    var tours = [Tour]()
-    var filterTours1 = [Tour]()
-    var filterTours2 = [Tour]()
-    var filterTours3 = [Tour]()
+    var tours = [DownloadTour]()
+    var filterTours1 = [DownloadTour]()
+    var filterTours2 = [DownloadTour]()
+    var filterTours3 = [DownloadTour]()
 
     @IBAction func FilterDone(_ sender: Any) {
         filterTours1.removeAll()
@@ -31,7 +31,7 @@ class FilterTableViewController: UITableViewController,ValueReturner {
             
             for tour in tours
             {
-                if Int(tour.star)! <= 3
+                if Int(tour.star) <= 3
                 {
                     self.filterTours1.append(tour)
                 
@@ -42,7 +42,7 @@ class FilterTableViewController: UITableViewController,ValueReturner {
         case 1 :
             for tour in tours
             {
-                if Int(tour.star)! == 4
+                if Int(tour.star) == 4
                 {
                     self.filterTours1.append(tour)
                     
@@ -53,7 +53,7 @@ class FilterTableViewController: UITableViewController,ValueReturner {
         case 2 :
             for tour in tours
             {
-                if Int(tour.star)! == 5
+                if Int(tour.star) == 5
                 {
                     self.filterTours1.append(tour)
                     
@@ -64,7 +64,7 @@ class FilterTableViewController: UITableViewController,ValueReturner {
         default:
             for tour in tours
             {
-                if Int(tour.star)! <= 3
+                if Int(tour.star) <= 3
                 {
                     self.filterTours1.append(tour)
                     
