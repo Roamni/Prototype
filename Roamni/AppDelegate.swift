@@ -47,9 +47,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate , UISplitViewControllerDel
             let mainStoryboardIpad:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewControlleripad = mainStoryboardIpad.instantiateViewController(withIdentifier: "uploadView") as! MyRoamniUploadToursViewController
             self.window = UIWindow(frame: UIScreen.main.bounds)
-           let navigation:UITabBarController = mainStoryboardIpad.instantiateInitialViewController() as! UITabBarController
-          navigation.viewControllers = [initialViewControlleripad]
-            self.window?.rootViewController = navigation
+          //let navigation:UITabBarController = mainStoryboardIpad.instantiateInitialViewController() as! UITabBarController
+         // navigation.viewControllers = [initialViewControlleripad]
+            self.window?.rootViewController = initialViewControlleripad
             self.window?.makeKeyAndVisible()
             initialViewControlleripad.FilenameLabel.text = filename
             let voiceData = NSData(contentsOf: url)

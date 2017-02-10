@@ -9,9 +9,13 @@
 import UIKit
 import Firebase
 import MapKit
-class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource {
+class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate {
+    
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var FilenameLabel: UILabel!
     var data:NSData?
+    var getText:String?
     var ref:FIRDatabaseReference?
     var pickString:String = "Walking"
     let storage = FIRStorage.storage()
@@ -25,11 +29,12 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBOutlet weak var progressView: UIProgressView!
     
-    @IBAction func dissmissButton(_ sender: Any) {
-       
+    @IBAction func cancleButton(_ sender: Any) {
+        self.deregisterFromKeyboardNotifications()
     }
-   
-       @IBOutlet weak var categoryPicker: UIPickerView!
+
+    
+          @IBOutlet weak var categoryPicker: UIPickerView!
    
         let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Accessiable"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -63,8 +68,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     // Metadata contains file metadata such as size, content-type, and download URL.
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
-                    print(downloadURL)
-                   self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.descText.text!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl])
+                   self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.getText!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl])
                 }
             }
           
@@ -72,6 +76,10 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                 guard let strongSelf = self else { return }
                 guard let progress = snapshot.progress else {return}
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
+                if Int(strongSelf.progressView.progress) == 1{
+                self?.deregisterFromKeyboardNotifications()
+                self?.performSegue(withIdentifier: "backSegue", sender: self)
+                }
             }
         }
         else{
@@ -80,12 +88,63 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         }
         
     }
+    func registerForKeyboardNotifications(){
+    //Adding notifies on keyboard appearing
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWasShown(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillBeHidden(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func deregisterFromKeyboardNotifications(){
+        //Removing notifies on keyboard appearing
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
+    
+    func keyboardWasShown(notification: NSNotification){
+        //Need to calculate keyboard exact size due to Apple suggestions
+        self.scrollView.isScrollEnabled = true
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, keyboardSize!.height, 0.0)
+        
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        
+        var aRect : CGRect = self.view.frame
+        aRect.size.height -= keyboardSize!.height
+        if let descText = self.descText {
+            if (!aRect.contains(descText.frame.origin)){
+                self.scrollView.scrollRectToVisible(descText.frame, animated: true)
+            }
+        }
+    }
+    
+    func keyboardWillBeHidden(notification: NSNotification){
+        //Once keyboard disappears, restore original positions
+        var info = notification.userInfo!
+        let keyboardSize = (info[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue.size
+        let contentInsets : UIEdgeInsets = UIEdgeInsetsMake(0.0, 0.0, -keyboardSize!.height, 0.0)
+        self.scrollView.contentInset = contentInsets
+        self.scrollView.scrollIndicatorInsets = contentInsets
+        self.view.endEditing(true)
+        self.scrollView.isScrollEnabled = false
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        descText = textView
+    }
+    func textViewDidEndEditing(_ textView: UITextView) {
+        descText = nil
+    }
+    func textViewDidChange(_ textView: UITextView) {
+        self.getText = textView.text
+       print(self.getText)
+       
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.black]
-        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-
+        self.descText.delegate = self
+        registerForKeyboardNotifications()
         self.hideKeyboardWhenTappedAround()
         let borderColor : UIColor = UIColor(red: 0.85, green: 0.85, blue: 0.85, alpha: 1.0)
         descText.layer.borderWidth = 0.5
