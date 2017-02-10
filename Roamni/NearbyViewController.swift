@@ -68,6 +68,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let dictionary = snapshot.value as!  [String : Any]
             // tour.setValuesForKeys(dictionary)
+            
             let startLocation = dictionary["startPoint"] as!  [String : Any]
             
             let endLocation = dictionary["endPoint"] as!  [String : Any]
