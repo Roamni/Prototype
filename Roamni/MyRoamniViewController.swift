@@ -129,6 +129,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniUploadTourCell", for: indexPath as IndexPath)
                 as! MyRoamniUploadTourCell
+            
             return cell
             
             
@@ -164,9 +165,12 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        //        if indexPath.section == 3{
-       // performSegue(withIdentifier: "searchSegue", sender: self)
-        //        }
+                if indexPath.section == 3{
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let modalVC = storyboard.instantiateViewController(withIdentifier: "uploadView") as? MyRoamniUploadToursViewController
+                    self.present(modalVC!, animated: true, completion: nil)
+        
+                }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
