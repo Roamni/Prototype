@@ -25,10 +25,10 @@ class SearchContainerViewController: UIViewController {
     var detailViewController: DetailViewController? = nil
     var getTableVCObject : ContainerTableViewController?
     var getMapVCObject : ContainerMapViewController?
-    var tours = [Tour]()
-    var allTours = [Tour]()
-    var filteredTours = [Tour]()
-    var finalTours = [Tour]()
+    var tours = [DownloadTour]()
+    var allTours = [DownloadTour]()
+    var filteredTours = [DownloadTour]()
+    var finalTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
     
     private var animator : ARNTransitionAnimator?
@@ -195,7 +195,7 @@ class SearchContainerViewController: UIViewController {
     
     func handleFilter(returnedValue:Any)
     {
-        self.getTableVCObject?.tours = returnedValue as! [Tour]
+        self.getTableVCObject?.tours = returnedValue as! [DownloadTour]
         self.getTableVCObject?.tableView.reloadData()
     
     
@@ -215,13 +215,13 @@ class SearchContainerViewController: UIViewController {
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String) {
-               filteredTours = tours.filter({( tour : Tour) -> Bool in
+               filteredTours = tours.filter({( tour : DownloadTour) -> Bool in
                 var fieldToSearch:String?
                 switch scope {
                 case "Default" :
                     fieldToSearch = tour.name
                 case "Rating":
-                    fieldToSearch = tour.star
+                    fieldToSearch = String(tour.star)
                 case "Length":
                     fieldToSearch = tour.length
                 default:
@@ -234,7 +234,7 @@ class SearchContainerViewController: UIViewController {
 
           //  let categoryMatch = (scope == "Default") || (tour.category == scope)
             
-            return fieldToSearch!.lowercased().contains(searchText.lowercased()) ||  tour.category.lowercased().contains(searchText.lowercased())
+            return fieldToSearch!.lowercased().contains(searchText.lowercased()) ||  tour.tourType.lowercased().contains(searchText.lowercased())
 
         })
         print("search box is clicked!")

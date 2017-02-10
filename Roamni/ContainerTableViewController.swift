@@ -13,8 +13,8 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
 
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
-    var tours = [Tour]()
-    var filteredTours = [Tour]()
+    var tours = [DownloadTour]()
+    var filteredTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
 
     
@@ -34,51 +34,12 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
       tableView.tableFooterView = UIView()
     }
     
-    func fetchTours(){
-        var ref:FIRDatabaseReference?
-        ref = FIRDatabase.database().reference()
-        
-        ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
-            let dictionary = snapshot.value as!  [String : Any]
-            // tour.setValuesForKeys(dictionary)
-            let location = dictionary["StartPoint"] as!  [String : Any]
-            let latitude1 = String(describing: location["lat"]!)
-            print("latitude1 is \(latitude1)")
-            let latitude = Double(latitude1)
-            print("latitude is \(latitude)")
-            let longitude1 = String(describing: location["lon"]!)
-            let longitude = Double(longitude1)
-            //let longitude = (location["lon"] as! NSString).doubleValue
-            let coordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            
-            let tour = Tour(songid:dictionary["id"] as! Int,category:dictionary["TourType"] as! String, name:dictionary["Name"] as! String,locations:coordinate, desc: dictionary["desc"] as! String, address: dictionary["address"] as! String,star:"1",length:"1",difficulty:"Pleasant")
-            //            tour.Price = dictionary["Price"] as! String?
-            //            tour.Star = dictionary["Star"] as! String?
-            //            tour.StartPoint = dictionary["StartPoint"] as! String?
-            //            tour.Time = dictionary["Time"] as! String?
-            //            tour.TourType = dictionary["TourType"] as! String?
-            //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            print(tour)
-            print("tourn is \(tour.locations)")
-            self.tours.removeAll()
-            if self.tourCategory == tour.category{
-            self.tours.append(tour)
-            }
-            //self.artworks.removeAll()
-            DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
-            
-        })
-        { (error) in
-            print(error.localizedDescription)
-        }
-        
-    }
     
     // MARK: - Segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "showDetail" {
             if let indexPath = tableView.indexPathForSelectedRow {
-                let tour: Tour
+                let tour: DownloadTour
                 if searchController.isActive && searchController.searchBar.text != "" {
                     tour = filteredTours[indexPath.row]
                 } else {
@@ -118,14 +79,14 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerTableViewCell", for: indexPath) as! ContainerTableViewCell
-        let tour: Tour
+        let tour: DownloadTour
         if searchController.isActive && searchController.searchBar.text != "" {
             tour = filteredTours[indexPath.row]
         } else {
             tour = tours[indexPath.row]
         }
         cell.textlabel!.text = tour.name
-        cell.detailTextlabel!.text = tour.category
+        cell.detailTextlabel!.text = tour.tourType
         cell.StarLabel.text = tour.length + " hr"//tour.star
         
         let locationManager = CLLocationManager()
@@ -135,12 +96,12 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
         locationManager.startUpdatingLocation()
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
         let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-        let initialLocation = CLLocation(latitude: tour.locations.latitude, longitude: tour.locations.longitude)
+        let initialLocation = CLLocation(latitude: tour.startLocation.latitude, longitude: tour.startLocation.longitude)
         let distance = currentlocation.distance(from: initialLocation)
         let doubleDis : Double = distance
         let intDis : Int = Int(doubleDis)
         cell.distanceLabel.text = "\(intDis/1000) km"
-        cell.starrating = CGFloat((tour.star as NSString).floatValue)
+        cell.starrating = CGFloat(tour.star)
         let starView = StarViewController()
         cell.delegate = starView
         cell.Pass()

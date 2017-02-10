@@ -14,10 +14,10 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
 
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
-    var tours = [Tour]()
+    var tours = [DownloadTour]()
     var places = [TourForMap]()
     var aTour : TourForMap?
-    var realTour: Tour?
+    var realTour: DownloadTour?
     let regionRadius: CLLocationDistance = 1000
     
     override func viewDidLoad() {
@@ -74,7 +74,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
                 //self.places.removeAll()
         mapView.removeAnnotations(mapView.annotations)
         for thetour in tours{
-            let place = TourForMap(title: thetour.name, info: thetour.address, coordinate: thetour.locations)
+            let place = TourForMap(title: thetour.name, info: thetour.tourType, coordinate: thetour.startLocation)
             places.append(place)
         }
         
