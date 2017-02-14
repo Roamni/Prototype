@@ -22,16 +22,34 @@
 
 import UIKit
 import MapKit
-
+import Firebase
 class DetailViewController: UIViewController,MKMapViewDelegate {
-    
+    var ref:FIRDatabaseReference?
+    var detailTour: DownloadTour?
+    var users:[String]?
+
     @IBOutlet weak var detailMap: MKMapView!
   
+    @IBAction func downloadAction(_ sender: Any) {
+        if let user = FIRAuth.auth()?.currentUser{
+            let uid = user.uid
+            self.ref = FIRDatabase.database().reference()
+            let detaiTourId = detailTour?.tourId
+          
+            ref?.child("tours").child("\(detaiTourId!)").child("user").observe(.value, with:{ (snapshot) in
+                print(snapshot.value)
+                print(snapshot.hasChild(uid))
+                if !snapshot.hasChild(uid){
+                 self.ref?.child("tours").child("\(detaiTourId!)").child("user").child(uid).setValue("buy")
+                }
+            })
+        }
+    }
+    
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
-    var detailTour: DownloadTour?
     
   override func viewDidLoad() {
     super.viewDidLoad()

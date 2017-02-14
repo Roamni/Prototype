@@ -108,7 +108,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
             
             
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String)
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
             
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
@@ -120,7 +120,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             //self.artworks.removeAll()
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
-                if downloadTour.uploadUser == uid
+                
+                if snapshot.childSnapshot(forPath: "user").hasChild(uid) || downloadTour.uploadUser == uid
                 {
                     self.downloadTours.append(downloadTour)
                     print(self.downloadTours)

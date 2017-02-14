@@ -20,5 +20,6 @@
         let length: String
         let difficulty:String
         let uploadUser:String
+        let tourId:String
     }
 

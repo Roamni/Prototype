@@ -68,7 +68,6 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let dictionary = snapshot.value as!  [String : Any]
             // tour.setValuesForKeys(dictionary)
-            
             let startLocation = dictionary["startPoint"] as!  [String : Any]
             
             let endLocation = dictionary["endPoint"] as!  [String : Any]
@@ -92,9 +91,8 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
             
-            
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String)
-            
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: snapshot.key)
+ print(downloadTour)
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
             //            tour.StartPoint = dictionary["StartPoint"] as! String?
