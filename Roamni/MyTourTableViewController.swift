@@ -125,22 +125,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 {
                     self.downloadTours.append(downloadTour)
                     print(self.downloadTours)
-                    let httpsReference = FIRStorage.storage().reference(forURL: downloadTour.downloadUrl)
                     DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
 
-                    let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-                    let documentsDirectory = paths[0]
-                    let filePath = "file:\(documentsDirectory)/voices/\(i).m4a"
-                    i += 1
-                    let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-                    httpsReference.write(toFile:fileURL!, completion: { (URL, error) -> Void in
-                        if (error != nil) {
-                            print("error:"+(error?.localizedDescription)!)
-                        }
-                        else{
-                            print("file path:"+filePath)
-                        }
-                    })
                 }
                 
             }
@@ -196,7 +182,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("????")
-        counter = indexPath.row + 1
+        counter = indexPath.row
         music()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
@@ -223,18 +209,67 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-//        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
-//        let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
-//        let initialLocation = CLLocation(latitude: tour.locations.latitude, longitude: tour.locations.longitude)
-//        let distance = currentlocation.distance(from: initialLocation)
-//        let doubleDis : Double = distance
-//        let intDis : Int = Int(doubleDis)
-//        cell.distanceLabel.text = "\(intDis/1000) km"
-        //cell.starrating = CGFloat((tour.star as NSString).floatValue)
+        let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
+        let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
+        let initialLocation = CLLocation(latitude: tour.startLocation.latitude, longitude: tour.startLocation.longitude)
+        let distance = currentlocation.distance(from: initialLocation)
+        let doubleDis : Double = distance
+        let intDis : Int = Int(doubleDis)
+        cell.distanceLabel.text = "\(intDis/1000) km"
+//        cell.starrating = CGFloat((tour.star as NSString).floatValue)
         let starView = StarViewController()
         cell.delegate = starView
         cell.Pass()
         cell.isSelected = false
+        
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let filePath = "\(documentsDirectory)/voices/\(tour.name).m4a"
+//        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        let filemanager = FileManager.default
+        print(filemanager.fileExists(atPath: filePath))
+        if(!filemanager.fileExists(atPath: filePath)){
+            cell.downloadButton.setTitle("Download", for: .normal)
+            cell.downloadButton.isEnabled = true
+            cell.downProgress.isHidden = true
+
+        }
+        else
+        {
+            cell.downloadButton.setTitle("Downloaded", for: .normal)
+            cell.downloadButton.isEnabled = false
+            cell.downProgress.isHidden = true
+
+        }
+        cell.onButtonTapped={
+            cell.downProgress.isHidden = false
+            cell.downloadButton.setTitle("Downloading", for: .normal)
+            let httpsReference = FIRStorage.storage().reference(forURL: tour.downloadUrl)
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let documentsDirectory = paths[0]
+            let filePath = "file:\(documentsDirectory)/voices/\(tour.name).m4a"
+            let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            let downloadTask = httpsReference.write(toFile:fileURL!, completion: { (URL, error) -> Void in
+                if (error != nil) {
+                    print("error:"+(error?.localizedDescription)!)
+                }
+                else{
+                    print("file path:"+filePath)
+                }
+            })
+            downloadTask.observe(.progress) { (snapshot) in
+                guard let progress = snapshot.progress else {return}
+                cell.downProgress.progress  = Float(progress.fractionCompleted)
+                if Int(cell.downProgress.progress) == 1{
+                    cell.downloadButton.setTitle("Downloaded", for:.normal)
+                    cell.downloadButton.isEnabled = false
+                    cell.downProgress.isHidden = true
+                }
+            }
+
+        }
+        
+        
         return cell
     }
 
@@ -247,7 +282,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         //player = AVAudioPlayer(contentsOfURL: URL(string: audioPath), error: error)
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]
-        let filePath = "file:\(documentsDirectory)/voices/\(self.counter).m4a"
+        
+        let filePath = "file:\(documentsDirectory)/voices/\(self.downloadTours[self.counter].name).m4a"
          let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         do {
             print(fileURL)

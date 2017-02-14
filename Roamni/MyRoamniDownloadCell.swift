@@ -11,7 +11,7 @@ import AVFoundation
 import MediaPlayer
 
 class MyRoamniDownloadCell: UITableViewCell, AVAudioPlayerDelegate {
-
+var onButtonTapped : (() -> Void)? = nil
  
     @IBOutlet weak var starView: UIView!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -19,6 +19,16 @@ class MyRoamniDownloadCell: UITableViewCell, AVAudioPlayerDelegate {
     @IBOutlet weak var textlabel: UILabel!
     @IBOutlet weak var StarLabel: UILabel!
 
+    @IBOutlet weak var downloadButton: UIButton!
+    
+    @IBOutlet weak var downProgress: UIProgressView!
+    
+    @IBAction func downloadAction(_ sender: Any) {
+        if let onButtonTapped = self.onButtonTapped {
+            onButtonTapped()
+        }
+    }
+    
     var counter = 1
     
     var starrating:CGFloat = 1

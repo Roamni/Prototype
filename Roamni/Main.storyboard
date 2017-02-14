@@ -962,28 +962,33 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWh-WZ-mBA">
+                                            <rect key="frame" x="295" y="33" width="72" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="downloadAction:" destination="BsK-iz-y9I" eventType="touchUpInside" id="LMq-9L-CTu"/>
+                                            </connections>
+                                        </button>
+                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MjM-76-So2">
+                                            <rect key="frame" x="295" y="63" width="72" height="2"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="distanceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w64-Md-fdw">
-                                            <rect key="frame" x="139" y="44" width="96" height="21"/>
+                                            <rect key="frame" x="139" y="48" width="96" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWh-WZ-mBA">
-                                            <rect key="frame" x="317" y="33" width="50" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                        </button>
-                                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="MjM-76-So2">
-                                            <rect key="frame" x="317" y="63" width="50" height="2"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </progressView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="StarLabel" destination="WAX-2G-R08" id="qiY-7P-VCS"/>
                                     <outlet property="detailTextlabel" destination="Owp-Ad-fUQ" id="yuo-yD-m64"/>
                                     <outlet property="distanceLabel" destination="w64-Md-fdw" id="32E-fs-lVc"/>
+                                    <outlet property="downProgress" destination="MjM-76-So2" id="fTJ-32-Gup"/>
+                                    <outlet property="downloadButton" destination="EWh-WZ-mBA" id="qwl-op-zLW"/>
                                     <outlet property="starView" destination="kVR-QR-BYi" id="tDt-Vb-faU"/>
                                     <outlet property="textlabel" destination="dT9-4e-cv0" id="GhG-RX-Yec"/>
                                 </connections>
@@ -998,7 +1003,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAL-M7-nwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2102" y="1375"/>
+            <point key="canvasLocation" x="2101.5999999999999" y="1374.9625187406298"/>
         </scene>
         <!--Upload A Tour-->
         <scene sceneID="jLu-ix-jgE">
