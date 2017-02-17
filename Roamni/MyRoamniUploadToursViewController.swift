@@ -69,7 +69,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     // Metadata contains file metadata such as size, content-type, and download URL.
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
-                   self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.getText!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.getText!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                 }
             }
           
