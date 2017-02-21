@@ -70,6 +70,7 @@
 		F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7661E2DF5AC0031B1CD /* TourForMap.swift */; };
 		F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */; };
 		F0BCCB141E362E52005162DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */; };
+		F0F2D92B1E59F783004F21C4 /* img.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0F2D92A1E59F783004F21C4 /* img.jpeg */; };
 		F600FF01EC8FB4F541B41A03 /* Pods_Roamni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A531D37C9D53C200DDC8D43A /* Pods_Roamni.framework */; };
 /* End PBXBuildFile section */
 
@@ -166,6 +167,7 @@
 		F080D7661E2DF5AC0031B1CD /* TourForMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourForMap.swift; sourceTree = "<group>"; };
 		F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
 		F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F0F2D92A1E59F783004F21C4 /* img.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpeg; sourceTree = "<group>"; };
 		F51C488CFB7EC4528C52017A /* Pods-RoamniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoamniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoamniUITests/Pods-RoamniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -348,6 +350,7 @@
 				F0296EC11E49D7E200652816 /* ModalViewController.swift */,
 				F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */,
 				A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */,
+				F0F2D92A1E59F783004F21C4 /* img.jpeg */,
 				F05F19D01E1BC26C00556CD6 /* Info.plist */,
 				F0296EB91E49528B00652816 /* 1.m4a */,
 				F0296EBA1E49528B00652816 /* 2.m4a */,
@@ -478,7 +481,7 @@
 				TargetAttributes = {
 					F05F19BD1E1BC26C00556CD6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BRJW2E4722;
+						DevelopmentTeam = 5UEEWU7R25;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -526,6 +529,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F0296EBC1E4953EB00652816 /* 1.m4a in Resources */,
+				F0F2D92B1E59F783004F21C4 /* img.jpeg in Resources */,
 				F0296EBD1E4953EB00652816 /* 2.m4a in Resources */,
 				F0296EBE1E4953EB00652816 /* 3.m4a in Resources */,
 				A6A639921E1DF5AA0026E207 /* GoogleService-Info.plist in Resources */,
@@ -877,11 +881,11 @@
 			baseConfigurationReference = B6B44BF97247FFACC8EC1517 /* Pods-Roamni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BRJW2E4722;
+				DEVELOPMENT_TEAM = 5UEEWU7R25;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototype;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototypess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -892,11 +896,11 @@
 			baseConfigurationReference = C95B3B5E6B72742CC18460B8 /* Pods-Roamni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BRJW2E4722;
+				DEVELOPMENT_TEAM = 5UEEWU7R25;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototype;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototypess;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -22,7 +22,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     var player = AVAudioPlayer()
     fileprivate var modalVC : ModalViewController!
     //let searchController = UISearchController(searchResultsController: nil)
-    
+    var musictitle = "Roamni"
+    var musicartist = "Roamni"
     var urlString:String?
     var downloadTours = [DownloadTour]()
     var downloadTour:DownloadTour?
@@ -57,8 +58,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let image:UIImage = UIImage(named: "logo_player_background")!
             let albumArt = MPMediaItemArtwork(image: image)
             let songInfo = [
-                MPMediaItemPropertyTitle: "Radio Brasov",
-                MPMediaItemPropertyArtist: "87,8fm",
+                MPMediaItemPropertyTitle: "\(self.musictitle)",
+                MPMediaItemPropertyArtist: "\(self.musicartist)",
                 MPMediaItemPropertyArtwork: albumArt
                 ] as [String : Any]
             MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
@@ -182,13 +183,20 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("????")
-        counter = indexPath.row
-        music()
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
         self.modalVC.modalPresentationStyle = .overFullScreen
 
         self.present(self.modalVC, animated: true, completion: nil)
+        self.modalVC.counter = indexPath.row
+        self.modalVC.downloadTours = self.downloadTours
+        self.modalVC.music()
+        self.modalVC.setLockView()
+        self.musictitle = downloadTours[counter].name
+        self.musicartist = downloadTours[counter].difficulty
+        //music()
+
+        //setLockView()
         
     }
     
@@ -336,68 +344,96 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         
     }
     
-    
-    //配置NowPlayingCenter
-    func configNowPlayingCenter(_ currentItem: AVURLAsset) {
-        if (NSClassFromString("MPNowPlayingInfoCenter") != nil) {
-            
-            var songInfo = Dictionary<String, AnyObject>()
-            
-            let songTitle = currentItem.url.lastPathComponent.replacingOccurrences(of: ".m4a", with: "")
-            
-            let albumArt = MPMediaItemArtwork(image: UIImage(named: songTitle)!)
-            songInfo[MPMediaItemPropertyTitle] = songTitle as AnyObject?
-            songInfo[MPMediaItemPropertyArtist] = "Singer" as AnyObject?
-            songInfo[MPMediaItemPropertyAlbumTitle] = "Album" as AnyObject?
-            songInfo[MPMediaItemPropertyArtwork] = albumArt
-            songInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1 as AnyObject?
-            songInfo[MPMediaItemPropertyPlaybackDuration] = 238.837551020408 as AnyObject?//CMTimeGetSeconds(CMTimeMake(Int64(player.duration), 44100)) as AnyObject?
-            
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
-        }
+    func setLockView(){
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [
+            MPMediaItemPropertyTitle:"第一夫人",
+            MPMediaItemPropertyArtist:"张杰",
+            MPMediaItemPropertyArtwork:MPMediaItemArtwork(image: UIImage(named: "img.jpeg")!),
+            MPNowPlayingInfoPropertyPlaybackRate:1.0,
+            MPMediaItemPropertyPlaybackDuration:player.duration,
+            MPNowPlayingInfoPropertyElapsedPlaybackTime:player.currentTime
+        ]
     }
+
+    
+//    //配置NowPlayingCenter
+//    func configNowPlayingCenter(_ currentItem: AVURLAsset) {
+//        if (NSClassFromString("MPNowPlayingInfoCenter") != nil) {
+//            
+//            var songInfo = Dictionary<String, AnyObject>()
+//            
+//            let songTitle = currentItem.url.lastPathComponent.replacingOccurrences(of: ".m4a", with: "")
+//            
+//            let albumArt = MPMediaItemArtwork(image: UIImage(named: songTitle)!)
+//            songInfo[MPMediaItemPropertyTitle] = songTitle as AnyObject?
+//            songInfo[MPMediaItemPropertyArtist] = "Singer" as AnyObject?
+//            songInfo[MPMediaItemPropertyAlbumTitle] = "Album" as AnyObject?
+//            songInfo[MPMediaItemPropertyArtwork] = albumArt
+//            songInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1 as AnyObject?
+//            songInfo[MPMediaItemPropertyPlaybackDuration] = player.duration as AnyObject?//CMTimeGetSeconds(CMTimeMake(Int64(player.duration), 44100)) as AnyObject?
+//            
+//            MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
+//        }
+//    }
     
     //
     override var canBecomeFirstResponder : Bool {
         return true
     }
     
-    //Remote Control
-    override func remoteControlReceived(with event: UIEvent?) {
-        switch event?.subtype {
-        case UIEventSubtype.remoteControlPlay?: // Music play
-            player.play()
-            break
-        case UIEventSubtype.remoteControlPause?: // Music Pause
-            player.pause()
-            break
-        case UIEventSubtype.remoteControlPreviousTrack?: //Last Song
-            counter -= 1
-            
-            if ((counter) < 0) {
-                counter = song.count - 1
-            }
-            print(counter)
-            music()
-            
-            
-            break;
-        case UIEventSubtype.remoteControlNextTrack?: //Next Song
-            counter += 1
-            
-            if ((counter ) == song.count) {
-                counter = 0
-            }
-            
-            music()
-            
-            break;
-        case UIEventSubtype.remoteControlTogglePlayPause?: //Headphone Pause
-            break
-        default:
-            break
-        }
-    }
+//    override func remoteControlReceived(with event: UIEvent?) {
+//        switch event!.subtype {
+//        case .remoteControlPlay:  // play按钮
+//            player.play()
+//        case .remoteControlPause:  // pause按钮
+//            player.pause()
+//        case .remoteControlNextTrack:  // next
+//            // ▶▶ 押下時の処理
+//            break
+//        case .remoteControlPreviousTrack:  // previous
+//            // ◀◀ 押下時の処理
+//            break
+//        default:
+//            break
+//        }
+//    }
+    
+//    //Remote Control
+//    override func remoteControlReceived(with event: UIEvent?) {
+//        switch event?.subtype {
+//        case UIEventSubtype.remoteControlPlay?: // Music play
+//            player.play()
+//            break
+//        case UIEventSubtype.remoteControlPause?: // Music Pause
+//            player.pause()
+//            break
+//        case UIEventSubtype.remoteControlPreviousTrack?: //Last Song
+//            counter -= 1
+//            
+//            if ((counter) < 0) {
+//                counter = song.count - 1
+//            }
+//            print(counter)
+//            music()
+//            
+//            
+//            break;
+//        case UIEventSubtype.remoteControlNextTrack?: //Next Song
+//            counter += 1
+//            
+//            if ((counter ) == song.count) {
+//                counter = 0
+//            }
+//            
+//            music()
+//            
+//            break;
+//        case UIEventSubtype.remoteControlTogglePlayPause?: //Headphone Pause
+//            break
+//        default:
+//            break
+//        }
+//    }
     
 
 

@@ -156,7 +156,7 @@ class SearchContainerViewController: UIViewController {
     }
 
     @IBAction func tapMiniPlayerButton() {
-        self.present(self.modalVC, animated: true, completion: nil)
+      //  self.present(self.modalVC, animated: true, completion: nil)
 
     }
     

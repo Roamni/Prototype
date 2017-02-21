@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fU3-st-mHE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fU3-st-mHE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -178,7 +178,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhC-BT-Wm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1735" y="-2094"/>
+            <point key="canvasLocation" x="516" y="-2511"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="bZt-LL-gV2">
@@ -553,6 +553,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="tapMiniPlayerButton" destination="RCA-gQ-mcM" eventType="touchUpInside" id="P0v-S3-lfH"/>
+                                    <segue destination="el7-T8-cG3" kind="showDetail" id="XFX-Vy-GFg"/>
                                 </connections>
                             </button>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cik-FF-gO5">
@@ -600,7 +601,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNS-Mf-nLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="492" y="706.59670164917543"/>
+            <point key="canvasLocation" x="-466" y="-886"/>
         </scene>
         <!--My Roamni-->
         <scene sceneID="suh-fE-5e0">
@@ -918,7 +919,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lT7-rp-yky" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2449" y="-2556"/>
+            <point key="canvasLocation" x="4172" y="-2662"/>
         </scene>
         <!--My Tours-->
         <scene sceneID="b9h-hq-c87">
@@ -1248,7 +1249,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3327" y="-2067"/>
+            <point key="canvasLocation" x="1958" y="-2780"/>
         </scene>
         <!--How To Make Money With Roam-->
         <scene sceneID="jmM-IT-bvO">
@@ -1342,7 +1343,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1F-Mn-e2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="926" y="-275"/>
+            <point key="canvasLocation" x="610" y="-368"/>
         </scene>
         <!--Filters-->
         <scene sceneID="LKG-6v-SLd">
@@ -1643,15 +1644,15 @@
                         <viewControllerLayoutGuide type="bottom" id="T6Q-Fn-RbI"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="BKP-07-gtH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="800"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-QF-VSs">
-                                <rect key="frame" x="0.0" y="0.0" width="80" height="80"/>
+                                <rect key="frame" x="0.0" y="21" width="57" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="80" id="hH6-L7-31L"/>
-                                    <constraint firstAttribute="height" constant="80" id="k4k-oq-NDJ"/>
+                                    <constraint firstAttribute="height" constant="40" id="iVc-L1-p4A"/>
+                                    <constraint firstAttribute="width" constant="57" id="ua9-kd-577"/>
                                 </constraints>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1659,32 +1660,58 @@
                                 </state>
                                 <connections>
                                     <action selector="tapCloseButton" destination="el7-T8-cG3" eventType="touchUpInside" id="5hh-2d-RTD"/>
+                                    <segue destination="fU3-st-mHE" kind="showDetail" id="vnf-jG-zPs"/>
                                 </connections>
                             </button>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zq0-Jo-Jcn">
-                                <rect key="frame" x="-2" y="536" width="379" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </slider>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-dd-4AM">
-                                <rect key="frame" x="0.0" y="142" width="375" height="386"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-dd-4AM">
+                                <rect key="frame" x="0.0" y="85" width="375" height="386"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="386" id="YUP-Dw-Elz"/>
+                                </constraints>
                             </mapView>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zq0-Jo-Jcn">
+                                <rect key="frame" x="5" y="560" width="365" height="31"/>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neU-zz-czV">
+                                <rect key="frame" x="171" y="507" width="33" height="33"/>
+                                <state key="normal" image="songplay"/>
+                                <connections>
+                                    <action selector="tapPlayButton:" destination="el7-T8-cG3" eventType="touchUpInside" id="TJh-ao-aL2"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-Dj-z5Z">
+                                <rect key="frame" x="314" y="507" width="33" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="next"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYv-Oj-6yk">
+                                <rect key="frame" x="24" y="507" width="33" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="prev"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="rCG-QF-VSs" firstAttribute="leading" secondItem="BKP-07-gtH" secondAttribute="leading" id="PBS-Se-AAG"/>
-                            <constraint firstItem="rCG-QF-VSs" firstAttribute="top" secondItem="BKP-07-gtH" secondAttribute="top" id="t3Q-jT-5ix"/>
+                            <constraint firstItem="rCG-QF-VSs" firstAttribute="top" secondItem="BKP-07-gtH" secondAttribute="top" constant="21" id="1ha-Uh-oTN"/>
+                            <constraint firstItem="mBY-dd-4AM" firstAttribute="top" secondItem="rCG-QF-VSs" secondAttribute="bottom" constant="24" id="4oD-ip-uN8"/>
+                            <constraint firstItem="rCG-QF-VSs" firstAttribute="leading" secondItem="mBY-dd-4AM" secondAttribute="leading" id="69p-pi-3u9"/>
+                            <constraint firstAttribute="trailing" secondItem="mBY-dd-4AM" secondAttribute="trailing" id="8vB-zP-pdZ"/>
+                            <constraint firstItem="Zq0-Jo-Jcn" firstAttribute="top" secondItem="neU-zz-czV" secondAttribute="bottom" constant="20" id="B2t-5A-cWi"/>
+                            <constraint firstItem="Zq0-Jo-Jcn" firstAttribute="leading" secondItem="BKP-07-gtH" secondAttribute="leadingMargin" constant="-9" id="DXd-Wo-k3J"/>
+                            <constraint firstItem="mBY-dd-4AM" firstAttribute="centerX" secondItem="Zq0-Jo-Jcn" secondAttribute="centerX" id="I6f-Wy-T8a"/>
+                            <constraint firstItem="mBY-dd-4AM" firstAttribute="centerX" secondItem="neU-zz-czV" secondAttribute="centerX" id="Lz4-9l-HwS"/>
+                            <constraint firstItem="rCG-QF-VSs" firstAttribute="leading" secondItem="BKP-07-gtH" secondAttribute="leading" id="UwP-8f-JIr"/>
+                            <constraint firstItem="neU-zz-czV" firstAttribute="top" secondItem="mBY-dd-4AM" secondAttribute="bottom" constant="36" id="heq-os-tFF"/>
                         </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="mapView" destination="mBY-dd-4AM" id="PUU-09-CNQ"/>
+                        <outlet property="playBtn" destination="neU-zz-czV" id="R3o-Br-bYS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH9-nn-UDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2448.8000000000002" y="2636.5817091454273"/>
+            <point key="canvasLocation" x="-1198" y="-1572"/>
         </scene>
     </scenes>
     <resources>
@@ -1703,18 +1730,22 @@
         <image name="money" width="48" height="48"/>
         <image name="moretour" width="25" height="25"/>
         <image name="navigator" width="128" height="128"/>
+        <image name="next" width="33" height="33"/>
         <image name="partner" width="256" height="256"/>
         <image name="play-download" width="128" height="128"/>
         <image name="play-preview" width="64" height="64"/>
         <image name="premium" width="25" height="25"/>
+        <image name="prev" width="33" height="33"/>
         <image name="realestate" width="25" height="25"/>
         <image name="recommandation" width="24" height="24"/>
         <image name="shooping" width="25" height="25"/>
+        <image name="songplay" width="33" height="33"/>
         <image name="tour" width="306" height="306"/>
         <image name="upload" width="128" height="128"/>
         <image name="walk" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="vnf-jG-zPs"/>
         <segue reference="b0Q-Va-h81"/>
         <segue reference="eMe-uv-RRn"/>
     </inferredMetricsTieBreakers>
