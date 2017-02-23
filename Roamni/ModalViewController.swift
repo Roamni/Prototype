@@ -10,9 +10,9 @@ import UIKit
 import MapKit
 import AVFoundation
 import MediaPlayer
+import CoreLocation
 
-
-final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
+final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var leftTime: UILabel!
@@ -20,6 +20,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
     @IBOutlet weak var musicSlider: UISlider!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
+    let locationManager = CLLocationManager()
     var player : AVAudioPlayer!
     var downloadTours = [DownloadTour]()
     var counter = 0
@@ -164,6 +165,24 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         super.viewWillDisappear(animated)
         print("ModalViewController viewWillDisappear")
     }
+    
+    @IBAction func backToCurrentLocation(_ sender: Any) {
+        mapView.delegate = self
+        
+        self.locationManager.delegate = self
+        locationManager.requestAlwaysAuthorization()
+        self.mapView.showsUserLocation = true
+        mapView.showsUserLocation = true
+        self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        self.locationManager.requestWhenInUseAuthorization()
+        self.locationManager.startUpdatingLocation()
+        self.mapView.showsUserLocation = true
+        let span = MKCoordinateSpanMake(0.0018, 0.0018)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
+        mapView.setRegion(region, animated: true)
+
+    }
+    
     
     func music(){
         // isPlaying = true

@@ -1673,6 +1673,17 @@
                                     <constraint firstAttribute="height" constant="386" id="YUP-Dw-Elz"/>
                                 </constraints>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vV-41-YHd">
+                                <rect key="frame" x="10" y="115" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="navigator">
+                                    <color key="titleShadowColor" red="0.040172906090000002" green="0.036983293989999999" blue="0.036606424360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToCurrentLocation:" destination="ouv-B4-X2U" eventType="touchUpInside" id="8Za-OF-67L"/>
+                                    <action selector="backToCurrentLocation:" destination="el7-T8-cG3" eventType="touchUpInside" id="Pc6-Fl-ayC"/>
+                                </connections>
+                            </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zq0-Jo-Jcn">
                                 <rect key="frame" x="5" y="560" width="365" height="31"/>
                                 <connections>
@@ -1786,7 +1797,7 @@
         <segue reference="Iol-MH-FLa"/>
         <segue reference="XFX-Vy-GFg"/>
         <segue reference="b0Q-Va-h81"/>
-        <segue reference="eMe-uv-RRn"/>
+        <segue reference="bk7-W1-v8p"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>
