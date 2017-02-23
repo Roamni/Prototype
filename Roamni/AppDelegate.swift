@@ -13,11 +13,13 @@ import FBSDKCoreKit
 import AVFoundation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate , UISplitViewControllerDelegate{
+class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate{
 
     var window: UIWindow?
     var player = AVAudioPlayer()
     var songTitle : String?
+    var downloads = [DownloadTour]()
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()

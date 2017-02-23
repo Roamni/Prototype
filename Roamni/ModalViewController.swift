@@ -14,6 +14,9 @@ import MediaPlayer
 
 final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
     
+    @IBOutlet weak var leftTime: UILabel!
+    @IBOutlet weak var startedTime: UILabel!
+    @IBOutlet weak var musicSlider: UISlider!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     var player : AVAudioPlayer!
@@ -24,7 +27,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        musicSlider.value = 0.0
         let effect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: effect)
         blurView.frame = self.view.bounds
@@ -41,6 +44,50 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
 
 
     }
+    
+    @IBAction func next(_ sender: Any) {
+        print("next")
+        if self.counter != downloadTours.count - 1{
+            self.counter = self.counter + 1
+        }else{
+            self.counter = 0
+        }
+        
+                //            if controller != nil {
+        //                if controller.player.isPlaying {
+        //                    controller.player.stop()
+        //                }
+        //                else{
+        //                    print("nothing is playing")
+        //                }
+        //            }
+        player.stop()
+        music()
+        setLockView()
+
+    }
+    
+    @IBAction func previous(_ sender: Any) {
+        print("pervious")
+        if self.counter != 0{
+            self.counter = self.counter - 1
+        }else{
+            self.counter = downloadTours.count - 1
+        }
+        //            if controller != nil {
+        //                if controller.player.isPlaying {
+        //                    controller.player.stop()
+        //                }
+        //                else{
+        //                    print("nothing is playing")
+        //                }
+        //            }
+        player.stop()
+        music()
+        setLockView()
+        print("\(downloadTours.count)")
+    }
+    
     
     @IBAction func tapCloseButton() {
        // self.tapCloseButtonActionHandler?()
@@ -59,14 +106,20 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var delegate = UIApplication.shared.delegate as! AppDelegate
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         player = delegate.player
+        downloadTours = delegate.downloads
         if player.isPlaying{
             playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         }
         print("ModalViewController viewWillAppear")
+        musicSlider.maximumValue = Float(self.player.duration)
+        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -94,6 +147,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
             
         }
         
+        
         //musicSlider.maximumValue = Float(player.duration)
         //var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.updateMusicSlider), userInfo: nil, repeats: true)
         player.delegate = self
@@ -107,9 +161,18 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         var delegate = UIApplication.shared.delegate as! AppDelegate
         delegate.player = player
         delegate.songTitle = downloadTours[counter].name
+        delegate.downloads = downloadTours
+        
 
     }
     
+    
+    func updateMusicSlider(){
+        
+        musicSlider.value = Float(player.currentTime)
+        startedTime.text = "\(Float(player.currentTime))"
+        leftTime.text = "\(Float(player.duration) -  Float(player.currentTime))"
+    }
     
     func setLockView(){
         MPNowPlayingInfoCenter.default().nowPlayingInfo = [
@@ -141,6 +204,20 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         default:
             break
         }
+    }
+
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    {
+        print("Called")
+        if flag {
+            counter += 1
+        }
+        
+        if ((counter + 1) == downloadTours.count) {
+            counter = 0
+        }
+        
+        music()
     }
 
     
