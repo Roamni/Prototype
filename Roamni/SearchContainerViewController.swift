@@ -15,6 +15,7 @@ class SearchContainerViewController: UIViewController {
 
     
     
+    @IBOutlet weak var songTitle: UILabel!
     @IBOutlet fileprivate(set) weak var tabBar: UITabBar!
     @IBOutlet fileprivate(set) weak var miniPlayerView: LineView!
     
@@ -30,7 +31,6 @@ class SearchContainerViewController: UIViewController {
     var filteredTours = [DownloadTour]()
     var finalTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
-    
     private var animator : ARNTransitionAnimator?
     fileprivate var modalVC : ModalViewController!
     
@@ -44,6 +44,8 @@ class SearchContainerViewController: UIViewController {
             getMapVCObject?.places.removeAll()
             getMapVCObject?.tours = finalTours
         }
+        var delegate = UIApplication.shared.delegate as! AppDelegate
+        songTitle.text =  delegate.songTitle
         //tours.removeAll()
         //print(self.tourCategory)
         //getTableVCObject?.tourCategory = self.tourCategory
@@ -155,6 +157,7 @@ class SearchContainerViewController: UIViewController {
         self.modalVC.transitioningDelegate = self.animator
     }
 
+    
     @IBAction func tapMiniPlayerButton() {
       //  self.present(self.modalVC, animated: true, completion: nil)
 

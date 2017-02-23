@@ -29,18 +29,18 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     var downloadTour:DownloadTour?
     var myGroup = DispatchGroup()
     var fileName:String? = nil
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
          fetchTours()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
+        self.modalVC.modalPresentationStyle = .overFullScreen
 
-//        tours = [
-//            Tour(songid: 1,category:"walking", name:"Melbourne Central",locations:CLLocationCoordinate2D(latitude: -37.8426083, longitude: 144.9685646), desc: "This is the largest shopping centre, office and public transport hub in the city of Melbourne.", address:"211 La Trobe St, Melbourne", star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid: 2,category:"walking", name:"Victoria Gallery",locations:CLLocationCoordinate2D(latitude: -35.8426083, longitude: 142.9685646), desc: "The public national gallery, popularly known as NGV, is an art museum in Melbourne.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid: 3,category:"driving", name:"The Great Ocean Road",locations:CLLocationCoordinate2D(latitude: -38.6805638, longitude: 143.3894295), desc: "The Great Ocean Road is an Austrilian national heritage, a road along with the south-eastern coast of Austrilian.", address:"Great Ocean Rd, Victoria",star:"1",length:"1",difficulty:"Brisk")]
-//        
-        //        // Setup the Search Controller
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -54,25 +54,25 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         super.viewDidLoad()
         //musicSlider.value = 0.0
         // Do any additional setup after loading the view, typically from a nib.
-        if NSClassFromString("MPNowPlayingInfoCenter") != nil {
-            let image:UIImage = UIImage(named: "logo_player_background")!
-            let albumArt = MPMediaItemArtwork(image: image)
-            let songInfo = [
-                MPMediaItemPropertyTitle: "\(self.musictitle)",
-                MPMediaItemPropertyArtist: "\(self.musicartist)",
-                MPMediaItemPropertyArtwork: albumArt
-                ] as [String : Any]
-            MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
-            print("nonono")
-        }
-        do {
-            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
-            UIApplication.shared.beginReceivingRemoteControlEvents()
-            print("Receiving remote control events\n")
-        } catch {
-            print("Audio Session error.\n")
-        }
-
+//        if NSClassFromString("MPNowPlayingInfoCenter") != nil {
+//            let image:UIImage = UIImage(named: "logo_player_background")!
+//            let albumArt = MPMediaItemArtwork(image: image)
+//            let songInfo = [
+//                MPMediaItemPropertyTitle: "\(self.musictitle)",
+//                MPMediaItemPropertyArtist: "\(self.musicartist)",
+//                MPMediaItemPropertyArtwork: albumArt
+//                ] as [String : Any]
+//            MPNowPlayingInfoCenter.default().nowPlayingInfo = songInfo
+//            print("nonono")
+//        }
+//        do {
+//            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+//            UIApplication.shared.beginReceivingRemoteControlEvents()
+//            print("Receiving remote control events\n")
+//        } catch {
+//            print("Audio Session error.\n")
+//        }
+       
 
     }
     
@@ -183,20 +183,24 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("????")
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
-        self.modalVC.modalPresentationStyle = .overFullScreen
 
-        self.present(self.modalVC, animated: true, completion: nil)
-        self.modalVC.counter = indexPath.row
-        self.modalVC.downloadTours = self.downloadTours
-        self.modalVC.music()
-        self.modalVC.setLockView()
-        self.musictitle = downloadTours[counter].name
-        self.musicartist = downloadTours[counter].difficulty
-        //music()
-
-        //setLockView()
+        //self.present(self.modalVC, animated: true, completion: nil)
+        self.counter = indexPath.row
+//        self.modalVC.downloadTours = self.downloadTours
+//        if self.modalVC.player != nil {
+//            if self.modalVC.player.isPlaying {
+//                self.modalVC.player.stop()
+//            }
+//            else{
+//                print("nothing is playing")
+//            }
+//        }
+//        self.modalVC.music()
+//        self.modalVC.setLockView()
+//        self.musictitle = downloadTours[counter].name
+//        self.musicartist = downloadTours[counter].difficulty
+        self.performSegue(withIdentifier: "goMusicDetail", sender: self)
+        //self.performSegue(withIdentifier: "ShowDetailView", sender: itemString)
         
     }
     
@@ -355,7 +359,42 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         ]
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("yes!!")
+        if segue.identifier == "goMusicDetail"
+        {
+            //Lead user from currnet controller to NewCategoryViewController
+            let controller = segue.destination as! ModalViewController
+           // let controller: NewCategoryViewController = navController.viewControllers[0] as! NewCategoryViewController
+            // Get managedObjectContext and pass to controller
+            //controller.managedObjectContext = self.managedObjectContext
+
+            controller.counter = self.counter
+            controller.downloadTours = self.downloadTours
+            print("calling!!")
+//            if controller != nil {
+//                if controller.player.isPlaying {
+//                    controller.player.stop()
+//                }
+//                else{
+//                    print("nothing is playing")
+//                }
+//            }
+            controller.music()
+            controller.setLockView()
+           // self.musictitle = downloadTours[counter].name
+           // self.musicartist = downloadTours[counter].difficulty
+            
+            
+        }
+        
     
+    }
+    
+    func passPlayer(player: AVAudioPlayer)
+    {
+        
+    }
 //    //配置NowPlayingCenter
 //    func configNowPlayingCenter(_ currentItem: AVURLAsset) {
 //        if (NSClassFromString("MPNowPlayingInfoCenter") != nil) {

@@ -20,6 +20,8 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var tourInFive = [DownloadTour]()
     var controller : SearchContainerViewController!
     var locationManager = CLLocationManager()
+
+    
     override func viewWillAppear(_ animated: Bool) {
         self.tableView.reloadData()
         // self.tableView.dataSource = self
@@ -40,26 +42,15 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
          navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-//        tours = [
-//            Tour(songid:1, category:"walking", name:"Melbourne Central",locations:CLLocationCoordinate2D(latitude: -37.8426083, longitude: 144.9685646), desc: "This is the largest shopping centre, office and public transport hub in the city of Melbourne.", address:"211 La Trobe St, Melbourne", star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid:2,category:"walking", name:"Victoria Gallery",locations:CLLocationCoordinate2D(latitude: -35.8426083, longitude: 142.9685646), desc: "The public national gallery, popularly known as NGV, is an art museum in Melbourne.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid:3,category:"driving", name:"The Great Ocean Road",locations:CLLocationCoordinate2D(latitude: -38.6805638, longitude: 143.3894295), desc: "The Great Ocean Road is an Austrilian national heritage, a road along with the south-eastern coast of Austrilian.", address:"Great Ocean Rd, Victoria",star:"1",length:"1",difficulty:"Brisk"),
-//            Tour(songid:4,category:"cycling", name:"Yarra Valley",locations:CLLocationCoordinate2D(latitude: -37.6426083, longitude: 144.9665646), desc: "Yarra Valley is the most beautiful valley in victory, you can explore the chateaus and the famous chocolate factory.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid:5,category:"shopping", name:"DFO",locations:CLLocationCoordinate2D(latitude: -37.8426083, longitude: 143.9685646), desc: "With big brands and big savings of up to 70%, DFO (Direct Factory Outlets) is the best place for shopping for shoes, clothes, luggage and sunglasses.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid:6,category:"realestate", name:"South Yarra",locations:CLLocationCoordinate2D(latitude: -37.26083, longitude: 144.9685646), desc: "Explore the many restaurants, cafés, bars, shops and events in South Yarra with Time Out Melbourne's guide to this inner-city hub for shopping and fashion.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Workout"),
-//            Tour(songid:7,category:"access", name:"Federation Square",locations:CLLocationCoordinate2D(latitude: -37.846083, longitude: 144.965646), desc: "Federation Square is a mixed-use development in the inner city of Melbourne, covering an area of 3.2 ha (7.9 acres) and centred on three major public spaces.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Brisk"),
-//            Tour(songid:8,category:"more", name:"St Kilda Beach",locations:CLLocationCoordinate2D(latitude: -37.8426083, longitude: 140.965646), desc: "Summer isn't summer until you've spent a day by the seaside at St Kilda Beach, a short tram ride from the CBD. ", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Pleasant"),
-//            Tour(songid:9,category:"premium", name:"Eureka Tower Melbourne",locations:CLLocationCoordinate2D(latitude: -37.26083, longitude: 143.9685646), desc: "Eureka Skydeck 88 has awe inspiring views of Melbourne from the highest public vantage point in the Southern Hemisphere.", address:"180 St Kilda Rd, Melbourne",star:"1",length:"1",difficulty:"Workout"),
-//            Tour(songid:10,category:"recommandation", name:"Mornington",locations:CLLocationCoordinate2D(latitude: -37.821638, longitude: 144.9623461), desc: "Just an hour from Melbourne. Explore the galleries, spas and cafes in breezy seaside villages, cool off with a day on the beach, or escape to the hinterland for gourmet delights at boutique wineries.", address:"7 Riverside Quay, Southbank VIC",star:"1",length:"3",difficulty:"Pleasant")]
-//
-//
-        
+ 
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
         //change here to apply 5 km
         
         controller.tours = tours
         locationManager.startUpdatingLocation()
     }
+    
+    
     func fetchTours(){
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
@@ -92,7 +83,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
             
             let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: snapshot.key)
- print(downloadTour)
+            print(downloadTour)
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
             //            tour.StartPoint = dictionary["StartPoint"] as! String?

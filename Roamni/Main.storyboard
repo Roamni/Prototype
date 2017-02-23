@@ -178,7 +178,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhC-BT-Wm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="-2511"/>
+            <point key="canvasLocation" x="-6110" y="-2713"/>
         </scene>
         <!--Nearby-->
         <scene sceneID="bZt-LL-gV2">
@@ -495,7 +495,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2u-UU-1Ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1617" y="-34"/>
+            <point key="canvasLocation" x="-3882" y="169"/>
         </scene>
         <!--Log in-->
         <scene sceneID="saU-9q-iwJ">
@@ -595,13 +595,14 @@
                     <connections>
                         <outlet property="miniPlayerButton" destination="Tz4-9h-lXg" id="01t-Gp-dvz"/>
                         <outlet property="miniPlayerView" destination="zy5-mi-WNh" id="2lC-JD-B92"/>
+                        <outlet property="songTitle" destination="A78-Lb-Q3V" id="eVP-ux-D0v"/>
                         <outlet property="swtichBtn" destination="hTU-pf-g0A" id="SSW-4m-HGy"/>
                         <outlet property="tabBar" destination="Cik-FF-gO5" id="gFX-8W-wbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNS-Mf-nLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-466" y="-886"/>
+            <point key="canvasLocation" x="-2236" y="-2342"/>
         </scene>
         <!--My Roamni-->
         <scene sceneID="suh-fE-5e0">
@@ -901,7 +902,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaP-25-slM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2057" y="-1588"/>
+            <point key="canvasLocation" x="2015" y="169"/>
         </scene>
         <!--Request A Tour-->
         <scene sceneID="dgz-2J-u2f">
@@ -1028,10 +1029,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Tours" id="W2e-8c-IFf"/>
+                    <connections>
+                        <segue destination="el7-T8-cG3" kind="showDetail" identifier="goMusicDetail" id="X6A-Yv-FAV"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAL-M7-nwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2101.5999999999999" y="1374.9625187406298"/>
+            <point key="canvasLocation" x="-5159" y="-1397"/>
         </scene>
         <!--Upload A Tour-->
         <scene sceneID="jLu-ix-jgE">
@@ -1267,7 +1271,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pIx-R1-TaT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2922" y="-629"/>
+            <point key="canvasLocation" x="2628" y="-1684"/>
         </scene>
         <!--About Roam-->
         <scene sceneID="wxc-s2-UME">
@@ -1305,7 +1309,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIG-8y-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4268" y="-1508"/>
+            <point key="canvasLocation" x="5418" y="-1485"/>
         </scene>
         <!--MyRoamni-->
         <scene sceneID="DgN-Qq-W5j">
@@ -1343,7 +1347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y1F-Mn-e2S" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="610" y="-368"/>
+            <point key="canvasLocation" x="-5065" y="-109"/>
         </scene>
         <!--Filters-->
         <scene sceneID="LKG-6v-SLd">
@@ -1445,7 +1449,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sh8-dk-gfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-588" y="1354"/>
+            <point key="canvasLocation" x="-1862" y="1147"/>
         </scene>
         <!--Container Map View Controller-->
         <scene sceneID="MHu-LW-KUb">
@@ -1609,7 +1613,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaB-1G-lRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1148" y="311.69415292353824"/>
+            <point key="canvasLocation" x="-2711" y="-164"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="Wph-aR-jM9">
@@ -1660,7 +1664,7 @@
                                 </state>
                                 <connections>
                                     <action selector="tapCloseButton" destination="el7-T8-cG3" eventType="touchUpInside" id="5hh-2d-RTD"/>
-                                    <segue destination="fU3-st-mHE" kind="showDetail" id="vnf-jG-zPs"/>
+                                    <segue destination="fU3-st-mHE" kind="showDetail" id="Iol-MH-FLa"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-dd-4AM">
@@ -1711,7 +1715,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH9-nn-UDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1198" y="-1572"/>
+            <point key="canvasLocation" x="-6756" y="-1397"/>
         </scene>
     </scenes>
     <resources>
@@ -1745,7 +1749,8 @@
         <image name="walk" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vnf-jG-zPs"/>
+        <segue reference="Iol-MH-FLa"/>
+        <segue reference="XFX-Vy-GFg"/>
         <segue reference="b0Q-Va-h81"/>
         <segue reference="eMe-uv-RRn"/>
     </inferredMetricsTieBreakers>
