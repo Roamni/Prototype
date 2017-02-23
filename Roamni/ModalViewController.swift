@@ -59,7 +59,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         musicSlider.maximumValue = Float(self.player.duration)
         var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
         setLockView()
-
+        updateTourDetail()
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -76,6 +76,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
         setLockView()
         print("\(downloadTours.count)")
+        updateTourDetail()
     }
     
     
@@ -104,19 +105,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         setLockView()
     }
 
-    
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        let delegate = UIApplication.shared.delegate as! AppDelegate
-        player = delegate.player
-        downloadTours = delegate.downloads
-        if player.isPlaying{
-            playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
-        }
-        print("ModalViewController viewWillAppear")
-        musicSlider.maximumValue = Float(self.player.duration)
-        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+    func updateTourDetail(){
         songTitle.text = downloadTours[counter].name
         let sourceLocation = downloadTours[counter].startLocation
         let destinationLocation = CLLocationCoordinate2D(latitude: (downloadTours[counter].endLocation.latitude), longitude: (downloadTours[counter].endLocation.latitude))
@@ -154,6 +143,21 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
             self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
             
         }
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        player = delegate.player
+        downloadTours = delegate.downloads
+        if player.isPlaying{
+            playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+        }
+        print("ModalViewController viewWillAppear")
+        musicSlider.maximumValue = Float(self.player.duration)
+        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+        updateTourDetail()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -181,9 +185,6 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
             
         }
         
-        
-        
-        
         player.delegate = self
         if error == nil {
             //       print("is playing!!!")
@@ -198,7 +199,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         delegate.downloads = downloadTours
         print("player is \(self.player)")
 
-
+        
     }
     
     
@@ -256,7 +257,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
         setLockView()
         }
+        updateTourDetail()
     }
-
+   
     
 }
