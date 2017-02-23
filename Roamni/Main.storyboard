@@ -563,7 +563,7 @@
                                 <items/>
                             </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Song Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A78-Lb-Q3V">
-                                <rect key="frame" x="144" y="592" width="82" height="21"/>
+                                <rect key="frame" x="72" y="592" width="226" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -602,7 +602,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNS-Mf-nLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2236" y="-2342"/>
+            <point key="canvasLocation" x="-2236" y="-2342.8785607196405"/>
         </scene>
         <!--My Roamni-->
         <scene sceneID="suh-fE-5e0">
@@ -1668,7 +1668,7 @@
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-dd-4AM">
-                                <rect key="frame" x="0.0" y="85" width="375" height="386"/>
+                                <rect key="frame" x="0.0" y="105" width="375" height="386"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="386" id="YUP-Dw-Elz"/>
                                 </constraints>
@@ -1716,11 +1716,18 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-bt-Cxn">
+                                <rect key="frame" x="122" y="56" width="163" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="rCG-QF-VSs" firstAttribute="top" secondItem="BKP-07-gtH" secondAttribute="top" constant="21" id="1ha-Uh-oTN"/>
-                            <constraint firstItem="mBY-dd-4AM" firstAttribute="top" secondItem="rCG-QF-VSs" secondAttribute="bottom" constant="24" id="4oD-ip-uN8"/>
+                            <constraint firstItem="mBY-dd-4AM" firstAttribute="top" secondItem="rCG-QF-VSs" secondAttribute="bottom" constant="44" id="4oD-ip-uN8"/>
                             <constraint firstItem="rCG-QF-VSs" firstAttribute="leading" secondItem="mBY-dd-4AM" secondAttribute="leading" id="69p-pi-3u9"/>
                             <constraint firstAttribute="trailing" secondItem="mBY-dd-4AM" secondAttribute="trailing" id="8vB-zP-pdZ"/>
                             <constraint firstItem="Zq0-Jo-Jcn" firstAttribute="top" secondItem="neU-zz-czV" secondAttribute="bottom" constant="20" id="B2t-5A-cWi"/>
@@ -1728,7 +1735,7 @@
                             <constraint firstItem="mBY-dd-4AM" firstAttribute="centerX" secondItem="Zq0-Jo-Jcn" secondAttribute="centerX" id="I6f-Wy-T8a"/>
                             <constraint firstItem="mBY-dd-4AM" firstAttribute="centerX" secondItem="neU-zz-czV" secondAttribute="centerX" id="Lz4-9l-HwS"/>
                             <constraint firstItem="rCG-QF-VSs" firstAttribute="leading" secondItem="BKP-07-gtH" secondAttribute="leading" id="UwP-8f-JIr"/>
-                            <constraint firstItem="neU-zz-czV" firstAttribute="top" secondItem="mBY-dd-4AM" secondAttribute="bottom" constant="36" id="heq-os-tFF"/>
+                            <constraint firstItem="neU-zz-czV" firstAttribute="top" secondItem="mBY-dd-4AM" secondAttribute="bottom" constant="16" id="heq-os-tFF"/>
                         </constraints>
                     </view>
                     <connections>
@@ -1736,12 +1743,13 @@
                         <outlet property="mapView" destination="mBY-dd-4AM" id="PUU-09-CNQ"/>
                         <outlet property="musicSlider" destination="Zq0-Jo-Jcn" id="YUY-98-xdf"/>
                         <outlet property="playBtn" destination="neU-zz-czV" id="R3o-Br-bYS"/>
+                        <outlet property="songTitle" destination="fQZ-bt-Cxn" id="DYA-nI-GDL"/>
                         <outlet property="startedTime" destination="59V-h0-BN4" id="TME-NB-Zbm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH9-nn-UDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-6756" y="-1397"/>
+            <point key="canvasLocation" x="-6756" y="-1397.4512743628186"/>
         </scene>
     </scenes>
     <resources>
@@ -1780,4 +1788,5 @@
         <segue reference="b0Q-Va-h81"/>
         <segue reference="eMe-uv-RRn"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

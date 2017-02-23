@@ -14,6 +14,7 @@ import MediaPlayer
 
 final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
     
+    @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var leftTime: UILabel!
     @IBOutlet weak var startedTime: UILabel!
     @IBOutlet weak var musicSlider: UISlider!
@@ -116,8 +117,43 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         print("ModalViewController viewWillAppear")
         musicSlider.maximumValue = Float(self.player.duration)
         var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
-        
-   
+        songTitle.text = downloadTours[counter].name
+        let sourceLocation = downloadTours[counter].startLocation
+        let destinationLocation = CLLocationCoordinate2D(latitude: (downloadTours[counter].endLocation.latitude), longitude: (downloadTours[counter].endLocation.latitude))
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        let sourceAnnotation = MKPointAnnotation()
+        //sourceAnnotation.title = detailTour?.name
+        if let location = sourcePlacemark.location{
+            sourceAnnotation.coordinate = location.coordinate
+        }
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.title = "destination"
+        if let location = destinationPlacemark.location{
+            destinationAnnotation.coordinate = location.coordinate
+        }
+        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .any
+        let directions = MKDirections(request: directionRequest)
+        directions.calculate {(response, error) -> Void in
+            guard let response = response else
+            {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                return
+            }
+            let route = response.routes[0]
+            self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+            let rect = route.polyline.boundingMapRect
+            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+            
+        }
     }
     
     override func viewWillDisappear(_ animated: Bool) {
