@@ -1675,6 +1675,9 @@
                             </mapView>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="Zq0-Jo-Jcn">
                                 <rect key="frame" x="5" y="560" width="365" height="31"/>
+                                <connections>
+                                    <action selector="sliderAction:" destination="el7-T8-cG3" eventType="valueChanged" id="jDY-M2-9Sz"/>
+                                </connections>
                             </slider>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neU-zz-czV">
                                 <rect key="frame" x="171" y="507" width="33" height="33"/>

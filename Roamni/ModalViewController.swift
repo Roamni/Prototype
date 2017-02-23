@@ -52,17 +52,11 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         }else{
             self.counter = 0
         }
-        
-                //            if controller != nil {
-        //                if controller.player.isPlaying {
-        //                    controller.player.stop()
-        //                }
-        //                else{
-        //                    print("nothing is playing")
-        //                }
-        //            }
+
         player.stop()
         music()
+        musicSlider.maximumValue = Float(self.player.duration)
+        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
         setLockView()
 
     }
@@ -74,16 +68,11 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         }else{
             self.counter = downloadTours.count - 1
         }
-        //            if controller != nil {
-        //                if controller.player.isPlaying {
-        //                    controller.player.stop()
-        //                }
-        //                else{
-        //                    print("nothing is playing")
-        //                }
-        //            }
+
         player.stop()
         music()
+        musicSlider.maximumValue = Float(self.player.duration)
+        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
         setLockView()
         print("\(downloadTours.count)")
     }
@@ -106,6 +95,13 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         }
     }
     
+    @IBAction func sliderAction(_ sender: Any) {
+        player.stop()
+        player.currentTime = TimeInterval(musicSlider.value)
+        player.play()
+        playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+        setLockView()
+    }
 
     
     
@@ -120,6 +116,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         print("ModalViewController viewWillAppear")
         musicSlider.maximumValue = Float(self.player.duration)
         var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+        
+   
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -148,8 +146,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         }
         
         
-        //musicSlider.maximumValue = Float(player.duration)
-        //var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.updateMusicSlider), userInfo: nil, repeats: true)
+        
+        
         player.delegate = self
         if error == nil {
             //       print("is playing!!!")
@@ -162,7 +160,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
         delegate.player = player
         delegate.songTitle = downloadTours[counter].name
         delegate.downloads = downloadTours
-        
+        print("player is \(self.player)")
+
 
     }
     
@@ -210,14 +209,17 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate {
     {
         print("Called")
         if flag {
-            counter += 1
-        }
-        
-        if ((counter + 1) == downloadTours.count) {
-            counter = 0
-        }
-        
+            
+            if self.counter != downloadTours.count - 1{
+                self.counter = self.counter + 1
+            }else{
+                self.counter = 0
+            }
         music()
+        musicSlider.maximumValue = Float(self.player.duration)
+        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+        setLockView()
+        }
     }
 
     

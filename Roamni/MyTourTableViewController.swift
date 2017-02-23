@@ -380,6 +380,12 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
 //                    print("nothing is playing")
 //                }
 //            }
+            
+//            var delegate = UIApplication.shared.delegate as! AppDelegate
+//            delegate.player = player
+//            if player.isPlaying{
+//                player.stop()
+//            }
             controller.music()
             controller.setLockView()
            // self.musictitle = downloadTours[counter].name
