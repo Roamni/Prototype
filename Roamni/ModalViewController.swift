@@ -54,7 +54,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         }else{
             self.counter = 0
         }
-
+        playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         player.stop()
         music()
         musicSlider.maximumValue = Float(self.player.duration)
@@ -70,7 +70,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         }else{
             self.counter = downloadTours.count - 1
         }
-
+        playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         player.stop()
         music()
         musicSlider.maximumValue = Float(self.player.duration)
@@ -188,6 +188,11 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         // isPlaying = true
         // print("counter is \(counter)")
         //let audioPath = Bundle.main.path(forResource: "\(counter)", ofType: "m4a")!
+        var delegate = UIApplication.shared.delegate as! AppDelegate
+        if delegate.downloads.count != 0{
+            delegate.player.stop()
+        }
+
         let error : NSError? = nil
         //player = AVAudioPlayer(contentsOfURL: URL(string: audioPath), error: error)
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -212,7 +217,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
             player.play()
         }
         
-        var delegate = UIApplication.shared.delegate as! AppDelegate
+
         delegate.player = player
         delegate.songTitle = downloadTours[counter].name
         delegate.downloads = downloadTours

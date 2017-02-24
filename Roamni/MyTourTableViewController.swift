@@ -385,6 +385,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
 //            if player.isPlaying{
 //                player.stop()
 //            }
+            
             controller.music()
             controller.setLockView()
            // self.musictitle = downloadTours[counter].name
