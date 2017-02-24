@@ -109,7 +109,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     func updateTourDetail(){
         songTitle.text = downloadTours[counter].name
         let sourceLocation = downloadTours[counter].startLocation
-        let destinationLocation = CLLocationCoordinate2D(latitude: (downloadTours[counter].endLocation.latitude), longitude: (downloadTours[counter].endLocation.latitude))
+        let destinationLocation = CLLocationCoordinate2D(latitude: (downloadTours[counter].endLocation.latitude), longitude: (downloadTours[counter].endLocation.longitude))
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
         let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
