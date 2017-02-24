@@ -86,8 +86,7 @@ class SearchContainerViewController: UIViewController {
         
         if let splitViewController = splitViewController {
             let controllers = splitViewController.viewControllers
-            print(controllers.count)
-            
+
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
             finalTours = tours
 
@@ -111,13 +110,11 @@ class SearchContainerViewController: UIViewController {
     
     
     @IBAction func test(_ sender: Any) {
-        print("caocaocaocao")
         //container!.segueIdentifierReceivedFromParent("first")
         if self.swtichBtn.image == UIImage(named: "map"){
                 self.swtichBtn.image = UIImage(named: "list")
                 container!.segueIdentifierReceivedFromParent("second")
                 getMapVCObject = self.container.currentViewController as? ContainerMapViewController
-            print("final is \(finalTours)")
             if finalTours.count == 0 || (getTableVCObject?.tableView((getTableVCObject?.tableView)!, numberOfRowsInSection: 1))! == tours.count{
                 getMapVCObject?.tours = self.tours
                 getMapVCObject?.places.removeAll()
@@ -208,7 +205,6 @@ class SearchContainerViewController: UIViewController {
     
     
        func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print("hello!!")
         searchController.isActive = false
         //searchController.dismissViewControllerAnimated()
         getTableVCObject?.tours = finalTours
@@ -240,9 +236,7 @@ class SearchContainerViewController: UIViewController {
             return fieldToSearch!.lowercased().contains(searchText.lowercased()) ||  tour.tourType.lowercased().contains(searchText.lowercased())
 
         })
-        print("search box is clicked!")
         
-        print("the tours are \(filteredTours)")
         let textFieldInsideSearchBar = searchController.searchBar.value(forKey: "searchField") as! UITextField
         
         if filteredTours.count == 0 && textFieldInsideSearchBar.text == ""{

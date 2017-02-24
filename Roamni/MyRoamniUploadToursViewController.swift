@@ -10,7 +10,24 @@ import UIKit
 import Firebase
 import MapKit
 class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate {
+    @IBAction func startButton(_ segue: UIStoryboardSegue) {
+        let secondVC :ViewController = segue.source as! ViewController
+        self.mapView.addAnnotation(secondVC.anno!)
+        if secondVC.sender == "startPoint" {
+            
+            self.startPointLocation = secondVC.anno?.coordinate
+            self.startpointBn.tintColor = UIColor.black
+            self.startpointBn.setTitle((secondVC.anno?.title)!, for: .normal)
+        }
+        else{
+            self.endPointLocation = secondVC.anno?.coordinate
+             self.endPointBn.setTitle((secondVC.anno?.title)!, for: .normal)
+        }
+    }
+
+    @IBOutlet weak var startpointBn: UIButton!
     
+    @IBOutlet weak var endPointBn: UIButton!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -23,7 +40,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
     var endPointLocation:CLLocationCoordinate2D?
-    
+    var startPointLocation:CLLocationCoordinate2D?
     @IBOutlet weak var tourNameText: UITextField!
     
     @IBOutlet weak var tourLengthTex: UITextField!
@@ -69,7 +86,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     // Metadata contains file metadata such as size, content-type, and download URL.
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.getText!,"startPoint":["lat":self.locationManager.location?.coordinate.latitude,"lon":self.locationManager.location?.coordinate.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                 }
             }
           
@@ -139,7 +156,6 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     }
     func textViewDidChange(_ textView: UITextView) {
         self.getText = textView.text
-       print(self.getText)
        
     }
     override func viewDidLoad() {
@@ -164,25 +180,29 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         let span = MKCoordinateSpanMake(0.0018, 0.0018)
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
         mapView.setRegion(region, animated: true)
-
+        mapView.tintColor = UIColor.blue
+        self.startpointBn.tintColor = UIColor.black
+        self.endPointBn.tintColor = UIColor.black
+        self.startpointBn.setTitle("click to add start Point", for: .normal)
+        self.endPointBn.setTitle("click to add end Point", for: .normal)
 
         // Do any additional setup after loading the view.
     }
     
-    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
-        if sender.state == UIGestureRecognizerState.began{
-            let touchPoint = sender.location(in: mapView)
-            let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = newCoordinates
-            self.endPointLocation = annotation.coordinate
-            annotation.title = "EndPoint"
-            self.mapView.removeAnnotations(mapView.annotations)
-            self.mapView.addAnnotation(annotation)
-            self.endPointText.text = annotation.title
-        }
-        
-    }
+//    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
+//        if sender.state == UIGestureRecognizerState.began{
+//            let touchPoint = sender.location(in: mapView)
+//            let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+//            let annotation = MKPointAnnotation()
+//            annotation.coordinate = newCoordinates
+//            self.endPointLocation = annotation.coordinate
+//            annotation.title = "EndPoint"
+//            self.mapView.removeAnnotations(mapView.annotations)
+//            self.mapView.addAnnotation(annotation)
+//            self.endPointText.text = annotation.title
+//        }
+//        
+//    }
 //    func addAnnotation(gestureRecognizer:UILongPressGestureRecognizer){
 ////        let touchPoint = gestureRecognizer.location(in: mapView)
 ////        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
@@ -243,14 +263,18 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "startPoint"{
+            let navigationController:UINavigationController = segue.destination as! UINavigationController
+            let controller:ViewController = navigationController.topViewController as! ViewController
+            controller.sender = "startPoint"
+        }
+        if segue.identifier == "endPoint"{
+            let navigationController:UINavigationController = segue.destination as! UINavigationController
+            let controller:ViewController = navigationController.topViewController as! ViewController
+            controller.sender = "endPoint"
+            
+        }
     }
-    */
 
 }

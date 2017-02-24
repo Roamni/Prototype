@@ -69,7 +69,6 @@ final class MusicPlayerTransitionAnimation : TransitionAnimatable {
     
     func updateAnimation(_ transitionType: TransitionType, percentComplete: CGFloat) {
         if transitionType.isPresenting {
-            print("is presenting!")
             // miniPlayerView
             let startOriginY = self.miniPlayerStartFrame.origin.y
             let endOriginY = -self.miniPlayerStartFrame.size.height
@@ -91,7 +90,6 @@ final class MusicPlayerTransitionAnimation : TransitionAnimatable {
             self.rootVC.tabBar.alpha = alpha
         } else {
             // miniPlayerView
-            print("is not presenting")
             let startOriginY = 0 - self.rootVC.miniPlayerView.bounds.size.height
             let endOriginY = self.miniPlayerStartFrame.origin.y
             let diff = -startOriginY + endOriginY

@@ -83,7 +83,6 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
             
             let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: snapshot.key)
-            print(downloadTour)
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
             //            tour.StartPoint = dictionary["StartPoint"] as! String?
@@ -92,6 +91,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //            tour.WholeTour = dictionary["WholeTour"] as! String?
             
             //self.artworks.removeAll()
+            print(startCoordinate)
                     self.tours.append(downloadTour)
             
                         //change here to apply 5 km

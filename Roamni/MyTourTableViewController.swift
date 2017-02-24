@@ -360,7 +360,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("yes!!")
         if segue.identifier == "goMusicDetail"
         {
             //Lead user from currnet controller to NewCategoryViewController

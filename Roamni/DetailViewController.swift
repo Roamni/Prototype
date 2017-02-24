@@ -23,12 +23,31 @@
 import UIKit
 import MapKit
 import Firebase
+import AVFoundation
 class DetailViewController: UIViewController,MKMapViewDelegate {
     var ref:FIRDatabaseReference?
     var detailTour: DownloadTour?
     var users:[String]?
 
     @IBOutlet weak var detailMap: MKMapView!
+    
+    
+    @IBAction func preViewBn(_ sender: Any) {
+        var aPlayer:AVPlayer!
+        var timeObserver: AnyObject!
+        aPlayer = AVPlayer(url: NSURL(string: (self.detailTour?.downloadUrl)!)! as URL)
+        let timeInterval: TimeInterval = 1.0
+        let cmtime:CMTime = CMTimeMake(Int64(timeInterval), 1)
+        let timeArray = NSValue(time: cmtime)
+        timeObserver = aPlayer.addBoundaryTimeObserver(forTimes: [timeArray], queue:nil) { () -> Void in
+            print("1s reached")
+            aPlayer.removeTimeObserver(timeObserver)
+            aPlayer.pause()
+            } as AnyObject!
+        aPlayer.play()
+
+    }
+    
   
     @IBAction func downloadAction(_ sender: Any) {
         if let user = FIRAuth.auth()?.currentUser{
@@ -37,8 +56,6 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
             let detaiTourId = detailTour?.tourId
           
             ref?.child("tours").child("\(detaiTourId!)").child("user").observe(.value, with:{ (snapshot) in
-                print(snapshot.value)
-                print(snapshot.hasChild(uid))
                 if !snapshot.hasChild(uid){
                  self.ref?.child("tours").child("\(detaiTourId!)").child("user").child(uid).setValue("buy")
                 }
@@ -66,7 +83,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self
     let sourceLocation = detailTour?.startLocation
-    let destinationLocation = CLLocationCoordinate2D(latitude: (detailTour?.endLocation.latitude)!, longitude: (detailTour?.endLocation.latitude)!)
+    let destinationLocation = CLLocationCoordinate2D(latitude: (detailTour?.endLocation.latitude)!, longitude: (detailTour?.endLocation.longitude)!)
     let sourcePlacemark = MKPlacemark(coordinate: sourceLocation!, addressDictionary: nil)
     let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
     let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
