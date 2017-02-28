@@ -184,6 +184,11 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     }
     
     
+    @IBAction func more(_ sender: Any) {
+        self.performSegue(withIdentifier: "moredetail", sender: self)
+    }
+    
+    
     func music(){
         // isPlaying = true
         // print("counter is \(counter)")
@@ -282,6 +287,29 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         setLockView()
         }
         updateTourDetail()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "moredetail"
+        {
+            let navController = segue.destination as! UINavigationController
+            let controller: TourMusicDetailViewController = navController.viewControllers[0] as! TourMusicDetailViewController
+
+            
+            controller.tour = downloadTours[counter]
+            //controller.downloadTours = self.downloadTours
+            print("calling!!")
+  
+            
+            //controller.music()
+            //controller.setLockView()
+            // self.musictitle = downloadTours[counter].name
+            // self.musicartist = downloadTours[counter].difficulty
+            
+            
+        }
+        
+        
     }
    
     
