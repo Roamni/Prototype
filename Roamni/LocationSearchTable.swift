@@ -13,6 +13,7 @@ class LocationSearchTable: UITableViewController {
     
     
     weak var handleMapSearchDelegate: HandleMapSearch?
+    weak var HandleSearchDelegate:HandleSearch?
     var matchingItems: [MKMapItem] = []
     var mapView: MKMapView?
     
@@ -95,6 +96,7 @@ extension LocationSearchTable {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedItem = matchingItems[indexPath.row].placemark
         handleMapSearchDelegate?.dropPinZoomIn(selectedItem)
+        HandleSearchDelegate?.dropPinZoomIn(selectedItem)
         dismiss(animated: true, completion: nil)
     }
     

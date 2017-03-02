@@ -77,7 +77,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     }
     
     func fetchTours(){
-        var i = 1
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         

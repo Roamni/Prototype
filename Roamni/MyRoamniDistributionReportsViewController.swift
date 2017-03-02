@@ -7,12 +7,17 @@
 //
 
 import UIKit
-
+import Firebase
+import CoreLocation
 class MyRoamniDistributionReportsViewController: UIViewController {
+    @IBOutlet weak var downLoadTimes: UILabel!
 
+    @IBOutlet weak var money: UILabel!
+    var total:Int = 0
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        fetchTours()
+        self.money.text = "0"
         // Do any additional setup after loading the view.
     }
 
@@ -20,7 +25,45 @@ class MyRoamniDistributionReportsViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+    func fetchTours(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        
+        ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
+            
+            let dictionary = snapshot.value as!  [String : Any]
+        
+            //let longitude = (location["lon"] as! NSString).doubleValue
+            if let user = FIRAuth.auth()?.currentUser{
+                let uid = user.uid
+                if uid == dictionary["uploadUser"] as! String
+                {
+                    let  counts:Int = Int(snapshot.childSnapshot(forPath: "user").childrenCount) - 1
+                    
+                    print(counts)
+                    self.total += counts
+                    self.downLoadTimes.text = String(self.total)
+                }
+                
+            }
+            
+            //            tour.Price = dictionary["Price"] as! String?
+            //            tour.Star = dictionary["Star"] as! String?
+            //            tour.StartPoint = dictionary["StartPoint"] as! String?
+            //            tour.Time = dictionary["Time"] as! String?
+            //            tour.TourType = dictionary["TourType"] as! String?
+            //            tour.WholeTour = dictionary["WholeTour"] as! String?
+            
+            //self.artworks.removeAll()
+           
+            
+            
+            
+        })
+        
+        
+    }
+
 
     /*
     // MARK: - Navigation

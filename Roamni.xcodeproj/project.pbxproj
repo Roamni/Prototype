@@ -27,6 +27,9 @@
 		A60A3BEE1E4CE4B2005E2D0A /* DownloadTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */; };
 		A670A1C61E5FD99D0044D4F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C51E5FD99D0044D4F3 /* ViewController.swift */; };
 		A670A1C81E5FD9F20044D4F3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */; };
+		A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */; };
+		A69FD85E1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */; };
+		A69FD8601E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */; };
 		A6A639921E1DF5AA0026E207 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A6A639911E1DF5AA0026E207 /* GoogleService-Info.plist */; };
 		A6A639941E1E05D10026E207 /* MyRoamniViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6A639931E1E05D10026E207 /* MyRoamniViewController.swift */; };
 		A6B901971E39252400516908 /* ContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B901961E39252400516908 /* ContainerTableViewCell.swift */; };
@@ -117,6 +120,9 @@
 		A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTour.swift; sourceTree = "<group>"; };
 		A670A1C51E5FD99D0044D4F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingTourCell.swift; sourceTree = "<group>"; };
+		A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingRequestTableViewController.swift; sourceTree = "<group>"; };
+		A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingRequestDetail.swift; sourceTree = "<group>"; };
 		A6A639911E1DF5AA0026E207 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A6A639931E1E05D10026E207 /* MyRoamniViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniViewController.swift; sourceTree = "<group>"; };
 		A6B901961E39252400516908 /* ContainerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTableViewCell.swift; sourceTree = "<group>"; };
@@ -241,6 +247,7 @@
 				A60834391E24F13900775187 /* MyRoamniAboutCell.swift */,
 				A608344C1E27592F00775187 /* MyRoamniLoginCell.swift */,
 				F0296EB21E493FB300652816 /* MyRoamniDownloadCell.swift */,
+				A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */,
 			);
 			name = MyRoamniTableCell;
 			sourceTree = "<group>";
@@ -259,6 +266,8 @@
 				F0296EB01E493EED00652816 /* MyTourTableViewController.swift */,
 				F0296EC11E49D7E200652816 /* ModalViewController.swift */,
 				F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */,
+				A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */,
+				A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */,
 			);
 			name = MyRoamniController;
 			sourceTree = "<group>";
@@ -487,7 +496,7 @@
 				TargetAttributes = {
 					F05F19BD1E1BC26C00556CD6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5UEEWU7R25;
+						DevelopmentTeam = BRJW2E4722;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -706,6 +715,7 @@
 			files = (
 				A670A1C61E5FD99D0044D4F3 /* ViewController.swift in Sources */,
 				F0296EC01E49D7DB00652816 /* LineView.swift in Sources */,
+				A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */,
 				A6B9019D1E3B339F00516908 /* StarViewController.swift in Sources */,
 				A60834301E24F0CA00775187 /* MyRoamniRequestTourCell.swift in Sources */,
 				F02618051E326252004697EA /* LengthTableViewCell.swift in Sources */,
@@ -713,6 +723,7 @@
 				F02617F91E2F97C0004697EA /* ContainerViewController.swift in Sources */,
 				A608342E1E24F0B100775187 /* MyRoamniUserCell.swift in Sources */,
 				F02617F71E2F95F1004697EA /* ContainerTableViewController.swift in Sources */,
+				A69FD8601E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift in Sources */,
 				F05F19F61E1D18B700556CD6 /* WalkingTableViewCell.swift in Sources */,
 				A608343D1E24F27B00775187 /* MyRoamniRequestTourViewController.swift in Sources */,
 				F05F19F81E1D190800556CD6 /* DrivingTableViewCell.swift in Sources */,
@@ -730,6 +741,7 @@
 				A6B901971E39252400516908 /* ContainerTableViewCell.swift in Sources */,
 				F0296EC41E49DC8400652816 /* MusicPlayerTransitionAnimation.swift in Sources */,
 				A608343A1E24F13900775187 /* MyRoamniAboutCell.swift in Sources */,
+				A69FD85E1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift in Sources */,
 				A60834411E24F2AA00775187 /* MyRoamniUploadToursViewController.swift in Sources */,
 				F05F1A0D1E1D37A900556CD6 /* RealTableViewCell.swift in Sources */,
 				A60834471E24F2DC00775187 /* MyRoamniAboutViewController.swift in Sources */,
@@ -889,11 +901,11 @@
 			baseConfigurationReference = B6B44BF97247FFACC8EC1517 /* Pods-Roamni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5UEEWU7R25;
+				DEVELOPMENT_TEAM = BRJW2E4722;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototypess;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -904,11 +916,11 @@
 			baseConfigurationReference = C95B3B5E6B72742CC18460B8 /* Pods-Roamni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5UEEWU7R25;
+				DEVELOPMENT_TEAM = BRJW2E4722;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototypess;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototype;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

@@ -10,13 +10,9 @@ import Foundation
 import CoreLocation
 
 struct Tour {
-    let songid: Int
-    let category : String
-    let name : String
+    let attraction : String
     let locations : CLLocationCoordinate2D
     let desc : String
-    let address : String
-    let star : String
-    let length: String
-    let difficulty:String
+    let tourType : String
+    
 }
