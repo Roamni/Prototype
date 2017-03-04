@@ -11,7 +11,7 @@ import CoreLocation
 import Firebase
 import AVFoundation
 import MediaPlayer
-class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate, AVAudioPlayerDelegate {
+class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate, AVAudioPlayerDelegate,  FloatRatingViewDelegate {
     static let sharedInstance = MyTourTableViewController()
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
@@ -30,9 +30,15 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     var myGroup = DispatchGroup()
     var fileName:String? = nil
     
-    
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating:Float) {
+        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+    }
     
     override func viewDidLoad() {
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+
         super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
@@ -108,7 +114,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
             
             
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
             
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
@@ -232,6 +238,17 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         cell.delegate = starView
         cell.Pass()
         cell.isSelected = false
+        cell.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
+        cell.floatRatingView.fullImage = UIImage(named: "StarFull")
+        // Optional params
+        cell.floatRatingView.delegate = self
+        cell.floatRatingView.contentMode = UIViewContentMode.scaleAspectFit
+        cell.floatRatingView.maxRating = 5
+        cell.floatRatingView.minRating = 1
+        //Set star rating
+        cell.floatRatingView.rating = 4
+        cell.floatRatingView.editable = false
+        
         
         let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         let documentsDirectory = paths[0]

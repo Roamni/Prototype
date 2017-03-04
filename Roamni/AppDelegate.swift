@@ -34,8 +34,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
         UIButton.appearance().tintColor = UIColor.blue
+        UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
+        
         return true
     }
+    
+   
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
         let Facebookhandled = FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String!, annotation: options[UIApplicationOpenURLOptionsKey.annotation])

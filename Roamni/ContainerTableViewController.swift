@@ -9,7 +9,9 @@
 import UIKit
 import CoreLocation
 import Firebase
-class ContainerTableViewController: UITableViewController,CLLocationManagerDelegate{
+class ContainerTableViewController: UITableViewController,CLLocationManagerDelegate,  FloatRatingViewDelegate{
+
+
 
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
@@ -22,6 +24,10 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
         super.viewDidLoad()
 
 
+    }
+    
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating:Float) {
+       // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -87,8 +93,19 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
         }
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
-        cell.StarLabel.text = tour.length + " hr"//tour.star
-        
+        cell.StarLabel.text = tour.length + " hr"
+        //tour.star
+        cell.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
+        cell.floatRatingView.fullImage = UIImage(named: "StarFull")
+        // Optional params
+        cell.floatRatingView.delegate = self
+        cell.floatRatingView.contentMode = UIViewContentMode.scaleAspectFit
+        cell.floatRatingView.maxRating = 5
+        cell.floatRatingView.minRating = 1
+        //Set star rating
+        cell.floatRatingView.rating = 4
+        cell.floatRatingView.editable = false
+
         let locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

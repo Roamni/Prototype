@@ -16,7 +16,7 @@
         let endLocation : CLLocationCoordinate2D
         let downloadUrl:String
         let desc : String
-        let star : Int
+        var star : Float
         let length: String
         let difficulty:String
         let uploadUser:String

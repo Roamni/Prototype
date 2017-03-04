@@ -13,6 +13,7 @@ import MediaPlayer
 class MyRoamniDownloadCell: UITableViewCell, AVAudioPlayerDelegate {
 var onButtonTapped : (() -> Void)? = nil
  
+    @IBOutlet weak var floatRatingView: FloatRatingView!
     @IBOutlet weak var starView: UIView!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var detailTextlabel: UILabel!

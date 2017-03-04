@@ -15,6 +15,7 @@ class MyRoamniDownloadToursViewController: UIViewController {
     var downloadTour:DownloadTour?
     var myGroup = DispatchGroup()
     var fileName:String? = nil
+   
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -95,7 +96,8 @@ class MyRoamniDownloadToursViewController: UIViewController {
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
 
             
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: dictionary["star"] as! Int, length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
+        
             
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?

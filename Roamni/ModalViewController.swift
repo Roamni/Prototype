@@ -297,6 +297,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
 
             
             controller.tour = downloadTours[counter]
+            controller.counter = self.counter
+            controller.downloadTours = self.downloadTours
             //controller.downloadTours = self.downloadTours
             print("calling!!")
   

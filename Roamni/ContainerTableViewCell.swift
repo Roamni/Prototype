@@ -9,6 +9,8 @@
 import UIKit
 
 class ContainerTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var floatRatingView: FloatRatingView!
     @IBOutlet weak var StarLabel: UILabel!
     @IBOutlet weak var textlabel: UILabel!
 
