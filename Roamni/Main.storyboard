@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fU3-st-mHE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fU3-st-mHE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -621,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNS-Mf-nLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2236" y="-2342.8785607196405"/>
+            <point key="canvasLocation" x="-1604" y="-2156"/>
         </scene>
         <!--My Roamni-->
         <scene sceneID="suh-fE-5e0">
@@ -886,7 +886,7 @@
                                         <rect key="frame" x="0.0" y="368" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hEM-RM-IKT" id="w7D-H8-StF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming Tours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlZ-wo-Aan">
@@ -1203,7 +1203,7 @@
                                 <rect key="frame" x="0.0" y="28" width="375" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BsK-iz-y9I" id="cgL-Ph-6xb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT9-4e-cv0">
@@ -1732,7 +1732,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RatingTableViewCell" id="pe6-aI-PBV" customClass="RatingTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pe6-aI-PBV" id="ViP-Rg-Pfy">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1757,7 +1757,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LengthTableViewCell" id="Q3U-Lr-10b" customClass="LengthTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q3U-Lr-10b" id="x17-VJ-fq7">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -1782,7 +1782,7 @@
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DifficultyTableViewCell" id="lnL-RV-JO3" customClass="DifficultyTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="144" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lnL-RV-JO3" id="rmM-vq-3hj">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
@@ -2387,7 +2387,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZb-cX-akv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4415.1999999999998" y="-712.89355322338838"/>
+            <point key="canvasLocation" x="-3830" y="-725"/>
         </scene>
         <!--My Tours-->
         <scene sceneID="0e8-1A-2I3">
@@ -2446,10 +2446,10 @@
         <image name="walk" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="v2G-wm-lUf"/>
-        <segue reference="xMV-R0-9wp"/>
         <segue reference="b0Q-Va-h81"/>
+        <segue reference="Iol-MH-FLa"/>
+        <segue reference="XFX-Vy-GFg"/>
         <segue reference="eMe-uv-RRn"/>
-        <segue reference="X6A-Yv-FAV"/>
+        <segue reference="xMV-R0-9wp"/>
     </inferredMetricsTieBreakers>
 </document>

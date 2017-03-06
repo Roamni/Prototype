@@ -246,7 +246,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         cell.floatRatingView.maxRating = 5
         cell.floatRatingView.minRating = 1
         //Set star rating
-        cell.floatRatingView.rating = 4
+        cell.floatRatingView.rating = tour.star
         cell.floatRatingView.editable = false
         
         

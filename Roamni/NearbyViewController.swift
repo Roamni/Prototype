@@ -23,7 +23,6 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     override func viewWillAppear(_ animated: Bool) {
-        self.tableView.reloadData()
         // self.tableView.dataSource = self
         // self.tableView.delegate = self
 //        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
@@ -31,19 +30,14 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //             //self.fetchTours()
 //        })
         
-        
-    }
-    
-    override func viewDidLoad() {
-
         fetchTours()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
- 
+        
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
         //change here to apply 5 km
         
@@ -51,6 +45,23 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         locationManager.startUpdatingLocation()
     }
     
+//    override func viewDidLoad() {
+//
+//        fetchTours()
+//        locationManager.delegate = self
+//        locationManager.requestAlwaysAuthorization()
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+//         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+//        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+// 
+//        controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
+//        //change here to apply 5 km
+//        
+//        controller.tours = tours
+//        locationManager.startUpdatingLocation()
+//    }
+//    
     
 
     
