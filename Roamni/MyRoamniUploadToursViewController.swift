@@ -316,7 +316,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             let navigationController:UINavigationController = segue.destination as! UINavigationController
             let controller:ViewController = navigationController.topViewController as! ViewController
             controller.sender = "endPoint"
-            
+        
         }
     }
 

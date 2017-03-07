@@ -23,6 +23,11 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     override func viewWillAppear(_ animated: Bool) {
+        if Reachability.isConnectedToNetwork() == true {
+        } else {
+            var alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
          self.tableView.dataSource = self
          self.tableView.delegate = self
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in

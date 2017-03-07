@@ -30,6 +30,7 @@
 		A63EF1271E6E94D60064ACDF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63EF1261E6E94D60064ACDF /* MapKit.framework */; };
 		A670A1C61E5FD99D0044D4F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C51E5FD99D0044D4F3 /* ViewController.swift */; };
 		A670A1C81E5FD9F20044D4F3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */; };
+		A686A2E21E6EB6A70034A50E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = A686A2E11E6EB6A70034A50E /* Reachability.swift */; };
 		A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */; };
 		A69FD85E1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */; };
 		A69FD8601E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */; };
@@ -128,6 +129,7 @@
 		A63EF1261E6E94D60064ACDF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A670A1C51E5FD99D0044D4F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		A686A2E11E6EB6A70034A50E /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingTourCell.swift; sourceTree = "<group>"; };
 		A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingRequestTableViewController.swift; sourceTree = "<group>"; };
 		A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingRequestDetail.swift; sourceTree = "<group>"; };
@@ -386,6 +388,7 @@
 				F0296EB91E49528B00652816 /* 1.m4a */,
 				F0296EBA1E49528B00652816 /* 2.m4a */,
 				F0296EBB1E49528B00652816 /* 3.m4a */,
+				A686A2E11E6EB6A70034A50E /* Reachability.swift */,
 				F0296EB41E49480600652816 /* Supporting Files */,
 			);
 			path = Roamni;
@@ -770,6 +773,7 @@
 				A60834471E24F2DC00775187 /* MyRoamniAboutViewController.swift in Sources */,
 				F063DE1D1E22929D00424985 /* DetailViewController.swift in Sources */,
 				F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */,
+				A686A2E21E6EB6A70034A50E /* Reachability.swift in Sources */,
 				A60834431E24F2C500775187 /* MyRoamniDistributionReportsViewController.swift in Sources */,
 				A60834341E24F0EA00775187 /* MyRoamniUploadTourCell.swift in Sources */,
 				F05F19FD1E1D1DE200556CD6 /* NearbyViewController.swift in Sources */,
