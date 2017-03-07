@@ -26,6 +26,39 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     
+    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
+        if sender.state == UIGestureRecognizerState.began{
+            let touchPoint = sender.location(in: mapView)
+            let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = newCoordinates
+            
+            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude:newCoordinates.latitude, longitude:newCoordinates.longitude), completionHandler: {(placemarks,error) -> Void in
+                if error != nil {
+                    print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                    return
+                }
+                if (placemarks?.count)! > 0 {
+                    let pm = (placemarks?[0])! as CLPlacemark
+                    // not all places have thoroughfare & subThoroughfare so validate those values
+                    annotation.title = pm.thoroughfare! + ", " + pm.subThoroughfare!
+                    annotation.subtitle = pm.subLocality
+                    self.mapView.removeAnnotations(self.mapView.annotations)
+                    self.mapView.addAnnotation(annotation)
+                    self.anno = annotation
+                    print(pm)
+                    
+                }
+                else {
+                    annotation.title = "Unknown Place"
+                    self.mapView.addAnnotation(annotation)
+                    print("Problem with the data received from geocoder")
+                }
+                
+            })
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.barTintColor = UIColor.white
@@ -54,14 +87,15 @@ class ViewController: UIViewController {
         
     }
     
-    func getDirections(){
-        guard let selectedPin = selectedPin else { return }
-        let mapItem = MKMapItem(placemark: selectedPin)
-        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
-        mapItem.openInMaps(launchOptions: launchOptions)
-    }
+//    func getDirections(){
+//        guard let selectedPin = selectedPin else { return }
+//        let mapItem = MKMapItem(placemark: selectedPin)
+//        let launchOptions = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+//        mapItem.openInMaps(launchOptions: launchOptions)
+//    }
+//}
+//
 }
-
 extension ViewController : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
@@ -123,8 +157,8 @@ extension ViewController : MKMapViewDelegate {
         pinView?.canShowCallout = true
         let smallSquare = CGSize(width: 30, height: 30)
         let button = UIButton(frame: CGRect(origin: CGPoint.zero, size: smallSquare))
-        button.setBackgroundImage(UIImage(named: "car"), for: UIControlState())
-        button.addTarget(self, action: #selector(ViewController.getDirections), for: .touchUpInside)
+//        button.setBackgroundImage(UIImage(named: "car"), for: UIControlState())
+//        button.addTarget(self, action: #selector(ViewController.getDirections), for: .touchUpInside)
         pinView?.leftCalloutAccessoryView = button
         
         return pinView

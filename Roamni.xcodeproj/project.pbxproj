@@ -25,6 +25,9 @@
 		A608344D1E27592F00775187 /* MyRoamniLoginCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A608344C1E27592F00775187 /* MyRoamniLoginCell.swift */; };
 		A60A3BEC1E4CA156005E2D0A /* KeyboardHideExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */; };
 		A60A3BEE1E4CE4B2005E2D0A /* DownloadTour.swift in Sources */ = {isa = PBXBuildFile; fileRef = A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */; };
+		A63EF1231E6E3E2E0064ACDF /* NearByCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63EF1221E6E3E2E0064ACDF /* NearByCollectionViewController.swift */; };
+		A63EF1251E6E70810064ACDF /* UploadPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A63EF1241E6E70810064ACDF /* UploadPickerViewController.swift */; };
+		A63EF1271E6E94D60064ACDF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63EF1261E6E94D60064ACDF /* MapKit.framework */; };
 		A670A1C61E5FD99D0044D4F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C51E5FD99D0044D4F3 /* ViewController.swift */; };
 		A670A1C81E5FD9F20044D4F3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */; };
 		A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */; };
@@ -120,6 +123,9 @@
 		A608344C1E27592F00775187 /* MyRoamniLoginCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniLoginCell.swift; sourceTree = "<group>"; };
 		A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardHideExtension.swift; sourceTree = "<group>"; };
 		A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadTour.swift; sourceTree = "<group>"; };
+		A63EF1221E6E3E2E0064ACDF /* NearByCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByCollectionViewController.swift; sourceTree = "<group>"; };
+		A63EF1241E6E70810064ACDF /* UploadPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPickerViewController.swift; sourceTree = "<group>"; };
+		A63EF1261E6E94D60064ACDF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A670A1C51E5FD99D0044D4F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingTourCell.swift; sourceTree = "<group>"; };
@@ -192,6 +198,7 @@
 			files = (
 				F0296EB81E49492A00652816 /* AVFoundation.framework in Frameworks */,
 				F0296EB61E49491E00652816 /* MediaPlayer.framework in Frameworks */,
+				A63EF1271E6E94D60064ACDF /* MapKit.framework in Frameworks */,
 				F600FF01EC8FB4F541B41A03 /* Pods_Roamni.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,6 +225,7 @@
 		26415866E4836DD71E862909 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A63EF1261E6E94D60064ACDF /* MapKit.framework */,
 				F0296EB71E49492A00652816 /* AVFoundation.framework */,
 				F0296EB51E49491E00652816 /* MediaPlayer.framework */,
 				A531D37C9D53C200DDC8D43A /* Pods_Roamni.framework */,
@@ -272,6 +280,7 @@
 				F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */,
 				A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */,
 				A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */,
+				A63EF1241E6E70810064ACDF /* UploadPickerViewController.swift */,
 			);
 			name = MyRoamniController;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 			isa = PBXGroup;
 			children = (
 				F05F19FC1E1D1DE200556CD6 /* NearbyViewController.swift */,
+				A63EF1221E6E3E2E0064ACDF /* NearByCollectionViewController.swift */,
 			);
 			name = NearbyController;
 			sourceTree = "<group>";
@@ -507,6 +517,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 0;
 							};
 						};
 					};
@@ -722,6 +735,7 @@
 				A670A1C61E5FD99D0044D4F3 /* ViewController.swift in Sources */,
 				F0296EC01E49D7DB00652816 /* LineView.swift in Sources */,
 				A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */,
+				A63EF1251E6E70810064ACDF /* UploadPickerViewController.swift in Sources */,
 				A6B9019D1E3B339F00516908 /* StarViewController.swift in Sources */,
 				A60834301E24F0CA00775187 /* MyRoamniRequestTourCell.swift in Sources */,
 				F02618051E326252004697EA /* LengthTableViewCell.swift in Sources */,
@@ -752,6 +766,7 @@
 				A60834411E24F2AA00775187 /* MyRoamniUploadToursViewController.swift in Sources */,
 				F00B334C1E696551004752B2 /* FloatRatingView.swift in Sources */,
 				F05F1A0D1E1D37A900556CD6 /* RealTableViewCell.swift in Sources */,
+				A63EF1231E6E3E2E0064ACDF /* NearByCollectionViewController.swift in Sources */,
 				A60834471E24F2DC00775187 /* MyRoamniAboutViewController.swift in Sources */,
 				F063DE1D1E22929D00424985 /* DetailViewController.swift in Sources */,
 				F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */,

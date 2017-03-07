@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 import MapKit
-class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate {
+class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITextViewDelegate {
     @IBAction func startButton(_ segue: UIStoryboardSegue) {
         let secondVC :ViewController = segue.source as! ViewController
         self.mapView.addAnnotation(secondVC.anno!)
@@ -24,7 +24,19 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
              self.endPointBn.setTitle((secondVC.anno?.title)!, for: .normal)
         }
     }
+    
+    @IBAction func categoryButton(_ segue: UIStoryboardSegue) {
+        let secondVC :UploadPickerViewController = segue.source as! UploadPickerViewController
+        self.categoryBn.setTitle(secondVC.pickString, for: .normal)
+        self.categoryBn.tintColor = UIColor.black
+    }
 
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    @IBOutlet weak var categoryBn: UIButton!
+
+    @IBOutlet weak var naviBar: UINavigationBar!
+    
     @IBOutlet weak var startpointBn: UIButton!
     
     @IBOutlet weak var endPointBn: UIButton!
@@ -33,9 +45,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBOutlet weak var FilenameLabel: UILabel!
     var data:NSData?
-    var getText:String?
+    var getText:String? = nil
     var ref:FIRDatabaseReference?
-    var pickString:String = "Walking"
     let storage = FIRStorage.storage()
     let locationManager = CLLocationManager()
     @IBOutlet weak var mapView: MKMapView!
@@ -51,42 +62,53 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.deregisterFromKeyboardNotifications()
     }
 
+    @IBAction func naviCancel(_ sender: Any) {
+        self.deregisterFromKeyboardNotifications()
+
+    }
     
-          @IBOutlet weak var categoryPicker: UIPickerView!
-   
-        let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Accessiable"]
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return categoryPickerValues.count
-    }
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categoryPickerValues[row]
-    }
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        self.pickString = categoryPickerValues[row]
-    }
     
     @IBOutlet weak var descText: UITextView!
     
     @IBOutlet weak var endPointText: UITextField!
     @IBAction func uploadAction(_ sender: Any) {
+
         let storageRef = storage.reference()
         if let user = FIRAuth.auth()?.currentUser{
+            
             let uid = user.uid
             let voiceRef = storageRef.child("\(uid)/\(FilenameLabel.text!)")
             let uploadMetadata = FIRStorageMetadata()
             uploadMetadata.contentType = "voice/m4a"
+            if self.data == nil {
+                self.alertBn(title: "Error", message: "no file")
+            }
+            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == nil || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil
+                {
+                    self.alertBn(title: "Error", message: "please input all field")
+                }
+                else
+            {
+                self.activityIndicator.center = self.view.center
+                self.activityIndicator.hidesWhenStopped = true
+                self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                self.view.addSubview(self.activityIndicator)
+                self.activityIndicator.startAnimating()
+                UIApplication.shared.beginIgnoringInteractionEvents()
+            
+
             let uploadTask = voiceRef.put(data as! Data, metadata: uploadMetadata) { metadata, error in
                 if let error = error {
                     // Uh-oh, an error occurred!
+                    self.alertBn(title: "Error", message: "upload file failed")
                     print(error.localizedDescription)
                 } else {
                     // Metadata contains file metadata such as size, content-type, and download URL.
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.pickString,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                        
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    
                 }
             }
           
@@ -95,8 +117,13 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                 guard let progress = snapshot.progress else {return}
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
                 if Int(strongSelf.progressView.progress) == 1{
-                self?.deregisterFromKeyboardNotifications()
-                self?.performSegue(withIdentifier: "backSegue", sender: self)
+                    self?.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    self?.alertBn(title: "complete", message: "Uploading Successful")
+                    self?.deregisterFromKeyboardNotifications()
+                    self?.performSegue(withIdentifier: "backView", sender: self)
+                }
+         
                 }
             }
         }
@@ -158,6 +185,13 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.getText = textView.text
        
     }
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if (text == "\n") {
+            textView.resignFirstResponder()
+            return false
+        }
+        return true
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.descText.delegate = self
@@ -168,8 +202,6 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         descText.layer.borderColor = borderColor.cgColor
         descText.layer.cornerRadius = 5.0
         self.ref = FIRDatabase.database().reference()
-        categoryPicker.delegate = self
-        categoryPicker.delegate = self
         self.mapView.delegate = self
         self.locationManager.delegate = self
         mapView.showsUserLocation = true
@@ -185,6 +217,17 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.endPointBn.tintColor = UIColor.black
         self.startpointBn.setTitle("click to add start Point", for: .normal)
         self.endPointBn.setTitle("click to add end Point", for: .normal)
+    
+        let statusBar: UIView = UIApplication.shared.value(forKey: "statusBar") as! UIView
+        if statusBar.responds(to:#selector(setter: UIView.backgroundColor)) {
+            statusBar.backgroundColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+
+        }
+        self.naviBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        self.naviBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        UITextField.appearance().tintColor = UIColor.black
+        UITextView.appearance().tintColor = UIColor.black
+
 
         // Do any additional setup after loading the view.
     }
@@ -277,4 +320,13 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         }
     }
 
+}
+extension MyRoamniUploadToursViewController:UITextFieldDelegate{
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if (string == "\n") {
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }
 }
