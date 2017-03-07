@@ -67,10 +67,11 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
     }
 
     @IBAction func submit(_ sender: Any) {
-        let averageR = (Int(self.downloadTours[counter].star) * (self.userNumber-1) + self.rating)/self.userNumber
+    
+        let averageR = (Int(self.downloadTours[counter].star) * (self.userNumber) + self.rating)/(self.userNumber+1)
         self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("star").setValue(averageR)
        
-        print("submit")
+        print(self.downloadTours[counter].tourId)
         
     }
 
