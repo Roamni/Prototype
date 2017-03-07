@@ -34,28 +34,39 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
     
-    override func viewDidLoad() {
+//    override func viewDidLoad() {
+//        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+//        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+//
+//        super.viewDidLoad()
+//        self.tableView.delegate = self
+//        self.tableView.dataSource = self
+//         fetchTours()
+//        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
+//        self.modalVC.modalPresentationStyle = .overFullScreen
+//
+//    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        //print("the table category is \(self.tourCategory!)")
+        super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-
-        super.viewDidLoad()
         self.tableView.delegate = self
         self.tableView.dataSource = self
-         fetchTours()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
         self.modalVC.modalPresentationStyle = .overFullScreen
 
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //print("the table category is \(self.tourCategory!)")
-        super.viewWillAppear(animated)
+        self.downloadTours.removeAll()
+        fetchTours()
         tableView.reloadData()
 
         //tableView
-        //fetchTours()
+        
         tableView.tableFooterView = UIView()
         super.viewDidLoad()
         //musicSlider.value = 0.0
