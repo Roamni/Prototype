@@ -34,7 +34,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.tableView.reloadData()
              //self.fetchTours()
         })
-        
+        self.tours.removeAll()
         fetchTours()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
