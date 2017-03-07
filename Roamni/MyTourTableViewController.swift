@@ -127,7 +127,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
                 
-                if snapshot.childSnapshot(forPath: "user").hasChild(uid) || downloadTour.uploadUser == uid
+                if child.childSnapshot(forPath: "user").hasChild(uid) || downloadTour.uploadUser == uid
                 {
                     self.downloadTours.append(downloadTour)
                     print(self.downloadTours)
