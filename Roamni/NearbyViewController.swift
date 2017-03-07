@@ -22,39 +22,22 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
     var locationManager = CLLocationManager()
 
     
-//    override func viewWillAppear(_ animated: Bool) {
-        // self.tableView.dataSource = self
-        // self.tableView.delegate = self
-//        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
-//            self.tableView.reloadData()
-//             //self.fetchTours()
-//        })
+    override func viewWillAppear(_ animated: Bool) {
+         self.tableView.dataSource = self
+         self.tableView.delegate = self
+        DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
+            self.tableView.reloadData()
+             //self.fetchTours()
+        })
         
-//        fetchTours()
-//        locationManager.delegate = self
-//        locationManager.requestAlwaysAuthorization()
-//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-//        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-//        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-//        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-//        
-//        controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
-//        //change here to apply 5 km
-//        
-//        controller.tours = tours
-//        locationManager.startUpdatingLocation()
-//    }
-    
-    override func viewDidLoad() {
-
         fetchTours()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
- 
+        
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
         //change here to apply 5 km
         
@@ -62,7 +45,24 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         locationManager.startUpdatingLocation()
     }
     
-    
+//    override func viewDidLoad() {
+//
+//        fetchTours()
+//        locationManager.delegate = self
+//        locationManager.requestAlwaysAuthorization()
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+//         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+//        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+// 
+//        controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
+//        //change here to apply 5 km
+//        
+//        controller.tours = tours
+//        locationManager.startUpdatingLocation()
+//    }
+//    
+//    
 
     
 
@@ -71,10 +71,10 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
-        ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
-            
-            let dictionary = snapshot.value as!  [String : Any]
-            // tour.setValuesForKeys(dictionary)
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]            // tour.setValuesForKeys(dictionary)
             let startLocation = dictionary["startPoint"] as!  [String : Any]
             
             let endLocation = dictionary["endPoint"] as!  [String : Any]
@@ -115,6 +115,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.controller.tours = self.tours
             self.controller.getTableVCObject?.tours = self.controller.tours
             self.controller.getTableVCObject?.tableView.reloadData()
+            }
             })
     
     }

@@ -85,10 +85,10 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     func fetchTours(){
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
-        
-        ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
-            
-            let dictionary = snapshot.value as!  [String : Any]
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
             // tour.setValuesForKeys(dictionary)
             let startLocation = dictionary["startPoint"] as!  [String : Any]
             
@@ -139,7 +139,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             else{
                 print("no permission")
             }
-            
+            }
         })
         
         

@@ -57,9 +57,10 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
-        ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
-            
-            let dictionary = snapshot.value as!  [String : Any]
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
             // tour.setValuesForKeys(dictionary)
             let startLocation = dictionary["startPoint"] as!  [String : Any]
             
@@ -101,7 +102,9 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
             self.controller.tours = self.tours
             self.controller.getTableVCObject?.tours = self.controller.tours
             self.controller.getTableVCObject?.tableView.reloadData()
+            }
         })
+            
         
     }
     
