@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Firebase
 class TourMusicDetailViewController: UIViewController {
 
     @IBOutlet weak var ratingbtn: UIBarButtonItem!
@@ -30,6 +30,17 @@ class TourMusicDetailViewController: UIViewController {
         desc.text = tour?.desc
         diffLabel.text = tour?.difficulty
         nameLabel.text = tour?.name
+        let ref = FIRDatabase.database().reference()
+        ref.child("tours").child("\(self.downloadTours[counter].tourId)").child("user").child("\(self.downloadTours[counter].tourId)").observeSingleEvent(of: .value, with:{(snapshot) in
+            let value = snapshot.value as! String
+            if value == "rated"
+            {
+                self.ratingbtn.isEnabled = false
+            }
+        
+        
+        }, withCancel: nil)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,6 +51,12 @@ class TourMusicDetailViewController: UIViewController {
     @IBAction func back(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func ratingBn(_ sender: Any) {
+        
+        
+    }
+    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "ratingSeg"

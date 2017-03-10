@@ -70,7 +70,7 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
     
         let averageR = (Int(self.downloadTours[counter].star) * (self.userNumber) + self.rating)/(self.userNumber+1)
         self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("star").setValue(averageR)
-       
+        self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("user").child("\(self.downloadTours[counter].tourId)").setValue("rated")
         print(self.downloadTours[counter].tourId)
         
     }

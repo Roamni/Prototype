@@ -9,6 +9,7 @@
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -1353,7 +1354,12 @@
                             <outlet property="delegate" destination="Z44-Bg-g2W" id="Ccy-x3-zYM"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Tours" id="W2e-8c-IFf"/>
+                    <navigationItem key="navigationItem" title="My Tours" id="W2e-8c-IFf">
+                        <rightBarButtonItems>
+                            <barButtonItem title="Item" id="FfO-ms-vIy"/>
+                            <barButtonItem title="Item" id="7Qk-wz-HP8"/>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <segue destination="el7-T8-cG3" kind="showDetail" identifier="goMusicDetail" id="X6A-Yv-FAV"/>
                     </connections>
@@ -2196,7 +2202,7 @@
                         <barButtonItem key="rightBarButtonItem" image="ratingbtn" id="dxs-t1-4MN">
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
-                                <action selector="back:" destination="zIT-Da-4fw" id="Cv5-fK-sE6"/>
+                                <action selector="ratingBn:" destination="zIT-Da-4fw" id="5dA-rh-zJP"/>
                                 <segue destination="3iy-pm-6cc" kind="show" identifier="ratingSeg" id="DrD-fN-Erd"/>
                             </connections>
                         </barButtonItem>
@@ -2602,10 +2608,10 @@
         <image name="walk" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RFp-T4-0Nr"/>
+        <segue reference="X6A-Yv-FAV"/>
         <segue reference="NBH-90-Jgo"/>
         <segue reference="xMV-R0-9wp"/>
-        <segue reference="XFX-Vy-GFg"/>
+        <segue reference="RFp-T4-0Nr"/>
         <segue reference="eMe-uv-RRn"/>
     </inferredMetricsTieBreakers>
 </document>
