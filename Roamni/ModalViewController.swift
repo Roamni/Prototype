@@ -55,12 +55,15 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
             self.counter = 0
         }
         playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
-        player.stop()
-        music()
-        musicSlider.maximumValue = Float(self.player.duration)
-        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
-        setLockView()
-        updateTourDetail()
+        player.pause()
+        player.currentTime = player.currentTime + 15
+        player.play()
+//        player.stop()
+//        music()
+//        musicSlider.maximumValue = Float(self.player.duration)
+//        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+//        setLockView()
+//        updateTourDetail()
     }
     
     @IBAction func previous(_ sender: Any) {
@@ -71,13 +74,17 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
             self.counter = downloadTours.count - 1
         }
         playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
-        player.stop()
-        music()
-        musicSlider.maximumValue = Float(self.player.duration)
-        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
-        setLockView()
-        print("\(downloadTours.count)")
-        updateTourDetail()
+        player.pause()
+        player.currentTime = player.currentTime - 15
+        player.play()
+
+//        player.stop()
+//        music()
+//        musicSlider.maximumValue = Float(self.player.duration)
+//        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+//        setLockView()
+//        print("\(downloadTours.count)")
+//        updateTourDetail()
     }
     
     
