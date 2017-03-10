@@ -27,27 +27,66 @@ import AVFoundation
 class DetailViewController: UIViewController,MKMapViewDelegate {
     var ref:FIRDatabaseReference?
     var detailTour: DownloadTour?
+    var allDetailTour = [DownloadTour]()
     var users:[String]?
+    var currentIndex:Int?
+    var aPlayer:AVPlayer!
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
     @IBOutlet weak var detailMap: MKMapView!
     
+    @IBOutlet weak var nextBn: UIBarButtonItem!
+    @IBOutlet weak var preBn: UIBarButtonItem!
+       
     
-    @IBAction func preViewBn(_ sender: Any) {
-        var aPlayer:AVPlayer!
-        var timeObserver: AnyObject!
-        aPlayer = AVPlayer(url: NSURL(string: (self.detailTour?.downloadUrl)!)! as URL)
-        let timeInterval: TimeInterval = 1.0
-        let cmtime:CMTime = CMTimeMake(Int64(timeInterval), 1)
-        let timeArray = NSValue(time: cmtime)
-        timeObserver = aPlayer.addBoundaryTimeObserver(forTimes: [timeArray], queue:nil) { () -> Void in
-            print("1s reached")
-            aPlayer.removeTimeObserver(timeObserver)
-            aPlayer.pause()
-            } as AnyObject!
-        aPlayer.play()
+    @IBAction func nextAc(_ sender: Any) {
+        self.detailTour = self.allDetailTour[currentIndex!+1]
+        self.currentIndex! += 1
+        self.viewDidLoad()
+
+    }
+    @IBAction func preAc(_ sender: Any) {
+        if currentIndex != 0{
+        self.detailTour = self.allDetailTour[currentIndex!-1]
+        self.currentIndex! -= 1
+        }
+        self.viewDidLoad()
 
     }
     
+    
+    @IBAction func preViewBn(_ sender: Any) {
+        var timeObserver: AnyObject!
+        
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
+        UIApplication.shared.beginIgnoringInteractionEvents()
+
+        aPlayer = AVPlayer(url: NSURL(string: (self.detailTour?.downloadUrl)!)! as URL)
+        let timeInterval: TimeInterval = 10.0
+        let cmtime:CMTime = CMTimeMake(Int64(timeInterval), 1)
+        let timeArray = NSValue(time: cmtime)
+        timeObserver = aPlayer.addBoundaryTimeObserver(forTimes: [timeArray], queue:nil) { () -> Void in
+            print("10s reached")
+            self.alertBn(title: "complete", message: "30 seconds reached")
+            self.aPlayer.removeTimeObserver(timeObserver)
+            self.aPlayer.pause()
+            } as AnyObject!
+        aPlayer.currentItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+        aPlayer.play()
+
+    }
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if aPlayer.currentItem?.status == AVPlayerItemStatus.readyToPlay{
+            self.activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            aPlayer.currentItem?.removeObserver(self, forKeyPath: "status")
+        }
+        
+    }
   
     @IBAction func downloadAction(_ sender: Any) {
         if let user = FIRAuth.auth()?.currentUser{
@@ -60,6 +99,10 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
                  self.ref?.child("tours").child("\(detaiTourId!)").child("user").child(uid).setValue("buy")
                 }
             })
+        self.alertBn(title: "Successful", message: "You have added this tour to your Mytour list")
+        }
+        else {
+            self.alertBn(title: "Error", message: "Please Log in")
         }
     }
     

@@ -18,7 +18,7 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
     var tours = [DownloadTour]()
     var filteredTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
-
+    var allTours = [DownloadTour]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +48,18 @@ class ContainerTableViewController: UITableViewController,CLLocationManagerDeleg
                 let tour: DownloadTour
                 if searchController.isActive && searchController.searchBar.text != "" {
                     tour = filteredTours[indexPath.row]
+                    allTours = filteredTours
                 } else {
                     tour = tours[indexPath.row]
+                    allTours = tours
+                    
                 }
+//                let navController = segue.destination as! UINavigationController
+               
                 let controller = segue.destination as! DetailViewController
                 controller.detailTour = tour
+                controller.currentIndex = indexPath.row
+                controller.allDetailTour = allTours
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
