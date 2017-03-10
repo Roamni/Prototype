@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import ReachabilitySwift
 extension UIViewController {
     func hideKeyboardWhenTappedAround() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
@@ -30,6 +31,24 @@ extension UIViewController {
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion:nil)
     }
+    
+    func reachabilityChanged(note: NSNotification) {
+        
+        let reachability = note.object as! Reachability
+        
+        if reachability.isReachable {
+            if reachability.isReachableViaWiFi {
+                print("Reachable via WiFi")
+            } else {
+                print("Reachable via Cellular")
+            }
+        } else {
+            print("Network not reachable")
+            self.alertBn(title: "No Internet Connection", message:  "Make sure your device is connected to the internet.")
+        }
+    }
+    
+
 
     
 }

@@ -8,11 +8,12 @@
 
 import UIKit
 import Firebase
-
-class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+import FBSDKLoginKit
+class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var tableView: UITableView!
-        
+    let loginButton = FBSDKLoginButton()
+    
     override func viewWillAppear(_ animated: Bool) {
          self.tableView.dataSource = self
         self.tableView.delegate = self
@@ -98,10 +99,11 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     //type UITableViewCell. These are the objects that users see in the table's rows.
     //This function basically returns a cell, for a table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         if indexPath.section == 0{
             //Return the cell with identifier NotificationTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniUserCell", for: indexPath as IndexPath) as! MyRoamniUserCell
+            cell.loginBn.readPermissions =  ["public_profile","email"]
+            cell.loginBn.delegate = self
             if let user = FIRAuth.auth()?.currentUser{
                 let name = user.displayName
                 let photo = user.photoURL
@@ -166,6 +168,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniLoginCell", for: indexPath as IndexPath)
                 as! MyRoamniLoginCell
+            
             return cell
             
             
@@ -206,4 +209,44 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     }
     */
 
+}
+extension MyRoamniViewController:FBSDKLoginButtonDelegate{
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        try!FIRAuth.auth()?.signOut()
+        print("log out of facebook")
+        self.tableView.reloadData()
+        
+    }
+    
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        if error != nil{
+            print(error)
+            return
+        }
+        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        
+        FIRAuth.auth()?.signIn(with: credential) { (user, error) in
+            // ...
+            if let error = error {
+                print(error)
+                return
+            }
+            self.tableView.reloadData()
+        }
+        print("successfully logged in ")
+        if let user = FIRAuth.auth()?.currentUser{
+            let email = user.email
+            let uid = user.uid
+            let ref = FIRDatabase.database().reference()
+            ref.child("users/\(uid)/email").setValue(email)
+        }
+        else{
+            print("no user")
+        }
+    }
+
+    
+    
+    
 }

@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
 class MyRoamniUserCell: UITableViewCell {
     @IBOutlet weak var userLabel: UILabel!
 
     @IBOutlet weak var userPhoto: UIImageView!
+    
+    @IBOutlet weak var loginBn: FBSDKLoginButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()

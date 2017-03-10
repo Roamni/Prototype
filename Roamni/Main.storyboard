@@ -707,7 +707,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAW-ni-cW5">
-                                                    <rect key="frame" x="126" y="25" width="123" height="21"/>
+                                                    <rect key="frame" x="126" y="8" width="123" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -718,16 +718,22 @@
                                                         <constraint firstAttribute="width" constant="60" id="pAK-jF-cJ0"/>
                                                     </constraints>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7EQ-fr-wSb" customClass="FBSDKLoginButton">
+                                                    <rect key="frame" x="126" y="37" width="123" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="eAW-ni-cW5" firstAttribute="leading" secondItem="Xdj-e8-9zk" secondAttribute="trailing" constant="50" id="0Wp-ek-Sec"/>
-                                                <constraint firstItem="Xdj-e8-9zk" firstAttribute="centerY" secondItem="eAW-ni-cW5" secondAttribute="centerY" constant="-1" id="5Tb-ey-2Lb"/>
+                                                <constraint firstItem="Xdj-e8-9zk" firstAttribute="centerY" secondItem="eAW-ni-cW5" secondAttribute="centerY" constant="15.5" id="5Tb-ey-2Lb"/>
                                                 <constraint firstItem="Xdj-e8-9zk" firstAttribute="top" secondItem="jvN-Oh-U7x" secondAttribute="topMargin" constant="-4" id="6PU-eV-IU7"/>
                                                 <constraint firstItem="Xdj-e8-9zk" firstAttribute="leading" secondItem="jvN-Oh-U7x" secondAttribute="leadingMargin" constant="8" id="Sih-YO-cjI"/>
                                                 <constraint firstItem="Xdj-e8-9zk" firstAttribute="bottom" secondItem="jvN-Oh-U7x" secondAttribute="bottomMargin" constant="2.5" id="TKN-Wf-ryh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="loginBn" destination="7EQ-fr-wSb" id="h7Q-DZ-OLc"/>
                                             <outlet property="userLabel" destination="eAW-ni-cW5" id="add-cO-HbX"/>
                                             <outlet property="userPhoto" destination="Xdj-e8-9zk" id="rWo-iQ-pXF"/>
                                         </connections>
@@ -1012,7 +1018,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaP-25-slM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2248.8000000000002" y="278.41079460269867"/>
+            <point key="canvasLocation" x="2157.5999999999999" y="266.71664167916043"/>
         </scene>
         <!--My Roamni Incoming Request Table View Controller-->
         <scene sceneID="hdM-Xt-RUm">

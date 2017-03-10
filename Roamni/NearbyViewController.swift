@@ -9,9 +9,11 @@
 import UIKit
 import CoreLocation
 import Firebase
+import ReachabilitySwift
 class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,CLLocationManagerDelegate{
 
-    
+    let reachability = Reachability()!
+
 
     
     @IBOutlet weak var tableView: UITableView!
@@ -23,11 +25,13 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     
     override func viewWillAppear(_ animated: Bool) {
-        if Reachability.isConnectedToNetwork() == true {
-        } else {
-            var alert = UIAlertView(title: "No Internet Connection", message: "Make sure your device is connected to the internet.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
         }
+        
          self.tableView.dataSource = self
          self.tableView.delegate = self
         DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
@@ -68,9 +72,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
 //    }
 //    
 //    
-
     
-
     
     func fetchTours(){
         var ref:FIRDatabaseReference?

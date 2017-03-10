@@ -14,7 +14,7 @@ target 'Roamni' do
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
   pod 'ARNTransitionAnimator'
-
+  pod 'ReachabilitySwift', '~> 3'
   target 'RoamniTests' do
     inherit! :search_paths
     # Pods for testing
