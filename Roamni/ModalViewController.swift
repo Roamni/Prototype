@@ -235,8 +235,14 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     func updateMusicSlider(){
         
         musicSlider.value = Float(player.currentTime)
-        startedTime.text = "\(Float(player.currentTime))"
-        leftTime.text = "\(Float(player.duration) -  Float(player.currentTime))"
+        let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(player.currentTime))
+        startedTime.text = "\(h):\(m):\(s)"//"\(Int(player.currentTime))"
+        let (h1,m1,s1) = secondsToHoursMinutesSeconds(seconds: Int(player.duration) -  Int(player.currentTime))
+        leftTime.text = "\(h1):\(m1):\(s1)"//"\(Int(player.duration) -  Int(player.currentTime))"
+    }
+    
+    func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
+        return (seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
     }
     
     func setLockView(){

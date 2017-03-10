@@ -44,8 +44,8 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
         //self.ratingSegmentedControl.selectedSegmentIndex = 1
         
         // Labels init
-        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
-        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        //self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        //self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
         
         self.ref = FIRDatabase.database().reference()
         
@@ -72,6 +72,10 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
         self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("star").setValue(averageR)
         self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("user").child("\(self.downloadTours[counter].tourId)").setValue("rated")
         print(self.downloadTours[counter].tourId)
+        let alertController = UIAlertController(title: "Notification", message: "Your rating is submitted", preferredStyle: UIAlertControllerStyle.alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+
         
     }
 
