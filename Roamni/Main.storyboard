@@ -503,7 +503,7 @@
             </objects>
             <point key="canvasLocation" x="-3176.8000000000002" y="12.143928035982009"/>
         </scene>
-        <!--Near By Collection View Controller-->
+        <!--NearBy-->
         <scene sceneID="msu-cW-MZh">
             <objects>
                 <collectionViewController id="dj2-sz-6qM" customClass="NearByCollectionViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
@@ -555,7 +555,7 @@
                             <outlet property="delegate" destination="dj2-sz-6qM" id="FcX-Fg-Hjj"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" id="P8h-B6-Ukf"/>
+                    <navigationItem key="navigationItem" title="NearBy" id="P8h-B6-Ukf"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fua-Q4-OIu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2534,11 +2534,11 @@
             </objects>
             <point key="canvasLocation" x="-4396" y="-3433.1334332833585"/>
         </scene>
-        <!--Item-->
+        <!--Nearby-->
         <scene sceneID="sCg-AX-xZ9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cOD-Lo-j0G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="rtp-vL-plE"/>
+                    <tabBarItem key="tabBarItem" title="Nearby" image="Nearby" id="rtp-vL-plE"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="2J5-BZ-CyO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
