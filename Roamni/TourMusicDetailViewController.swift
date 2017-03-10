@@ -32,13 +32,14 @@ class TourMusicDetailViewController: UIViewController {
         nameLabel.text = tour?.name
         let ref = FIRDatabase.database().reference()
         ref.child("tours").child("\(self.downloadTours[counter].tourId)").child("user").child("\(self.downloadTours[counter].tourId)").observeSingleEvent(of: .value, with:{(snapshot) in
+            if snapshot.exists(){
             let value = snapshot.value as! String
             if value == "rated"
             {
                 self.ratingbtn.isEnabled = false
             }
         
-        
+            }
         }, withCancel: nil)
         
     }
