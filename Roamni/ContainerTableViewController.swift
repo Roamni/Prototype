@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 import Firebase
-class ContainerTableViewController: UITableViewController,CLLocationManagerDelegate,  FloatRatingViewDelegate{
+class ContainerTableViewController: UITableViewController, CLLocationManagerDelegate, FloatRatingViewDelegate{
 
 
 

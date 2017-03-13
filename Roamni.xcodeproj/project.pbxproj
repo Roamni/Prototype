@@ -78,6 +78,8 @@
 		F063DE211E239B0400424985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F063DE201E239B0400424985 /* Main.storyboard */; };
 		F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7661E2DF5AC0031B1CD /* TourForMap.swift */; };
 		F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */; };
+		F08A66131E7294D7008AE869 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66121E7294D7008AE869 /* FilterViewController.swift */; };
+		F08A66151E7294DF008AE869 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */; };
 		F0901AEA1E6057E300F23AC3 /* TourMusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */; };
 		F0BCCB141E362E52005162DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */; };
 		F0F2D92B1E59F783004F21C4 /* img.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0F2D92A1E59F783004F21C4 /* img.jpeg */; };
@@ -185,6 +187,8 @@
 		F063DE201E239B0400424985 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F080D7661E2DF5AC0031B1CD /* TourForMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourForMap.swift; sourceTree = "<group>"; };
 		F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
+		F08A66121E7294D7008AE869 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
+		F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourMusicDetailViewController.swift; sourceTree = "<group>"; };
 		F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0F2D92A1E59F783004F21C4 /* img.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpeg; sourceTree = "<group>"; };
@@ -381,6 +385,8 @@
 				A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */,
 				F00B334B1E696551004752B2 /* FloatRatingView.swift */,
 				F00B334D1E696559004752B2 /* RatingViewController.swift */,
+				F08A66121E7294D7008AE869 /* FilterViewController.swift */,
+				F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */,
 				F0F2D92A1E59F783004F21C4 /* img.jpeg */,
 				F05F19D01E1BC26C00556CD6 /* Info.plist */,
 				F0296EB91E49528B00652816 /* 1.m4a */,
@@ -512,7 +518,7 @@
 				TargetAttributes = {
 					F05F19BD1E1BC26C00556CD6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = BRJW2E4722;
+						DevelopmentTeam = 5UEEWU7R25;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -764,6 +770,7 @@
 				A608343A1E24F13900775187 /* MyRoamniAboutCell.swift in Sources */,
 				A69FD85E1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift in Sources */,
 				A60834411E24F2AA00775187 /* MyRoamniUploadToursViewController.swift in Sources */,
+				F08A66151E7294DF008AE869 /* ImageCollectionViewCell.swift in Sources */,
 				F00B334C1E696551004752B2 /* FloatRatingView.swift in Sources */,
 				F05F1A0D1E1D37A900556CD6 /* RealTableViewCell.swift in Sources */,
 				A63EF1231E6E3E2E0064ACDF /* NearByCollectionViewController.swift in Sources */,
@@ -786,6 +793,7 @@
 				A60834361E24F10000775187 /* MyRoamniDistributionCell.swift in Sources */,
 				F05F1A151E1D37F100556CD6 /* PreTableViewCell.swift in Sources */,
 				A60834381E24F12B00775187 /* MyRoamniHowCell.swift in Sources */,
+				F08A66131E7294D7008AE869 /* FilterViewController.swift in Sources */,
 				A60834491E24F41400775187 /* MyRoamniUserLoginViewController.swift in Sources */,
 				A670A1C81E5FD9F20044D4F3 /* LocationSearchTable.swift in Sources */,
 				F02618071E3266F1004697EA /* DifficultyTableViewCell.swift in Sources */,
@@ -924,11 +932,11 @@
 			baseConfigurationReference = B6B44BF97247FFACC8EC1517 /* Pods-Roamni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BRJW2E4722;
+				DEVELOPMENT_TEAM = 5UEEWU7R25;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototype;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototyegg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -939,11 +947,11 @@
 			baseConfigurationReference = C95B3B5E6B72742CC18460B8 /* Pods-Roamni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = BRJW2E4722;
+				DEVELOPMENT_TEAM = 5UEEWU7R25;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototype;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototyegg;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

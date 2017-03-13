@@ -46,6 +46,7 @@ class SearchContainerViewController: UIViewController {
         }
         var delegate = UIApplication.shared.delegate as! AppDelegate
         songTitle.text =  delegate.songTitle
+        
         //tours.removeAll()
         //print(self.tourCategory)
         //getTableVCObject?.tourCategory = self.tourCategory
@@ -87,18 +88,22 @@ class SearchContainerViewController: UIViewController {
         if let splitViewController = splitViewController {
             let controllers = splitViewController.viewControllers
 
-            detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
             finalTours = tours
 
+           
         }
         
         getTableVCObject?.tours = self.tours
         getTableVCObject?.tableView.reloadData()
+        
         if self.tourCategory != nil{
             
             filterContentForSearchText(self.tourCategory!, scope: "Default")
             searchController.isActive = true
         }
+    
+    
     }
 
     override func didReceiveMemoryWarning() {

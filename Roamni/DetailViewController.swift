@@ -24,7 +24,13 @@ import UIKit
 import MapKit
 import Firebase
 import AVFoundation
-class DetailViewController: UIViewController,MKMapViewDelegate {
+class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingViewDelegate {
+    /**
+     Returns the rating value when touch events end
+     */
+    public func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
+    }
+
     var ref:FIRDatabaseReference?
     var detailTour: DownloadTour?
     var allDetailTour = [DownloadTour]()
@@ -33,6 +39,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
     var aPlayer:AVPlayer!
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
 
+    @IBOutlet weak var floatRatingView: FloatRatingView!
     @IBOutlet weak var detailMap: MKMapView!
     
     @IBOutlet weak var nextBn: UIBarButtonItem!
@@ -54,6 +61,7 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
 
     }
     
+
     
     @IBAction func preViewBn(_ sender: Any) {
         var timeObserver: AnyObject!
@@ -126,6 +134,17 @@ class DetailViewController: UIViewController,MKMapViewDelegate {
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self
     let sourceLocation = detailTour?.startLocation
+    self.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
+    self.floatRatingView.fullImage = UIImage(named: "StarFull")
+    // Optional params
+    self.floatRatingView.delegate = self
+    self.floatRatingView.contentMode = UIViewContentMode.scaleAspectFit
+    self.floatRatingView.maxRating = 5
+    self.floatRatingView.minRating = 1
+    //Set star rating
+    self.floatRatingView.rating = (detailTour?.star)!
+    self.floatRatingView.editable = false
+    
     let destinationLocation = CLLocationCoordinate2D(latitude: (detailTour?.endLocation.latitude)!, longitude: (detailTour?.endLocation.longitude)!)
     let sourcePlacemark = MKPlacemark(coordinate: sourceLocation!, addressDictionary: nil)
     let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
