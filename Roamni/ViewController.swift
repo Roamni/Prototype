@@ -14,7 +14,7 @@ protocol HandleMapSearch: class {
 }
 
 class ViewController: UIViewController {
-    var anno:MKAnnotation?
+    var anno:MKAnnotation? = nil
     var selectedPin: MKPlacemark?
     var resultSearchController: UISearchController!
     var sender:String?
@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     }
 
     @IBOutlet weak var mapView: MKMapView!
+    
+
+    
+    
     
     @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
         if sender.state == UIGestureRecognizerState.began{

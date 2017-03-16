@@ -12,7 +12,17 @@ import MapKit
 class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITextViewDelegate {
     @IBAction func startButton(_ segue: UIStoryboardSegue) {
         let secondVC :ViewController = segue.source as! ViewController
+        print("\(secondVC.anno)")
+        if (secondVC.anno == nil)
+        {
+          
+          self.alertBn(title: "Error", message: "Please select a Pin")
+            
+        }
+        else{
+            
         self.mapView.addAnnotation(secondVC.anno!)
+        
         if secondVC.sender == "startPoint" {
             
             self.startPointLocation = secondVC.anno?.coordinate
@@ -22,6 +32,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         else{
             self.endPointLocation = secondVC.anno?.coordinate
              self.endPointBn.setTitle((secondVC.anno?.title)!, for: .normal)
+        }
         }
     }
     
