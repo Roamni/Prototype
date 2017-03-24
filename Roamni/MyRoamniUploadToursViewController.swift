@@ -41,6 +41,13 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.categoryBn.setTitle(secondVC.pickString, for: .normal)
         self.categoryBn.tintColor = UIColor.black
     }
+    
+    @IBAction func lengthButton(_ segue: UIStoryboardSegue) {
+        let secondVC :UploadLengthViewController = segue.source as! UploadLengthViewController
+        self.lengthBn.setTitle(secondVC.pickString, for: .normal)
+        self.lengthBn.tintColor = UIColor.black
+    }
+
 
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
@@ -55,6 +62,9 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var FilenameLabel: UILabel!
+    
+    @IBOutlet weak var lengthBn: UIButton!
+    
     var data:NSData?
     var getText:String? = nil
     var ref:FIRDatabaseReference?
@@ -94,7 +104,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             if self.data == nil {
                 self.alertBn(title: "Error", message: "no file")
             }
-            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == nil || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil
+            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == nil || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == nil
                 {
                     self.alertBn(title: "Error", message: "please input all field")
                 }
@@ -118,7 +128,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
                         
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text! ?? "walking","desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":2,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text! ?? "walking","desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":self.lengthBn.titleLabel?.text!,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                     
                 }
             }

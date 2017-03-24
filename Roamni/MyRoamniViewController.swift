@@ -224,7 +224,12 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
             print(error)
             return
         }
-        let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
+        else if result.isCancelled {
+            // Handle cancellations
+            return
+        }
+        else{
+         let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
             // ...
@@ -244,9 +249,9 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
         else{
             print("no user")
         }
-    }
-
     
+    }
+    }
     
     
 }

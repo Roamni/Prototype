@@ -190,7 +190,7 @@ class SearchContainerViewController: UIViewController {
         }
         if segue.identifier == "filter"
         {
-            let controller:FilterTableViewController = segue.destination as! FilterTableViewController
+            let controller:FilterViewController = segue.destination as! FilterViewController
             
             controller.tours = self.tours
             controller.returnValueToCaller=handleFilter

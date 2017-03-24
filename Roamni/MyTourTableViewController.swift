@@ -12,6 +12,29 @@ import Firebase
 import AVFoundation
 import MediaPlayer
 class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate, AVAudioPlayerDelegate,  FloatRatingViewDelegate {
+    
+    @IBOutlet weak var segCon: UISegmentedControl!
+    
+    @IBAction func sgeChange(_ sender: UISegmentedControl) {
+        switch self.segCon.selectedSegmentIndex{
+        case 0 :
+            self.downloadTours.removeAll()
+            fetchTours()
+            tableView.reloadData()
+            break
+            
+        case 1 :
+            self.downloadTours.removeAll()
+            fetchTours1()
+            tableView.reloadData()
+            break
+        default:
+            break
+        }
+    
+    }
+
+    
     static let sharedInstance = MyTourTableViewController()
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
@@ -138,7 +161,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
                 
-                if child.childSnapshot(forPath: "user").hasChild(uid) || downloadTour.uploadUser == uid
+                if child.childSnapshot(forPath: "user").hasChild(uid)
                 {
                     self.downloadTours.append(downloadTour)
                     print(self.downloadTours)
@@ -150,6 +173,69 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             else{
                 print("no permission")
             }
+            }
+        })
+        
+        
+    }
+
+    func fetchTours1(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                // tour.setValuesForKeys(dictionary)
+                let startLocation = dictionary["startPoint"] as!  [String : Any]
+                
+                let endLocation = dictionary["endPoint"] as!  [String : Any]
+                
+                let latitude1 = String(describing: startLocation["lat"]!)
+                
+                let latitude = Double(latitude1)
+                
+                let longitude1 = String(describing: startLocation["lon"]!)
+                
+                let longitude = Double(longitude1)
+                let latitude2 = String(describing: endLocation["lat"]!)
+                
+                let latitude22 = Double(latitude2)
+                
+                let longitude2 = String(describing: endLocation["lon"]!)
+                
+                let longitude22 = Double(longitude2)
+                
+                //let longitude = (location["lon"] as! NSString).doubleValue
+                let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+                
+                
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key)
+                
+                //            tour.Price = dictionary["Price"] as! String?
+                //            tour.Star = dictionary["Star"] as! String?
+                //            tour.StartPoint = dictionary["StartPoint"] as! String?
+                //            tour.Time = dictionary["Time"] as! String?
+                //            tour.TourType = dictionary["TourType"] as! String?
+                //            tour.WholeTour = dictionary["WholeTour"] as! String?
+                
+                //self.artworks.removeAll()
+                if let user = FIRAuth.auth()?.currentUser{
+                    let uid = user.uid
+                    
+                    if downloadTour.uploadUser == uid
+                    {
+                        self.downloadTours.append(downloadTour)
+                        print(self.downloadTours)
+                        DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
+                        
+                    }
+                    
+                }
+                else{
+                    print("no permission")
+                }
             }
         })
         
