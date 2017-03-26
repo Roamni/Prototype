@@ -81,6 +81,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBAction func cancleButton(_ sender: Any) {
         self.deregisterFromKeyboardNotifications()
+        
     }
 
     @IBAction func naviCancel(_ sender: Any) {
@@ -88,6 +89,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
 
     }
     
+    @IBOutlet weak var cancelBn: UIBarButtonItem!
     
     @IBOutlet weak var descText: UITextView!
     
@@ -248,6 +250,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.naviBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UITextField.appearance().tintColor = UIColor.black
         UITextView.appearance().tintColor = UIColor.black
+        self.cancelBn.tintColor = UIColor.white
 
 
         // Do any additional setup after loading the view.

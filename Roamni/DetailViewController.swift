@@ -100,8 +100,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         if let user = FIRAuth.auth()?.currentUser{
             let uid = user.uid
             self.ref = FIRDatabase.database().reference()
-            let detaiTourId = detailTour?.tourId
-          
+            let detaiTourId = self.detailTour?.tourId
+             print(detaiTourId)
             ref?.child("tours").child("\(detaiTourId!)").child("user").observe(.value, with:{ (snapshot) in
                 if !snapshot.hasChild(uid){
                  self.ref?.child("tours").child("\(detaiTourId!)").child("user").child(uid).setValue("buy")

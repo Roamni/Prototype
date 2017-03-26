@@ -83,12 +83,11 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
     // MARK: FloatRatingViewDelegate
     
     func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating:Float) {
-        self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
         self.rating = Int(self.floatRatingView.rating)
     }
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
-        self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+        //self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
     }
     
     

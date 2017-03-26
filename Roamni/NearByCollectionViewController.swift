@@ -69,51 +69,49 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
             for child in result!{
-                let dictionary = child.value as!  [String : Any]
-            // tour.setValuesForKeys(dictionary)
-            let startLocation = dictionary["startPoint"] as!  [String : Any]
-            
-            let endLocation = dictionary["endPoint"] as!  [String : Any]
-            
-            let latitude1 = String(describing: startLocation["lat"]!)
-            
-            let latitude = Double(latitude1)
-            
-            let longitude1 = String(describing: startLocation["lon"]!)
-            
-            let longitude = Double(longitude1)
-            let latitude2 = String(describing: endLocation["lat"]!)
-            
-            let latitude22 = Double(latitude2)
-            
-            let longitude2 = String(describing: endLocation["lon"]!)
-            
-            let longitude22 = Double(longitude2)
-            
-            //let longitude = (location["lon"] as! NSString).doubleValue
-            let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-            
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: snapshot.key)
-            //            tour.Price = dictionary["Price"] as! String?
-            //            tour.Star = dictionary["Star"] as! String?
-            //            tour.StartPoint = dictionary["StartPoint"] as! String?
-            //            tour.Time = dictionary["Time"] as! String?
-            //            tour.TourType = dictionary["TourType"] as! String?
-            //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            
-            //self.artworks.removeAll()
-            print(startCoordinate)
-            self.tours.append(downloadTour)
-            
-            //change here to apply 5 km
-            
-            self.controller.tours = self.tours
-            self.controller.getTableVCObject?.tours = self.controller.tours
-            self.controller.getTableVCObject?.tableView.reloadData()
+                let dictionary = child.value as!  [String : Any]            // tour.setValuesForKeys(dictionary)
+                let startLocation = dictionary["startPoint"] as!  [String : Any]
+                
+                let endLocation = dictionary["endPoint"] as!  [String : Any]
+                
+                let latitude1 = String(describing: startLocation["lat"]!)
+                
+                let latitude = Double(latitude1)
+                
+                let longitude1 = String(describing: startLocation["lon"]!)
+                
+                let longitude = Double(longitude1)
+                let latitude2 = String(describing: endLocation["lat"]!)
+                
+                let latitude22 = Double(latitude2)
+                
+                let longitude2 = String(describing: endLocation["lon"]!)
+                
+                let longitude22 = Double(longitude2)
+                
+                //let longitude = (location["lon"] as! NSString).doubleValue
+                let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+                
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: child.key)
+                //            tour.Price = dictionary["Price"] as! String?
+                //            tour.Star = dictionary["Star"] as! String?
+                //            tour.StartPoint = dictionary["StartPoint"] as! String?
+                //            tour.Time = dictionary["Time"] as! String?
+                //            tour.TourType = dictionary["TourType"] as! String?
+                //            tour.WholeTour = dictionary["WholeTour"] as! String?
+                
+                //self.artworks.removeAll()
+                print(startCoordinate)
+                self.tours.append(downloadTour)
+                
+                //change here to apply 5 km
+                
+                self.controller.tours = self.tours
+                self.controller.getTableVCObject?.tours = self.controller.tours
+                self.controller.getTableVCObject?.tableView.reloadData()
             }
         })
-            
         
     }
     
