@@ -9,10 +9,12 @@
 import UIKit
 import CoreLocation
 import Firebase
+import ReachabilitySwift
 
 private let reuseIdentifier = "Cell"
 
 class NearByCollectionViewController: UICollectionViewController,CLLocationManagerDelegate {
+    let reachability = Reachability()!
 
     var tours = [DownloadTour]()
     var tourInFive = [DownloadTour]()
@@ -29,7 +31,14 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
+        do{
+            try reachability.startNotifier()
+        }catch{
+            print("could not start reachability notifier")
+        }
+            //self.fetchTours()
         
         fetchTours()
         locationManager.delegate = self

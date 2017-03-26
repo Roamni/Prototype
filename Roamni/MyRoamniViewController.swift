@@ -45,8 +45,8 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         case 4: return 1
         case 5: return 1
         case 6: return 1
-        case 7: return 1
-        case 8: return 1
+//        case 7: return 1
+//        case 8: return 1
         default: return 0
         }
         
@@ -84,12 +84,12 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         if indexPath.section == 6{
             return 50.0//Choose your custom row height
         }
-        if indexPath.section == 7{
-            return 50.0//Choose your custom row height
-        }
-        if indexPath.section == 8{
-            return 50.0//Choose your custom row height
-        }
+//        if indexPath.section == 7{
+//            return 50.0//Choose your custom row height
+//        }
+//      if indexPath.section == 8{
+//            return 50.0//Choose your custom row height
+//        }
         
         
         return 100.0
@@ -124,10 +124,10 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniRequestTourCell", for: indexPath as IndexPath) as! MyRoamniRequestTourCell
             return cell
             
-        }else if indexPath.section == 2{
-            //Return the cell with identifier AboutTableViewCell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniDownloadCell", for: indexPath as IndexPath) as! MyRoamniDownloadCell
-            return cell
+//        }else if indexPath.section == 2{
+//            //Return the cell with identifier AboutTableViewCell
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniDownloadCell", for: indexPath as IndexPath) as! MyRoamniDownloadCell
+//            return cell
             
             
         }else if indexPath.section == 3{
@@ -158,21 +158,21 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 as! MyRoamniAboutCell
             return cell
         }
-        else if indexPath.section == 7{
+        else {
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniIncomingTourCell", for: indexPath as IndexPath)
                 as! MyRoamniIncomingTourCell
             return cell
         }
-        else {
-            //Return the cell with identifier AboutTableViewCell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniLoginCell", for: indexPath as IndexPath)
-                as! MyRoamniLoginCell
-            
-            return cell
-            
-            
-        }
+//        else {
+//            //Return the cell with identifier AboutTableViewCell
+//            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniLoginCell", for: indexPath as IndexPath)
+//                as! MyRoamniLoginCell
+//            
+//            return cell
+//            
+//            
+//        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -191,7 +191,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         switch(section) {
         case 0:return "  "
         case 1:return "  "
-        case 8:return "  "
+//        case 8:return "  "
 
             
         default :return ""

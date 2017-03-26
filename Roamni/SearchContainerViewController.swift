@@ -82,6 +82,7 @@ class SearchContainerViewController: UIViewController {
         
         // Setup the Scope Bar
         searchController.searchBar.scopeButtonTitles = ["Default", "Rating", "Length"]
+        searchController.searchBar.showsScopeBar = false
         getTableVCObject = self.container.currentViewController as? ContainerTableViewController
         getTableVCObject?.tableView.tableHeaderView = searchController.searchBar
         
@@ -286,6 +287,7 @@ class SearchContainerViewController: UIViewController {
             let searchBar = searchController.searchBar
             let scope = searchBar.scopeButtonTitles![searchBar.selectedScopeButtonIndex]
             filterContentForSearchText(searchController.searchBar.text!, scope: scope)
+            
         }
     
 }

@@ -83,14 +83,20 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
         self.modalVC.modalPresentationStyle = .overFullScreen
-
+        
+        if let user = FIRAuth.auth()?.currentUser{
+        
+       
         self.downloadTours.removeAll()
         fetchTours()
         tableView.reloadData()
 
         //tableView
         
-        tableView.tableFooterView = UIView()
+        }
+        else{
+            self.alertBn(title: "Error", message: "Please Log In")
+        }
         super.viewDidLoad()
         //musicSlider.value = 0.0
         // Do any additional setup after loading the view, typically from a nib.

@@ -521,7 +521,7 @@
 				TargetAttributes = {
 					F05F19BD1E1BC26C00556CD6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 5UEEWU7R25;
+						DevelopmentTeam = BRJW2E4722;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -936,11 +936,11 @@
 			baseConfigurationReference = B6B44BF97247FFACC8EC1517 /* Pods-Roamni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5UEEWU7R25;
+				DEVELOPMENT_TEAM = BRJW2E4722;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototyegg;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototyes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -951,11 +951,11 @@
 			baseConfigurationReference = C95B3B5E6B72742CC18460B8 /* Pods-Roamni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 5UEEWU7R25;
+				DEVELOPMENT_TEAM = BRJW2E4722;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototyegg;
+				PRODUCT_BUNDLE_IDENTIFIER = Roamni.prototyes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

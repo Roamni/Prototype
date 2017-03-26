@@ -165,11 +165,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="fph-Ez-FYz" kind="relationship" relationship="viewControllers" id="7MU-uA-YPO"/>
+                        <segue destination="cOD-Lo-j0G" kind="relationship" relationship="viewControllers" id="U2Q-Ml-OYf"/>
                         <segue destination="wcz-8d-qML" kind="relationship" relationship="viewControllers" id="Vm4-pI-wmo"/>
                         <segue destination="cQm-aD-qPY" kind="relationship" relationship="viewControllers" id="4gh-HH-AVd"/>
                         <segue destination="6tV-5E-5Iq" kind="relationship" relationship="viewControllers" id="4o4-6e-EAS"/>
-                        <segue destination="cOD-Lo-j0G" kind="relationship" relationship="viewControllers" id="U2Q-Ml-OYf"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhC-BT-Wm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -189,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uyD-e6-aFz">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="WalkingTableViewCell" rowHeight="49" id="Lwx-PF-pAD" customClass="WalkingTableViewCell" customModule="Roamni" customModuleProvider="target">
@@ -491,7 +490,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2u-UU-1Ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3176.8000000000002" y="12.143928035982009"/>
+            <point key="canvasLocation" x="-2625" y="-803"/>
         </scene>
         <!--NearBy-->
         <scene sceneID="msu-cW-MZh">
@@ -2649,7 +2648,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZb-cX-akv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3831.1999999999998" y="-725.48725637181417"/>
+            <point key="canvasLocation" x="-4686" y="-1266"/>
         </scene>
         <!--My Tours-->
         <scene sceneID="0e8-1A-2I3">
@@ -2762,7 +2761,7 @@
         <image name="walk" width="24" height="24"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="RFp-T4-0Nr"/>
+        <segue reference="b0Q-Va-h81"/>
         <segue reference="NBH-90-Jgo"/>
         <segue reference="xMV-R0-9wp"/>
         <segue reference="X6A-Yv-FAV"/>
