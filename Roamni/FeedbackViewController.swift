@@ -73,7 +73,8 @@ class FeedbackViewController: UIViewController,FloatRatingViewDelegate,UITextVie
         self.floatRatingView.editable = true
         //self.floatRatingView.halfRatings = true
         self.floatRatingView.floatRatings = false
-        
+        self.textv.returnKeyType = UIReturnKeyType.done
+
         // Segmented control init
         //self.ratingSegmentedControl.selectedSegmentIndex = 1
         

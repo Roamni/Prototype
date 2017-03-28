@@ -30,6 +30,7 @@
 		A63EF1271E6E94D60064ACDF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A63EF1261E6E94D60064ACDF /* MapKit.framework */; };
 		A670A1C61E5FD99D0044D4F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C51E5FD99D0044D4F3 /* ViewController.swift */; };
 		A670A1C81E5FD9F20044D4F3 /* LocationSearchTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */; };
+		A68239511E8A97A100F62A68 /* testViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A68239501E8A97A100F62A68 /* testViewController.swift */; };
 		A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */; };
 		A69FD85E1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */; };
 		A69FD8601E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */; };
@@ -132,6 +133,7 @@
 		A63EF1261E6E94D60064ACDF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		A670A1C51E5FD99D0044D4F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
+		A68239501E8A97A100F62A68 /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
 		A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingTourCell.swift; sourceTree = "<group>"; };
 		A69FD85D1E68388800167E18 /* MyRoamniIncomingRequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingRequestTableViewController.swift; sourceTree = "<group>"; };
 		A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniIncomingRequestDetail.swift; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				A6E585841E8A268900DE8F04 /* FeedbackViewController.swift */,
 				F08A66121E7294D7008AE869 /* FilterViewController.swift */,
 				F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */,
+				A68239501E8A97A100F62A68 /* testViewController.swift */,
 				F0F2D92A1E59F783004F21C4 /* img.jpeg */,
 				F05F19D01E1BC26C00556CD6 /* Info.plist */,
 				F0296EB91E49528B00652816 /* 1.m4a */,
@@ -794,6 +797,7 @@
 				F05F1A0F1E1D37BE00556CD6 /* AccTableViewCell.swift in Sources */,
 				F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */,
 				F02617FB1E2F97CA004697EA /* EmptySegue.swift in Sources */,
+				A68239511E8A97A100F62A68 /* testViewController.swift in Sources */,
 				A6B8983F1E84E88A00BCFE42 /* UploadLengthViewController.swift in Sources */,
 				F05F19FA1E1D191300556CD6 /* CyclingTableViewCell.swift in Sources */,
 				A6E585851E8A268900DE8F04 /* FeedbackViewController.swift in Sources */,

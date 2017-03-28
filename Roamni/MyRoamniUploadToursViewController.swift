@@ -251,6 +251,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         UITextField.appearance().tintColor = UIColor.black
         UITextView.appearance().tintColor = UIColor.black
         self.cancelBn.tintColor = UIColor.white
+        self.descText.returnKeyType = UIReturnKeyType.done
 
 
         // Do any additional setup after loading the view.

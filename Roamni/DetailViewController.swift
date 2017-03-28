@@ -127,6 +127,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     //configureView()
     self.titleLabel.text = detailTour?.name
     self.titleLabel.adjustsFontSizeToFitWidth = true
+    //
+    if currentIndex == self.allDetailTour.count-1{
+        self.nextBn.isEnabled = false
+    }
+    else{
+        self.nextBn.isEnabled = true
+    }
+    if currentIndex == 0{
+        self.preBn.isEnabled = false
+    }
+    else
+    {
+        self.preBn.isEnabled = true
+    }
 
     //self.title = detailTour?.name
     self.lengthLabel.text = detailTour?.length
