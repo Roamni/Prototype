@@ -21,8 +21,10 @@ class FeedbackViewController: UIViewController,FloatRatingViewDelegate,UITextVie
         
         }
         else{
-        self.ref?.child("feedbacks").childByAutoId().setValue(["star":self.rating,"comments":self.getText!])
-        
+            if let user = FIRAuth.auth()?.currentUser{
+                let uid = user.uid
+        self.ref?.child("feedbacks").child("\(uid)").setValue(["star":self.rating,"comments":self.getText!])
+            }
         let alertController = UIAlertController(title: "Notification", message: "Your rating is submitted", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
