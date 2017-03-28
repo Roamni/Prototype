@@ -307,7 +307,9 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
 //        self.modalVC.setLockView()
 //        self.musictitle = downloadTours[counter].name
 //        self.musicartist = downloadTours[counter].difficulty
+        
         self.performSegue(withIdentifier: "goMusicDetail", sender: self)
+        
         //self.performSegue(withIdentifier: "ShowDetailView", sender: itemString)
         
     }
@@ -504,9 +506,22 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
 //            if player.isPlaying{
 //                player.stop()
 //            }
-            
+            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+            let documentsDirectory = paths[0]
+            let filePath = "\(documentsDirectory)/voices/\(self.downloadTours[counter].name).m4a"
+            //        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+            let filemanager = FileManager.default
+            print(filemanager.fileExists(atPath: filePath))
+            if(filemanager.fileExists(atPath: filePath)){
             controller.music()
             controller.setLockView()
+            }
+
+        else{
+            self.alertBn(title: "Reminder", message: "Please download this tour")
+            
+        }
+
            // self.musictitle = downloadTours[counter].name
            // self.musicartist = downloadTours[counter].difficulty
             

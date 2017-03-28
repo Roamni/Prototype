@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -2643,7 +2643,13 @@
                             <constraint firstAttribute="bottom" secondItem="WHr-yw-XOe" secondAttribute="bottom" constant="504" id="jpv-LI-vhj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Rating" id="mh0-VA-rty"/>
+                    <navigationItem key="navigationItem" title="Rating" id="mh0-VA-rty">
+                        <barButtonItem key="rightBarButtonItem" title="Feedback" id="FfH-Id-feF">
+                            <connections>
+                                <segue destination="wcR-3m-5Cf" kind="show" id="7bd-mF-oJW"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
                     <connections>
                         <outlet property="floatRatingView" destination="WHr-yw-XOe" id="Osw-5C-zwO"/>
@@ -2651,7 +2657,78 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZb-cX-akv" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4686" y="-1266"/>
+            <point key="canvasLocation" x="-4966" y="-1220"/>
+        </scene>
+        <!--FeedBack-->
+        <scene sceneID="eJg-vg-tLn">
+            <objects>
+                <viewController id="wcR-3m-5Cf" customClass="FeedbackViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="g7a-f5-jRE"/>
+                        <viewControllerLayoutGuide type="bottom" id="6RX-FP-cKZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S2r-Te-N3g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSZ-fS-i1F" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="65" y="122" width="244" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rm7-Su-G6Z">
+                                <rect key="frame" x="128" y="529" width="137" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Submit" image="submit"/>
+                                <connections>
+                                    <action selector="submitBn:" destination="wcR-3m-5Cf" eventType="touchUpInside" id="5nx-wW-uMv"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RfD-dM-mF3">
+                                <rect key="frame" x="59" y="219" width="256" height="202"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Star:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fzT-tj-KmG">
+                                <rect key="frame" x="16" y="88" width="36" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Comments:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3yV-5p-SoK">
+                                <rect key="frame" x="16" y="184" width="88" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="FeedBack" id="NLl-c1-XRa"/>
+                    <connections>
+                        <outlet property="floatRatingView" destination="pSZ-fS-i1F" id="fqt-9g-XuP"/>
+                        <outlet property="textv" destination="RfD-dM-mF3" id="w7T-BD-w1k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pod-Qd-EWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4090.4000000000001" y="-1230.1349325337333"/>
         </scene>
         <!--My Tours-->
         <scene sceneID="0e8-1A-2I3">

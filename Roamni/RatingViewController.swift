@@ -57,7 +57,16 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
         
         
         })
-        
+        if let user = FIRAuth.auth()?.currentUser{
+        let uid = user.uid
+        ref?.child("feedbacks").observe(.value, with: {(snapshot) in
+            if snapshot.hasChild("\(uid)")
+            {
+                print("feedbacks provided")
+            }
+            
+        })
+        }
         
     }
 
@@ -70,7 +79,12 @@ class RatingViewController: UIViewController, FloatRatingViewDelegate {
     
         let averageR = (Int(self.downloadTours[counter].star) * (self.userNumber) + self.rating)/(self.userNumber+1)
         self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("star").setValue(averageR)
-        self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("user").child("\(self.downloadTours[counter].tourId)").setValue("rated")
+        
+    // check feedback exist or not
+        if let user = FIRAuth.auth()?.currentUser{
+            let uid = user.uid
+        self.ref?.child("tours").child("\(self.downloadTours[counter].tourId)").child("user").child("\(uid)").setValue("rated")
+        }
         print(self.downloadTours[counter].tourId)
         let alertController = UIAlertController(title: "Notification", message: "Your rating is submitted", preferredStyle: UIAlertControllerStyle.alert)
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
