@@ -154,7 +154,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
             
             
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key)
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! String, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key)
             
             //            tour.Price = dictionary["Price"] as! String?
             //            tour.Star = dictionary["Star"] as! String?
@@ -217,7 +217,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
                 
                 
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key)
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! String, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key)
                 
                 //            tour.Price = dictionary["Price"] as! String?
                 //            tour.Star = dictionary["Star"] as! String?
@@ -322,7 +322,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
 
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
-        cell.StarLabel.text = tour.length + " hr"//tour.star
+        cell.StarLabel.text = tour.length + " min"//tour.star
 //        cell.diffTextlabel.text = tour.difficulty
        // cell.counter = tour.songid - 1
         

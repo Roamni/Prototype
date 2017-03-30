@@ -100,7 +100,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         }
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
-        cell.StarLabel.text = tour.length + " hr"
+        cell.StarLabel.text = tour.length + " min"
         //tour.star
         cell.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
         cell.floatRatingView.fullImage = UIImage(named: "StarFull")

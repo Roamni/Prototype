@@ -96,7 +96,7 @@ class MyRoamniDownloadToursViewController: UIViewController {
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
 
             
-            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: "2", difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
+            let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! String, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:snapshot.key)
         
             
             //            tour.Price = dictionary["Price"] as! String?
