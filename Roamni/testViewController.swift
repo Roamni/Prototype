@@ -23,6 +23,7 @@ class testViewController: UIViewController {
     
    // @IBOutlet fileprivate(set) weak var miniPlayerView: LineView!
     @IBOutlet fileprivate(set) weak var miniPlayerButton: UIButton!
+    @IBOutlet weak var playBtn: UIButton!
     
 //    @IBOutlet fileprivate(set) weak var miniPlayerButton: UIButton!
     fileprivate var modalVC : ModalViewController!
@@ -61,10 +62,15 @@ class testViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
+            if delegate.player.isPlaying{
+                playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+                songTitle.textColor = UIColor.black
+            }
         }else{
-            songTitle.text =  "sss"
+            songTitle.text =  "Roamni"
+            songTitle.textColor = UIColor.gray
         }
-        
+
         
         //tours.removeAll()
         //print(self.tourCategory)
@@ -84,9 +90,28 @@ class testViewController: UIViewController {
     }
     
     @IBAction func tapMiniPlayerButton(_ sender: Any) {
-        self.present(self.modalVC, animated: true, completion: nil)
+        if songTitle.text ==  "Roamni"{
+        }else{
+            self.present(self.modalVC, animated: true, completion: nil)
+        }
+        
     }
 
+    
+    @IBAction func play(_ sender: Any) {
+        if songTitle.text ==  "Roamni"{
+        }else{
+
+            let delegate = UIApplication.shared.delegate as! AppDelegate
+            if delegate.player.isPlaying{
+                delegate.player.pause()
+                playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+            }else{
+                delegate.player.play()
+                playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+            }
+        }
+    }
     
     func setupAnimator() {
         let animation = MusicPlayerTransitionAnimation(rootVC: self, modalVC: self.modalVC)
