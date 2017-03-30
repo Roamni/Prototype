@@ -26,8 +26,8 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         ["name":"Cycling","pic":"cycling"],
         ["name":"Shopping","pic":"shooping"],
         ["name":"Real Estate","pic":"realestate"],
-        ["name":"Accessiable","pic":"accessiable"],
-        ["name":"More","pic":"moretour"]
+        ["name":"Accessiable","pic":"accessiable"]
+        //["name":"More","pic":"moretour"]
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
