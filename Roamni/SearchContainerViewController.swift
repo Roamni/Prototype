@@ -5,9 +5,9 @@
 //  Created by Hyman Li on 18/1/17.
 //  Copyright © 2017 ROAMNI. All rights reserved.
 //
-protocol ValueReturner {
-    var returnValueToCaller: ((Any) -> ())?  { get set }
-}
+//protocol ValueReturner {
+//    var returnValueToCaller: ((Any) -> ())?  { get set }
+//}
 import UIKit
 import CoreLocation
 import ARNTransitionAnimator
@@ -21,8 +21,10 @@ class SearchContainerViewController: UIViewController {
     
     @IBOutlet fileprivate(set) weak var miniPlayerButton: UIButton!
     fileprivate(set) weak var container: ContainerViewController!
-    var tourCategory : String?
+    
     @IBOutlet weak var swtichBtn: UIBarButtonItem!
+    
+    var tourCategory : String?
     var detailViewController: DetailViewController? = nil
     var getTableVCObject : ContainerTableViewController?
     var getMapVCObject : ContainerMapViewController?
@@ -44,8 +46,12 @@ class SearchContainerViewController: UIViewController {
             getMapVCObject?.places.removeAll()
             getMapVCObject?.tours = finalTours
         }
-        var delegate = UIApplication.shared.delegate as! AppDelegate
-        songTitle.text =  delegate.songTitle
+       
+//        var delegate = UIApplication.shared.delegate as! AppDelegate
+//        if delegate.songTitle?.isEmpty != true{
+//            songTitle.text =  delegate.songTitle
+//        }
+        
         
         //tours.removeAll()
         //print(self.tourCategory)
@@ -67,7 +73,7 @@ class SearchContainerViewController: UIViewController {
         let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.3)
         self.miniPlayerButton.setBackgroundImage(self.generateImageWithColor(color), for: .highlighted)
         
-        self.setupAnimator()
+        //self.setupAnimator()
 
         
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
@@ -136,29 +142,29 @@ class SearchContainerViewController: UIViewController {
         
     }
 
-    func setupAnimator() {
-        let animation = MusicPlayerTransitionAnimation(rootVC: self, modalVC: self.modalVC)
-        animation.completion = { [weak self] isPresenting in
-            if isPresenting {
-                guard let _self = self else { return }
-                let modalGestureHandler = TransitionGestureHandler(targetVC: _self, direction: .bottom)
-                modalGestureHandler.registerGesture(_self.modalVC.view)
-                modalGestureHandler.panCompletionThreshold = 15.0
-                _self.animator?.registerInteractiveTransitioning(.dismiss, gestureHandler: modalGestureHandler)
-            } else {
-                self?.setupAnimator()
-            }
-        }
-        
-        let gestureHandler = TransitionGestureHandler(targetVC: self, direction: .top)
-        gestureHandler.registerGesture(self.miniPlayerView)
-        gestureHandler.panCompletionThreshold = 15.0
-        
-        self.animator = ARNTransitionAnimator(duration: 0.5, animation: animation)
-        self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
-        
-        self.modalVC.transitioningDelegate = self.animator
-    }
+//    func setupAnimator() {
+//        let animation = MusicPlayerTransitionAnimation(rootVC: self, modalVC: self.modalVC)
+//        animation.completion = { [weak self] isPresenting in
+//            if isPresenting {
+//                guard let _self = self else { return }
+//                let modalGestureHandler = TransitionGestureHandler(targetVC: _self, direction: .bottom)
+//                modalGestureHandler.registerGesture(_self.modalVC.view)
+//                modalGestureHandler.panCompletionThreshold = 15.0
+//                _self.animator?.registerInteractiveTransitioning(.dismiss, gestureHandler: modalGestureHandler)
+//            } else {
+//                self?.setupAnimator()
+//            }
+//        }
+//        
+//        let gestureHandler = TransitionGestureHandler(targetVC: self, direction: .top)
+//        gestureHandler.registerGesture(self.miniPlayerView)
+//        gestureHandler.panCompletionThreshold = 15.0
+//        
+//        self.animator = ARNTransitionAnimator(duration: 0.5, animation: animation)
+//        self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
+//        
+//        self.modalVC.transitioningDelegate = self.animator
+//    }
 
     
     @IBAction func tapMiniPlayerButton() {
