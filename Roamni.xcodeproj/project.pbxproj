@@ -47,7 +47,6 @@
 		F02617F71E2F95F1004697EA /* ContainerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02617F61E2F95F1004697EA /* ContainerTableViewController.swift */; };
 		F02617F91E2F97C0004697EA /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02617F81E2F97C0004697EA /* ContainerViewController.swift */; };
 		F02617FB1E2F97CA004697EA /* EmptySegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02617FA1E2F97CA004697EA /* EmptySegue.swift */; };
-		F02617FD1E3222F7004697EA /* FilterTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02617FC1E3222F7004697EA /* FilterTableViewController.swift */; };
 		F02618031E326222004697EA /* RatingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02618021E326222004697EA /* RatingTableViewCell.swift */; };
 		F02618051E326252004697EA /* LengthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02618041E326252004697EA /* LengthTableViewCell.swift */; };
 		F02618071E3266F1004697EA /* DifficultyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02618061E3266F1004697EA /* DifficultyTableViewCell.swift */; };
@@ -150,7 +149,6 @@
 		F02617F61E2F95F1004697EA /* ContainerTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTableViewController.swift; sourceTree = "<group>"; };
 		F02617F81E2F97C0004697EA /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		F02617FA1E2F97CA004697EA /* EmptySegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmptySegue.swift; sourceTree = "<group>"; };
-		F02617FC1E3222F7004697EA /* FilterTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterTableViewController.swift; sourceTree = "<group>"; };
 		F02618021E326222004697EA /* RatingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingTableViewCell.swift; sourceTree = "<group>"; };
 		F02618041E326252004697EA /* LengthTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LengthTableViewCell.swift; sourceTree = "<group>"; };
 		F02618061E3266F1004697EA /* DifficultyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DifficultyTableViewCell.swift; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 				F02617F81E2F97C0004697EA /* ContainerViewController.swift */,
 				F063DE1C1E22929D00424985 /* DetailViewController.swift */,
 				F02617FA1E2F97CA004697EA /* EmptySegue.swift */,
-				F02617FC1E3222F7004697EA /* FilterTableViewController.swift */,
 				A6B901961E39252400516908 /* ContainerTableViewCell.swift */,
 			);
 			name = SearchContainerController;
@@ -789,7 +786,6 @@
 				A6B8983F1E84E88A00BCFE42 /* UploadLengthViewController.swift in Sources */,
 				F05F19FA1E1D191300556CD6 /* CyclingTableViewCell.swift in Sources */,
 				A6E585851E8A268900DE8F04 /* FeedbackViewController.swift in Sources */,
-				F02617FD1E3222F7004697EA /* FilterTableViewController.swift in Sources */,
 				A60834361E24F10000775187 /* MyRoamniDistributionCell.swift in Sources */,
 				F05F1A151E1D37F100556CD6 /* PreTableViewCell.swift in Sources */,
 				A60834381E24F12B00775187 /* MyRoamniHowCell.swift in Sources */,

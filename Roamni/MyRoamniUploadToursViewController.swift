@@ -12,7 +12,6 @@ import MapKit
 class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITextViewDelegate {
     @IBAction func startButton(_ segue: UIStoryboardSegue) {
         let secondVC :ViewController = segue.source as! ViewController
-        print("\(secondVC.anno)")
         if (secondVC.anno == nil)
         {
           
@@ -130,7 +129,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
                         
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text! ?? "walking","desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":self.lengthBn.titleLabel?.text!,"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text! ?? "walking","desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                     
                 }
             }

@@ -30,10 +30,11 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var btn9: UIButton!
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var timeLabel: UILabel!
-    
+    var durationTime:Int? = 90
     
     @IBAction func setTime(_ sender: UISlider) {
         timeLabel.text = "\(String(Int(sender.value))) min"
+        self.durationTime = Int(sender.value)
     }
     
     
@@ -174,13 +175,13 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
 
         case "Longest duration":
             self.tours.sort(by: { (this:DownloadTour, that:DownloadTour) -> Bool in
-                return this.length < that.length
+                return this.length > that.length
             })
             break
 
         case "Shortest duration":
             self.tours.sort(by: { (this:DownloadTour, that:DownloadTour) -> Bool in
-                return this.length > that.length
+                return this.length < that.length
             })
             break
 
@@ -190,7 +191,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         var onetours = [DownloadTour]()
         for onetour in self.tours{
-            if onetour.length < timeLabel.text!{
+            if onetour.length < self.durationTime!{
                 onetours.append(onetour)
             }
         }

@@ -195,7 +195,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         // isPlaying = true
         // print("counter is \(counter)")
         //let audioPath = Bundle.main.path(forResource: "\(counter)", ofType: "m4a")!
-        var delegate = UIApplication.shared.delegate as! AppDelegate
+        let delegate = UIApplication.shared.delegate as! AppDelegate
         if delegate.downloads.count != 0{
             delegate.player.stop()
         }
@@ -208,7 +208,6 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         let filePath = "file:\(documentsDirectory)/voices/\(self.downloadTours[self.counter].name).m4a"
         let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
         do {
-            print(fileURL)
             player = try AVAudioPlayer(contentsOf: fileURL!)
             print("hello")
         } catch {

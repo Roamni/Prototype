@@ -17,7 +17,7 @@
         let downloadUrl:String
         let desc : String
         var star : Float
-        let length: String
+        let length: Int
         let difficulty:String
         let uploadUser:String
         let tourId:String

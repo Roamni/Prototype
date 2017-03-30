@@ -78,7 +78,7 @@ class FilterTableViewController: UITableViewController,ValueReturner {
             
                 for tour in filterTours1
                 {
-                    if Int(tour.length)! <= 1
+                    if tour.length <= 1
                     {
                         
                         self.filterTours2.append(tour)

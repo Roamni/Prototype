@@ -234,7 +234,7 @@ class SearchContainerViewController: UIViewController {
                 case "Rating":
                     fieldToSearch = String(tour.star)
                 case "Length":
-                    fieldToSearch = tour.length
+                    fieldToSearch = String(tour.length)
                 default:
                     fieldToSearch = nil
                 }

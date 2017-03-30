@@ -101,7 +101,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             let uid = user.uid
             self.ref = FIRDatabase.database().reference()
             let detaiTourId = self.detailTour?.tourId
-             print(detaiTourId)
             ref?.child("tours").child("\(detaiTourId!)").child("user").observe(.value, with:{ (snapshot) in
                 if !snapshot.hasChild(uid){
                  self.ref?.child("tours").child("\(detaiTourId!)").child("user").child(uid).setValue("buy")
@@ -143,7 +142,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
 
     //self.title = detailTour?.name
-    self.lengthLabel.text = detailTour?.length
+    self.lengthLabel.text = String(describing: detailTour?.length)
     self.ratingLabel.text = String(describing: detailTour?.star)
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self

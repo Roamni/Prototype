@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zHH-6e-uOa">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zHH-6e-uOa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -552,7 +552,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c2u-UU-1Ps" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2234" y="-750"/>
+            <point key="canvasLocation" x="-2887" y="-949"/>
         </scene>
         <!--NearBy-->
         <scene sceneID="msu-cW-MZh">
@@ -2188,108 +2188,6 @@
             </objects>
             <point key="canvasLocation" x="-3495" y="-218"/>
         </scene>
-        <!--Filters-->
-        <scene sceneID="LKG-6v-SLd">
-            <objects>
-                <tableViewController id="Ecy-Pc-qmA" customClass="FilterTableViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="6Iq-2R-nrw">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="RatingTableViewCell" id="pe6-aI-PBV" customClass="RatingTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pe6-aI-PBV" id="ViP-Rg-Pfy">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="eL0-HJ-uaZ">
-                                            <rect key="frame" x="25" y="8" width="324" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Blew 3 Star"/>
-                                                <segment title="4 Star"/>
-                                                <segment title="5 Star"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="ratingSegmentControl:" destination="pe6-aI-PBV" eventType="valueChanged" id="L97-ia-gdR"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="rateSegment" destination="eL0-HJ-uaZ" id="B8s-oI-kEX"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LengthTableViewCell" id="Q3U-Lr-10b" customClass="LengthTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="99.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Q3U-Lr-10b" id="x17-VJ-fq7">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="zkM-CR-Vgq">
-                                            <rect key="frame" x="25" y="8" width="324" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="0 - 1hr"/>
-                                                <segment title="1 - 2hrs"/>
-                                                <segment title="&gt;2hrs"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="lenghtSeg:" destination="Q3U-Lr-10b" eventType="valueChanged" id="VK1-80-q3b"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="lengthSegment" destination="zkM-CR-Vgq" id="J3N-av-2UD"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="DifficultyTableViewCell" id="lnL-RV-JO3" customClass="DifficultyTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="143.5" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lnL-RV-JO3" id="rmM-vq-3hj">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cda-JH-hbI">
-                                            <rect key="frame" x="25" y="8" width="324" height="29"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <segments>
-                                                <segment title="Pleasant"/>
-                                                <segment title="Brisk"/>
-                                                <segment title="Workout"/>
-                                            </segments>
-                                            <connections>
-                                                <action selector="difficultSeg:" destination="lnL-RV-JO3" eventType="valueChanged" id="15f-2q-rkj"/>
-                                            </connections>
-                                        </segmentedControl>
-                                    </subviews>
-                                </tableViewCellContentView>
-                                <connections>
-                                    <outlet property="difficultySegment" destination="Cda-JH-hbI" id="6m7-AY-u3f"/>
-                                </connections>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ecy-Pc-qmA" id="IrS-ts-6kL"/>
-                            <outlet property="delegate" destination="Ecy-Pc-qmA" id="rtY-S1-bXK"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Filters" id="Vqg-F0-4OZ">
-                        <barButtonItem key="rightBarButtonItem" title="Done" id="F2h-xZ-mp8">
-                            <connections>
-                                <action selector="FilterDone:" destination="Ecy-Pc-qmA" id="wlF-5l-glY"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sh8-dk-gfL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-116" y="-812"/>
-        </scene>
         <!--Container Map View Controller-->
         <scene sceneID="MHu-LW-KUb">
             <objects>
@@ -2386,9 +2284,9 @@
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="StarLabel" text="StarLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dhZ-vV-QqE">
-                                            <rect key="frame" x="268" y="16" width="74" height="20"/>
+                                            <rect key="frame" x="268" y="16" width="99" height="20"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="74" id="z1S-rJ-QJj"/>
+                                                <constraint firstAttribute="width" constant="99" id="z1S-rJ-QJj"/>
                                             </constraints>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
@@ -2405,7 +2303,7 @@
                                         <constraint firstItem="Jsf-kb-YDh" firstAttribute="leading" secondItem="EMo-R7-aYY" secondAttribute="leading" id="dtZ-0f-3W7"/>
                                         <constraint firstItem="dhZ-vV-QqE" firstAttribute="top" secondItem="HSR-gU-VDW" secondAttribute="topMargin" constant="8" id="ewH-cC-rRH"/>
                                         <constraint firstItem="dhZ-vV-QqE" firstAttribute="leading" secondItem="oiz-nF-4ao" secondAttribute="trailing" constant="-94" id="kpx-O1-mZO"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="dhZ-vV-QqE" secondAttribute="trailing" constant="25" id="rZa-Xm-rEC"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="dhZ-vV-QqE" secondAttribute="trailing" id="rZa-Xm-rEC"/>
                                         <constraint firstItem="Jsf-kb-YDh" firstAttribute="top" secondItem="HSR-gU-VDW" secondAttribute="topMargin" constant="-1" id="tXe-4Y-CF6"/>
                                         <constraint firstItem="dhZ-vV-QqE" firstAttribute="bottom" secondItem="HSR-gU-VDW" secondAttribute="bottomMargin" constant="-36" id="wHG-LD-xmO"/>
                                     </constraints>
