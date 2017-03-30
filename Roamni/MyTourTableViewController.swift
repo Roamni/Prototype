@@ -14,6 +14,7 @@ import MediaPlayer
 class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate, AVAudioPlayerDelegate,  FloatRatingViewDelegate {
     
     @IBOutlet weak var segCon: UISegmentedControl!
+
     
     @IBAction func sgeChange(_ sender: UISegmentedControl) {
         switch self.segCon.selectedSegmentIndex{
@@ -44,6 +45,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     var song = ["1","2","3"]
     var player = AVAudioPlayer()
     fileprivate var modalVC : ModalViewController!
+    fileprivate var testView : MyTourTableViewController!
+    //fileprivate var my : ModalViewController!
     //let searchController = UISearchController(searchResultsController: nil)
     var musictitle = "Roamni"
     var musicartist = "Roamni"
@@ -307,8 +310,37 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
 //        self.modalVC.setLockView()
 //        self.musictitle = downloadTours[counter].name
 //        self.musicartist = downloadTours[counter].difficulty
+        //modalVC
+        //let controller = segue.destination as! ModalViewController
+        // let controller: NewCategoryViewController = navController.viewControllers[0] as! NewCategoryViewController
+        // Get managedObjectContext and pass to controller
+        //controller.managedObjectContext = self.managedObjectContext
         
-        self.performSegue(withIdentifier: "goMusicDetail", sender: self)
+        modalVC.counter = self.counter
+        modalVC.downloadTours = self.downloadTours
+        print("calling!!")
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        let filePath = "\(documentsDirectory)/voices/\(self.downloadTours[counter].name).m4a"
+        //        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+        let filemanager = FileManager.default
+        print(filemanager.fileExists(atPath: filePath))
+        if(filemanager.fileExists(atPath: filePath)){
+            modalVC.music()
+            modalVC.setLockView()
+        }
+            
+        else{
+            self.alertBn(title: "Reminder", message: "Please download this tour")
+            
+        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        self.testView = storyboard.instantiateViewController(withIdentifier: "MyTourTableViewController") as? MyTourTableViewController
+        //self.testView.modalPresentationStyle = .overFullScreen
+        //self.present(self.testView, animated: true, completion: nil)
+        self.present(self.modalVC, animated: true, completion: nil)
+
+        //self.performSegue(withIdentifier: "goMusicDetail", sender: self)
         
         //self.performSegue(withIdentifier: "ShowDetailView", sender: itemString)
         
@@ -492,20 +524,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             controller.counter = self.counter
             controller.downloadTours = self.downloadTours
             print("calling!!")
-//            if controller != nil {
-//                if controller.player.isPlaying {
-//                    controller.player.stop()
-//                }
-//                else{
-//                    print("nothing is playing")
-//                }
-//            }
-            
-//            var delegate = UIApplication.shared.delegate as! AppDelegate
-//            delegate.player = player
-//            if player.isPlaying{
-//                player.stop()
-//            }
             let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
             let documentsDirectory = paths[0]
             let filePath = "\(documentsDirectory)/voices/\(self.downloadTours[counter].name).m4a"
@@ -520,11 +538,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         else{
             self.alertBn(title: "Reminder", message: "Please download this tour")
             
-        }
+            }
 
-           // self.musictitle = downloadTours[counter].name
-           // self.musicartist = downloadTours[counter].difficulty
-            
             
         }
         

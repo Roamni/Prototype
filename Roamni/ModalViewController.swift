@@ -14,10 +14,11 @@ import CoreLocation
 
 final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocationManagerDelegate, MKMapViewDelegate {
     
+    @IBOutlet weak var musicSlider: UISlider!
     @IBOutlet weak var songTitle: UILabel!
     @IBOutlet weak var leftTime: UILabel!
     @IBOutlet weak var startedTime: UILabel!
-    @IBOutlet weak var musicSlider: UISlider!
+   // @IBOutlet weak var musicSlider: UISlider!
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var mapView: MKMapView!
     let locationManager = CLLocationManager()
@@ -49,49 +50,37 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     
     @IBAction func next(_ sender: Any) {
         print("next")
-        if self.counter != downloadTours.count - 1{
-            self.counter = self.counter + 1
-        }else{
-            self.counter = 0
-        }
+//        if self.counter != downloadTours.count - 1{
+//            self.counter = self.counter + 1
+//        }else{
+//            self.counter = 0
+//        }
         playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         player.pause()
         player.currentTime = player.currentTime + 15
         player.play()
-//        player.stop()
-//        music()
-//        musicSlider.maximumValue = Float(self.player.duration)
-//        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
-//        setLockView()
-//        updateTourDetail()
+
     }
     
     @IBAction func previous(_ sender: Any) {
         print("pervious")
-        if self.counter != 0{
-            self.counter = self.counter - 1
-        }else{
-            self.counter = downloadTours.count - 1
-        }
+//        if self.counter != 0{
+//            self.counter = self.counter - 1
+//        }else{
+//            self.counter = downloadTours.count - 1
+//        }
         playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         player.pause()
         player.currentTime = player.currentTime - 15
         player.play()
 
-//        player.stop()
-//        music()
-//        musicSlider.maximumValue = Float(self.player.duration)
-//        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
-//        setLockView()
-//        print("\(downloadTours.count)")
-//        updateTourDetail()
     }
     
     
     @IBAction func tapCloseButton() {
        // self.tapCloseButtonActionHandler?()
         
-     //   self.dismiss(animated: true, completion: nil)
+        //self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func tapPlayButton(_ sender: Any) {
@@ -99,12 +88,16 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         if playBtn.currentImage == UIImage(named: "songplay"){
             playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
             player.play()
+            setLockView()
         }else{
             playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
             player.pause()
+            setLockView()
         }
     }
     
+
+
     @IBAction func sliderAction(_ sender: Any) {
         player.stop()
         player.currentTime = TimeInterval(musicSlider.value)
@@ -112,7 +105,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         setLockView()
     }
-
+    
+    
     func updateTourDetail(){
         songTitle.text = downloadTours[counter].name
         let sourceLocation = downloadTours[counter].startLocation
@@ -195,6 +189,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         self.performSegue(withIdentifier: "moredetail", sender: self)
     }
     
+
     
     func music(){
         // isPlaying = true
@@ -269,15 +264,24 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     
     override func remoteControlReceived(with event: UIEvent?) {
         switch event!.subtype {
-        case .remoteControlPlay:  // play按钮
+        case .remoteControlPlay:  // play
             player.play()
-        case .remoteControlPause:  // pause按钮
+            playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+        case .remoteControlPause:  // pause
             player.pause()
+            playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+            print("pausepause")
         case .remoteControlNextTrack:  // next
-            // ▶▶ 押下時の処理
+            player.pause()
+            player.currentTime = player.currentTime + 15
+            player.play()
+            setLockView()
             break
         case .remoteControlPreviousTrack:  // previous
-            // ◀◀ 押下時の処理
+            player.pause()
+            player.currentTime = player.currentTime - 15
+            player.play()
+            setLockView()
             break
         default:
             break
@@ -287,19 +291,20 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         print("Called")
-        if flag {
-            
-            if self.counter != downloadTours.count - 1{
-                self.counter = self.counter + 1
-            }else{
-                self.counter = 0
-            }
-        music()
-        musicSlider.maximumValue = Float(self.player.duration)
-        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
-        setLockView()
-        }
-        updateTourDetail()
+        playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+//        if flag {
+//            
+//            if self.counter != downloadTours.count - 1{
+//                self.counter = self.counter + 1
+//            }else{
+//                self.counter = 0
+//            }
+//        music()
+//        musicSlider.maximumValue = Float(self.player.duration)
+//        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+//        setLockView()
+//        }
+//        updateTourDetail()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -58,13 +58,13 @@ class testViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-
+        print("vvvvvvvv")
         let delegate = UIApplication.shared.delegate as! AppDelegate
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
             if delegate.player.isPlaying{
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
-                songTitle.textColor = UIColor.black
+                songTitle.textColor = UIColor.white
             }
         }else{
             songTitle.text =  "Roamni"

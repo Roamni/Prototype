@@ -33,7 +33,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     
     @IBAction func setTime(_ sender: UISlider) {
-        timeLabel.text = "\(String(Int(sender.value))) minutes"
+        timeLabel.text = "\(String(Int(sender.value))) min"
     }
     
     
@@ -187,6 +187,16 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         default:
             self.tours.sort(by: sortForTours)
         }
+        
+        var onetours = [DownloadTour]()
+        for onetour in self.tours{
+            if onetour.length < timeLabel.text!{
+                onetours.append(onetour)
+            }
+        }
+        tours.removeAll()
+        tours = onetours
+        
         returnValueToCaller?(self.tours)
         navigationController!.popViewController(animated: true)
 
