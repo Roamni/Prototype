@@ -19,6 +19,143 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     @IBOutlet weak var dropdown: UIPickerView!
     
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    @IBOutlet weak var btn5: UIButton!
+    @IBOutlet weak var btn6: UIButton!
+    @IBOutlet weak var btn7: UIButton!
+    @IBOutlet weak var btn8: UIButton!
+    @IBOutlet weak var btn9: UIButton!
+    @IBOutlet weak var timeSlider: UISlider!
+    @IBOutlet weak var timeLabel: UILabel!
+    
+    
+    @IBAction func setTime(_ sender: UISlider) {
+        timeLabel.text = "\(String(Int(sender.value))) minutes"
+    }
+    
+    
+    @IBAction func btn1(_ sender: Any) {
+        btn1.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        
+    }
+
+    @IBAction func btn2(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn3(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn4(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn5(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn6(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn7(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn8(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "1"), for: UIControlState.normal)
+
+    }
+    
+    @IBAction func btn9(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn9.setImage(UIImage(named: "2"), for: UIControlState.normal)
+
+    }
+    
+    
+    
     func sortForTours(this:DownloadTour, that:DownloadTour) -> Bool{
         return this.star > that.star
     }
@@ -63,6 +200,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
