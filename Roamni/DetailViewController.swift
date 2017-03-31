@@ -142,7 +142,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
 
     //self.title = detailTour?.name
-    self.lengthLabel.text = String(describing: detailTour?.length)
+    self.lengthLabel.text = String(detailTour?.length ?? 0)
     self.ratingLabel.text = String(describing: detailTour?.star)
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self
@@ -161,38 +161,38 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     let destinationLocation = CLLocationCoordinate2D(latitude: (detailTour?.endLocation.latitude)!, longitude: (detailTour?.endLocation.longitude)!)
     let sourcePlacemark = MKPlacemark(coordinate: sourceLocation!, addressDictionary: nil)
     let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-    let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
-    let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-    let sourceAnnotation = MKPointAnnotation()
-    sourceAnnotation.title = detailTour?.name
-    if let location = sourcePlacemark.location{
-        sourceAnnotation.coordinate = location.coordinate
-    }
-    let destinationAnnotation = MKPointAnnotation()
-    destinationAnnotation.title = "destination"
-    if let location = destinationPlacemark.location{
-        destinationAnnotation.coordinate = location.coordinate
-    }
-    self.detailMap.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
-    let directionRequest = MKDirectionsRequest()
-    directionRequest.source = sourceMapItem
-    directionRequest.destination = destinationMapItem
-    directionRequest.transportType = .any
-    let directions = MKDirections(request: directionRequest)
-    directions.calculate {(response, error) -> Void in
-        guard let response = response else
-        {
-            if let error = error {
-                print("Error: \(error)")
-            }
-            return
-        }
-                    let route = response.routes[0]
-                    self.detailMap.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-            let rect = route.polyline.boundingMapRect
-                    self.detailMap.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-            
-            }
+//    let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
+//    let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+//    let sourceAnnotation = MKPointAnnotation()
+//    sourceAnnotation.title = detailTour?.name
+//    if let location = sourcePlacemark.location{
+//        sourceAnnotation.coordinate = location.coordinate
+//    }
+//    let destinationAnnotation = MKPointAnnotation()
+//    destinationAnnotation.title = "destination"
+//    if let location = destinationPlacemark.location{
+//        destinationAnnotation.coordinate = location.coordinate
+//    }
+//    self.detailMap.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
+//    let directionRequest = MKDirectionsRequest()
+//    directionRequest.source = sourceMapItem
+//    directionRequest.destination = destinationMapItem
+//    directionRequest.transportType = .any
+//    let directions = MKDirections(request: directionRequest)
+//    directions.calculate {(response, error) -> Void in
+//        guard let response = response else
+//        {
+//            if let error = error {
+//                print("Error: \(error)")
+//            }
+//            return
+//        }
+//                    let route = response.routes[0]
+//                    self.detailMap.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+//            let rect = route.polyline.boundingMapRect
+//                    self.detailMap.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+//            
+//            }
         }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
