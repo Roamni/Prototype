@@ -98,7 +98,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         
         }
         else{
-            self.alertBn(title: "Error", message: "Please Log In")
+            self.alertBn(title: "Reminder", message: "Please Log In to access the tours")
         }
         super.viewDidLoad()
         //musicSlider.value = 0.0
