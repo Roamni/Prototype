@@ -178,11 +178,14 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
                 if indexPath.section == 3{
-                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                    let modalVC = storyboard.instantiateViewController(withIdentifier: "uploadView") as? MyRoamniUploadToursViewController
-                    self.present(modalVC!, animated: true, completion: nil)
+//                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                    let modalVC = storyboard.instantiateViewController(withIdentifier: "uploadView") as? MyRoamniUploadToursViewController
+//                    self.present(modalVC!, animated: true, completion: nil)
+                    self.alertBn(title: "Upload", message: "Please open the Voice Memo => choose a record => share => Roamni")
         
                 }
+        
+        
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {

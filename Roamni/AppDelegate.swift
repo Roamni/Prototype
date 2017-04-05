@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             let duration:Int = Int(avPlayer.duration)
             self.secondsToHsMsSs(duration, result: { (h, m, s) in
                 print("\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))")
-                initialViewControlleripad.tourLengthTex.text = "\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))"
+                //initialViewControlleripad.tourLengthTex.text = "\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))"
             })
             
             return true

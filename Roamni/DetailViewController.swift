@@ -120,6 +120,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     
   override func viewDidLoad() {
     super.viewDidLoad()
+    if self.detailMap.annotations.count != 0
+    {
+
+        self.detailMap.removeAnnotations(self.detailMap.annotations)
+    }
     navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
     
     navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -142,7 +147,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
 
     //self.title = detailTour?.name
-    self.lengthLabel.text = String(describing: detailTour?.length)
+    self.lengthLabel.text = String(detailTour?.length ?? 0)
     self.ratingLabel.text = String(describing: detailTour?.star)
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self
@@ -179,20 +184,20 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     directionRequest.destination = destinationMapItem
     directionRequest.transportType = .any
     let directions = MKDirections(request: directionRequest)
-    directions.calculate {(response, error) -> Void in
-        guard let response = response else
-        {
-            if let error = error {
-                print("Error: \(error)")
-            }
-            return
-        }
-                    let route = response.routes[0]
-                    self.detailMap.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-            let rect = route.polyline.boundingMapRect
-                    self.detailMap.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-            
-            }
+//    directions.calculate {(response, error) -> Void in
+//        guard let response = response else
+//        {
+//            if let error = error {
+//                print("Error: \(error)")
+//            }
+//            return
+//        }
+//                    let route = response.routes[0]
+//                    self.detailMap.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+//            let rect = route.polyline.boundingMapRect
+//                    self.detailMap.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+//            
+//            }
         }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
