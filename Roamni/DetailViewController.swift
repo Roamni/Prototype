@@ -120,11 +120,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     
   override func viewDidLoad() {
     super.viewDidLoad()
-//    if self.detailMap.annotations != nil
-//    {
-//
-//    self.detailMap.removeAnnotation(self.detailMap.annotations)
-//    }
+    if self.detailMap.annotations.count != 0
+    {
+
+        self.detailMap.removeAnnotations(self.detailMap.annotations)
+    }
     navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
     
     navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
