@@ -120,6 +120,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     
   override func viewDidLoad() {
     super.viewDidLoad()
+//    if self.detailMap.annotations != nil
+//    {
+//
+//    self.detailMap.removeAnnotation(self.detailMap.annotations)
+//    }
     navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
     
     navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -161,24 +166,24 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     let destinationLocation = CLLocationCoordinate2D(latitude: (detailTour?.endLocation.latitude)!, longitude: (detailTour?.endLocation.longitude)!)
     let sourcePlacemark = MKPlacemark(coordinate: sourceLocation!, addressDictionary: nil)
     let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-//    let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
-//    let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
-//    let sourceAnnotation = MKPointAnnotation()
-//    sourceAnnotation.title = detailTour?.name
-//    if let location = sourcePlacemark.location{
-//        sourceAnnotation.coordinate = location.coordinate
-//    }
-//    let destinationAnnotation = MKPointAnnotation()
-//    destinationAnnotation.title = "destination"
-//    if let location = destinationPlacemark.location{
-//        destinationAnnotation.coordinate = location.coordinate
-//    }
-//    self.detailMap.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
-//    let directionRequest = MKDirectionsRequest()
-//    directionRequest.source = sourceMapItem
-//    directionRequest.destination = destinationMapItem
-//    directionRequest.transportType = .any
-//    let directions = MKDirections(request: directionRequest)
+    let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
+    let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+    let sourceAnnotation = MKPointAnnotation()
+    sourceAnnotation.title = detailTour?.name
+    if let location = sourcePlacemark.location{
+        sourceAnnotation.coordinate = location.coordinate
+    }
+    let destinationAnnotation = MKPointAnnotation()
+    destinationAnnotation.title = "destination"
+    if let location = destinationPlacemark.location{
+        destinationAnnotation.coordinate = location.coordinate
+    }
+    self.detailMap.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
+    let directionRequest = MKDirectionsRequest()
+    directionRequest.source = sourceMapItem
+    directionRequest.destination = destinationMapItem
+    directionRequest.transportType = .any
+    let directions = MKDirections(request: directionRequest)
 //    directions.calculate {(response, error) -> Void in
 //        guard let response = response else
 //        {
