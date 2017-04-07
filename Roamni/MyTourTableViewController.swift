@@ -36,6 +36,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     }
 
     
+    
     static let sharedInstance = MyTourTableViewController()
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
@@ -77,6 +78,10 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func viewWillAppear(_ animated: Bool) {
         //print("the table category is \(self.tourCategory!)")
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.white
+        footerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 30)
+        tableView.tableFooterView = footerView
         super.viewWillAppear(animated)
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]

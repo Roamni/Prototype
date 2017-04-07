@@ -37,7 +37,11 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
 
         //tableView
         //fetchTours()
-      tableView.tableFooterView = UIView()
+      //tableView.tableFooterView = UIView()
+        let footerView = UIView()
+        footerView.backgroundColor = UIColor.white
+        footerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 30)
+        tableView.tableFooterView = footerView
     }
     
     

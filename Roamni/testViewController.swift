@@ -66,6 +66,10 @@ class testViewController: UIViewController {
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
                 songTitle.textColor = UIColor.white
             }
+            else{
+                playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+
+            }
         }else{
             songTitle.text =  "Roamni"
             songTitle.textColor = UIColor.gray
