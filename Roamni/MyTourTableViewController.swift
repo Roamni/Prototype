@@ -175,7 +175,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
                 
-                if child.childSnapshot(forPath: "user").hasChild(uid)
+                if child.childSnapshot(forPath: "user").hasChild(uid) && downloadTour.uploadUser != uid
                 {
                     self.downloadTours.append(downloadTour)
                     print(self.downloadTours)
@@ -376,9 +376,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         let intDis : Int = Int(doubleDis)
         cell.distanceLabel.text = "\(intDis/1000) km"
 //        cell.starrating = CGFloat((tour.star as NSString).floatValue)
-        let starView = StarViewController()
-        cell.delegate = starView
-        cell.Pass()
         cell.isSelected = false
         cell.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
         cell.floatRatingView.fullImage = UIImage(named: "StarFull")

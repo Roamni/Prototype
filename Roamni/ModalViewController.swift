@@ -79,8 +79,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     
     @IBAction func tapCloseButton() {
        // self.tapCloseButtonActionHandler?()
-        
-        //self.dismiss(animated: true, completion: nil)
+//        self.navigationController?.popViewController(animated: true)
     }
     
     @IBAction func tapPlayButton(_ sender: Any) {
@@ -153,6 +152,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         let delegate = UIApplication.shared.delegate as! AppDelegate
         player = delegate.player
         downloadTours = delegate.downloads
+        counter = delegate.counter!
         if player.isPlaying{
             playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
         }
@@ -227,6 +227,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         delegate.player = player
         delegate.songTitle = downloadTours[counter].name
         delegate.downloads = downloadTours
+        delegate.counter = counter
         print("player is \(self.player)")
 
         

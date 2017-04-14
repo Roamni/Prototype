@@ -25,6 +25,9 @@ class testViewController: UIViewController {
     @IBOutlet fileprivate(set) weak var miniPlayerButton: UIButton!
     @IBOutlet weak var playBtn: UIButton!
     
+    
+    
+    
 //    @IBOutlet fileprivate(set) weak var miniPlayerButton: UIButton!
     fileprivate var modalVC : ModalViewController!
     var tourCategory : String?
@@ -54,11 +57,33 @@ class testViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func mini(_ segue: UIStoryboardSegue) {
+        
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        if (delegate.songTitle != nil){
+            songTitle.text =  delegate.songTitle
+            songTitle.textColor = UIColor.white
+            if delegate.player.isPlaying{
+                playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+                songTitle.textColor = UIColor.white
+            }
+            else{
+                playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+                
+            }
+        }else{
+            songTitle.text =  "Roamni"
+            songTitle.textColor = UIColor.gray
+        }
+
+    
+    }
     
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
         print("vvvvvvvv")
+        
         let delegate = UIApplication.shared.delegate as! AppDelegate
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
@@ -85,6 +110,7 @@ class testViewController: UIViewController {
         
         
     }
+    
     
 
     

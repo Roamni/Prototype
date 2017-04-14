@@ -39,7 +39,6 @@
 		A6B8983F1E84E88A00BCFE42 /* UploadLengthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B8983E1E84E88A00BCFE42 /* UploadLengthViewController.swift */; };
 		A6B901971E39252400516908 /* ContainerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B901961E39252400516908 /* ContainerTableViewCell.swift */; };
 		A6B901991E3A446500516908 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B901981E3A446500516908 /* Extensions.swift */; };
-		A6B9019D1E3B339F00516908 /* StarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B9019C1E3B339F00516908 /* StarViewController.swift */; };
 		A6E585851E8A268900DE8F04 /* FeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E585841E8A268900DE8F04 /* FeedbackViewController.swift */; };
 		F00B334C1E696551004752B2 /* FloatRatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B334B1E696551004752B2 /* FloatRatingView.swift */; };
 		F00B334E1E696559004752B2 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F00B334D1E696559004752B2 /* RatingViewController.swift */; };
@@ -139,7 +138,6 @@
 		A6B8983E1E84E88A00BCFE42 /* UploadLengthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadLengthViewController.swift; sourceTree = "<group>"; };
 		A6B901961E39252400516908 /* ContainerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerTableViewCell.swift; sourceTree = "<group>"; };
 		A6B901981E3A446500516908 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		A6B9019C1E3B339F00516908 /* StarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarViewController.swift; sourceTree = "<group>"; };
 		A6E585841E8A268900DE8F04 /* FeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedbackViewController.swift; sourceTree = "<group>"; };
 		AC13739CE1DA53B86601A213 /* Pods-RoamniTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoamniTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RoamniTests/Pods-RoamniTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B6B44BF97247FFACC8EC1517 /* Pods-Roamni.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Roamni.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Roamni/Pods-Roamni.debug.xcconfig"; sourceTree = "<group>"; };
@@ -377,7 +375,6 @@
 				F05F19C81E1BC26C00556CD6 /* Roamni.xcdatamodeld */,
 				A6A639911E1DF5AA0026E207 /* GoogleService-Info.plist */,
 				A6B901981E3A446500516908 /* Extensions.swift */,
-				A6B9019C1E3B339F00516908 /* StarViewController.swift */,
 				F0296EBF1E49D7DB00652816 /* LineView.swift */,
 				F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */,
 				A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */,
@@ -522,6 +519,9 @@
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
+							};
+							com.apple.InterAppAudio = {
+								enabled = 0;
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
@@ -741,7 +741,6 @@
 				F0296EC01E49D7DB00652816 /* LineView.swift in Sources */,
 				A69FD85C1E6813B500167E18 /* MyRoamniIncomingTourCell.swift in Sources */,
 				A63EF1251E6E70810064ACDF /* UploadPickerViewController.swift in Sources */,
-				A6B9019D1E3B339F00516908 /* StarViewController.swift in Sources */,
 				A60834301E24F0CA00775187 /* MyRoamniRequestTourCell.swift in Sources */,
 				F02618051E326252004697EA /* LengthTableViewCell.swift in Sources */,
 				A60834451E24F2D200775187 /* MyRoamniHowViewController.swift in Sources */,

@@ -1529,7 +1529,7 @@
                     <navigationItem key="navigationItem" id="W2e-8c-IFf">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="o4C-Rn-TAg">
-                            <rect key="frame" x="8" y="7" width="359" height="30"/>
+                            <rect key="frame" x="27.5" y="7" width="359" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Purchased Tours"/>
@@ -2496,7 +2496,7 @@
                                 </state>
                                 <connections>
                                     <action selector="tapCloseButton" destination="el7-T8-cG3" eventType="touchUpInside" id="5hh-2d-RTD"/>
-                                    <segue destination="zHH-6e-uOa" kind="show" id="ADO-Lu-O7F"/>
+                                    <segue destination="dSs-4A-iw2" kind="unwind" unwindAction="mini:" id="rF2-wU-1Cm"/>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-dd-4AM">
@@ -2772,8 +2772,9 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH9-nn-UDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="dSs-4A-iw2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-3967.1999999999998" y="-1830.1349325337333"/>
+            <point key="canvasLocation" x="-4024.6376811594205" y="-1888.0434782608697"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cqg-fV-JCA">
@@ -3078,7 +3079,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YIB-t0-b6L"/>
-        <segue reference="BFd-gx-77j"/>
         <segue reference="xMV-R0-9wp"/>
     </inferredMetricsTieBreakers>
 </document>

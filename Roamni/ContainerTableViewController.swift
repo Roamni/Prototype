@@ -130,10 +130,6 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         let intDis : Int = Int(doubleDis)
         cell.distanceLabel.text = "\(intDis/1000) km"
         cell.starrating = CGFloat(tour.star)
-        let starView = StarViewController()
-        cell.delegate = starView
-        cell.Pass()
-
         return cell
     }
     

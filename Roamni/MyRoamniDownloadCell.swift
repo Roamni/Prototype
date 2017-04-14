@@ -31,20 +31,13 @@ var onButtonTapped : (() -> Void)? = nil
     }
     
     var counter = 1
-    
-    var starrating:CGFloat = 1
-    var delegate:RatingBarDelegate?
-    var player = AVAudioPlayer()
+        var player = AVAudioPlayer()
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
     }
     
-    func Pass()
-    {
-        delegate?.ratingDidChange(ratings: starrating)
-    }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         //super.setSelected(selected, animated: animated)

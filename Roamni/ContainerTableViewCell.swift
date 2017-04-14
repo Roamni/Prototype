@@ -15,20 +15,13 @@ class ContainerTableViewCell: UITableViewCell {
     @IBOutlet weak var textlabel: UILabel!
 
     @IBOutlet weak var detailTextlabel: UILabel!
-    @IBOutlet weak var starView: UIView!
     
     @IBOutlet weak var distanceLabel: UILabel!
     var starrating:CGFloat = 1
-    var delegate:RatingBarDelegate?
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
 
-    }
-    
-   func Pass()
-   {
-    delegate?.ratingDidChange(ratings: starrating)
     }
     
     
