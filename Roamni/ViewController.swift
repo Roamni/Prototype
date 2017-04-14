@@ -45,7 +45,12 @@ class ViewController: UIViewController {
                 if (placemarks?.count)! > 0 {
                     let pm = (placemarks?[0])! as CLPlacemark
                     // not all places have thoroughfare & subThoroughfare so validate those values
+                    if pm.thoroughfare != nil && pm.subThoroughfare != nil{
+                        
                     annotation.title = pm.thoroughfare! + ", " + pm.subThoroughfare!
+                    }
+                    else
+                    { annotation.title = "Unknown"}
                     annotation.subtitle = pm.subLocality
                     self.mapView.removeAnnotations(self.mapView.annotations)
                     self.mapView.addAnnotation(annotation)
