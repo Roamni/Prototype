@@ -127,6 +127,7 @@
 		A63EF1221E6E3E2E0064ACDF /* NearByCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearByCollectionViewController.swift; sourceTree = "<group>"; };
 		A63EF1241E6E70810064ACDF /* UploadPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPickerViewController.swift; sourceTree = "<group>"; };
 		A63EF1261E6E94D60064ACDF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		A67014601EA0EBE700FAF228 /* Roamni.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Roamni.entitlements; sourceTree = "<group>"; };
 		A670A1C51E5FD99D0044D4F3 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationSearchTable.swift; sourceTree = "<group>"; };
 		A68239501E8A97A100F62A68 /* testViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = testViewController.swift; sourceTree = "<group>"; };
@@ -363,6 +364,7 @@
 		F05F19C01E1BC26C00556CD6 /* Roamni */ = {
 			isa = PBXGroup;
 			children = (
+				A67014601EA0EBE700FAF228 /* Roamni.entitlements */,
 				F02618001E3224D5004697EA /* Class */,
 				F05F19FB1E1D1DC600556CD6 /* Controller */,
 				F02618011E32258B004697EA /* FilterTableCell */,
@@ -523,6 +525,9 @@
 							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
+							};
+							com.apple.Push = {
+								enabled = 1;
 							};
 						};
 					};
@@ -928,6 +933,7 @@
 			baseConfigurationReference = B6B44BF97247FFACC8EC1517 /* Pods-Roamni.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Roamni/Roamni.entitlements;
 				DEVELOPMENT_TEAM = EM6XMCB949;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -944,6 +950,7 @@
 			baseConfigurationReference = C95B3B5E6B72742CC18460B8 /* Pods-Roamni.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Roamni/Roamni.entitlements;
 				DEVELOPMENT_TEAM = EM6XMCB949;
 				INFOPLIST_FILE = Roamni/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
