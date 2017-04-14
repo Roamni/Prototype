@@ -235,8 +235,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
         mapView.setRegion(region, animated: true)
         mapView.tintColor = UIColor.blue
-        self.startpointBn.tintColor = UIColor.black
-        self.endPointBn.tintColor = UIColor.black
+        self.startpointBn.tintColor = UIColor.blue
+        self.endPointBn.tintColor = UIColor.blue
         self.startpointBn.setTitle("click to add start Point", for: .normal)
         self.endPointBn.setTitle("click to add end Point", for: .normal)
     
