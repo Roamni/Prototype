@@ -234,7 +234,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print("ues")
-        var cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
+        let cell = collectionView.cellForItem(at: indexPath) as! ImageCollectionViewCell
         cell.imimage.image = imageArray[1]
 
     }

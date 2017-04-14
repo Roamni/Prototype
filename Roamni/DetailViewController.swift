@@ -183,7 +183,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     directionRequest.source = sourceMapItem
     directionRequest.destination = destinationMapItem
     directionRequest.transportType = .any
-    let directions = MKDirections(request: directionRequest)
+   // let directions = MKDirections(request: directionRequest)
 //    directions.calculate {(response, error) -> Void in
 //        guard let response = response else
 //        {
