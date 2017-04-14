@@ -15,11 +15,6 @@ class SearchContainerViewController: UIViewController {
 
     
     
-    @IBOutlet weak var songTitle: UILabel!
-    @IBOutlet fileprivate(set) weak var tabBar: UITabBar!
-    @IBOutlet fileprivate(set) weak var miniPlayerView: LineView!
-    
-    @IBOutlet fileprivate(set) weak var miniPlayerButton: UIButton!
     fileprivate(set) weak var container: ContainerViewController!
     
     @IBOutlet weak var swtichBtn: UIBarButtonItem!
@@ -65,13 +60,6 @@ class SearchContainerViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
-        self.modalVC.modalPresentationStyle = .overFullScreen
-        
-        let color = UIColor(red: 0.4, green: 0.4, blue: 0.4, alpha: 0.3)
-        self.miniPlayerButton.setBackgroundImage(self.generateImageWithColor(color), for: .highlighted)
         
         //self.setupAnimator()
 
@@ -167,10 +155,6 @@ class SearchContainerViewController: UIViewController {
 //    }
 
     
-    @IBAction func tapMiniPlayerButton() {
-      //  self.present(self.modalVC, animated: true, completion: nil)
-
-    }
     
     
     fileprivate func generateImageWithColor(_ color: UIColor) -> UIImage {
