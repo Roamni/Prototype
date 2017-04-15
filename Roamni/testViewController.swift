@@ -45,6 +45,7 @@ class testViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.frame = UIScreen.main.bounds
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         self.modalVC = storyboard.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
         self.modalVC.modalPresentationStyle = .overFullScreen
@@ -79,6 +80,7 @@ class testViewController: UIViewController {
     
     }
     
+  
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)

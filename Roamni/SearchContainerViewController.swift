@@ -268,8 +268,10 @@ class SearchContainerViewController: UIViewController {
         // MARK: - UISearchBar Delegate
         func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
             filterContentForSearchText(searchBar.text!, scope: searchBar.scopeButtonTitles![selectedScope])
-        }
-}
+        
+            
+        
+            }}
 
     extension SearchContainerViewController: UISearchResultsUpdating {
         // MARK: - UISearchResultsUpdating Delegate
@@ -279,8 +281,11 @@ class SearchContainerViewController: UIViewController {
             filterContentForSearchText(searchController.searchBar.text!, scope: scope)
             
         }
-    
+        
+      
 }
+
+
 
 
 
