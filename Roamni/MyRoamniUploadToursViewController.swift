@@ -10,7 +10,10 @@ import UIKit
 import Firebase
 import MapKit
 class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITextViewDelegate {
-    @IBAction func startButton(_ segue: UIStoryboardSegue) {
+    
+   
+    
+       @IBAction func startButton(_ segue: UIStoryboardSegue) {
         let secondVC :ViewController = segue.source as! ViewController
         if (secondVC.anno == nil)
         {
@@ -31,6 +34,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         else{
             self.endPointLocation = secondVC.anno?.coordinate
              self.endPointBn.setTitle((secondVC.anno?.title)!, for: .normal)
+            self.endPointBn.tintColor = UIColor.black
+
         }
         }
     }
@@ -132,28 +137,48 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                     
                 }
-            }
+                }
           
             uploadTask.observe(.progress) { [weak self] (snapshot) in
                 guard let strongSelf = self else { return }
                 guard let progress = snapshot.progress else {return}
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
                 if Int(strongSelf.progressView.progress) == 1{
+                    
                     self?.activityIndicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
-                    self?.alertBn(title: "complete", message: "Uploading Successful")
+//                    self?.alertBn(title: "complete", message: "Uploading Successful")
                     self?.deregisterFromKeyboardNotifications()
-                   // self?.performSegue(withIdentifier: "backView", sender: self)
-                }
+                    
+                    
+                    let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
+                    
+                    alertController.addAction(ok)
+                    self?.present(alertController, animated: true, completion: nil)
+      
+                    
+//              self?.performSegue(withIdentifier: "backView", sender: self)
+                    }
          
                 }
             }
+            
         }
         else{
-            
+            self.alertBn(title: "Reminder", message: "Please log in first")
             print("no user")
         }
         
+    }
+    
+    func handleok(action: UIAlertAction){
+        let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
+        
+        controller.modalPresentationStyle = .overCurrentContext
+        controller.goMyTour = true
+        self.present(controller, animated: true, completion: nil)
+
     }
     func registerForKeyboardNotifications(){
     //Adding notifies on keyboard appearing

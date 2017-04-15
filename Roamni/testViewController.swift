@@ -40,8 +40,7 @@ class testViewController: UIViewController {
     var finalTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
     private var animator : ARNTransitionAnimator?
-    
-    
+    var goMyTour:Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,9 +50,14 @@ class testViewController: UIViewController {
         self.modalVC.modalPresentationStyle = .overFullScreen
         let tabcontroller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
         self.addChildViewController(tabcontroller)
+        if goMyTour == true{
+            tabcontroller.selectedIndex = 2
+            ((tabcontroller.selectedViewController as! UINavigationController).topViewController as! MyTourTableViewController).jumphere = true
+        }
         self.view.addSubview(tabcontroller.view)
         self.view.addSubview(self.miniPlayerView)
         tabcontroller.didMove(toParentViewController: self)
+       
         
         // Do any additional setup after loading the view.
     }
