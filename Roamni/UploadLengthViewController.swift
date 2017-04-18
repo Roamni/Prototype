@@ -15,6 +15,10 @@ class UploadLengthViewController: UIViewController,UIPickerViewDelegate,UIPicker
     @IBAction func cancelBn(_ sender: Any) {
          dismiss(animated: true, completion: nil)
     }
+    
+    @IBOutlet weak var cancel: UIBarButtonItem!
+    
+    @IBOutlet weak var done: UIBarButtonItem!
 
     var pickString:String = "15"
     
@@ -36,6 +40,9 @@ class UploadLengthViewController: UIViewController,UIPickerViewDelegate,UIPicker
         super.viewDidLoad()
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        self.cancel.tintColor = UIColor.white
+        self.done.tintColor = UIColor.white
+
         // Do any additional setup after loading the view.
     }
 

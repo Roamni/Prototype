@@ -35,7 +35,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     }
 
-    
+    var jumphere:Bool? = false
     
     static let sharedInstance = MyTourTableViewController()
     var tourCategory : String?
@@ -94,11 +94,17 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         
         if let user = FIRAuth.auth()?.currentUser{
         
-       
+            if self.segCon.selectedSegmentIndex == 0 {
         self.downloadTours.removeAll()
         fetchTours()
         tableView.reloadData()
+            }
+            else{
+                self.downloadTours.removeAll()
+                fetchTours1()
+                tableView.reloadData()
 
+            }
         //tableView
         
         }
@@ -106,6 +112,13 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             self.alertBn(title: "Reminder", message: "Please Log In to access the tours")
         }
         super.viewDidLoad()
+        
+        if jumphere == true{
+            self.segCon.selectedSegmentIndex = 1
+            fetchTours1()
+            self.tableView.reloadData()
+            self.jumphere = false
+        }
         //musicSlider.value = 0.0
         // Do any additional setup after loading the view, typically from a nib.
 //        if NSClassFromString("MPNowPlayingInfoCenter") != nil {

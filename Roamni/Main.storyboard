@@ -278,7 +278,7 @@
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">
             <objects>
-                <viewController id="zHH-6e-uOa" customClass="testViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="firstView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zHH-6e-uOa" customClass="testViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="t0j-hv-S4y"/>
                         <viewControllerLayoutGuide type="bottom" id="Pz6-rJ-paL"/>
@@ -364,7 +364,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhC-BT-Wm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2450" y="-2988"/>
+            <point key="canvasLocation" x="-2393" y="-2961"/>
         </scene>
         <!--Nearby Tours-->
         <scene sceneID="msu-cW-MZh">
@@ -382,7 +382,7 @@
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="x1o-Ib-qXS">
-                                <rect key="frame" x="20" y="20" width="159" height="147"/>
+                                <rect key="frame" x="80.5" y="20" width="159" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="159" height="147"/>
@@ -1529,7 +1529,7 @@
                     <navigationItem key="navigationItem" id="W2e-8c-IFf">
                         <nil key="title"/>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="o4C-Rn-TAg">
-                            <rect key="frame" x="27.5" y="7" width="359" height="30"/>
+                            <rect key="frame" x="8" y="7" width="304" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <segments>
                                 <segment title="Purchased Tours"/>
@@ -1547,7 +1547,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cAL-M7-nwX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-5300" y="-2951.8740629685158"/>
+            <point key="canvasLocation" x="-1967" y="-3749"/>
         </scene>
         <!--Upload A Tour-->
         <scene sceneID="jLu-ix-jgE">
@@ -1855,7 +1855,7 @@
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="afg-MU-doE">
                                             <connections>
                                                 <action selector="naviCancel:" destination="ARn-za-RXE" id="8Bs-wc-LmV"/>
-                                                <segue destination="zHH-6e-uOa" kind="show" id="BFd-gx-77j"/>
+                                                <segue destination="zHH-6e-uOa" kind="show" identifier="backView" id="BFd-gx-77j"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -1912,7 +1912,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="089-c0-A6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-785.50724637681162" y="-3048.913043478261"/>
+            <point key="canvasLocation" x="-1041" y="-3690"/>
         </scene>
         <!--Choose Length-->
         <scene sceneID="Nng-eD-snB">
@@ -1950,6 +1950,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancel" destination="3bG-Ha-imX" id="52f-0Y-Ith"/>
+                        <outlet property="done" destination="oNp-dq-792" id="TDv-1j-vG3"/>
                         <outlet property="lengthPicker" destination="Y9y-nA-ed2" id="Sgh-Py-GvD"/>
                     </connections>
                 </viewController>
@@ -1995,7 +1997,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="cancel" destination="mg7-ii-NXO" id="AC4-WY-lb8"/>
                         <outlet property="categoryPicker" destination="nmp-6R-Ae7" id="X6w-4k-ii4"/>
+                        <outlet property="done" destination="oga-vj-O95" id="8gm-2l-ksV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FT-Nm-H2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -3057,6 +3061,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YIB-t0-b6L"/>
-        <segue reference="xMV-R0-9wp"/>
+        <segue reference="0AN-x8-xfG"/>
     </inferredMetricsTieBreakers>
 </document>

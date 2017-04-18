@@ -16,9 +16,15 @@ class UploadPickerViewController: UIViewController,UIPickerViewDelegate,UIPicker
         dismiss(animated: true, completion: nil)
     
     }
+    
+    @IBOutlet weak var cancel: UIBarButtonItem!
+    
+    @IBOutlet weak var done: UIBarButtonItem!
+    
+    
     var pickString:String = "Walking"
 
-    let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Accessiable"]
+    let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Real Estate","Accessiable"]
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
@@ -36,10 +42,12 @@ class UploadPickerViewController: UIViewController,UIPickerViewDelegate,UIPicker
         super.viewDidLoad()
         categoryPicker.delegate = self
         categoryPicker.delegate = self
-
+        
        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         // Do any additional setup after loading the view.
+        self.cancel.tintColor = UIColor.white
+        self.done.tintColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
