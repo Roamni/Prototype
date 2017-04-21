@@ -84,9 +84,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             self.aPlayer.pause()
             } as AnyObject!
         aPlayer.currentItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+        var player : AVAudioPlayer!
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        player = delegate.player
+        player.pause()
         aPlayer.play()
 
     }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if aPlayer.currentItem?.status == AVPlayerItemStatus.readyToPlay{
             self.activityIndicator.stopAnimating()
