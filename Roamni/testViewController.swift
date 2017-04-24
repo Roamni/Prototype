@@ -51,6 +51,8 @@ class testViewController: UIViewController {
         let tabcontroller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
         self.addChildViewController(tabcontroller)
         if goMyTour == true{
+            tabcontroller.selectedIndex = 0
+            ((tabcontroller.selectedViewController as! UINavigationController).topViewController as! NearByCollectionViewController).viewDidLoad()
             tabcontroller.selectedIndex = 2
             ((tabcontroller.selectedViewController as! UINavigationController).topViewController as! MyTourTableViewController).jumphere = true
         }

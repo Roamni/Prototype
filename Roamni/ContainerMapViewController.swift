@@ -146,19 +146,25 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         if segue.identifier == "goToDetail"
         {
             let controller:DetailViewController = segue.destination as! DetailViewController
+            var i = 0
             for tour in tours{
+                
                 if aTour?.title == tour.name
                 {
-                    self.realTour = tour
                     
+                    self.realTour = tour
+                    break
                 }
+                i += 1
             }
-     controller.detailTour = self.realTour
-            controller.hidesBottomBarWhenPushed = true
+            controller.detailTour = self.realTour
+            controller.allDetailTour = tours
+            controller.currentIndex = i
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     
-
-}
+    }

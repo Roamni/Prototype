@@ -145,21 +145,24 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
                 if Int(strongSelf.progressView.progress) == 1{
                     
+                   
+                    
+                    
+                    
+                    
+//              self?.performSegue(withIdentifier: "backView", sender: self)
+                    }
+                uploadTask.observe(.success, handler: {_ in
                     self?.activityIndicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
-//                    self?.alertBn(title: "complete", message: "Uploading Successful")
+                    //                    self?.alertBn(title: "complete", message: "Uploading Successful")
                     self?.deregisterFromKeyboardNotifications()
-                    
-                    
                     let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
                     let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
                     
                     alertController.addAction(ok)
                     self?.present(alertController, animated: true, completion: nil)
-      
-                    
-//              self?.performSegue(withIdentifier: "backView", sender: self)
-                    }
+})
          
                 }
             }
@@ -171,6 +174,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         }
         
     }
+
     
     func handleok(action: UIAlertAction){
         let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
