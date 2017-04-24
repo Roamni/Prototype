@@ -175,6 +175,28 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         
     }
 
+    func checkLogin() -> Void {
+        if let user = FIRAuth.auth()?.currentUser{
+        }else
+        {
+            let refreshAlert = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+
+            refreshAlert.addAction(UIAlertAction(title: "Go to Login", style: .default, handler: { (action: UIAlertAction!) in
+                let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
+                
+                controller.modalPresentationStyle = .overCurrentContext
+                controller.goMyRoamni = true
+                self.present(controller, animated: true, completion: nil)
+                
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
+
+}
+    }
     
     func handleok(action: UIAlertAction){
         let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
