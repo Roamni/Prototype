@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "RealEstateTours.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "RealEstateTours.png",
       "scale" : "2x"
     },
     {

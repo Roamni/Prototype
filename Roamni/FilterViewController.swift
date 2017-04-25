@@ -31,12 +31,12 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var timeLabel: UILabel!
     var durationTime:Int? = 90
-    
+    var tType:String?
     @IBAction func setTime(_ sender: UISlider) {
         timeLabel.text = "\(String(Int(sender.value))) min"
         self.durationTime = Int(sender.value)
     }
-    
+
     
     @IBAction func btn1(_ sender: Any) {
         btn1.setImage(UIImage(named: "11"), for: UIControlState.normal)
@@ -48,6 +48,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
         btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+        tType = "Accessiable"
         
     }
 
@@ -61,6 +62,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
         btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+        tType = "Shooping"
 
     }
     
@@ -74,7 +76,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
         btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-
+        tType = "Real Estate"
     }
     
     @IBAction func btn4(_ sender: Any) {
@@ -87,7 +89,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
         btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-
+        tType = "Walking"
     }
     
     @IBAction func btn5(_ sender: Any) {
@@ -100,7 +102,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
         btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-
+        tType = "Cycling"
     }
     
     @IBAction func btn6(_ sender: Any) {
@@ -113,7 +115,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
         btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-
+        tType = "Driving"
     }
     
     @IBAction func btn7(_ sender: Any) {
@@ -191,7 +193,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         
         var onetours = [DownloadTour]()
         for onetour in self.tours{
-            if onetour.length < self.durationTime!{
+            if onetour.length < self.durationTime! && onetour.tourType == tType{
                 onetours.append(onetour)
             }
         }
@@ -205,7 +207,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     }
     
     
-    var list = ["Highest Rating", "Lowest Rating", "Longest duration", "Shortest duration"]
+    var list = ["Highest Rating", "Lowest Rating", "Longest Time", "Shortest Time"]
 
     var imageArray = [UIImage(named:"1"),UIImage(named:"2"),UIImage(named:"3"),UIImage(named:"4"),UIImage(named:"5")]
     
