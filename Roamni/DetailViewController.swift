@@ -217,6 +217,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
   }
   
     
+
     
 
 }
