@@ -86,10 +86,12 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             //self.aPlayer = nil
             } as AnyObject!
         aPlayer.currentItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
-        var player : AVAudioPlayer!
+        var player : AVAudioPlayer! = nil
         let delegate = UIApplication.shared.delegate as! AppDelegate
         player = delegate.player
+        if player != nil{
         player.pause()
+        }
         aPlayer.play()
 
     }
