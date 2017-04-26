@@ -216,5 +216,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     super.didReceiveMemoryWarning()
   }
   
+    
+    
+
 }
 
