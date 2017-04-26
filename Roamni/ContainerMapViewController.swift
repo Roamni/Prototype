@@ -72,7 +72,10 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
 
         super.viewDidLoad()
                 //self.places.removeAll()
+        if tours.count != 0
+        {
         mapView.removeAnnotations(mapView.annotations)
+        
         for thetour in tours{
             let place = TourForMap(title: thetour.name, info: thetour.tourType, coordinate: thetour.startLocation)
             places.append(place)
@@ -80,7 +83,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         
         mapView.addAnnotations(places)
         //fetchTours()
-
+        }
         // Do any additional setup after loading the view.
     }
        
