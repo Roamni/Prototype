@@ -47,7 +47,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+ //       btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
         tType = "Accessiable"
         
     }
@@ -61,7 +61,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+     //   btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
         tType = "Shooping"
 
     }
@@ -75,7 +75,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+      //  btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
         tType = "Real Estate"
     }
     
@@ -88,7 +88,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+      //  btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
         tType = "Walking"
     }
     
@@ -114,7 +114,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "61"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+    //    btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
         tType = "Driving"
     }
     
@@ -127,7 +127,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "71"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+  //      btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
 
     }
     
@@ -140,7 +140,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "81"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+ //       btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
 
     }
     
@@ -153,7 +153,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "91"), for: UIControlState.normal)
+ //       btn9.setImage(UIImage(named: "91"), for: UIControlState.normal)
 
     }
     

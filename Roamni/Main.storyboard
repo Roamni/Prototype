@@ -442,7 +442,7 @@
                                     <outlet property="delegate" destination="WQ4-6H-5If" id="ubA-du-Qkz"/>
                                 </connections>
                             </pickerView>
-                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="0.0" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="h2F-x9-pMg">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="90" minValue="15" maxValue="180" translatesAutoresizingMaskIntoConstraints="NO" id="h2F-x9-pMg">
                                 <rect key="frame" x="30" y="393" width="314" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
