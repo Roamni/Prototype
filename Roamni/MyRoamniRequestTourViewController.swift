@@ -49,7 +49,7 @@ class MyRoamniRequestTourViewController: UIViewController {
     var resultSearchController: UISearchController!
     var sender:String?
     let locationManager = CLLocationManager()
-    let tourPickerValues = ["Walking","Driving","Cycling","Shopping","Accessiable"]
+    let tourPickerValues = ["Walking","Driving","Cycling","Shopping","Real Estate","Accessiable"]
     override func viewDidLoad() {
         super.viewDidLoad()
         self.ref = FIRDatabase.database().reference()

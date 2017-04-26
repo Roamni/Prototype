@@ -72,7 +72,10 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
 
         super.viewDidLoad()
                 //self.places.removeAll()
+        if tours.count != 0
+        {
         mapView.removeAnnotations(mapView.annotations)
+        
         for thetour in tours{
             let place = TourForMap(title: thetour.name, info: thetour.tourType, coordinate: thetour.startLocation)
             places.append(place)
@@ -80,7 +83,7 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         
         mapView.addAnnotations(places)
         //fetchTours()
-
+        }
         // Do any additional setup after loading the view.
     }
        
@@ -146,20 +149,24 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         if segue.identifier == "goToDetail"
         {
             let controller:DetailViewController = segue.destination as! DetailViewController
+            var i = 0
             for tour in tours{
+                
                 if aTour?.title == tour.name
                 {
-                    self.realTour = tour
                     
+                    self.realTour = tour
+                    break
                 }
+                i += 1
             }
-     controller.detailTour = self.realTour
-            controller.hidesBottomBarWhenPushed = true
+            controller.detailTour = self.realTour
+            controller.allDetailTour = tours
+            controller.currentIndex = i
+            controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+            controller.navigationItem.leftItemsSupplementBackButton = true
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
-    
-
-
 }

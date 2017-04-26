@@ -211,7 +211,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         //let audioPath = Bundle.main.path(forResource: "\(counter)", ofType: "m4a")!
         let delegate = UIApplication.shared.delegate as! AppDelegate
         if delegate.downloads.count != 0{
-            delegate.player.stop()
+            delegate.player?.stop()
         }
 
         let error : NSError? = nil

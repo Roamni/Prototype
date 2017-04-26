@@ -31,7 +31,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var timeSlider: UISlider!
     @IBOutlet weak var timeLabel: UILabel!
     var durationTime:Int? = 90
-    var tType:String?
+    var tType:String? = "default"
     @IBAction func setTime(_ sender: UISlider) {
         timeLabel.text = "\(String(Int(sender.value))) min"
         self.durationTime = Int(sender.value)
@@ -101,7 +101,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
+//        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
         tType = "Cycling"
     }
     
@@ -192,14 +192,30 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         
         var onetours = [DownloadTour]()
+        if tType != "default"
+        {
         for onetour in self.tours{
             if onetour.length < self.durationTime! && onetour.tourType == tType{
                 onetours.append(onetour)
             }
         }
+        
+        
         tours.removeAll()
         tours = onetours
+        }
+        else{
+            for onetour in self.tours{
+                if onetour.length < self.durationTime!{
+                    onetours.append(onetour)
+                }
+            }
+            
+            
+            tours.removeAll()
+            tours = onetours
         
+        }
         returnValueToCaller?(self.tours)
         navigationController!.popViewController(animated: true)
 

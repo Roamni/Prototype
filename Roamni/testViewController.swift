@@ -41,7 +41,7 @@ class testViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     private var animator : ARNTransitionAnimator?
     var goMyTour:Bool?
-    
+    var goMyRoamni:Bool?
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.frame = UIScreen.main.bounds
@@ -51,8 +51,19 @@ class testViewController: UIViewController {
         let tabcontroller = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "tabBarController") as! UITabBarController
         self.addChildViewController(tabcontroller)
         if goMyTour == true{
+            self.goMyTour = false
+            tabcontroller.selectedIndex = 0
+            ((tabcontroller.selectedViewController as! UINavigationController).topViewController as! NearByCollectionViewController).viewDidLoad()
             tabcontroller.selectedIndex = 2
             ((tabcontroller.selectedViewController as! UINavigationController).topViewController as! MyTourTableViewController).jumphere = true
+        }
+        else if goMyRoamni == true{
+            self.goMyRoamni = false
+            tabcontroller.selectedIndex = 0
+            ((tabcontroller.selectedViewController as! UINavigationController).topViewController as! NearByCollectionViewController).viewDidLoad()
+            tabcontroller.selectedIndex = 3
+            
+
         }
         self.view.addSubview(tabcontroller.view)
         self.view.addSubview(self.miniPlayerView)
@@ -68,7 +79,7 @@ class testViewController: UIViewController {
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
             songTitle.textColor = UIColor.white
-            if delegate.player.isPlaying{
+            if (delegate.player?.isPlaying)!{
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
                 songTitle.textColor = UIColor.white
             }
@@ -93,7 +104,7 @@ class testViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
-            if delegate.player.isPlaying{
+            if (delegate.player?.isPlaying)!{
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
                 songTitle.textColor = UIColor.white
             }
@@ -139,11 +150,11 @@ class testViewController: UIViewController {
         }else{
 
             let delegate = UIApplication.shared.delegate as! AppDelegate
-            if delegate.player.isPlaying{
-                delegate.player.pause()
+            if (delegate.player?.isPlaying)!{
+                delegate.player?.pause()
                 playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
             }else{
-                delegate.player.play()
+                delegate.player?.play()
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
             }
         }

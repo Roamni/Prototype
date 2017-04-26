@@ -80,14 +80,18 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         timeObserver = aPlayer.addBoundaryTimeObserver(forTimes: [timeArray], queue:nil) { () -> Void in
             print("10s reached")
             self.alertBn(title: "complete", message: "30 seconds reached")
-            self.aPlayer.removeTimeObserver(timeObserver)
-            self.aPlayer.pause()
+//            self.aPlayer.removeTimeObserver(timeObserver)
+               self.aPlayer.pause()
+            
+            //self.aPlayer = nil
             } as AnyObject!
         aPlayer.currentItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
-        var player : AVAudioPlayer!
+        var player : AVAudioPlayer! = nil
         let delegate = UIApplication.shared.delegate as! AppDelegate
         player = delegate.player
+        if player != nil{
         player.pause()
+        }
         aPlayer.play()
 
     }
