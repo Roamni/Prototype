@@ -86,9 +86,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             //self.aPlayer = nil
             } as AnyObject!
         aPlayer.currentItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+        var player : AVAudioPlayer!
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        player = delegate.player
+        player.pause()
         aPlayer.play()
 
     }
+    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if aPlayer.currentItem?.status == AVPlayerItemStatus.readyToPlay{
             self.activityIndicator.stopAnimating()
@@ -175,12 +180,16 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     if let location = sourcePlacemark.location{
         sourceAnnotation.coordinate = location.coordinate
     }
+    let place = TourForMap(title: sourceAnnotation.title!, info: "Start Point", coordinate: sourceAnnotation.coordinate)
+    detailMap.addAnnotation(place)
+    //places.append(place)
+    
     let destinationAnnotation = MKPointAnnotation()
-    destinationAnnotation.title = "destination"
+    destinationAnnotation.title = "Destination"
     if let location = destinationPlacemark.location{
         destinationAnnotation.coordinate = location.coordinate
     }
-    self.detailMap.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
+    self.detailMap.showAnnotations([/*sourceAnnotation,*/destinationAnnotation], animated: true)
     let directionRequest = MKDirectionsRequest()
     directionRequest.source = sourceMapItem
     directionRequest.destination = destinationMapItem
@@ -213,5 +222,35 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     super.didReceiveMemoryWarning()
   }
   
+    //Set pin`s look and pin event
+    func mapView(_ mapView: MKMapView,
+                 viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Let each annotation as CategoryForMap
+        print("whatwhatwhat?")
+        if let annotation = annotation as? TourForMap{
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+                
+                
+                
+            } else {
+                
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                //view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            view.pinTintColor = UIColor.green
+            return view
+        }
+        return nil
+    }
+
+    
+
 }
 

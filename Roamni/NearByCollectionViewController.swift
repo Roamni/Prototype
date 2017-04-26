@@ -165,8 +165,8 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as UICollectionViewCell
         (cell.contentView.viewWithTag(1) as! UIImageView).image = UIImage(named:categories[indexPath.item]["pic"]!)
-        (cell.contentView.viewWithTag(2) as! UILabel).text =
-            categories[indexPath.item]["name"]
+     //   (cell.contentView.viewWithTag(2) as! UILabel).text =
+       //     categories[indexPath.item]["name"]
     
         // Configure the cell
         

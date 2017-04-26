@@ -36,6 +36,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         blurView.frame = self.view.bounds
         self.view.addSubview(blurView)
         self.view.sendSubview(toBack: blurView)
+        mapView.delegate = self
 
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
@@ -119,12 +120,19 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         if let location = sourcePlacemark.location{
             sourceAnnotation.coordinate = location.coordinate
         }
+        let firstplace = TourForMap(title: "Start Point", info: "Start Point", coordinate: sourceAnnotation.coordinate)
+        self.mapView.addAnnotation(firstplace)
+        
         let destinationAnnotation = MKPointAnnotation()
-        destinationAnnotation.title = "destination"
+        destinationAnnotation.title = "Destination"
         if let location = destinationPlacemark.location{
             destinationAnnotation.coordinate = location.coordinate
         }
-        self.mapView.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true)
+        
+        //let secondplace = TourForMap(title: "Destination", info: "Destination", coordinate: destinationAnnotation.coordinate)
+        //self.mapView.addAnnotation(secondplace)
+        
+        self.mapView.showAnnotations([/*sourceAnnotation,*/destinationAnnotation], animated: true)
         let directionRequest = MKDirectionsRequest()
         directionRequest.source = sourceMapItem
         directionRequest.destination = destinationMapItem
@@ -159,6 +167,12 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         print("ModalViewController viewWillAppear")
         musicSlider.maximumValue = Float(self.player.duration)
         var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ModalViewController.updateMusicSlider), userInfo: nil, repeats: true)
+        if self.mapView.annotations.count != 0
+        {
+            
+            self.mapView.removeAnnotations(self.mapView.annotations)
+        }
+
         updateTourDetail()
     }
     
@@ -332,5 +346,33 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         
     }
    
+    //Set pin`s look and pin event
+    func mapView(_ mapView: MKMapView,
+                 viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        //Let each annotation as CategoryForMap
+        print("whatwhatwhat?")
+        if let annotation = annotation as? TourForMap{
+            let identifier = "pin"
+            var view: MKPinAnnotationView
+            if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+                as? MKPinAnnotationView {
+                dequeuedView.annotation = annotation
+                view = dequeuedView
+                
+                
+                
+            } else {
+                
+                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                view.canShowCallout = true
+                view.calloutOffset = CGPoint(x: -5, y: 5)
+                //view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
+            }
+            view.pinTintColor = UIColor.green
+            return view
+        }
+        return nil
+    }
     
+  
 }
