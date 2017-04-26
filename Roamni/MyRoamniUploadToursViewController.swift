@@ -145,21 +145,24 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
                 if Int(strongSelf.progressView.progress) == 1{
                     
+                   
+                    
+                    
+                    
+                    
+//              self?.performSegue(withIdentifier: "backView", sender: self)
+                    }
+                uploadTask.observe(.success, handler: {_ in
                     self?.activityIndicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
-//                    self?.alertBn(title: "complete", message: "Uploading Successful")
+                    //                    self?.alertBn(title: "complete", message: "Uploading Successful")
                     self?.deregisterFromKeyboardNotifications()
-                    
-                    
                     let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
                     let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
                     
                     alertController.addAction(ok)
                     self?.present(alertController, animated: true, completion: nil)
-      
-                    
-//              self?.performSegue(withIdentifier: "backView", sender: self)
-                    }
+})
          
                 }
             }
@@ -170,6 +173,29 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             print("no user")
         }
         
+    }
+
+    func checkLogin() -> Void {
+        if let user = FIRAuth.auth()?.currentUser{
+        }else
+        {
+            let refreshAlert = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+
+            refreshAlert.addAction(UIAlertAction(title: "Go to Login", style: .default, handler: { (action: UIAlertAction!) in
+                let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
+                
+                controller.modalPresentationStyle = .overCurrentContext
+                controller.goMyRoamni = true
+                self.present(controller, animated: true, completion: nil)
+                
+            }))
+            
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                            }))
+            
+            present(refreshAlert, animated: true, completion: nil)
+
+}
     }
     
     func handleok(action: UIAlertAction){

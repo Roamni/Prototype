@@ -52,6 +52,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         }
         else
         {
+            
+
             let filename = url.lastPathComponent
             let mainStoryboardIpad:UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
             let initialViewControlleripad = mainStoryboardIpad.instantiateViewController(withIdentifier: "uploadView") as! MyRoamniUploadToursViewController
@@ -60,26 +62,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
          // navigation.viewControllers = [initialViewControlleripad]
             self.window?.rootViewController = initialViewControlleripad
             self.window?.makeKeyAndVisible()
+            
             initialViewControlleripad.FilenameLabel.text = filename
+            initialViewControlleripad.checkLogin()
             let voiceData = NSData(contentsOf: url)
             initialViewControlleripad.data = voiceData
             print(url)
-            let avPlayer = try!AVAudioPlayer(contentsOf: url)
-            let duration:Int = Int(avPlayer.duration)
-            self.secondsToHsMsSs(duration, result: { (h, m, s) in
-                print("\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))")
-                //initialViewControlleripad.tourLengthTex.text = "\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))"
-            })
+//            let avPlayer = try!AVAudioPlayer(contentsOf: url)
+//            let duration:Int = Int(avPlayer.duration)
+            
+//            self.secondsToHsMsSs(duration, result: { (h, m, s) in
+//                print("\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))")
+//                //initialViewControlleripad.tourLengthTex.text = "\(self.timeText(h)):\(self.timeText(m)):\(self.timeText(s))"
+//            })
+           
+            
             
             return true
         }
 
     }
     
-    func secondsToHsMsSs(_ seconds : Int, result: @escaping (Int, Int, Int)->()) {
-        result(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
-    }
-    
+//    func secondsToHsMsSs(_ seconds : Int, result: @escaping (Int, Int, Int)->()) {
+//        result(seconds / 3600, (seconds % 3600) / 60, (seconds % 3600) % 60)
+//    }
+
     func timeText(_ s: Int) -> String {
         return s < 10 ? "0\(s)" : "\(s)"
     }
