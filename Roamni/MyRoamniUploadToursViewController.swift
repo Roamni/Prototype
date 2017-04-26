@@ -179,7 +179,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         if let user = FIRAuth.auth()?.currentUser{
         }else
         {
-            let refreshAlert = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+            let refreshAlert = UIAlertController(title: "Reminder ", message: "Please log in to uploading ", preferredStyle: UIAlertControllerStyle.alert)
 
             refreshAlert.addAction(UIAlertAction(title: "Go to Login", style: .default, handler: { (action: UIAlertAction!) in
                 let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
