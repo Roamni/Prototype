@@ -79,7 +79,7 @@ class testViewController: UIViewController {
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
             songTitle.textColor = UIColor.white
-            if delegate.player.isPlaying{
+            if (delegate.player?.isPlaying)!{
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
                 songTitle.textColor = UIColor.white
             }
@@ -104,7 +104,7 @@ class testViewController: UIViewController {
         let delegate = UIApplication.shared.delegate as! AppDelegate
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
-            if delegate.player.isPlaying{
+            if (delegate.player?.isPlaying)!{
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
                 songTitle.textColor = UIColor.white
             }
@@ -150,11 +150,11 @@ class testViewController: UIViewController {
         }else{
 
             let delegate = UIApplication.shared.delegate as! AppDelegate
-            if delegate.player.isPlaying{
-                delegate.player.pause()
+            if (delegate.player?.isPlaying)!{
+                delegate.player?.pause()
                 playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
             }else{
-                delegate.player.play()
+                delegate.player?.play()
                 playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
             }
         }

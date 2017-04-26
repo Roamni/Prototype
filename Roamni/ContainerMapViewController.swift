@@ -167,4 +167,3 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         // Pass the selected object to the new view controller.
     }
 }
-}

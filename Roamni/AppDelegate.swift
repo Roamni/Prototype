@@ -16,7 +16,7 @@ import AVFoundation
 class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDelegate{
 
     var window: UIWindow?
-    var player = AVAudioPlayer()
+    var player: AVAudioPlayer? = nil
     var songTitle : String?
     var downloads = [DownloadTour]()
     var counter : Int?
