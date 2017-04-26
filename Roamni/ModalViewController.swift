@@ -120,7 +120,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         if let location = sourcePlacemark.location{
             sourceAnnotation.coordinate = location.coordinate
         }
-        let firstplace = TourForMap(title: "Start Point", info: "Start Point", coordinate: sourceAnnotation.coordinate)
+        let firstplace = TourForMap(title: downloadTours[counter].name, info: "Start Point", coordinate: sourceAnnotation.coordinate)
         self.mapView.addAnnotation(firstplace)
         
         let destinationAnnotation = MKPointAnnotation()
