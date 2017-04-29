@@ -187,6 +187,8 @@ class testViewController: UIViewController , AVAudioPlayerDelegate{
         
         self.modalVC.transitioningDelegate = self.animator
     }
+    
+    
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         print("Called")

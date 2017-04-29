@@ -33,6 +33,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     var durationTime:Int? = 90
     var tType:String? = "default"
     let step: Float = 15
+    
     @IBAction func setTime(_ sender: UISlider) {
         let roundedValue = round(sender.value / step) * step
         sender.value = roundedValue
@@ -195,10 +196,11 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         
         var onetours = [DownloadTour]()
+       
         if tType != "default"
         {
         for onetour in self.tours{
-            if onetour.length < self.durationTime! && onetour.tourType == tType{
+            if onetour.length <= self.durationTime! && onetour.tourType == tType{
                 onetours.append(onetour)
             }
         }
@@ -209,7 +211,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         else{
             for onetour in self.tours{
-                if onetour.length < self.durationTime!{
+                if onetour.length <= self.durationTime!{
                     onetours.append(onetour)
                 }
             }
@@ -232,7 +234,6 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view, typically from a nib.
     }
 
