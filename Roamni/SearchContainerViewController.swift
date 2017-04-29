@@ -89,15 +89,16 @@ class SearchContainerViewController: UIViewController {
            
         }
         
-        getTableVCObject?.tours = self.tours
-        getTableVCObject?.tableView.reloadData()
-        
         if self.tourCategory != nil{
             
             filterContentForSearchText(self.tourCategory!, scope: "Default")
             searchController.isActive = true
+        }else{
+
+        
+        getTableVCObject?.tours = self.tours
+        getTableVCObject?.tableView.reloadData()
         }
-    
     
     }
 

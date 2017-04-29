@@ -107,10 +107,10 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
                 self.tours.append(downloadTour)
                 
                 //change here to apply 5 km
-                
                 self.controller.tours = self.tours
                 self.controller.getTableVCObject?.tours = self.controller.tours
                 self.controller.getTableVCObject?.tableView.reloadData()
+                
             }
         })
         
@@ -178,6 +178,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         print("tap -- \(indexPath.row)")
         let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
         tabBarController?.selectedIndex = 1
+        controller.navigationController?.popViewController(animated: true)
         controller.tourCategory = categories[indexPath.item]["name"]
         textFieldInsideSearchBar.text = categories[indexPath.item]["name"]
         controller.filterContentForSearchText(categories[indexPath.item]["name"]!, scope: "Default")

@@ -218,7 +218,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         }
         returnValueToCaller?(self.tours)
         navigationController!.popViewController(animated: true)
-
+        
         
     }
     
