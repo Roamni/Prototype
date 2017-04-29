@@ -48,7 +48,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
  //       btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Accessiable"
+        tType = "Accessible"
         
     }
 

@@ -26,7 +26,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         ["name":"Cycling","pic":"cycling"],
         ["name":"Shopping","pic":"shooping"],
         ["name":"Real Estate","pic":"realestate"],
-        ["name":"Accessiable","pic":"accessiable"]
+        ["name":"Accessible","pic":"accessible"]
         //["name":"More","pic":"moretour"]
     ]
     override func viewDidLoad() {
@@ -49,6 +49,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
+        
         //change here to apply 5 km
         
         controller.tours = tours

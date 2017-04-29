@@ -22,9 +22,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
-    }
+          }
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating:Float) {
        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
