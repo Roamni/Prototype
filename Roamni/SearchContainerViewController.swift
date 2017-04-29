@@ -70,10 +70,10 @@ class SearchContainerViewController: UIViewController {
         self.activityIndicator.startAnimating()
 
         
-        //navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        navigationController?.navigationBar.setBackgroundImage(generateImageWithColor(UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
+       // navigationController?.navigationBar.setBackgroundImage(generateImageWithColor(UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        //navigationController?.navigationBar.shadowImage = UIImage()
         //self.tourCategory = "currentLocation"
         container!.segueIdentifierReceivedFromParent("first")
         // Setup the Search Controller
