@@ -11,6 +11,7 @@
 import UIKit
 import CoreLocation
 import ARNTransitionAnimator
+import FirebaseDatabase
 class SearchContainerViewController: UIViewController {
 
     
@@ -30,7 +31,7 @@ class SearchContainerViewController: UIViewController {
     let searchController = UISearchController(searchResultsController: nil)
     private var animator : ARNTransitionAnimator?
     fileprivate var modalVC : ModalViewController!
-    
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
@@ -62,15 +63,23 @@ class SearchContainerViewController: UIViewController {
         super.viewDidLoad()
         
         //self.setupAnimator()
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
 
         
-        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        //navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.setBackgroundImage(generateImageWithColor(UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
+        navigationController?.navigationBar.shadowImage = UIImage()
         //self.tourCategory = "currentLocation"
         container!.segueIdentifierReceivedFromParent("first")
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
         searchController.searchBar.delegate = self
+        
         definesPresentationContext = true
         searchController.dimsBackgroundDuringPresentation = false
         
@@ -89,15 +98,16 @@ class SearchContainerViewController: UIViewController {
            
         }
         
+        
+        
         if self.tourCategory != nil{
             
-            filterContentForSearchText(self.tourCategory!, scope: "Default")
+           fetchTours(flag: "type")
             searchController.isActive = true
         }else{
-
-        
-        getTableVCObject?.tours = self.tours
-        getTableVCObject?.tableView.reloadData()
+       
+        fetchTours(flag: "flag")
+       
         }
     
     }
@@ -107,7 +117,61 @@ class SearchContainerViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
+    func fetchTours(flag:String){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]            // tour.setValuesForKeys(dictionary)
+                let startLocation = dictionary["startPoint"] as!  [String : Any]
+                
+                let endLocation = dictionary["endPoint"] as!  [String : Any]
+                
+                let latitude1 = String(describing: startLocation["lat"]!)
+                
+                let latitude = Double(latitude1)
+                
+                let longitude1 = String(describing: startLocation["lon"]!)
+                
+                let longitude = Double(longitude1)
+                let latitude2 = String(describing: endLocation["lat"]!)
+                
+                let latitude22 = Double(latitude2)
+                
+                let longitude2 = String(describing: endLocation["lon"]!)
+                
+                let longitude22 = Double(longitude2)
+                
+                //let longitude = (location["lon"] as! NSString).doubleValue
+                let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+                
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: child.key)
+                //            tour.Price = dictionary["Price"] as! String?
+                //            tour.Star = dictionary["Star"] as! String?
+                //            tour.StartPoint = dictionary["StartPoint"] as! String?
+                //            tour.Time = dictionary["Time"] as! String?
+                //            tour.TourType = dictionary["TourType"] as! String?
+                //            tour.WholeTour = dictionary["WholeTour"] as! String?
+                
+                //self.artworks.removeAll()
+                print(startCoordinate)
+                self.tours.append(downloadTour)
+                if flag == "type"
+                {
+                self.filterContentForSearchText(self.tourCategory!, scope: "Default")
+                }
+                else{
+                self.getTableVCObject?.tours = self.tours
+                self.getTableVCObject?.tableView.reloadData()
+                }
+                self.activityIndicator.stopAnimating()
+            }
+        })
+        
+    }
+
     
     
     @IBAction func test(_ sender: Any) {

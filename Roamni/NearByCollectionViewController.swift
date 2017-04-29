@@ -40,7 +40,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         }
             //self.fetchTours()
         
-        fetchTours()
+        //fetchTours()
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest

@@ -161,8 +161,14 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         player = delegate.player
         downloadTours = delegate.downloads
         counter = delegate.counter!
+        player.delegate = self
+
         if player.isPlaying{
             playBtn.setImage(UIImage(named: "songpause"), for: UIControlState.normal)
+        }
+        else{
+            playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+
         }
         print("ModalViewController viewWillAppear")
         musicSlider.maximumValue = Float(self.player.duration)
@@ -179,6 +185,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         print("ModalViewController viewWillDisappear")
+        
     }
     
     @IBAction func backToCurrentLocation(_ sender: Any) {
@@ -305,7 +312,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
     {
         print("Called")
-        playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+        self.playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+        
 //        if flag {
 //            
 //            if self.counter != downloadTours.count - 1{

@@ -11,7 +11,8 @@ protocol ValueReturner {
 
 import UIKit
 import ARNTransitionAnimator
-class testViewController: UIViewController {
+import AVFoundation
+class testViewController: UIViewController , AVAudioPlayerDelegate{
 
  //   @IBOutlet weak var playView: UIView!
     
@@ -76,6 +77,8 @@ class testViewController: UIViewController {
     @IBAction func mini(_ segue: UIStoryboardSegue) {
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.player?.delegate = self
+
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
             songTitle.textColor = UIColor.white
@@ -102,6 +105,7 @@ class testViewController: UIViewController {
         print("vvvvvvvv")
         
         let delegate = UIApplication.shared.delegate as! AppDelegate
+        delegate.player?.delegate = self
         if (delegate.songTitle != nil){
             songTitle.text =  delegate.songTitle
             if (delegate.player?.isPlaying)!{
@@ -182,6 +186,12 @@ class testViewController: UIViewController {
         self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
         
         self.modalVC.transitioningDelegate = self.animator
+    }
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool)
+    {
+        print("Called")
+        self.playBtn.setImage(UIImage(named: "songplay"), for: UIControlState.normal)
+        
     }
     
     /*
