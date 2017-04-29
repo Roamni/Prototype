@@ -32,7 +32,10 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     @IBOutlet weak var timeLabel: UILabel!
     var durationTime:Int? = 90
     var tType:String? = "default"
+    let step: Float = 15
     @IBAction func setTime(_ sender: UISlider) {
+        let roundedValue = round(sender.value / step) * step
+        sender.value = roundedValue
         timeLabel.text = "\(String(Int(sender.value))) min"
         self.durationTime = Int(sender.value)
     }
