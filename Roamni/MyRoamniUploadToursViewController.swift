@@ -138,6 +138,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     let downloadurl:String = (downloadURL?.absoluteString)!
                     
                     self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    
 
                 }
                 }
@@ -156,16 +157,24 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
 //              self?.performSegue(withIdentifier: "backView", sender: self)
                     }
                 uploadTask.observe(.success, handler: {_ in
-                    self?.activityIndicator.stopAnimating()
-                    UIApplication.shared.endIgnoringInteractionEvents()
+                   
                     //                    self?.alertBn(title: "complete", message: "Uploading Successful")
                     self?.deregisterFromKeyboardNotifications()
-                    let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
-                    let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
                     
-                    alertController.addAction(ok)
-                    self?.present(alertController, animated: true, completion: nil)
-})
+                 if  self?.presentedViewController == nil {
+                                        let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+                                        let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
+                                        
+                                        alertController.addAction(ok)
+                self?.dismiss(animated: false, completion: nil)
+                    self?.present(alertController, animated: true, completion: {() -> Void in
+                    self?.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                    }
+)
+                    }
+                    })
+                
          
                 }
             }
@@ -206,6 +215,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         
         controller.modalPresentationStyle = .overCurrentContext
         controller.goMyTour = true
+        self.dismiss(animated: false, completion: nil)
         self.present(controller, animated: true, completion: nil)
 
     }
