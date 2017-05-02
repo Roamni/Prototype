@@ -28,11 +28,14 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         if secondVC.sender == "startPoint" {
             
             self.startPointLocation = secondVC.anno?.coordinate
+            print(self.startPointLocation)
             self.startpointBn.tintColor = UIColor.black
+            
             self.startpointBn.setTitle((secondVC.anno?.title)!, for: .normal)
         }
         else{
             self.endPointLocation = secondVC.anno?.coordinate
+            print(self.endPointLocation)
              self.endPointBn.setTitle((secondVC.anno?.title)!, for: .normal)
             self.endPointBn.tintColor = UIColor.black
 
@@ -134,8 +137,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
                     
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
-                    
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+
                 }
                 }
           

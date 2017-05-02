@@ -179,13 +179,13 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
              })
             break
 
-        case "Longest duration":
+        case "Longest Time":
             self.tours.sort(by: { (this:DownloadTour, that:DownloadTour) -> Bool in
                 return this.length > that.length
             })
             break
 
-        case "Shortest duration":
+        case "Shortest Time":
             self.tours.sort(by: { (this:DownloadTour, that:DownloadTour) -> Bool in
                 return this.length < that.length
             })
