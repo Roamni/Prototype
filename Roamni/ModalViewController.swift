@@ -11,6 +11,7 @@ import MapKit
 import AVFoundation
 import MediaPlayer
 import CoreLocation
+import Foundation
 
 final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocationManagerDelegate, MKMapViewDelegate {
     
@@ -179,7 +180,10 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
             self.mapView.removeAnnotations(self.mapView.annotations)
         }
 
+
+
         updateTourDetail()
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -255,13 +259,18 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     }
     
     
+    
     func updateMusicSlider(){
         
         musicSlider.value = Float(player.currentTime)
         let (h,m,s) = secondsToHoursMinutesSeconds(seconds: Int(player.currentTime))
-        startedTime.text = "\(h):\(m):\(s)"//"\(Int(player.currentTime))"
+        var mmm = String(format: "%02d", m)
+        var sss = String(format: "%02d", s)
+        startedTime.text = "\(h):\(mmm):\(sss)"//"\(Int(player.currentTime))"
         let (h1,m1,s1) = secondsToHoursMinutesSeconds(seconds: Int(player.duration) -  Int(player.currentTime))
-        leftTime.text = "\(h1):\(m1):\(s1)"//"\(Int(player.duration) -  Int(player.currentTime))"
+        var mmm1 = String(format: "%02d", m1)
+        var sss1 = String(format: "%02d", s1)
+        leftTime.text = "\(h1):\(mmm1):\(sss1)"//"\(Int(player.duration) -  Int(player.currentTime))"
     }
     
     func secondsToHoursMinutesSeconds (seconds : Int) -> (Int, Int, Int) {
