@@ -23,29 +23,19 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
     override func viewDidLoad() {
         super.viewDidLoad()
         mapView.delegate = self
-        
         self.locationManager.delegate = self
-        
-        
-        
         // Ask user for permission to use location
         // Uses description from NSLocationAlwaysUsageDescription in Info.plist
        // locationManager.requestAlwaysAuthorization()
-        
-        
         self.mapView.showsUserLocation = true
-        
-        
         mapView.showsUserLocation = true
-        
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
         //self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        let span = MKCoordinateSpanMake(0.0018, 0.0018)
+        let span = MKCoordinateSpanMake(0.018, 0.018)
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
         mapView.setRegion(region, animated: true)
-
 
     }
     

@@ -27,6 +27,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     var downloadTours = [DownloadTour]()
     var counter = 0
     var tapCloseButtonActionHandler : ((Void) -> Void)?
+    let regionRadius: CLLocationDistance = 1000
 
     
     override func viewDidLoad() {
@@ -134,26 +135,47 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         //self.mapView.addAnnotation(secondplace)
         
         self.mapView.showAnnotations([/*sourceAnnotation,*/destinationAnnotation], animated: true)
-        let directionRequest = MKDirectionsRequest()
-        directionRequest.source = sourceMapItem
-        directionRequest.destination = destinationMapItem
-        directionRequest.transportType = .any
-        let directions = MKDirections(request: directionRequest)
-        directions.calculate {(response, error) -> Void in
-            guard let response = response else
-            {
-                if let error = error {
-                    print("Error: \(error)")
-                }
-                return
-            }
-            let route = response.routes[0]
-            self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-            let rect = route.polyline.boundingMapRect
-            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-            
-        }
+        
+//        let span = MKCoordinateSpanMake(2, 2)
+//        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (downloadTours[counter].startLocation.latitude), longitude: (downloadTours[counter].startLocation.latitude)), span: span)
+//        mapView.setRegion(region, animated: true)
 
+        //        let initialLocation = CLLocation(latitude: downloadTours[counter].startLocation.latitude, longitude: downloadTours[counter].startLocation.longitude)
+//        centerMapOnLocation(location: initialLocation)
+        
+        let span = MKCoordinateSpanMake(0.13, 0.13)
+        let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (downloadTours[counter].startLocation.latitude), longitude: (downloadTours[counter].startLocation.longitude)), span: span)
+        mapView.setRegion(region, animated: true)
+
+//        let directionRequest = MKDirectionsRequest()
+//        directionRequest.source = sourceMapItem
+//        directionRequest.destination = destinationMapItem
+//        directionRequest.transportType = .any
+//        let directions = MKDirections(request: directionRequest)
+//        directions.calculate {(response, error) -> Void in
+//            guard let response = response else
+//            {
+//                if let error = error {
+//                    print("Error: \(error)")
+//                }
+//                return
+//            }
+//            let route = response.routes[0]
+//            self.mapView.add(route.polyline, level: MKOverlayLevel.aboveRoads)
+//            let rect = route.polyline.boundingMapRect
+//            self.mapView.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+//            
+//        }
+
+    }
+    
+    func centerMapOnLocation(location: CLLocation) {
+        let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate,
+                                                                  regionRadius * 2, regionRadius * 2)
+        
+        mapView.setRegion(coordinateRegion, animated: true)
+        
+        print("hihihihi")
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -179,9 +201,6 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
             
             self.mapView.removeAnnotations(self.mapView.annotations)
         }
-
-
-
         updateTourDetail()
         
     }
@@ -203,7 +222,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         self.locationManager.requestWhenInUseAuthorization()
         self.locationManager.startUpdatingLocation()
         self.mapView.showsUserLocation = true
-        let span = MKCoordinateSpanMake(0.0018, 0.0018)
+        let span = MKCoordinateSpanMake(0.018, 0.018)
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (locationManager.location?.coordinate.latitude)!, longitude: (locationManager.location?.coordinate.longitude)!), span: span)
         mapView.setRegion(region, animated: true)
 
