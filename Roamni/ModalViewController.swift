@@ -115,8 +115,8 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         let destinationLocation = CLLocationCoordinate2D(latitude: (downloadTours[counter].endLocation.latitude), longitude: (downloadTours[counter].endLocation.longitude))
         let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
         let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
-        let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
-        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        //let sourceMapItem =  MKMapItem(placemark: sourcePlacemark)
+        //let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
         let sourceAnnotation = MKPointAnnotation()
         //sourceAnnotation.title = detailTour?.name
         if let location = sourcePlacemark.location{
@@ -143,7 +143,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
         //        let initialLocation = CLLocation(latitude: downloadTours[counter].startLocation.latitude, longitude: downloadTours[counter].startLocation.longitude)
 //        centerMapOnLocation(location: initialLocation)
         
-        let span = MKCoordinateSpanMake(0.13, 0.13)
+        let span = MKCoordinateSpanMake(0.12, 0.12)
         let region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: (downloadTours[counter].startLocation.latitude), longitude: (downloadTours[counter].startLocation.longitude)), span: span)
         mapView.setRegion(region, animated: true)
 
