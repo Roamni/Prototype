@@ -47,7 +47,7 @@ class ViewController: UIViewController {
                     // not all places have thoroughfare & subThoroughfare so validate those values
                     if pm.thoroughfare != nil && pm.subThoroughfare != nil{
                         
-                    annotation.title = pm.thoroughfare! + ", " + pm.subThoroughfare!
+                    annotation.title = pm.subThoroughfare! + " " + pm.thoroughfare!
                     }
                     else
                     { annotation.title = "Unknown"}
