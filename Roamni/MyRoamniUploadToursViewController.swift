@@ -113,7 +113,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             if self.data == nil {
                 self.alertBn(title: "Error", message: "no file")
             }
-            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == nil || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == nil
+            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == "click to choose type" || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == "click to choose length"
                 {
                     self.alertBn(title: "Error", message: "please input all field")
                 }
