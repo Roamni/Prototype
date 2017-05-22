@@ -856,8 +856,8 @@
                                                         <constraint firstAttribute="width" constant="40" id="47U-s0-Jae"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Distribution Partner Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pa-SS-biJ">
-                                                    <rect key="frame" x="87" y="9" width="214" height="26"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pa-SS-biJ">
+                                                    <rect key="frame" x="87" y="9" width="60.5" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -2090,6 +2090,55 @@
                     <view key="view" contentMode="scaleToFill" id="MBr-lJ-3gM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JtO-f3-yfu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <string key="content">Share what you’re passionate about with others and be rewarded for your input into the Roamni community. It’s about giving and getting back.
+
+Making money with Roamni is simple:</string>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <mutableString key="content">
+
+Every time one of your tours is purchased in the app, we split it with you 50/50. That means you get 50% of the cost of a tour every time someone buys it, with no limit.
+
+The better your tour, the more kudos it’ll receive.
+
+The more kudos you have, the more attractive your tour is to others.
+
+The more popular your tour, the more money you can earn.
+
+You also benefit from building your own brand, sharing your knowledge with others and showcasing what you’re passionate about in a way that’s responsive with Roamni kudos.
+
+Collect the earnings as Roamni credits in the app for you to build and use on other tours or withdraw as cash to a nominated account.
+
+1. Voice record and upload as many tours as you like
+
+2. Promote your tours to help others find them
+
+3. Earn 50% commission every time your tour is purchased in the app
+
+4. Collect the commission as Roamni credits in the app which you can withdraw at any time as cash, or use to purchase other tours  </mutableString>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="ArialMT"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Download the Roamni app today to make a tour or take a tour.">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
@@ -2108,6 +2157,118 @@
                     <view key="view" contentMode="scaleToFill" id="T9y-PC-Gpl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPS-zq-ZCJ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment>
+                                        <mutableString key="content">Roamni is a platform and community that allows people to easily create and share area-based knowledge – on whatever topic they like – with like-minded or curious others, all in a handy, simple-to- use and self-guided voice app.
+
+Whether you make a tour or take a tour, Roamni gives you the freedom to do your tour, your way.  </mutableString>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Make a tour">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <mutableString key="content">
+
+Be your own subject matter expert and tour guide! Talk your way through a tour that anyone can download, listen to and do at their own pace before rating your tour with Roamni kudos. Earn Roamni credits which you can turn into cash when you’re ready.
+
+* Showcase and share what you love with others
+
+* Be rewarded with unlimited commission
+
+* Simply voice record and upload your tour to get going  </mutableString>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="Take a tour">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <mutableString key="content">
+
+Roam when you want to. For a unique and personalised perspective on things, simply download, listen and take a tour whenever you like. Can’t find a tour on what you’re interested in? Why not make a tour and make Roamni credits while you’re at it.
+
+* Listen to tours made by like-minded others
+
+* Rate the tours with Roamni kudos
+
+* Affordable and convenient app-based tours – just play and go  </mutableString>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="♥ Roamni kudos">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+
+Everyone likes good kudos. When someone takes a tour, they’re asked to rate it with Roamni kudos. It’s a way to pass on and build feedback within the community to help improve the platform for everyone.
+
+</string>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment content="$ Roamni credits">
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <mutableString key="content">
+
+Earn commission every time your tour is purchased. The more popular your tour, the more you can earn.
+
+Collect your Roamni credits to cash out when you like or use them to buy other tours in the app.
+
+1. Voice record and upload as many tours as you like
+
+2. Promote your tours to help others find them
+
+3. Earn 50% commission every time your tour is purchased in the app 
+
+4. Collect the commission as Roamni credits in the app which you can withdraw at any time as cash, or use to purchase other tours  </mutableString>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="ArialMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">It’s your tour, your way. Roam when you want to with Roamni.
+
+Download the Roamni app today to make a tour or take a tour.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="13" name="Arial-BoldMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <toolbarItems/>
@@ -2115,7 +2276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Otz-Hu-1OT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5436" y="-833"/>
+            <point key="canvasLocation" x="5436" y="-833.43328335832086"/>
         </scene>
         <!--Distribution Partner Reports-->
         <scene sceneID="f9w-vb-kyG">
