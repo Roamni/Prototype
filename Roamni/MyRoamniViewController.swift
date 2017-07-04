@@ -105,9 +105,12 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             cell.loginBn.readPermissions =  ["public_profile","email"]
             cell.loginBn.delegate = self
             if let user = FIRAuth.auth()?.currentUser{
+                let email = user.email
+                let uid = user.uid
                 let name = user.displayName
                 let photo = user.photoURL
-             
+                let ref = FIRDatabase.database().reference()
+                ref.child("users/\(uid)/email").setValue(email)
                 
                 cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
                 cell.userLabel.text = name
@@ -243,15 +246,7 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
             self.tableView.reloadData()
         }
         print("successfully logged in ")
-        if let user = FIRAuth.auth()?.currentUser{
-            let email = user.email
-            let uid = user.uid
-            let ref = FIRDatabase.database().reference()
-            ref.child("users/\(uid)/email").setValue(email)
-        }
-        else{
-            print("no user")
-        }
+        
     
     }
     }

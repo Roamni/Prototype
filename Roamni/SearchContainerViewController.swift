@@ -122,8 +122,14 @@ class SearchContainerViewController: UIViewController {
         ref = FIRDatabase.database().reference()
         ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            if result?.count == 0
+            {
+                self.activityIndicator.stopAnimating()
+
+            }
             for child in result!{
                 let dictionary = child.value as!  [String : Any]            // tour.setValuesForKeys(dictionary)
+                print(dictionary)
                 let startLocation = dictionary["startPoint"] as!  [String : Any]
                 
                 let endLocation = dictionary["endPoint"] as!  [String : Any]
@@ -168,6 +174,7 @@ class SearchContainerViewController: UIViewController {
                 }
                 self.activityIndicator.stopAnimating()
             }
+            
         })
         
     }
