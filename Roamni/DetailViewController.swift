@@ -184,6 +184,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
     let place = TourForMap(title: sourceAnnotation.title!, info: "Start Point", coordinate: sourceAnnotation.coordinate)
     detailMap.addAnnotation(place)
+
+    
+    //self.detailMap.setRegion(MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)), animated: true)
     //places.append(place)
     
     let destinationAnnotation = MKPointAnnotation()
@@ -211,6 +214,9 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
 //                    self.detailMap.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
 //            
 //            }
+    let center = CLLocationCoordinate2D(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
+    let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
+    self.detailMap.setRegion(region, animated: true)
         }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
@@ -236,9 +242,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 as? MKPinAnnotationView {
                 dequeuedView.annotation = annotation
                 view = dequeuedView
-                
-                
-                
             } else {
                 
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
