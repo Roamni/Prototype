@@ -307,8 +307,37 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         
     }
     
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let title1 = "       "
+        let deleteAction = UITableViewRowAction(style: .default, title: title1) { (action, indexpath) in
+            print("delete!!")
+            //self.contentArray.remove(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .automatic)
+            //tableView.reloadData()
+        }
+        let image1 = UIImage(named: "delete")
+        if let im1 = image1 {
+            deleteAction.backgroundColor = UIColor(patternImage: im1)
+        }
+        
+        let title2 = "       "
+        let editAction = UITableViewRowAction(style: .default, title: title2) { (action, indexpath) in
+            print("Edit!!")
+            //self.contentArray.remove(at: indexPath.row)
+            //tableView.deleteRows(at: [indexPath], with: .automatic)
+            //tableView.reloadData()
+        }
+        let image2 = UIImage(named: "edit")
+        if let im2 = image2 {
+            editAction.backgroundColor = UIColor(patternImage: im2)
+        }
+        
+        
+        return [deleteAction,editAction]
+    }
     
 
+    
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("????")
