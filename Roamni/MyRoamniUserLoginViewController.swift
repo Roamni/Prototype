@@ -19,6 +19,7 @@ class MyRoamniUserLoginViewController: UIViewController,FBSDKLoginButtonDelegate
         loginButton.frame = CGRect(x:16,y:150,width:view.frame.width - 32, height:50)
         loginButton.delegate = self
         // Do any additional setup after loading the view.
+        
     }
     
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {

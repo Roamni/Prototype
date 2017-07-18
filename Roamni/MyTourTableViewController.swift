@@ -250,7 +250,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 //self.artworks.removeAll()
                 if let user = FIRAuth.auth()?.currentUser{
                     let uid = user.uid
-                    
                     if downloadTour.uploadUser == uid
                     {
                         self.downloadTours.append(downloadTour)
@@ -308,13 +307,39 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     }
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        if self.segCon.selectedSegmentIndex == 1{
+            
+       
         let title1 = "       "
         let deleteAction = UITableViewRowAction(style: .default, title: title1) { (action, indexpath) in
             print("delete!!")
+            let ref = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/")
+            let actionSheetController: UIAlertController = UIAlertController(title: "Do you want to delete the tour?", message: "The tour will be removed permanently", preferredStyle: .alert)
+            let noAction: UIAlertAction = UIAlertAction(title: "No", style: .cancel) { action -> Void in
+                //Just dismiss the action sheet
+            }
+            let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
+                
+                ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").removeValue()
+                self.downloadTours.removeAll()
+                self.fetchTours1()
+                self.tableView.reloadData()
+            }
+            actionSheetController.addAction(yesAction)
+            actionSheetController.addAction(noAction)
+            self.present(actionSheetController, animated: true, completion: nil)
+            
+
+//            let ref = FIRDatabase.database().reference(fromURL: "https://melbourne-footprint.firebaseio.com/")
+//            
+//            ref.child("users/\(self.userid!)/favorite/\(artworks[indexPath.row].Name!)").removeValue()
+//            self.artworks.remove(at: indexPath.row)
+//            self.favourateTableView.reloadData()
             //self.contentArray.remove(at: indexPath.row)
             //tableView.deleteRows(at: [indexPath], with: .automatic)
-            //tableView.reloadData()
+
         }
+        
         let image1 = UIImage(named: "delete")
         if let im1 = image1 {
             deleteAction.backgroundColor = UIColor(patternImage: im1)
@@ -334,6 +359,12 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         
         
         return [deleteAction,editAction]
+        
+        }
+        else{
+        print("yes")
+        return []
+        }
     }
     
 

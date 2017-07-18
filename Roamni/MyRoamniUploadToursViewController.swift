@@ -143,17 +143,12 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                 }
                 }
           
-            uploadTask.observe(.progress) { [weak self] (snapshot) in
+                uploadTask.observe(.progress) { [weak self] (snapshot) in
                 guard let strongSelf = self else { return }
                 guard let progress = snapshot.progress else {return}
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
                 if Int(strongSelf.progressView.progress) == 1{
-                    
-                   
-                    
-                    
-                    
-                    
+
 //              self?.performSegue(withIdentifier: "backView", sender: self)
                     }
                 uploadTask.observe(.success, handler: {_ in
@@ -166,7 +161,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                                         let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
                                         
                                         alertController.addAction(ok)
-                self?.dismiss(animated: false, completion: nil)
+                    self?.dismiss(animated: false, completion: nil)
                     self?.present(alertController, animated: true, completion: {() -> Void in
                     self?.activityIndicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
@@ -278,6 +273,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         }
         return true
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.descText.delegate = self
