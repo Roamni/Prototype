@@ -309,7 +309,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if self.segCon.selectedSegmentIndex == 1{
             
-       
+        
         let title1 = "       "
         let deleteAction = UITableViewRowAction(style: .default, title: title1) { (action, indexpath) in
             print("delete!!")
@@ -321,6 +321,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
                 
                 ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").removeValue()
+                //ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").
+                //ref.didChangeValue(forKey: <#T##String#>)
                 self.downloadTours.removeAll()
                 self.fetchTours1()
                 self.tableView.reloadData()
@@ -348,6 +350,27 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         let title2 = "       "
         let editAction = UITableViewRowAction(style: .default, title: title2) { (action, indexpath) in
             print("Edit!!")
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "editView") as! MyRoamniEditToursViewController
+            //self.navigationController?.pushViewController(vc, animated: true)
+            self.present(vc, animated: true, completion: nil)
+            vc.tourNameText.text = self.downloadTours[indexPath.row].name
+            //vc.tourLengthTex.text =
+            
+            print("\(self.downloadTours[indexPath.row].length)")
+            print("\(self.downloadTours[indexPath.row].desc)")
+            print("\(self.downloadTours[indexPath.row].tourType)")
+            print("\(self.downloadTours[indexPath.row].name)")
+            vc.descText.text = self.downloadTours[indexPath.row].desc
+            vc.tourId = self.downloadTours[indexPath.row].tourId
+            vc.categoryBn.setTitle("\(self.downloadTours[indexPath.row].tourType)",for: .normal)
+            vc.lengthBn.setTitle("\(self.downloadTours[indexPath.row].length)",for: .normal)
+            vc.getText = self.downloadTours[indexPath.row].desc
+            vc.startPointLocation = self.downloadTours[indexPath.row].startLocation
+            vc.endPointLocation = self.downloadTours[indexPath.row].endLocation
+            //vc.categoryBn.titleLabel?.text = self.downloadTours[indexPath.row].tourType
+            //vc.lengthBn.titleLabel?.text = "\(self.downloadTours[indexPath.row].length)"
+            
             //self.contentArray.remove(at: indexPath.row)
             //tableView.deleteRows(at: [indexPath], with: .automatic)
             //tableView.reloadData()

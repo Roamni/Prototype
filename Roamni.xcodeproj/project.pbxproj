@@ -80,6 +80,7 @@
 		F08A66151E7294DF008AE869 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */; };
 		F0901AEA1E6057E300F23AC3 /* TourMusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */; };
 		F0BCCB141E362E52005162DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */; };
+		F0E3D7D11F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */; };
 		F0F2D92B1E59F783004F21C4 /* img.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0F2D92A1E59F783004F21C4 /* img.jpeg */; };
 		F600FF01EC8FB4F541B41A03 /* Pods_Roamni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A531D37C9D53C200DDC8D43A /* Pods_Roamni.framework */; };
 /* End PBXBuildFile section */
@@ -188,6 +189,7 @@
 		F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourMusicDetailViewController.swift; sourceTree = "<group>"; };
 		F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniEditToursViewController.swift; sourceTree = "<group>"; };
 		F0F2D92A1E59F783004F21C4 /* img.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpeg; sourceTree = "<group>"; };
 		F51C488CFB7EC4528C52017A /* Pods-RoamniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoamniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoamniUITests/Pods-RoamniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,7 +273,6 @@
 				A6A639931E1E05D10026E207 /* MyRoamniViewController.swift */,
 				A608343C1E24F27B00775187 /* MyRoamniRequestTourViewController.swift */,
 				A608343E1E24F29A00775187 /* MyRoamniDownloadToursViewController.swift */,
-				A60834401E24F2AA00775187 /* MyRoamniUploadToursViewController.swift */,
 				A60834421E24F2C500775187 /* MyRoamniDistributionReportsViewController.swift */,
 				A60834441E24F2D200775187 /* MyRoamniHowViewController.swift */,
 				A60834461E24F2DC00775187 /* MyRoamniAboutViewController.swift */,
@@ -283,6 +284,8 @@
 				A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */,
 				A63EF1241E6E70810064ACDF /* UploadPickerViewController.swift */,
 				A6B8983E1E84E88A00BCFE42 /* UploadLengthViewController.swift */,
+				A60834401E24F2AA00775187 /* MyRoamniUploadToursViewController.swift */,
+				F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */,
 			);
 			name = MyRoamniController;
 			sourceTree = "<group>";
@@ -785,6 +788,7 @@
 				A60A3BEC1E4CA156005E2D0A /* KeyboardHideExtension.swift in Sources */,
 				F05F1A0F1E1D37BE00556CD6 /* AccTableViewCell.swift in Sources */,
 				F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */,
+				F0E3D7D11F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift in Sources */,
 				F02617FB1E2F97CA004697EA /* EmptySegue.swift in Sources */,
 				A68239511E8A97A100F62A68 /* testViewController.swift in Sources */,
 				A6B8983F1E84E88A00BCFE42 /* UploadLengthViewController.swift in Sources */,

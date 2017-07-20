@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zHH-6e-uOa">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -284,11 +284,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Pz6-rJ-paL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="tOC-sn-WZV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0SN-36-IJ6">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <rect key="frame" x="0.0" y="687" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
@@ -297,7 +297,7 @@
                                 </items>
                             </tabBar>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EL0-8A-AKa" userLabel="miniPlayerView" customClass="LineView" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="596" width="375" height="26"/>
+                                <rect key="frame" x="0.0" y="657.5" width="414" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ERi-Af-8jj" userLabel="Mini Player Button">
@@ -311,7 +311,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OMC-8d-0aI" userLabel="Song Title">
-                                        <rect key="frame" x="30.5" y="0.0" width="313" height="26"/>
+                                        <rect key="frame" x="49.5" y="1.5" width="313" height="26"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.99019607840000001" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -344,7 +344,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7H6-39-JIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3823" y="-2891"/>
+            <point key="canvasLocation" x="-4631" y="-2635"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CIV-in-uTT">
@@ -371,7 +371,7 @@
             <objects>
                 <collectionViewController id="dj2-sz-6qM" customClass="NearByCollectionViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="lQQ-2E-TbM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="4P6-62-0Jv">
@@ -625,7 +625,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WaX-dx-xpi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="xOf-mw-9CZ">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -643,11 +643,11 @@
                         <viewControllerLayoutGuide type="bottom" id="o3t-Sh-Rgp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="u2k-As-z3K">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRy-ow-GJy">
-                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="623"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
@@ -688,18 +688,18 @@
                         <viewControllerLayoutGuide type="bottom" id="gEs-Br-eMD"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="R0W-Su-4dM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="de0-Wq-rzT">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniUserCell" rowHeight="70" id="AVM-eO-BKb" customClass="MyRoamniUserCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="70"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="AVM-eO-BKb" id="jvN-Oh-U7x">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAW-ni-cW5">
@@ -737,14 +737,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniRequestTourCell" rowHeight="45" id="LrP-uZ-pLn" customClass="MyRoamniRequestTourCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="98" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="98" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LrP-uZ-pLn" id="HdA-AQ-QYn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="tour" translatesAutoresizingMaskIntoConstraints="NO" id="AXC-ee-z6I">
-                                                    <rect key="frame" x="19" y="5" width="40" height="36"/>
+                                                    <rect key="frame" x="18.999999999999996" y="5" width="40" height="36"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="hzs-ZR-fSL"/>
                                                     </constraints>
@@ -777,10 +777,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniDownloadCell" rowHeight="45" id="sq1-aV-CUI" customClass="MyRoamniDownloadCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="143" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="143" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sq1-aV-CUI" id="kZ5-bK-sZx">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="fdO-hp-vaq">
@@ -808,14 +808,14 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniUploadTourCell" rowHeight="45" id="7zu-Hh-3Ue" customClass="MyRoamniUploadTourCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="188" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7zu-Hh-3Ue" id="Mr1-TW-epL">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="upload" translatesAutoresizingMaskIntoConstraints="NO" id="96d-Fb-76u">
-                                                    <rect key="frame" x="20" y="5" width="40" height="35"/>
+                                                    <rect key="frame" x="19.999999999999996" y="5" width="40" height="35"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="rc3-Rg-hjr"/>
                                                     </constraints>
@@ -844,10 +844,10 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniDistributionCell" rowHeight="45" id="KM0-Y0-ktS" customClass="MyRoamniDistributionCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="233" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="233" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KM0-Y0-ktS" id="t5w-4T-gJY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="partner" translatesAutoresizingMaskIntoConstraints="NO" id="Xm8-C8-X9e">
@@ -857,7 +857,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Reports" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Pa-SS-biJ">
-                                                    <rect key="frame" x="87" y="9" width="60.5" height="26"/>
+                                                    <rect key="frame" x="87" y="9" width="60.666666666666657" height="26"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -877,10 +877,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniHowCell" rowHeight="45" id="Csn-Wc-Ida" customClass="MyRoamniHowCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="278" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="278" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Csn-Wc-Ida" id="QkJ-CK-dbh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="sGb-4Z-0Rp">
@@ -890,7 +890,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to make money with Roamni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3b-gH-WTG">
-                                                    <rect key="frame" x="87" y="8" width="261" height="29"/>
+                                                    <rect key="frame" x="87" y="8" width="300" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -911,10 +911,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniAboutCell" rowHeight="45" id="SNw-Qw-4Sn" customClass="MyRoamniAboutCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="323" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="323" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SNw-Qw-4Sn" id="EIl-AD-gwt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-RY-d30">
@@ -924,7 +924,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Roamni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6K-Tw-0tK">
-                                                    <rect key="frame" x="88" y="0.0" width="111" height="43"/>
+                                                    <rect key="frame" x="88" y="0.0" width="150" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -947,10 +947,10 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniIncomingTourCell" id="hEM-RM-IKT" customClass="MyRoamniIncomingTourCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="368" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="368" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hEM-RM-IKT" id="w7D-H8-StF">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="incoming" translatesAutoresizingMaskIntoConstraints="NO" id="RMc-Sl-y8X">
@@ -960,7 +960,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming Tours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlZ-wo-Aan">
-                                                    <rect key="frame" x="89" y="5" width="216" height="32"/>
+                                                    <rect key="frame" x="89" y="5" width="255" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -981,14 +981,14 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniLoginCell" id="Il0-0K-hCK" customClass="MyRoamniLoginCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="412" width="375" height="44"/>
+                                        <rect key="frame" x="0.0" y="412" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Il0-0K-hCK" id="O0B-5w-4bJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-AS-yQO">
-                                                    <rect key="frame" x="0.0" y="-2" width="336" height="47"/>
+                                                    <rect key="frame" x="0.0" y="-2" width="375" height="47"/>
                                                     <state key="normal" title="Login with Facebook"/>
                                                     <connections>
                                                         <segue destination="VQT-zN-kv0" kind="show" id="jPL-SG-8VL"/>
@@ -1028,19 +1028,19 @@
             <objects>
                 <tableViewController id="dg7-cI-XfU" customClass="MyRoamniIncomingRequestTableViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="Tdf-Nx-ddi">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="showcell" textLabel="Cdc-GA-YzX" style="IBUITableViewCellStyleDefault" id="doo-Ik-kMs">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="doo-Ik-kMs" id="gIL-Tp-Zx0">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cdc-GA-YzX">
-                                            <rect key="frame" x="15" y="0.0" width="345" height="43.5"/>
+                                            <rect key="frame" x="15" y="0.0" width="384" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1072,32 +1072,32 @@
                         <viewControllerLayoutGuide type="bottom" id="cVp-59-gEJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="wxs-1O-AFf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FZC-QD-l2E">
-                                <rect key="frame" x="0.0" y="64" width="375" height="223"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="292"/>
                             </mapView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRB-uN-jUr">
-                                <rect key="frame" x="12" y="391" width="91" height="21"/>
+                                <rect key="frame" x="16" y="460" width="91" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DescriptionLb" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="giU-HT-vff">
-                                <rect key="frame" x="108" y="392" width="225" height="136"/>
+                                <rect key="frame" x="112" y="461" width="256" height="136"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dkg-EI-Kv2">
-                                <rect key="frame" x="12" y="321" width="80" height="21"/>
+                                <rect key="frame" x="16" y="390" width="80" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AttractionLb" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ty-Xa-UxR">
-                                <rect key="frame" x="108" y="321" width="95" height="21"/>
+                                <rect key="frame" x="112" y="390" width="95" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1179,14 +1179,14 @@
                         <viewControllerLayoutGuide type="bottom" id="mpK-td-gWi"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="coy-4T-wGH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GZj-cM-3em">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="687"/>
                                 <subviews>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oTo-IV-lvV">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="246"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="246"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="246" id="qZY-p3-bh9"/>
                                         </constraints>
@@ -1208,7 +1208,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="I4e-Qs-FNF">
-                                        <rect key="frame" x="138" y="348" width="190" height="30"/>
+                                        <rect key="frame" x="138" y="348" width="229" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1236,7 +1236,7 @@
                                         </variation>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4nK-NX-Dd7">
-                                        <rect key="frame" x="138" y="254" width="190" height="86"/>
+                                        <rect key="frame" x="138" y="254" width="229" height="86"/>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5U-uf-Kl7">
                                         <rect key="frame" x="8" y="391" width="106" height="20"/>
@@ -1245,7 +1245,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Six-2A-k3Z">
-                                        <rect key="frame" x="143" y="391" width="185" height="104"/>
+                                        <rect key="frame" x="143" y="391" width="224" height="104"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="104" id="ABN-Lx-t55"/>
@@ -1264,7 +1264,7 @@
                                         </variation>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yne-8N-gEd">
-                                        <rect key="frame" x="0.0" y="524" width="375" height="30"/>
+                                        <rect key="frame" x="0.0" y="524" width="414" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Submit"/>
                                         <connections>
@@ -1406,15 +1406,15 @@
             <objects>
                 <tableViewController storyboardIdentifier="MyTourTableViewController" id="Z44-Bg-g2W" customClass="MyTourTableViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="bFz-3p-BCg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniDownloadCell" rowHeight="81" id="BsK-iz-y9I" customClass="MyRoamniDownloadCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="81"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BsK-iz-y9I" id="cgL-Ph-6xb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="80.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="80.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TextLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dT9-4e-cv0">
@@ -1436,7 +1436,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StarLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WAX-2G-R08">
-                                            <rect key="frame" x="299" y="15" width="76" height="33"/>
+                                            <rect key="frame" x="338" y="15" width="76" height="33"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="76" id="IY7-h4-mMG"/>
                                             </constraints>
@@ -1445,23 +1445,23 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWh-WZ-mBA">
-                                            <rect key="frame" x="271" y="33" width="104" height="44"/>
+                                            <rect key="frame" x="310" y="33" width="104" height="44"/>
                                             <state key="normal" title="Button"/>
                                             <connections>
                                                 <action selector="downloadAction:" destination="BsK-iz-y9I" eventType="touchUpInside" id="LMq-9L-CTu"/>
                                             </connections>
                                         </button>
                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="MjM-76-So2">
-                                            <rect key="frame" x="271" y="75" width="104" height="2"/>
+                                            <rect key="frame" x="310" y="75" width="104" height="2"/>
                                         </progressView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="distanceLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w64-Md-fdw">
-                                            <rect key="frame" x="140" y="60" width="95" height="17"/>
+                                            <rect key="frame" x="140" y="60" width="134" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7L7-mr-i7x" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                            <rect key="frame" x="17" y="26" width="159" height="31"/>
+                                            <rect key="frame" x="17" y="26" width="198" height="31"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
@@ -1537,14 +1537,14 @@
                         <viewControllerLayoutGuide type="bottom" id="x7o-Oz-e8W"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="BdG-Eg-aj7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RUP-bJ-qDQ">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Open Voice Memos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpk-AN-qAa">
-                                        <rect key="frame" x="132" y="393" width="235" height="21"/>
+                                        <rect key="frame" x="132" y="393" width="274" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -1574,7 +1574,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4H-Sn-VAr">
-                                        <rect key="frame" x="132" y="252" width="235" height="30"/>
+                                        <rect key="frame" x="132" y="252" width="274" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -1598,13 +1598,13 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xst-6e-pb5">
-                                        <rect key="frame" x="132" y="462" width="235" height="96"/>
+                                        <rect key="frame" x="132" y="462" width="274" height="96"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vvR-T7-c5z">
-                                        <rect key="frame" x="1" y="0.0" width="374" height="249"/>
+                                        <rect key="frame" x="1" y="0.0" width="413" height="249"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="249" id="39b-pX-UNu"/>
@@ -1621,35 +1621,35 @@
                                         </variation>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51w-LJ-7xJ">
-                                        <rect key="frame" x="132" y="325" width="235" height="30"/>
+                                        <rect key="frame" x="132" y="325" width="274" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <segue destination="Btv-qx-eKH" kind="show" identifier="startPoint" id="xMV-R0-9wp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kB-Vvi">
-                                        <rect key="frame" x="132" y="353" width="235" height="30"/>
+                                        <rect key="frame" x="132" y="353" width="274" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <segue destination="Btv-qx-eKH" kind="show" identifier="endPoint" id="0AN-x8-xfG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3K-Ui-juH">
-                                        <rect key="frame" x="132" y="290" width="235" height="30"/>
+                                        <rect key="frame" x="132" y="290" width="274" height="30"/>
                                         <state key="normal" title="click to choose length"/>
                                         <connections>
                                             <segue destination="rh6-T9-Anb" kind="show" id="s2S-wb-XYy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-7t-2Lv">
-                                        <rect key="frame" x="131" y="429" width="236" height="30"/>
+                                        <rect key="frame" x="131" y="429" width="275" height="30"/>
                                         <state key="normal" title="click to choose type"/>
                                         <connections>
                                             <segue destination="pDG-LF-bui" kind="show" id="aGK-Qo-5oV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhR-D7-mKU">
-                                        <rect key="frame" x="0.0" y="557" width="375" height="38"/>
+                                        <rect key="frame" x="0.0" y="557" width="414" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="Ot8-d7-ian"/>
                                         </constraints>
@@ -1669,7 +1669,7 @@
                                         </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fuR-MX-q3c">
-                                        <rect key="frame" x="1" y="593" width="374" height="2"/>
+                                        <rect key="frame" x="1" y="593" width="413" height="2"/>
                                     </progressView>
                                 </subviews>
                                 <constraints>
@@ -1828,7 +1828,7 @@
                                 </variation>
                             </scrollView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzY-dN-F1T">
-                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
                                     <navigationItem title="Upload A Tour" id="xRR-zH-J6R">
                                         <barButtonItem key="leftBarButtonItem" title="Cancel" id="afg-MU-doE">
@@ -1891,7 +1891,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="089-c0-A6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1041" y="-3690"/>
+            <point key="canvasLocation" x="-1634" y="-4245"/>
         </scene>
         <!--Choose Length-->
         <scene sceneID="Nng-eD-snB">
@@ -1902,11 +1902,11 @@
                         <viewControllerLayoutGuide type="bottom" id="C3o-zZ-SnI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hat-a3-O8M">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Y9y-nA-ed2">
-                                <rect key="frame" x="8" y="201" width="351" height="323"/>
+                                <rect key="frame" x="8" y="201" width="390" height="323"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <outlet property="dataSource" destination="YBW-sq-dRj" id="odp-te-isN"/>
@@ -1937,7 +1937,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="amM-bj-83h" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="P8w-nd-94H" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1815.2" y="-3188.4557721139431"/>
+            <point key="canvasLocation" x="2386" y="-3711"/>
         </scene>
         <!--Choose A Category-->
         <scene sceneID="a7Y-cb-Unc">
@@ -1948,11 +1948,11 @@
                         <viewControllerLayoutGuide type="bottom" id="who-Ji-mpr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LQ1-lG-Kk5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nmp-6R-Ae7">
-                                <rect key="frame" x="0.0" y="72" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="656"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1984,7 +1984,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FT-Nm-H2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wal-0F-UaT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="948" y="-1943.4782608695655"/>
+            <point key="canvasLocation" x="-60" y="-2913"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1PJ-Pm-jbS">
@@ -1995,11 +1995,11 @@
                         <viewControllerLayoutGuide type="bottom" id="tTW-YI-Rbm"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kiH-Ly-vr8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6CW-kQ-5HN">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -2010,7 +2010,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="qYY-L9-8lE">
-                        <barButtonItem key="leftBarButtonItem" title="back" id="pxD-wM-rtH">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="pxD-wM-rtH">
                             <connections>
                                 <action selector="backButton:" destination="bEl-6A-Bnx" id="DcU-4B-7Mq"/>
                             </connections>
@@ -2033,33 +2033,33 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="4684" y="-2786.3568215892055"/>
+            <point key="canvasLocation" x="2878" y="-3028"/>
         </scene>
         <!--Location Search Table-->
         <scene sceneID="dBM-cC-64K">
             <objects>
                 <tableViewController storyboardIdentifier="LocationSearchTable" id="9n0-cI-l71" customClass="LocationSearchTable" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="2i7-sb-yh6">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Cst-lJ-DOH" detailTextLabel="CbP-Vg-C7b" style="IBUITableViewCellStyleSubtitle" id="nfv-ca-dax">
-                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nfv-ca-dax" id="H5E-zt-5uz">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Cst-lJ-DOH">
-                                            <rect key="frame" x="15" y="5" width="33.5" height="20.5"/>
+                                            <rect key="frame" x="15" y="5" width="33.333333333333336" height="20.333333333333332"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CbP-Vg-C7b">
-                                            <rect key="frame" x="15" y="25.5" width="44" height="14.5"/>
+                                            <rect key="frame" x="14.999999999999996" y="25.333333333333332" width="43.666666666666664" height="14.333333333333334"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                             <nil key="textColor"/>
@@ -2088,11 +2088,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Mv2-hb-uRw"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MBr-lJ-3gM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JtO-f3-yfu">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                                <rect key="frame" x="19.5" y="0.0" width="375" height="682"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -2155,11 +2155,11 @@ Collect the earnings as Roamni credits in the app for you to build and use on ot
                         <viewControllerLayoutGuide type="bottom" id="SQm-RW-U2j"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="T9y-PC-Gpl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BPS-zq-ZCJ">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="623"/>
+                                <rect key="frame" x="19.5" y="0.0" width="375" height="687.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
@@ -2287,7 +2287,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <viewControllerLayoutGuide type="bottom" id="KhF-io-eqG"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="lo2-3y-wN3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your tours have been downloaded:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fx1-S8-h6y">
@@ -2543,7 +2543,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <viewControllerLayoutGuide type="bottom" id="UfC-ux-igl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4O6-BL-8KR">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJ9-KK-BRR">
@@ -2628,11 +2628,11 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <viewControllerLayoutGuide type="bottom" id="T6Q-Fn-RbI"/>
                     </layoutGuides>
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="BKP-07-gtH">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rCG-QF-VSs">
-                                <rect key="frame" x="0.0" y="21" width="53" height="40"/>
+                                <rect key="frame" x="0.0" y="21" width="57" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Close">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -2644,10 +2644,10 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </connections>
                             </button>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mBY-dd-4AM">
-                                <rect key="frame" x="0.0" y="85" width="375" height="406"/>
+                                <rect key="frame" x="0.0" y="85" width="414" height="475"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4vV-41-YHd">
-                                <rect key="frame" x="6" y="115" width="45" height="45"/>
+                                <rect key="frame" x="10" y="115" width="45" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="45" id="7Ye-zy-T8l"/>
                                     <constraint firstAttribute="height" constant="45" id="BPz-Jg-pXi"/>
@@ -2673,7 +2673,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fQZ-bt-Cxn">
-                                <rect key="frame" x="149" y="51" width="167" height="32"/>
+                                <rect key="frame" x="153" y="51" width="202" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="dRO-Hi-cay"/>
                                 </constraints>
@@ -2691,7 +2691,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wwu-R4-Vfr">
-                                <rect key="frame" x="318" y="21" width="57" height="40"/>
+                                <rect key="frame" x="357" y="21" width="57" height="40"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="57" id="QL1-Hn-4ls"/>
@@ -2720,19 +2720,19 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="XWX-Qf-1ba">
-                                <rect key="frame" x="-2" y="553" width="379" height="31"/>
+                                <rect key="frame" x="2" y="622" width="410" height="31"/>
                                 <connections>
                                     <action selector="sliderAction:" destination="el7-T8-cG3" eventType="valueChanged" id="3gY-pa-6cy"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3sD-ZU-6lP">
-                                <rect key="frame" x="325" y="581" width="42" height="36"/>
+                                <rect key="frame" x="360" y="650" width="42" height="36"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="neU-zz-czV">
-                                <rect key="frame" x="162" y="493" width="50" height="52"/>
+                                <rect key="frame" x="181.66666666666666" y="562" width="50" height="52"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="5GY-Cx-J0m"/>
                                     <constraint firstAttribute="height" constant="52" id="rGa-ao-aA4"/>
@@ -2743,14 +2743,14 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OXT-Dj-z5Z">
-                                <rect key="frame" x="308" y="502" width="35" height="35"/>
+                                <rect key="frame" x="341" y="571" width="35" height="35"/>
                                 <state key="normal" image="next"/>
                                 <connections>
                                     <action selector="next:" destination="el7-T8-cG3" eventType="touchUpInside" id="9Vw-Zb-D4I"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="59V-h0-BN4">
-                                <rect key="frame" x="11" y="581" width="42" height="36"/>
+                                <rect key="frame" x="15" y="650" width="42" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="B3s-QV-F0A"/>
                                 </constraints>
@@ -2769,7 +2769,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nYv-Oj-6yk">
-                                <rect key="frame" x="29" y="502" width="35" height="35"/>
+                                <rect key="frame" x="33" y="571" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="35" id="IGJ-Jj-LdY"/>
                                 </constraints>
@@ -2795,7 +2795,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                             <constraint firstItem="rCG-QF-VSs" firstAttribute="baseline" secondItem="Wwu-R4-Vfr" secondAttribute="firstBaseline" id="0ig-lh-Ikh"/>
                             <constraint firstItem="mBY-dd-4AM" firstAttribute="top" secondItem="fQZ-bt-Cxn" secondAttribute="bottom" constant="2" id="2Gb-Ye-YC8"/>
                             <constraint firstItem="T6Q-Fn-RbI" firstAttribute="top" secondItem="59V-h0-BN4" secondAttribute="bottom" constant="50" id="2pM-5O-HVa"/>
-                            <constraint firstItem="OXT-Dj-z5Z" firstAttribute="leading" secondItem="neU-zz-czV" secondAttribute="trailing" constant="96" id="2xC-QT-wQJ"/>
+                            <constraint firstItem="OXT-Dj-z5Z" firstAttribute="leading" secondItem="neU-zz-czV" secondAttribute="trailing" constant="109.33333333333334" id="2xC-QT-wQJ"/>
                             <constraint firstItem="Wwu-R4-Vfr" firstAttribute="leading" secondItem="fQZ-bt-Cxn" secondAttribute="trailing" constant="2" id="4yu-0z-Hzm"/>
                             <constraint firstItem="59V-h0-BN4" firstAttribute="top" secondItem="XWX-Qf-1ba" secondAttribute="bottom" constant="-2" id="8D4-Lf-WtY"/>
                             <constraint firstItem="neU-zz-czV" firstAttribute="centerX" secondItem="mBY-dd-4AM" secondAttribute="centerX" id="AEe-Q0-Nhc"/>
@@ -2816,7 +2816,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                             <constraint firstItem="3sD-ZU-6lP" firstAttribute="firstBaseline" secondItem="59V-h0-BN4" secondAttribute="firstBaseline" id="cpN-d9-wEd"/>
                             <constraint firstItem="3sD-ZU-6lP" firstAttribute="trailing" secondItem="XWX-Qf-1ba" secondAttribute="trailing" constant="-8" id="e78-7q-gdq"/>
                             <constraint firstItem="XWX-Qf-1ba" firstAttribute="leading" secondItem="59V-h0-BN4" secondAttribute="leading" constant="-11" id="eSx-yX-3zM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="OXT-Dj-z5Z" secondAttribute="trailing" constant="16" id="gWQ-Jt-qya"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="OXT-Dj-z5Z" secondAttribute="trailing" constant="18" id="gWQ-Jt-qya"/>
                             <constraint firstItem="fQZ-bt-Cxn" firstAttribute="leading" secondItem="rCG-QF-VSs" secondAttribute="trailing" constant="96" id="gWd-0T-PCQ"/>
                             <constraint firstItem="nYv-Oj-6yk" firstAttribute="leading" secondItem="BKP-07-gtH" secondAttribute="leadingMargin" constant="13" id="hCC-xu-UV4"/>
                             <constraint firstItem="Wwu-R4-Vfr" firstAttribute="trailing" secondItem="mBY-dd-4AM" secondAttribute="trailing" id="iaN-5A-EmR"/>
@@ -2891,7 +2891,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QH9-nn-UDX" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="dSs-4A-iw2" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-4024.8000000000002" y="-1888.6056971514245"/>
+            <point key="canvasLocation" x="-4026.0869565217395" y="-1888.858695652174"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cqg-fV-JCA">
@@ -2909,7 +2909,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sgv-PM-0ju" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2503.1999999999998" y="-2662.2188905547227"/>
+            <point key="canvasLocation" x="215" y="-3711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="his-Jm-xVT">
@@ -2956,11 +2956,11 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <viewControllerLayoutGuide type="bottom" id="ueq-qI-WqH"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ZDp-EJ-T0U">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-yw-XOe" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="65" y="119" width="245" height="44"/>
+                                <rect key="frame" x="69" y="119" width="276" height="113"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
@@ -3018,7 +3018,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <viewControllerLayoutGuide type="bottom" id="6RX-FP-cKZ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="S2r-Te-N3g">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pSZ-fS-i1F" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
@@ -3135,7 +3135,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oc3-fc-3dU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="40.799999999999997" y="-1943.4782608695655"/>
+            <point key="canvasLocation" x="-1047" y="-3587"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vou-fo-co3">
@@ -3153,7 +3153,371 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yj-Cb-12Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="-3188.4557721139431"/>
+            <point key="canvasLocation" x="1098" y="-4277"/>
+        </scene>
+        <!--Upload A Tour-->
+        <scene sceneID="gv1-d0-l2y">
+            <objects>
+                <viewController storyboardIdentifier="editView" title="Upload A Tour" id="sZ5-fS-SKR" customClass="MyRoamniEditToursViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kHI-GM-OJy"/>
+                        <viewControllerLayoutGuide type="bottom" id="3PN-PS-RuD"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HKY-Kj-Qy3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1wo-qa-hEu">
+                                <rect key="frame" x="0.0" y="64" width="414" height="672"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="StartPoint:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbg-Ed-fCb">
+                                        <rect key="frame" x="8" y="329" width="82" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EndPoint:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gfZ-Gi-pCN">
+                                        <rect key="frame" x="8" y="358" width="73" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qcO-gh-SK1">
+                                        <rect key="frame" x="8" y="257" width="89" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Length:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lje-NP-j95">
+                                        <rect key="frame" x="8" y="289" width="97" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pns-14-obh">
+                                        <rect key="frame" x="132" y="252" width="274" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="File Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDD-mW-k5a">
+                                        <rect key="frame" x="8" y="393" width="81" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7fn-cY-aWr">
+                                        <rect key="frame" x="8" y="433" width="75" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oqB-PM-i9d">
+                                        <rect key="frame" x="8" y="462" width="93" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="YKI-m7-XOk">
+                                        <rect key="frame" x="132" y="462" width="274" height="96"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="LTN-2x-7U4">
+                                        <rect key="frame" x="1" y="0.0" width="413" height="249"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="249" id="mUW-ri-URX"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="mUW-ri-URX"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="mUW-ri-URX"/>
+                                            </mask>
+                                        </variation>
+                                    </mapView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n38-wd-uRg">
+                                        <rect key="frame" x="132" y="325" width="274" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="Btv-qx-eKH" kind="show" identifier="startPoint" id="qvF-ri-teb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7a-tb-9J5">
+                                        <rect key="frame" x="132" y="353" width="274" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <segue destination="Btv-qx-eKH" kind="show" identifier="endPoint" id="XsX-dC-dnn"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9j-s8-hkp">
+                                        <rect key="frame" x="132" y="290" width="274" height="30"/>
+                                        <state key="normal" title="click to choose length"/>
+                                        <connections>
+                                            <segue destination="rh6-T9-Anb" kind="show" id="PdS-dB-Clc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvU-Lr-Zhm">
+                                        <rect key="frame" x="132" y="429" width="274" height="30"/>
+                                        <state key="normal" title="click to choose type"/>
+                                        <connections>
+                                            <segue destination="pDG-LF-bui" kind="show" id="QhX-ar-Mny"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VjI-dV-uhs">
+                                        <rect key="frame" x="0.0" y="557" width="414" height="38"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="38" id="IgC-Uh-DJC"/>
+                                        </constraints>
+                                        <state key="normal" title="Upload"/>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="IgC-Uh-DJC"/>
+                                            </mask>
+                                        </variation>
+                                        <variation key="heightClass=regular-widthClass=compact">
+                                            <mask key="constraints">
+                                                <include reference="IgC-Uh-DJC"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="uploadAction:" destination="sZ5-fS-SKR" eventType="touchUpInside" id="xkb-Il-XQJ"/>
+                                        </connections>
+                                    </button>
+                                    <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SH4-G0-LVG">
+                                        <rect key="frame" x="1" y="593" width="413" height="2"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please open Voice Memos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2k-Qe-lIF">
+                                        <rect key="frame" x="132" y="393" width="274" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="gfZ-Gi-pCN" firstAttribute="top" secondItem="Dbg-Ed-fCb" secondAttribute="bottom" constant="8" symbolic="YES" id="0KV-m9-Q50"/>
+                                    <constraint firstItem="p7a-tb-9J5" firstAttribute="trailing" secondItem="c2k-Qe-lIF" secondAttribute="trailing" id="0yR-oN-v4h"/>
+                                    <constraint firstItem="VjI-dV-uhs" firstAttribute="leading" secondItem="1wo-qa-hEu" secondAttribute="leading" id="2od-cd-FmG"/>
+                                    <constraint firstItem="e9j-s8-hkp" firstAttribute="leading" secondItem="Lje-NP-j95" secondAttribute="trailing" constant="27" id="2yT-GJ-hcQ"/>
+                                    <constraint firstItem="pns-14-obh" firstAttribute="trailing" secondItem="e9j-s8-hkp" secondAttribute="trailing" id="5HT-j3-XcW"/>
+                                    <constraint firstItem="Lje-NP-j95" firstAttribute="top" secondItem="qcO-gh-SK1" secondAttribute="bottom" constant="11" id="6QT-it-EPq"/>
+                                    <constraint firstItem="c2k-Qe-lIF" firstAttribute="trailing" secondItem="EvU-Lr-Zhm" secondAttribute="trailing" id="7Nu-Oo-G83"/>
+                                    <constraint firstItem="VjI-dV-uhs" firstAttribute="centerX" secondItem="SH4-G0-LVG" secondAttribute="centerX" id="8Lc-eP-Did"/>
+                                    <constraint firstItem="EvU-Lr-Zhm" firstAttribute="top" secondItem="c2k-Qe-lIF" secondAttribute="bottom" constant="15" id="8sK-Kv-pGP"/>
+                                    <constraint firstItem="qcO-gh-SK1" firstAttribute="leading" secondItem="Lje-NP-j95" secondAttribute="leading" id="9aN-dD-20d"/>
+                                    <constraint firstItem="SH4-G0-LVG" firstAttribute="top" secondItem="YKI-m7-XOk" secondAttribute="bottom" constant="35" id="9qh-xW-rUS"/>
+                                    <constraint firstItem="n38-wd-uRg" firstAttribute="baseline" secondItem="Dbg-Ed-fCb" secondAttribute="firstBaseline" id="CYI-yn-x8f"/>
+                                    <constraint firstItem="e9j-s8-hkp" firstAttribute="trailing" secondItem="n38-wd-uRg" secondAttribute="trailing" id="FNy-gh-QlK"/>
+                                    <constraint firstItem="pns-14-obh" firstAttribute="leading" secondItem="e9j-s8-hkp" secondAttribute="leading" id="FQF-Jg-4ge"/>
+                                    <constraint firstItem="VjI-dV-uhs" firstAttribute="top" secondItem="oqB-PM-i9d" secondAttribute="bottom" constant="74" id="FgK-gK-2Hn"/>
+                                    <constraint firstItem="Lje-NP-j95" firstAttribute="leading" secondItem="Dbg-Ed-fCb" secondAttribute="leading" id="HWQ-xI-02W"/>
+                                    <constraint firstItem="EvU-Lr-Zhm" firstAttribute="baseline" secondItem="7fn-cY-aWr" secondAttribute="firstBaseline" id="HXY-bT-6d3"/>
+                                    <constraint firstItem="n38-wd-uRg" firstAttribute="top" secondItem="e9j-s8-hkp" secondAttribute="bottom" constant="5" id="J36-9C-8R4"/>
+                                    <constraint firstItem="VjI-dV-uhs" firstAttribute="bottom" secondItem="SH4-G0-LVG" secondAttribute="bottom" id="JbR-B5-YPG"/>
+                                    <constraint firstItem="eDD-mW-k5a" firstAttribute="leading" secondItem="7fn-cY-aWr" secondAttribute="leading" id="KjC-I8-Jqq"/>
+                                    <constraint firstItem="oqB-PM-i9d" firstAttribute="top" secondItem="YKI-m7-XOk" secondAttribute="top" id="Mk7-hm-Gg5"/>
+                                    <constraint firstItem="7fn-cY-aWr" firstAttribute="leading" secondItem="oqB-PM-i9d" secondAttribute="leading" id="NbL-ku-Yj0"/>
+                                    <constraint firstItem="YKI-m7-XOk" firstAttribute="leading" secondItem="oqB-PM-i9d" secondAttribute="trailing" constant="31" id="OQH-ws-G4m"/>
+                                    <constraint firstItem="EvU-Lr-Zhm" firstAttribute="trailing" secondItem="YKI-m7-XOk" secondAttribute="trailing" id="RSo-ZX-gJO"/>
+                                    <constraint firstItem="p7a-tb-9J5" firstAttribute="leading" secondItem="c2k-Qe-lIF" secondAttribute="leading" id="Sv2-k7-FAQ"/>
+                                    <constraint firstItem="e9j-s8-hkp" firstAttribute="leading" secondItem="n38-wd-uRg" secondAttribute="leading" id="T66-Ml-yZ6"/>
+                                    <constraint firstItem="LTN-2x-7U4" firstAttribute="centerX" secondItem="1wo-qa-hEu" secondAttribute="centerX" id="VyB-lp-1il"/>
+                                    <constraint firstItem="n38-wd-uRg" firstAttribute="trailing" secondItem="p7a-tb-9J5" secondAttribute="trailing" id="Xse-KV-Dvo"/>
+                                    <constraint firstAttribute="trailing" secondItem="LTN-2x-7U4" secondAttribute="trailing" id="ZrA-1O-VL1"/>
+                                    <constraint firstItem="c2k-Qe-lIF" firstAttribute="centerX" secondItem="EvU-Lr-Zhm" secondAttribute="centerX" id="cEh-JL-RuB"/>
+                                    <constraint firstItem="qcO-gh-SK1" firstAttribute="centerY" secondItem="pns-14-obh" secondAttribute="centerY" id="cuw-xD-AWR"/>
+                                    <constraint firstItem="VjI-dV-uhs" firstAttribute="trailing" secondItem="SH4-G0-LVG" secondAttribute="trailing" id="eny-3o-Jdf"/>
+                                    <constraint firstItem="e9j-s8-hkp" firstAttribute="top" secondItem="pns-14-obh" secondAttribute="bottom" constant="8" symbolic="YES" id="hkY-rk-RcI"/>
+                                    <constraint firstItem="pns-14-obh" firstAttribute="trailing" secondItem="1wo-qa-hEu" secondAttribute="trailingMargin" id="hxu-Uz-M5b"/>
+                                    <constraint firstItem="oqB-PM-i9d" firstAttribute="top" secondItem="7fn-cY-aWr" secondAttribute="bottom" constant="8" symbolic="YES" id="k5X-8g-zPl"/>
+                                    <constraint firstItem="gfZ-Gi-pCN" firstAttribute="centerY" secondItem="p7a-tb-9J5" secondAttribute="centerY" id="kKJ-wf-QFj"/>
+                                    <constraint firstItem="LTN-2x-7U4" firstAttribute="trailing" secondItem="SH4-G0-LVG" secondAttribute="trailing" id="kVh-Jl-dYX"/>
+                                    <constraint firstItem="gfZ-Gi-pCN" firstAttribute="leading" secondItem="eDD-mW-k5a" secondAttribute="leading" id="lZr-BB-w5m"/>
+                                    <constraint firstItem="c2k-Qe-lIF" firstAttribute="leading" secondItem="YKI-m7-XOk" secondAttribute="leading" id="nA1-Yj-LmG"/>
+                                    <constraint firstItem="c2k-Qe-lIF" firstAttribute="top" secondItem="p7a-tb-9J5" secondAttribute="bottom" constant="10" id="o9F-zD-vPo"/>
+                                    <constraint firstItem="n38-wd-uRg" firstAttribute="leading" secondItem="p7a-tb-9J5" secondAttribute="leading" id="oNK-aZ-ZBu"/>
+                                    <constraint firstItem="Dbg-Ed-fCb" firstAttribute="leading" secondItem="gfZ-Gi-pCN" secondAttribute="leading" id="s5U-Pv-hvs"/>
+                                    <constraint firstItem="LTN-2x-7U4" firstAttribute="top" secondItem="1wo-qa-hEu" secondAttribute="top" id="tB0-iq-p1u"/>
+                                    <constraint firstItem="eDD-mW-k5a" firstAttribute="baseline" secondItem="c2k-Qe-lIF" secondAttribute="baseline" id="vwu-ai-qW0"/>
+                                    <constraint firstAttribute="bottom" secondItem="VjI-dV-uhs" secondAttribute="bottom" constant="77" id="vzv-6O-IfZ"/>
+                                    <constraint firstItem="qcO-gh-SK1" firstAttribute="top" secondItem="LTN-2x-7U4" secondAttribute="bottom" constant="8" symbolic="YES" id="yIB-nY-76E"/>
+                                    <constraint firstItem="qcO-gh-SK1" firstAttribute="leading" secondItem="1wo-qa-hEu" secondAttribute="leadingMargin" id="yk9-yO-D6h"/>
+                                    <constraint firstItem="LTN-2x-7U4" firstAttribute="leading" secondItem="SH4-G0-LVG" secondAttribute="leading" id="znO-bg-XaM"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="tB0-iq-p1u"/>
+                                        <exclude reference="VyB-lp-1il"/>
+                                        <exclude reference="ZrA-1O-VL1"/>
+                                        <exclude reference="kVh-Jl-dYX"/>
+                                        <exclude reference="znO-bg-XaM"/>
+                                        <exclude reference="cuw-xD-AWR"/>
+                                        <exclude reference="yIB-nY-76E"/>
+                                        <exclude reference="9aN-dD-20d"/>
+                                        <exclude reference="yk9-yO-D6h"/>
+                                        <exclude reference="hxu-Uz-M5b"/>
+                                        <exclude reference="FQF-Jg-4ge"/>
+                                        <exclude reference="5HT-j3-XcW"/>
+                                        <exclude reference="6QT-it-EPq"/>
+                                        <exclude reference="HWQ-xI-02W"/>
+                                        <exclude reference="T66-Ml-yZ6"/>
+                                        <exclude reference="2yT-GJ-hcQ"/>
+                                        <exclude reference="hkY-rk-RcI"/>
+                                        <exclude reference="FNy-gh-QlK"/>
+                                        <exclude reference="s5U-Pv-hvs"/>
+                                        <exclude reference="oNK-aZ-ZBu"/>
+                                        <exclude reference="CYI-yn-x8f"/>
+                                        <exclude reference="Xse-KV-Dvo"/>
+                                        <exclude reference="J36-9C-8R4"/>
+                                        <exclude reference="0KV-m9-Q50"/>
+                                        <exclude reference="kKJ-wf-QFj"/>
+                                        <exclude reference="lZr-BB-w5m"/>
+                                        <exclude reference="Sv2-k7-FAQ"/>
+                                        <exclude reference="0yR-oN-v4h"/>
+                                        <exclude reference="KjC-I8-Jqq"/>
+                                        <exclude reference="vwu-ai-qW0"/>
+                                        <exclude reference="cEh-JL-RuB"/>
+                                        <exclude reference="nA1-Yj-LmG"/>
+                                        <exclude reference="o9F-zD-vPo"/>
+                                        <exclude reference="7Nu-Oo-G83"/>
+                                        <exclude reference="NbL-ku-Yj0"/>
+                                        <exclude reference="8sK-Kv-pGP"/>
+                                        <exclude reference="HXY-bT-6d3"/>
+                                        <exclude reference="RSo-ZX-gJO"/>
+                                        <exclude reference="Mk7-hm-Gg5"/>
+                                        <exclude reference="k5X-8g-zPl"/>
+                                        <exclude reference="OQH-ws-G4m"/>
+                                        <exclude reference="8Lc-eP-Did"/>
+                                        <exclude reference="eny-3o-Jdf"/>
+                                        <exclude reference="vzv-6O-IfZ"/>
+                                        <exclude reference="JbR-B5-YPG"/>
+                                        <exclude reference="2od-cd-FmG"/>
+                                        <exclude reference="FgK-gK-2Hn"/>
+                                        <exclude reference="9qh-xW-rUS"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="tB0-iq-p1u"/>
+                                        <include reference="VyB-lp-1il"/>
+                                        <include reference="ZrA-1O-VL1"/>
+                                        <include reference="kVh-Jl-dYX"/>
+                                        <include reference="znO-bg-XaM"/>
+                                        <include reference="cuw-xD-AWR"/>
+                                        <include reference="yIB-nY-76E"/>
+                                        <include reference="9aN-dD-20d"/>
+                                        <include reference="yk9-yO-D6h"/>
+                                        <include reference="hxu-Uz-M5b"/>
+                                        <include reference="FQF-Jg-4ge"/>
+                                        <include reference="5HT-j3-XcW"/>
+                                        <include reference="6QT-it-EPq"/>
+                                        <include reference="HWQ-xI-02W"/>
+                                        <include reference="T66-Ml-yZ6"/>
+                                        <include reference="2yT-GJ-hcQ"/>
+                                        <include reference="hkY-rk-RcI"/>
+                                        <include reference="FNy-gh-QlK"/>
+                                        <include reference="s5U-Pv-hvs"/>
+                                        <include reference="oNK-aZ-ZBu"/>
+                                        <include reference="CYI-yn-x8f"/>
+                                        <include reference="Xse-KV-Dvo"/>
+                                        <include reference="J36-9C-8R4"/>
+                                        <include reference="0KV-m9-Q50"/>
+                                        <include reference="kKJ-wf-QFj"/>
+                                        <include reference="lZr-BB-w5m"/>
+                                        <include reference="Sv2-k7-FAQ"/>
+                                        <include reference="0yR-oN-v4h"/>
+                                        <include reference="KjC-I8-Jqq"/>
+                                        <include reference="vwu-ai-qW0"/>
+                                        <include reference="cEh-JL-RuB"/>
+                                        <include reference="nA1-Yj-LmG"/>
+                                        <include reference="o9F-zD-vPo"/>
+                                        <include reference="7Nu-Oo-G83"/>
+                                        <include reference="NbL-ku-Yj0"/>
+                                        <include reference="8sK-Kv-pGP"/>
+                                        <include reference="HXY-bT-6d3"/>
+                                        <include reference="RSo-ZX-gJO"/>
+                                        <include reference="Mk7-hm-Gg5"/>
+                                        <include reference="k5X-8g-zPl"/>
+                                        <include reference="OQH-ws-G4m"/>
+                                        <include reference="8Lc-eP-Did"/>
+                                        <include reference="eny-3o-Jdf"/>
+                                        <include reference="vzv-6O-IfZ"/>
+                                        <include reference="JbR-B5-YPG"/>
+                                        <include reference="2od-cd-FmG"/>
+                                        <include reference="FgK-gK-2Hn"/>
+                                        <include reference="9qh-xW-rUS"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OE9-Ah-jvc">
+                                <rect key="frame" x="0.0" y="20" width="414" height="44"/>
+                                <items>
+                                    <navigationItem title="Edit A Tour" id="ZI6-yS-XD0">
+                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="1g8-nq-4pj">
+                                            <connections>
+                                                <action selector="naviCancel:" destination="sZ5-fS-SKR" id="D9x-mu-4XW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="OE9-Ah-jvc" firstAttribute="leading" secondItem="1wo-qa-hEu" secondAttribute="leading" id="Axe-xO-M0C"/>
+                            <constraint firstItem="1wo-qa-hEu" firstAttribute="top" secondItem="OE9-Ah-jvc" secondAttribute="bottom" id="BCY-j4-ice"/>
+                            <constraint firstItem="OE9-Ah-jvc" firstAttribute="top" secondItem="kHI-GM-OJy" secondAttribute="bottom" id="G6C-bQ-bd2"/>
+                            <constraint firstItem="OE9-Ah-jvc" firstAttribute="trailing" secondItem="1wo-qa-hEu" secondAttribute="trailing" id="IeY-Eb-OPB"/>
+                            <constraint firstItem="1wo-qa-hEu" firstAttribute="bottom" secondItem="3PN-PS-RuD" secondAttribute="top" id="QdJ-KG-736"/>
+                            <constraint firstAttribute="trailing" secondItem="OE9-Ah-jvc" secondAttribute="trailing" id="VSr-UV-OFe"/>
+                            <constraint firstItem="OE9-Ah-jvc" firstAttribute="leading" secondItem="HKY-Kj-Qy3" secondAttribute="leading" id="iiJ-Bo-21f"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="G6C-bQ-bd2"/>
+                                <exclude reference="iiJ-Bo-21f"/>
+                                <exclude reference="Axe-xO-M0C"/>
+                                <exclude reference="VSr-UV-OFe"/>
+                                <exclude reference="IeY-Eb-OPB"/>
+                                <exclude reference="BCY-j4-ice"/>
+                                <exclude reference="QdJ-KG-736"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="G6C-bQ-bd2"/>
+                                <include reference="iiJ-Bo-21f"/>
+                                <include reference="Axe-xO-M0C"/>
+                                <include reference="VSr-UV-OFe"/>
+                                <include reference="IeY-Eb-OPB"/>
+                                <include reference="BCY-j4-ice"/>
+                                <include reference="QdJ-KG-736"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="FilenameLabel" destination="c2k-Qe-lIF" id="oVP-ZZ-N7N"/>
+                        <outlet property="cancelBn" destination="1g8-nq-4pj" id="0Bw-On-vaa"/>
+                        <outlet property="categoryBn" destination="EvU-Lr-Zhm" id="yM1-w1-4d5"/>
+                        <outlet property="descText" destination="YKI-m7-XOk" id="cep-5d-Eoh"/>
+                        <outlet property="endPointBn" destination="p7a-tb-9J5" id="qZQ-QT-kOc"/>
+                        <outlet property="lengthBn" destination="e9j-s8-hkp" id="SUE-O9-NzD"/>
+                        <outlet property="mapView" destination="LTN-2x-7U4" id="vmC-9c-3o2"/>
+                        <outlet property="naviBar" destination="OE9-Ah-jvc" id="NhF-UX-smC"/>
+                        <outlet property="progressView" destination="SH4-G0-LVG" id="wh3-8i-zV4"/>
+                        <outlet property="scrollView" destination="1wo-qa-hEu" id="fQ8-iX-der"/>
+                        <outlet property="startpointBn" destination="n38-wd-uRg" id="1PQ-4w-cph"/>
+                        <outlet property="tourNameText" destination="pns-14-obh" id="c40-c3-4b4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="O8k-FP-EZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-84" y="-4689"/>
         </scene>
     </scenes>
     <resources>
@@ -3195,6 +3559,8 @@ Download the Roamni app today to make a tour or take a tour.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YIB-t0-b6L"/>
-        <segue reference="0AN-x8-xfG"/>
+        <segue reference="xMV-R0-9wp"/>
+        <segue reference="s2S-wb-XYy"/>
+        <segue reference="aGK-Qo-5oV"/>
     </inferredMetricsTieBreakers>
 </document>
