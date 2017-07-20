@@ -32,6 +32,7 @@ final class ModalViewController: UIViewController, AVAudioPlayerDelegate,CLLocat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        songTitle.textAlignment = NSTextAlignment.center
         musicSlider.value = 0.0
         let effect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: effect)
