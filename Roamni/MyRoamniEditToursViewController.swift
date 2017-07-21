@@ -158,6 +158,8 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
                 
                 alertController.addAction(ok)
                 self.dismiss(animated: false, completion: nil)
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
         }
         
 //        ref.updateChildValues([
