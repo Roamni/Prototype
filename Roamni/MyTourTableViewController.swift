@@ -14,7 +14,7 @@ import MediaPlayer
 class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate, AVAudioPlayerDelegate,  FloatRatingViewDelegate {
     
     @IBOutlet weak var segCon: UISegmentedControl!
-
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBAction func sgeChange(_ sender: UISegmentedControl) {
         switch self.segCon.selectedSegmentIndex{
@@ -326,6 +326,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 self.downloadTours.removeAll()
                 self.fetchTours1()
                 self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
+                UIApplication.shared.endIgnoringInteractionEvents()
             }
             actionSheetController.addAction(yesAction)
             actionSheetController.addAction(noAction)
