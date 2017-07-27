@@ -20,10 +20,23 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var numberOfRowsInSection : Int?
     var noDataLabel: UILabel?
     var voicememoLabel: UILabel?
+    //var refreshControl = UIRefreshControl()
+    
+    func refresh(sender:AnyObject)
+    {
+        // Updating your data here...
+        
+        print("refreshing")
+        self.refreshControl?.endRefreshing()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.refreshControl?.attributedTitle = NSAttributedString(string: "")
+        self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
+        self.tableView.addSubview(refreshControl!)
     }
+
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating:Float) {
        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
@@ -31,6 +44,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
 
     override func viewDidAppear(_ animated: Bool) {
         //print("the table category is \(self.tourCategory!)")
+        
         super.viewWillAppear(animated)
         tableView.reloadData()
         let footerView = UIView()

@@ -56,7 +56,6 @@
 		F0296EC01E49D7DB00652816 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EBF1E49D7DB00652816 /* LineView.swift */; };
 		F0296EC21E49D7E200652816 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EC11E49D7E200652816 /* ModalViewController.swift */; };
 		F0296EC41E49DC8400652816 /* MusicPlayerTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */; };
-		F0373E091F2A138E00AAB61F /* ContainerInstructionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0373E081F2A138E00AAB61F /* ContainerInstructionViewController.swift */; };
 		F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */; };
 		F05F19CA1E1BC26C00556CD6 /* Roamni.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F05F19C81E1BC26C00556CD6 /* Roamni.xcdatamodeld */; };
 		F05F19CC1E1BC26C00556CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05F19CB1E1BC26C00556CD6 /* Assets.xcassets */; };
@@ -160,7 +159,6 @@
 		F0296EBF1E49D7DB00652816 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		F0296EC11E49D7E200652816 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTransitionAnimation.swift; sourceTree = "<group>"; };
-		F0373E081F2A138E00AAB61F /* ContainerInstructionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerInstructionViewController.swift; sourceTree = "<group>"; };
 		F05F19BE1E1BC26C00556CD6 /* Roamni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roamni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05F19C91E1BC26C00556CD6 /* Roamni.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roamni.xcdatamodel; sourceTree = "<group>"; };
@@ -302,7 +300,6 @@
 				F02617F41E2F95D3004697EA /* ContainerMapViewController.swift */,
 				F063DE1C1E22929D00424985 /* DetailViewController.swift */,
 				F02617FA1E2F97CA004697EA /* EmptySegue.swift */,
-				F0373E081F2A138E00AAB61F /* ContainerInstructionViewController.swift */,
 			);
 			name = SearchContainerController;
 			sourceTree = "<group>";
@@ -750,7 +747,6 @@
 				A60834301E24F0CA00775187 /* MyRoamniRequestTourCell.swift in Sources */,
 				F02618051E326252004697EA /* LengthTableViewCell.swift in Sources */,
 				A60834451E24F2D200775187 /* MyRoamniHowViewController.swift in Sources */,
-				F0373E091F2A138E00AAB61F /* ContainerInstructionViewController.swift in Sources */,
 				F02617F91E2F97C0004697EA /* ContainerViewController.swift in Sources */,
 				A608342E1E24F0B100775187 /* MyRoamniUserCell.swift in Sources */,
 				F02617F71E2F95F1004697EA /* ContainerTableViewController.swift in Sources */,

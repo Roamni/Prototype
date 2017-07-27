@@ -37,11 +37,6 @@ class SearchContainerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
- //       if isCurrentInstruction == true{
- //           container!.segueIdentifierReceivedFromParent("first")
- //           searchController.isActive = true
-  //          isCurrentInstruction = false
-   //     }
         if self.swtichBtn.image == UIImage(named: "list") && (getTableVCObject?.tableView((getTableVCObject?.tableView)!, numberOfRowsInSection: 1))! != tours.count{
             getMapVCObject = self.container.currentViewController as? ContainerMapViewController
             getMapVCObject?.places.removeAll()
