@@ -11,18 +11,19 @@ import CoreLocation
 import Firebase
 class ContainerTableViewController: UITableViewController, CLLocationManagerDelegate, FloatRatingViewDelegate{
 
-
-
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
     var tours = [DownloadTour]()
     var filteredTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
     var allTours = [DownloadTour]()
+    var numberOfRowsInSection : Int?
+    var noDataLabel: UILabel?
+    var voicememoLabel: UILabel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-          }
+    }
     
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating:Float) {
        // self.liveLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
@@ -32,10 +33,6 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         //print("the table category is \(self.tourCategory!)")
         super.viewWillAppear(animated)
         tableView.reloadData()
-
-        //tableView
-        //fetchTours()
-      //tableView.tableFooterView = UIView()
         let footerView = UIView()
         footerView.backgroundColor = UIColor.white
         footerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 30)
@@ -84,22 +81,33 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searchController.isActive && searchController.searchBar.text != "" {
-            
-            return filteredTours.count
-        }
-        return tours.count
         
+        if searchController.isActive && searchController.searchBar.text != "" {
+            print("filter")
+            return filteredTours.count
+            print("rrrrrrrr")
+            //self.numberOfRowsInSection = filteredTours.count
+            
+        }
+        print("tours count\(tours.count)")
+        
+        return tours.count
     }
     
+
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerTableViewCell", for: indexPath) as! ContainerTableViewCell
         let tour: DownloadTour
+        
         if searchController.isActive && searchController.searchBar.text != "" {
             tour = filteredTours[indexPath.row]
+            //print("rrrrrrrr")
         } else {
             tour = tours[indexPath.row]
+            //print("lllllllllll")
         }
+
+        
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
         cell.StarLabel.text = String(tour.length) + " min"
@@ -128,6 +136,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         let intDis : Int = Int(doubleDis)
         cell.distanceLabel.text = "\(intDis/1000) km"
         cell.starrating = CGFloat(tour.star)
+
         return cell
     }
     

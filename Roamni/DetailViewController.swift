@@ -156,7 +156,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
 
     //self.title = detailTour?.name
-    self.lengthLabel.text = String(detailTour?.length ?? 0)
+    self.lengthLabel.text = String(detailTour?.length ?? 0) + " min"
     self.ratingLabel.text = String(describing: detailTour?.star)
     self.descLabel.text = detailTour?.desc
     detailMap.delegate = self

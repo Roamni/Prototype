@@ -35,6 +35,7 @@ open class ContainerViewController: UIViewController {
         
         
     }
+    
     open override func viewDidAppear(_ animated: Bool) {
         if let identifier = firstLinkedSubView{
             segueIdentifierReceivedFromParent(identifier)
@@ -46,32 +47,20 @@ open class ContainerViewController: UIViewController {
     }
     
     func segueIdentifierReceivedFromParent(_ identifier: String){
-        
-        
-        
         self.segueIdentifier = identifier
         self.performSegue(withIdentifier: self.segueIdentifier, sender: nil)
-        
-        
-        
+    
     }
     
-    
-    
-    
+  
     override open func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == segueIdentifier{
             
             
             //Remove Container View
-            if viewController != nil{
-                
-                
+            if viewController != nil{           
                 viewController.view.removeFromSuperview()
                 viewController = nil
-                
-              
-                
             }
             //Add to dictionary if isn't already there
             if ((self.containerViewObjects[self.segueIdentifier] == nil)){

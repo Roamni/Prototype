@@ -31,22 +31,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="detailTime" translatesAutoresizingMaskIntoConstraints="NO" id="6W2-QT-uHL">
-                                <rect key="frame" x="139" y="68" width="40" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="KcS-4F-k7Q"/>
-                                </constraints>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="KcS-4F-k7Q"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="KcS-4F-k7Q"/>
-                                    </mask>
-                                </variation>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="descLabel" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="evP-fS-BWT">
                                 <rect key="frame" x="0.0" y="447" width="375" height="68"/>
                                 <constraints>
@@ -67,7 +51,7 @@
                                 </variation>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5v1-Vc-Cwy">
-                                <rect key="frame" x="19" y="68" width="41" height="41"/>
+                                <rect key="frame" x="16" y="64" width="41" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="41" id="78z-hK-AhO"/>
                                     <constraint firstAttribute="height" constant="41" id="MgS-8c-yvp"/>
@@ -87,26 +71,6 @@
                                 </variation>
                                 <connections>
                                     <action selector="preViewBn:" destination="fwU-xU-6CH" eventType="touchUpInside" id="oUv-hh-qIx"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usz-Ru-meH">
-                                <rect key="frame" x="82" y="68" width="39" height="41"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="39" id="Ii5-RL-yXC"/>
-                                </constraints>
-                                <state key="normal" image="play-download"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="Ii5-RL-yXC"/>
-                                    </mask>
-                                </variation>
-                                <variation key="heightClass=regular-widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="Ii5-RL-yXC"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="downloadAction:" destination="fwU-xU-6CH" eventType="touchUpInside" id="Sfx-O5-u4X"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="titleLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kgd-de-mO6">
@@ -132,11 +96,11 @@
                                 <rect key="frame" x="0.0" y="108" width="375" height="331"/>
                             </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="djS-IU-HGm" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="8" y="38" width="171" height="22"/>
+                                <rect key="frame" x="8" y="38" width="171" height="21.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 h 32m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RWc-ku-w8W">
-                                <rect key="frame" x="187" y="79" width="42" height="18"/>
+                                <rect key="frame" x="144" y="75" width="42" height="18"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="18" id="DnN-OL-1ym"/>
                                 </constraints>
@@ -154,35 +118,52 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="usz-Ru-meH">
+                                <rect key="frame" x="75" y="64" width="61" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="61" id="Ii5-RL-yXC"/>
+                                </constraints>
+                                <state key="normal" image="play-download"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Ii5-RL-yXC"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Ii5-RL-yXC"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="downloadAction:" destination="fwU-xU-6CH" eventType="touchUpInside" id="Sfx-O5-u4X"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="6W2-QT-uHL" firstAttribute="centerY" secondItem="RWc-ku-w8W" secondAttribute="centerY" id="5YZ-bo-xDd"/>
-                            <constraint firstItem="5v1-Vc-Cwy" firstAttribute="leading" secondItem="xhE-Rw-9Wq" secondAttribute="leadingMargin" constant="3" id="7pP-H9-WpP"/>
-                            <constraint firstItem="usz-Ru-meH" firstAttribute="leading" secondItem="5v1-Vc-Cwy" secondAttribute="trailing" constant="22" id="96Z-AH-FYo"/>
+                            <constraint firstItem="5v1-Vc-Cwy" firstAttribute="leading" secondItem="xhE-Rw-9Wq" secondAttribute="leadingMargin" id="7pP-H9-WpP"/>
+                            <constraint firstItem="usz-Ru-meH" firstAttribute="leading" secondItem="5v1-Vc-Cwy" secondAttribute="trailing" constant="18" id="96Z-AH-FYo"/>
+                            <constraint firstItem="RWc-ku-w8W" firstAttribute="centerY" secondItem="usz-Ru-meH" secondAttribute="centerY" constant="-0.5" id="99D-t7-imJ"/>
                             <constraint firstItem="Kgd-de-mO6" firstAttribute="leading" secondItem="xhE-Rw-9Wq" secondAttribute="leadingMargin" id="AX8-5m-5Fq"/>
-                            <constraint firstItem="RWc-ku-w8W" firstAttribute="leading" secondItem="6W2-QT-uHL" secondAttribute="trailing" constant="8" symbolic="YES" id="Ck1-Sa-FRK"/>
                             <constraint firstItem="evP-fS-BWT" firstAttribute="top" secondItem="KJm-vG-U9j" secondAttribute="bottom" constant="8" symbolic="YES" id="I1k-ew-JMZ"/>
                             <constraint firstItem="pOq-nI-348" firstAttribute="top" secondItem="BsH-Wx-N1o" secondAttribute="bottom" constant="88" id="Ivg-8t-gXd"/>
                             <constraint firstItem="5v1-Vc-Cwy" firstAttribute="top" secondItem="usz-Ru-meH" secondAttribute="top" id="JCU-Ag-our"/>
                             <constraint firstItem="djS-IU-HGm" firstAttribute="top" secondItem="Kgd-de-mO6" secondAttribute="bottom" constant="4" id="JVg-n8-DhW"/>
                             <constraint firstItem="pOq-nI-348" firstAttribute="leading" secondItem="xhE-Rw-9Wq" secondAttribute="leadingMargin" constant="-59" id="Jpw-kA-GOU"/>
-                            <constraint firstItem="5v1-Vc-Cwy" firstAttribute="top" secondItem="djS-IU-HGm" secondAttribute="bottom" constant="8" symbolic="YES" id="PGr-Lb-rRn"/>
-                            <constraint firstItem="usz-Ru-meH" firstAttribute="bottom" secondItem="6W2-QT-uHL" secondAttribute="bottom" id="S8w-7m-fjK"/>
-                            <constraint firstItem="KJm-vG-U9j" firstAttribute="top" secondItem="RWc-ku-w8W" secondAttribute="bottom" constant="11" id="Wyf-oY-oPJ"/>
+                            <constraint firstItem="5v1-Vc-Cwy" firstAttribute="top" secondItem="djS-IU-HGm" secondAttribute="bottom" constant="4.5" id="PGr-Lb-rRn"/>
+                            <constraint firstItem="KJm-vG-U9j" firstAttribute="top" secondItem="RWc-ku-w8W" secondAttribute="bottom" constant="15" id="Wyf-oY-oPJ"/>
                             <constraint firstItem="Kgd-de-mO6" firstAttribute="centerX" secondItem="KJm-vG-U9j" secondAttribute="centerX" id="XPT-Gw-zKy"/>
                             <constraint firstAttribute="trailing" secondItem="KJm-vG-U9j" secondAttribute="trailing" id="XXd-ws-dZt"/>
-                            <constraint firstItem="6W2-QT-uHL" firstAttribute="leading" secondItem="usz-Ru-meH" secondAttribute="trailing" constant="18" id="anK-4m-rkL"/>
                             <constraint firstItem="BsH-Wx-N1o" firstAttribute="top" secondItem="evP-fS-BWT" secondAttribute="bottom" constant="44" id="eZv-8I-lsJ"/>
                             <constraint firstItem="Kgd-de-mO6" firstAttribute="top" secondItem="5A3-Xw-AAR" secondAttribute="bottom" constant="8" symbolic="YES" id="elc-sL-o5m"/>
-                            <constraint firstItem="djS-IU-HGm" firstAttribute="trailing" secondItem="6W2-QT-uHL" secondAttribute="trailing" id="f3B-V3-KgW"/>
+                            <constraint firstAttribute="trailing" secondItem="djS-IU-HGm" secondAttribute="trailing" constant="196" id="f1w-dG-86X"/>
                             <constraint firstItem="KJm-vG-U9j" firstAttribute="leading" secondItem="evP-fS-BWT" secondAttribute="leading" id="fNB-TW-qzK"/>
-                            <constraint firstItem="RWc-ku-w8W" firstAttribute="top" secondItem="Kgd-de-mO6" secondAttribute="bottom" constant="45" id="h7m-WB-aLK"/>
+                            <constraint firstItem="RWc-ku-w8W" firstAttribute="top" secondItem="Kgd-de-mO6" secondAttribute="bottom" constant="41" id="h7m-WB-aLK"/>
                             <constraint firstItem="KJm-vG-U9j" firstAttribute="trailing" secondItem="evP-fS-BWT" secondAttribute="trailing" id="hrt-RD-Aem"/>
+                            <constraint firstItem="RWc-ku-w8W" firstAttribute="leading" secondItem="usz-Ru-meH" secondAttribute="trailing" constant="8" id="oA3-Vg-uim"/>
                             <constraint firstItem="KJm-vG-U9j" firstAttribute="leading" secondItem="xhE-Rw-9Wq" secondAttribute="leading" id="phY-Ax-eb7"/>
                             <constraint firstItem="djS-IU-HGm" firstAttribute="leading" secondItem="xhE-Rw-9Wq" secondAttribute="leadingMargin" constant="-8" id="qIg-aL-PT9"/>
                             <constraint firstItem="5v1-Vc-Cwy" firstAttribute="bottom" secondItem="usz-Ru-meH" secondAttribute="bottom" id="w41-T1-b8e"/>
-                            <constraint firstItem="usz-Ru-meH" firstAttribute="top" secondItem="6W2-QT-uHL" secondAttribute="top" id="xTD-Fi-JIm"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -190,23 +171,17 @@
                                 <exclude reference="XPT-Gw-zKy"/>
                                 <exclude reference="elc-sL-o5m"/>
                                 <exclude reference="JVg-n8-DhW"/>
-                                <exclude reference="f3B-V3-KgW"/>
                                 <exclude reference="qIg-aL-PT9"/>
                                 <exclude reference="7pP-H9-WpP"/>
                                 <exclude reference="JCU-Ag-our"/>
                                 <exclude reference="PGr-Lb-rRn"/>
                                 <exclude reference="w41-T1-b8e"/>
                                 <exclude reference="96Z-AH-FYo"/>
-                                <exclude reference="S8w-7m-fjK"/>
-                                <exclude reference="xTD-Fi-JIm"/>
                                 <exclude reference="Wyf-oY-oPJ"/>
                                 <exclude reference="XXd-ws-dZt"/>
                                 <exclude reference="fNB-TW-qzK"/>
                                 <exclude reference="hrt-RD-Aem"/>
                                 <exclude reference="phY-Ax-eb7"/>
-                                <exclude reference="5YZ-bo-xDd"/>
-                                <exclude reference="anK-4m-rkL"/>
-                                <exclude reference="Ck1-Sa-FRK"/>
                                 <exclude reference="h7m-WB-aLK"/>
                                 <exclude reference="I1k-ew-JMZ"/>
                                 <exclude reference="eZv-8I-lsJ"/>
@@ -220,23 +195,17 @@
                                 <include reference="XPT-Gw-zKy"/>
                                 <include reference="elc-sL-o5m"/>
                                 <include reference="JVg-n8-DhW"/>
-                                <include reference="f3B-V3-KgW"/>
                                 <include reference="qIg-aL-PT9"/>
                                 <include reference="7pP-H9-WpP"/>
                                 <include reference="JCU-Ag-our"/>
                                 <include reference="PGr-Lb-rRn"/>
                                 <include reference="w41-T1-b8e"/>
                                 <include reference="96Z-AH-FYo"/>
-                                <include reference="S8w-7m-fjK"/>
-                                <include reference="xTD-Fi-JIm"/>
                                 <include reference="Wyf-oY-oPJ"/>
                                 <include reference="XXd-ws-dZt"/>
                                 <include reference="fNB-TW-qzK"/>
                                 <include reference="hrt-RD-Aem"/>
                                 <include reference="phY-Ax-eb7"/>
-                                <include reference="5YZ-bo-xDd"/>
-                                <include reference="anK-4m-rkL"/>
-                                <include reference="Ck1-Sa-FRK"/>
                                 <include reference="h7m-WB-aLK"/>
                                 <include reference="I1k-ew-JMZ"/>
                                 <include reference="eZv-8I-lsJ"/>
@@ -273,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa0-wI-kDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1034.4000000000001" y="2739.5802098950526"/>
+            <point key="canvasLocation" x="-505" y="1298"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">
@@ -890,7 +859,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to make money with Roamni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3b-gH-WTG">
-                                                    <rect key="frame" x="87" y="8" width="300" height="29"/>
+                                                    <rect key="frame" x="87" y="8" width="261" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -924,7 +893,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Roamni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6K-Tw-0tK">
-                                                    <rect key="frame" x="88" y="0.0" width="150" height="43"/>
+                                                    <rect key="frame" x="88" y="0.0" width="111" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -960,7 +929,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming Tours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlZ-wo-Aan">
-                                                    <rect key="frame" x="89" y="5" width="255" height="32"/>
+                                                    <rect key="frame" x="89" y="5" width="216" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -988,7 +957,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wat-AS-yQO">
-                                                    <rect key="frame" x="0.0" y="-2" width="375" height="47"/>
+                                                    <rect key="frame" x="0.0" y="-2" width="336" height="47"/>
                                                     <state key="normal" title="Login with Facebook"/>
                                                     <connections>
                                                         <segue destination="VQT-zN-kv0" kind="show" id="jPL-SG-8VL"/>
@@ -2349,6 +2318,33 @@ Download the Roamni app today to make a tour or take a tour.</string>
             </objects>
             <point key="canvasLocation" x="3589.5999999999999" y="-1619.6401799100452"/>
         </scene>
+        <!--Container Instruction View Controller-->
+        <scene sceneID="szA-52-BoP">
+            <objects>
+                <viewController id="ezs-KK-tbV" customClass="ContainerInstructionViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="n31-Vy-U0c"/>
+                        <viewControllerLayoutGuide type="bottom" id="ecw-9y-4Jn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="o0f-Bc-IhI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="There is no such type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Zp-zz-y4P">
+                                <rect key="frame" x="34" y="253" width="307" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8pZ-Mr-DZs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2084" y="-26.53673163418291"/>
+        </scene>
         <!--Container Map View Controller-->
         <scene sceneID="MHu-LW-KUb">
             <objects>
@@ -2397,7 +2393,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vEV-WT-Xen" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="390" y="1739"/>
+            <point key="canvasLocation" x="-1116" y="485"/>
         </scene>
         <!--Container Table View Controller-->
         <scene sceneID="hxf-nm-6K0">
@@ -2489,7 +2485,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4S-AZ-SFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1756" y="1799.5502248875564"/>
+            <point key="canvasLocation" x="214" y="485"/>
         </scene>
         <!--Search-->
         <scene sceneID="kZw-7L-073">
@@ -2508,7 +2504,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WaB-1G-lRD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2097" y="-120"/>
+            <point key="canvasLocation" x="-2524" y="-1127"/>
         </scene>
         <!--Container View Controller-->
         <scene sceneID="Wph-aR-jM9">
@@ -2528,11 +2524,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
                     <connections>
                         <segue destination="ouv-B4-X2U" kind="custom" identifier="second" customClass="EmptySegue" customModule="Roamni" customModuleProvider="target" id="Dak-K9-c9f"/>
                         <segue destination="jXe-iy-nSM" kind="custom" identifier="first" customClass="EmptySegue" customModule="Roamni" customModuleProvider="target" id="1wP-N2-pck"/>
+                        <segue destination="ezs-KK-tbV" kind="custom" identifier="third" customClass="EmptySegue" customModule="Roamni" customModuleProvider="target" id="DUV-Yh-ulR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5h-xu-T3T" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="876" y="922"/>
+            <point key="canvasLocation" x="-433" y="-473"/>
         </scene>
         <!--Tour Detail-->
         <scene sceneID="410-oo-6r3">
@@ -2836,12 +2833,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 <exclude reference="a8t-ag-ib6"/>
                                 <exclude reference="b3j-LB-D53"/>
                                 <exclude reference="u2I-gk-3cD"/>
+                                <exclude reference="L4M-xn-Nhm"/>
+                                <exclude reference="gWd-0T-PCQ"/>
                                 <exclude reference="2Gb-Ye-YC8"/>
                                 <exclude reference="UMj-1p-95t"/>
                                 <exclude reference="0CP-U9-Aig"/>
                                 <exclude reference="vti-za-b9h"/>
-                                <exclude reference="L4M-xn-Nhm"/>
-                                <exclude reference="gWd-0T-PCQ"/>
                                 <exclude reference="4yu-0z-Hzm"/>
                                 <exclude reference="GBV-NK-x5c"/>
                                 <exclude reference="iaN-5A-EmR"/>
@@ -2862,12 +2859,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 <include reference="a8t-ag-ib6"/>
                                 <include reference="b3j-LB-D53"/>
                                 <include reference="u2I-gk-3cD"/>
+                                <include reference="L4M-xn-Nhm"/>
+                                <include reference="gWd-0T-PCQ"/>
                                 <include reference="2Gb-Ye-YC8"/>
                                 <include reference="UMj-1p-95t"/>
                                 <include reference="0CP-U9-Aig"/>
                                 <include reference="vti-za-b9h"/>
-                                <include reference="L4M-xn-Nhm"/>
-                                <include reference="gWd-0T-PCQ"/>
                                 <include reference="4yu-0z-Hzm"/>
                                 <include reference="GBV-NK-x5c"/>
                                 <include reference="iaN-5A-EmR"/>
@@ -3353,40 +3350,40 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
-                                        <exclude reference="tB0-iq-p1u"/>
                                         <exclude reference="VyB-lp-1il"/>
                                         <exclude reference="ZrA-1O-VL1"/>
                                         <exclude reference="kVh-Jl-dYX"/>
+                                        <exclude reference="tB0-iq-p1u"/>
                                         <exclude reference="znO-bg-XaM"/>
+                                        <exclude reference="9aN-dD-20d"/>
                                         <exclude reference="cuw-xD-AWR"/>
                                         <exclude reference="yIB-nY-76E"/>
-                                        <exclude reference="9aN-dD-20d"/>
                                         <exclude reference="yk9-yO-D6h"/>
-                                        <exclude reference="hxu-Uz-M5b"/>
-                                        <exclude reference="FQF-Jg-4ge"/>
                                         <exclude reference="5HT-j3-XcW"/>
+                                        <exclude reference="FQF-Jg-4ge"/>
+                                        <exclude reference="hxu-Uz-M5b"/>
                                         <exclude reference="6QT-it-EPq"/>
                                         <exclude reference="HWQ-xI-02W"/>
-                                        <exclude reference="T66-Ml-yZ6"/>
                                         <exclude reference="2yT-GJ-hcQ"/>
-                                        <exclude reference="hkY-rk-RcI"/>
                                         <exclude reference="FNy-gh-QlK"/>
+                                        <exclude reference="T66-Ml-yZ6"/>
+                                        <exclude reference="hkY-rk-RcI"/>
                                         <exclude reference="s5U-Pv-hvs"/>
-                                        <exclude reference="oNK-aZ-ZBu"/>
                                         <exclude reference="CYI-yn-x8f"/>
-                                        <exclude reference="Xse-KV-Dvo"/>
                                         <exclude reference="J36-9C-8R4"/>
+                                        <exclude reference="Xse-KV-Dvo"/>
+                                        <exclude reference="oNK-aZ-ZBu"/>
                                         <exclude reference="0KV-m9-Q50"/>
                                         <exclude reference="kKJ-wf-QFj"/>
                                         <exclude reference="lZr-BB-w5m"/>
-                                        <exclude reference="Sv2-k7-FAQ"/>
                                         <exclude reference="0yR-oN-v4h"/>
+                                        <exclude reference="Sv2-k7-FAQ"/>
                                         <exclude reference="KjC-I8-Jqq"/>
                                         <exclude reference="vwu-ai-qW0"/>
+                                        <exclude reference="7Nu-Oo-G83"/>
                                         <exclude reference="cEh-JL-RuB"/>
                                         <exclude reference="nA1-Yj-LmG"/>
                                         <exclude reference="o9F-zD-vPo"/>
-                                        <exclude reference="7Nu-Oo-G83"/>
                                         <exclude reference="NbL-ku-Yj0"/>
                                         <exclude reference="8sK-Kv-pGP"/>
                                         <exclude reference="HXY-bT-6d3"/>
@@ -3394,51 +3391,51 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                         <exclude reference="Mk7-hm-Gg5"/>
                                         <exclude reference="k5X-8g-zPl"/>
                                         <exclude reference="OQH-ws-G4m"/>
+                                        <exclude reference="2od-cd-FmG"/>
                                         <exclude reference="8Lc-eP-Did"/>
+                                        <exclude reference="FgK-gK-2Hn"/>
+                                        <exclude reference="JbR-B5-YPG"/>
                                         <exclude reference="eny-3o-Jdf"/>
                                         <exclude reference="vzv-6O-IfZ"/>
-                                        <exclude reference="JbR-B5-YPG"/>
-                                        <exclude reference="2od-cd-FmG"/>
-                                        <exclude reference="FgK-gK-2Hn"/>
                                         <exclude reference="9qh-xW-rUS"/>
                                     </mask>
                                 </variation>
                                 <variation key="heightClass=regular-widthClass=compact">
                                     <mask key="constraints">
-                                        <include reference="tB0-iq-p1u"/>
                                         <include reference="VyB-lp-1il"/>
                                         <include reference="ZrA-1O-VL1"/>
                                         <include reference="kVh-Jl-dYX"/>
+                                        <include reference="tB0-iq-p1u"/>
                                         <include reference="znO-bg-XaM"/>
+                                        <include reference="9aN-dD-20d"/>
                                         <include reference="cuw-xD-AWR"/>
                                         <include reference="yIB-nY-76E"/>
-                                        <include reference="9aN-dD-20d"/>
                                         <include reference="yk9-yO-D6h"/>
-                                        <include reference="hxu-Uz-M5b"/>
-                                        <include reference="FQF-Jg-4ge"/>
                                         <include reference="5HT-j3-XcW"/>
+                                        <include reference="FQF-Jg-4ge"/>
+                                        <include reference="hxu-Uz-M5b"/>
                                         <include reference="6QT-it-EPq"/>
                                         <include reference="HWQ-xI-02W"/>
-                                        <include reference="T66-Ml-yZ6"/>
                                         <include reference="2yT-GJ-hcQ"/>
-                                        <include reference="hkY-rk-RcI"/>
                                         <include reference="FNy-gh-QlK"/>
+                                        <include reference="T66-Ml-yZ6"/>
+                                        <include reference="hkY-rk-RcI"/>
                                         <include reference="s5U-Pv-hvs"/>
-                                        <include reference="oNK-aZ-ZBu"/>
                                         <include reference="CYI-yn-x8f"/>
-                                        <include reference="Xse-KV-Dvo"/>
                                         <include reference="J36-9C-8R4"/>
+                                        <include reference="Xse-KV-Dvo"/>
+                                        <include reference="oNK-aZ-ZBu"/>
                                         <include reference="0KV-m9-Q50"/>
                                         <include reference="kKJ-wf-QFj"/>
                                         <include reference="lZr-BB-w5m"/>
-                                        <include reference="Sv2-k7-FAQ"/>
                                         <include reference="0yR-oN-v4h"/>
+                                        <include reference="Sv2-k7-FAQ"/>
                                         <include reference="KjC-I8-Jqq"/>
                                         <include reference="vwu-ai-qW0"/>
+                                        <include reference="7Nu-Oo-G83"/>
                                         <include reference="cEh-JL-RuB"/>
                                         <include reference="nA1-Yj-LmG"/>
                                         <include reference="o9F-zD-vPo"/>
-                                        <include reference="7Nu-Oo-G83"/>
                                         <include reference="NbL-ku-Yj0"/>
                                         <include reference="8sK-Kv-pGP"/>
                                         <include reference="HXY-bT-6d3"/>
@@ -3446,12 +3443,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                         <include reference="Mk7-hm-Gg5"/>
                                         <include reference="k5X-8g-zPl"/>
                                         <include reference="OQH-ws-G4m"/>
+                                        <include reference="2od-cd-FmG"/>
                                         <include reference="8Lc-eP-Did"/>
+                                        <include reference="FgK-gK-2Hn"/>
+                                        <include reference="JbR-B5-YPG"/>
                                         <include reference="eny-3o-Jdf"/>
                                         <include reference="vzv-6O-IfZ"/>
-                                        <include reference="JbR-B5-YPG"/>
-                                        <include reference="2od-cd-FmG"/>
-                                        <include reference="FgK-gK-2Hn"/>
                                         <include reference="9qh-xW-rUS"/>
                                     </mask>
                                 </variation>
@@ -3481,22 +3478,22 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="G6C-bQ-bd2"/>
-                                <exclude reference="iiJ-Bo-21f"/>
                                 <exclude reference="Axe-xO-M0C"/>
-                                <exclude reference="VSr-UV-OFe"/>
+                                <exclude reference="G6C-bQ-bd2"/>
                                 <exclude reference="IeY-Eb-OPB"/>
+                                <exclude reference="VSr-UV-OFe"/>
+                                <exclude reference="iiJ-Bo-21f"/>
                                 <exclude reference="BCY-j4-ice"/>
                                 <exclude reference="QdJ-KG-736"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="constraints">
-                                <include reference="G6C-bQ-bd2"/>
-                                <include reference="iiJ-Bo-21f"/>
                                 <include reference="Axe-xO-M0C"/>
-                                <include reference="VSr-UV-OFe"/>
+                                <include reference="G6C-bQ-bd2"/>
                                 <include reference="IeY-Eb-OPB"/>
+                                <include reference="VSr-UV-OFe"/>
+                                <include reference="iiJ-Bo-21f"/>
                                 <include reference="BCY-j4-ice"/>
                                 <include reference="QdJ-KG-736"/>
                             </mask>
@@ -3538,7 +3535,6 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="StarEmpty" width="22" height="22"/>
         <image name="StarFull" width="22" height="22"/>
         <image name="about" width="256" height="256"/>
-        <image name="detailTime" width="128" height="128"/>
         <image name="download" width="128" height="128"/>
         <image name="footprint" width="1056" height="1020"/>
         <image name="ic_keyboard_arrow_left" width="24" height="24"/>
@@ -3550,7 +3546,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="navigator" width="128" height="128"/>
         <image name="next" width="206" height="211"/>
         <image name="partner" width="256" height="256"/>
-        <image name="play-download" width="128" height="128"/>
+        <image name="play-download" width="600" height="300"/>
         <image name="play-preview" width="64" height="64"/>
         <image name="prev" width="207" height="211"/>
         <image name="ratingbtn" width="21" height="21"/>
@@ -3560,9 +3556,9 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="upload" width="128" height="128"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YIB-t0-b6L"/>
+        <segue reference="YxH-q0-g5X"/>
+        <segue reference="aGK-Qo-5oV"/>
         <segue reference="xMV-R0-9wp"/>
         <segue reference="s2S-wb-XYy"/>
-        <segue reference="aGK-Qo-5oV"/>
     </inferredMetricsTieBreakers>
 </document>

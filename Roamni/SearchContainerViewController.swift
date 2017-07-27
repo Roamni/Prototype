@@ -21,6 +21,7 @@ class SearchContainerViewController: UIViewController {
     @IBOutlet weak var swtichBtn: UIBarButtonItem!
     
     var tourCategory : String?
+    var isCurrentInstruction = false
     var detailViewController: DetailViewController? = nil
     var getTableVCObject : ContainerTableViewController?
     var getMapVCObject : ContainerMapViewController?
@@ -36,40 +37,26 @@ class SearchContainerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-        
+ //       if isCurrentInstruction == true{
+ //           container!.segueIdentifierReceivedFromParent("first")
+ //           searchController.isActive = true
+  //          isCurrentInstruction = false
+   //     }
         if self.swtichBtn.image == UIImage(named: "list") && (getTableVCObject?.tableView((getTableVCObject?.tableView)!, numberOfRowsInSection: 1))! != tours.count{
             getMapVCObject = self.container.currentViewController as? ContainerMapViewController
             getMapVCObject?.places.removeAll()
             getMapVCObject?.tours = finalTours
         }
-       
-//        var delegate = UIApplication.shared.delegate as! AppDelegate
-//        if delegate.songTitle?.isEmpty != true{
-//            songTitle.text =  delegate.songTitle
-//        }
         
-        
-        //tours.removeAll()
-        //print(self.tourCategory)
-        //getTableVCObject?.tourCategory = self.tourCategory
-        
-        //filterContentForSearchText("more", scope: "Default")
-          
-
-
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        //self.setupAnimator()
         self.activityIndicator.center = self.view.center
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.startAnimating()
-
-        
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
        // navigationController?.navigationBar.setBackgroundImage(generateImageWithColor(UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
@@ -84,7 +71,7 @@ class SearchContainerViewController: UIViewController {
         searchController.dimsBackgroundDuringPresentation = false
         
         // Setup the Scope Bar
-        searchController.searchBar.scopeButtonTitles = ["Default", "Rating", "Length"]
+        searchController.searchBar.scopeButtonTitles = ["Tour Name", "Rating", "Length"]
         searchController.searchBar.showsScopeBar = false
         getTableVCObject = self.container.currentViewController as? ContainerTableViewController
         getTableVCObject?.tableView.tableHeaderView = searchController.searchBar
@@ -94,18 +81,11 @@ class SearchContainerViewController: UIViewController {
 
             detailViewController = (controllers[controllers.count - 1] as! UINavigationController).topViewController as? DetailViewController
             finalTours = tours
-
-           
         }
-        
-        
-        
         if self.tourCategory != nil{
-            
            fetchTours(flag: "type")
             searchController.isActive = true
         }else{
-       
         fetchTours(flag: "flag")
        
         }
@@ -166,11 +146,13 @@ class SearchContainerViewController: UIViewController {
                 self.tours.append(downloadTour)
                 if flag == "type"
                 {
-                self.filterContentForSearchText(self.tourCategory!, scope: "Default")
+                    self.filterContentForSearchText(self.tourCategory!, scope: "Tour Name")
+                    //print("typetype")
                 }
                 else{
-                self.getTableVCObject?.tours = self.tours
-                self.getTableVCObject?.tableView.reloadData()
+                    self.getTableVCObject?.tours = self.tours
+                    self.getTableVCObject?.tableView.reloadData()
+                    //print("nonotype")
                 }
                 self.activityIndicator.stopAnimating()
             }
@@ -247,9 +229,7 @@ class SearchContainerViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "container"{
-            
             container = segue.destination as! ContainerViewController
-
         }
         if segue.identifier == "filter"
         {
@@ -261,31 +241,26 @@ class SearchContainerViewController: UIViewController {
         }
     }
     
-    func handleFilter(returnedValue:Any)
-    {
+    func handleFilter(returnedValue:Any){
         self.getTableVCObject?.tours = returnedValue as! [DownloadTour]
         self.getTableVCObject?.tableView.reloadData()
-    
     
     }
     
     
-    
-    
-       func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchController.isActive = false
         //searchController.dismissViewControllerAnimated()
         getTableVCObject?.tours = finalTours
         getTableVCObject?.filteredTours = finalTours
         getTableVCObject?.tableView.reloadData()
-        
     }
     
     func filterContentForSearchText(_ searchText: String, scope: String) {
                filteredTours = tours.filter({( tour : DownloadTour) -> Bool in
                 var fieldToSearch:String?
                 switch scope {
-                case "Default" :
+                case "Tour Name" :
                     fieldToSearch = tour.name
                 case "Rating":
                     fieldToSearch = String(tour.star)
@@ -319,6 +294,17 @@ class SearchContainerViewController: UIViewController {
             finalTours.removeAll()
             finalTours = filteredTours
             
+        }
+        
+        if finalTours.count == 0{
+            getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (getTableVCObject?.tableView.bounds.size.width)!, height: (getTableVCObject?.tableView.bounds.size.height)!))
+            getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+            getTableVCObject?.noDataLabel?.numberOfLines = 3
+            getTableVCObject?.noDataLabel?.text = "There are no \(searchText) tours in your area. Be the first to create one! Open Voicememos, record and upload!"
+            getTableVCObject?.noDataLabel?.textColor = UIColor.black
+            getTableVCObject?.noDataLabel?.textAlignment = .center
+            getTableVCObject?.tableView.backgroundView = getTableVCObject?.noDataLabel
+            getTableVCObject?.tableView.separatorStyle = .none
         }
         //let getTableVCObject = self.container.currentViewController as? ContainerTableViewController
     }
