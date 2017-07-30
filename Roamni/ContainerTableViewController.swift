@@ -20,15 +20,66 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var numberOfRowsInSection : Int?
     var noDataLabel: UILabel?
     var voicememoLabel: UILabel?
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     //var refreshControl = UIRefreshControl()
     
     func refresh(sender:AnyObject)
     {
         // Updating your data here...
         
+        //let containerVCObject = self.parent as? SearchContainerViewController
+        //containerVCObject?.viewDidLoad()
         print("refreshing")
+        //self.activityIndicator.startAnimating()
+        //UIApplication.shared.endIgnoringInteractionEvents()
+        //tours.removeAll()
+        //searchContainerViewController.viewDidLoad()
+        //tours = searchContainerViewController.finalTours
+        self.tours.removeAll()
+        fetchTours()
+        self.tableView.reloadData()
+        print("\(self.tours.count)???????????")
         self.refreshControl?.endRefreshing()
     }
+    
+    
+    func fetchTours(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            if result?.count == 0
+            {
+                self.activityIndicator.stopAnimating()
+                
+            }
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]            // tour.setValuesForKeys(dictionary)
+                let startLocation = dictionary["startPoint"] as!  [String : Any]
+                let endLocation = dictionary["endPoint"] as!  [String : Any]
+                let latitude1 = String(describing: startLocation["lat"]!)
+                let latitude = Double(latitude1)
+                let longitude1 = String(describing: startLocation["lon"]!)
+                let longitude = Double(longitude1)
+                let latitude2 = String(describing: endLocation["lat"]!)
+                let latitude22 = Double(latitude2)
+                let longitude2 = String(describing: endLocation["lon"]!)
+                let longitude22 = Double(longitude2)
+                let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: child.key)
+                self.tours.append(downloadTour)
+                self.tableView.reloadData()
+                self.activityIndicator.stopAnimating()
+                print("\(self.tours[self.tours.count-1].name)!!!!!!")
+                print("\(self.tours.count)00000")
+            }
+            print("\(self.tours.count)1111111")
+        })
+        print("\(self.tours.count)22222")
+    }
+
+        
     
     override func viewDidLoad() {
         super.viewDidLoad()

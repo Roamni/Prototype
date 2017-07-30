@@ -372,7 +372,8 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             vc.endPointLocation = self.downloadTours[indexPath.row].endLocation
             //vc.categoryBn.titleLabel?.text = self.downloadTours[indexPath.row].tourType
             //vc.lengthBn.titleLabel?.text = "\(self.downloadTours[indexPath.row].length)"
-            
+            //self.activityIndicator.stopAnimating()
+            //UIApplication.shared.endIgnoringInteractionEvents()
             //self.contentArray.remove(at: indexPath.row)
             //tableView.deleteRows(at: [indexPath], with: .automatic)
             //tableView.reloadData()

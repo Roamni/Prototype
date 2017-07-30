@@ -42,8 +42,9 @@ class SearchContainerViewController: UIViewController {
             getMapVCObject?.places.removeAll()
             getMapVCObject?.tours = finalTours
         }
-        
+        print("aaaaaaa!")
     }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
