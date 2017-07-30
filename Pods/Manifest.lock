@@ -59,6 +59,7 @@ PODS:
   - GoogleToolboxForMac/NSString+URLArguments (2.1.1)
   - GTMSessionFetcher/Core (1.1.8)
   - ReachabilitySwift (3)
+  - ReadMoreTextView (2.0.0)
 
 DEPENDENCIES:
   - ARNTransitionAnimator
@@ -70,6 +71,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - ReachabilitySwift (~> 3)
+  - ReadMoreTextView
 
 SPEC CHECKSUMS:
   ARNTransitionAnimator: 70566bc50e15b344ef9a46c5b7be582eb44aba9f
@@ -89,7 +91,8 @@ SPEC CHECKSUMS:
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   GTMSessionFetcher: 6f8d8b28b7e345549ac471071608170b31cb4977
   ReachabilitySwift: f5b9bb30a0777fac8f09ce8b067e32faeb29bb64
+  ReadMoreTextView: aefb9ffe11922c87fd39a09a988d7cc74c8438ba
 
-PODFILE CHECKSUM: aacc0c3b75e584436665be2ac89296c378a327aa
+PODFILE CHECKSUM: a14011567767faec30aadbd62e2d01e954efa1b8
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1

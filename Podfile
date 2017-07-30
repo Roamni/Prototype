@@ -13,6 +13,7 @@ target 'Roamni' do
   pod 'FBSDKLoginKit'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
+  pod 'ReadMoreTextView'
   pod 'ARNTransitionAnimator'
   pod 'ReachabilitySwift', '~> 3'
   target 'RoamniTests' do

@@ -24,7 +24,8 @@ import UIKit
 import MapKit
 import Firebase
 import AVFoundation
-class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingViewDelegate {
+import ReadMoreTextView
+class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingViewDelegate,UIScrollViewDelegate  {
     /**
      Returns the rating value when touch events end
      */
@@ -44,7 +45,12 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     
     @IBOutlet weak var nextBn: UIBarButtonItem!
     @IBOutlet weak var preBn: UIBarButtonItem!
-       
+    @IBOutlet weak var seemoreBtn: UIButton!
+    @IBOutlet weak var seelessBtn: UIButton!
+    
+    @IBOutlet weak var readMoreTextView: ReadMoreTextView!
+    //var scrollView: UIScrollView!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBAction func nextAc(_ sender: Any) {
         self.detailTour = self.allDetailTour[currentIndex!+1]
@@ -126,9 +132,72 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var lengthLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
+    //@IBOutlet weak var lbl: TTTAttributedLabel!
     
+    
+    var index = 31
+    
+    @IBAction func seeless(_ sender: Any) {
+        self.seemoreBtn.isHidden = false
+        self.seelessBtn.isHidden = true
+        self.scrollView.scrollToTop(animated: true)
+    }
+    
+    @IBAction func seemoreandless(_ sender: Any) {
+        self.seemoreBtn.isHidden = true
+        self.seelessBtn.isHidden = false
+        //self.scrollVie
+        let fulldesArr = detailTour?.desc.components(separatedBy: " ")
+        //index = index + 31
+        if seemoreBtn.titleLabel?.text == "see more"{
+            //self.descLabel.numberOfLines = 20
+            //self.descLabel.text = self.detailTour?.desc
+        }
+        
+        
+    }
+    
+    func checkLess() {
+        //paste your code here
+        if readMoreTextView.text.contains("Read less"){
+            self.scrollView.scrollToBottom()
+        }
+    }
+    
+        
   override func viewDidLoad() {
     super.viewDidLoad()
+    readMoreTextView.text = self.detailTour?.desc
+    let readMoreTextAttributes: [String: Any] = [
+        NSForegroundColorAttributeName: UIColor.lightGray,//view.tintColor,
+        NSFontAttributeName: UIFont.systemFont(ofSize: 14)
+        //self.scrollView.scrollToBottom()
+    ]
+    let readLessTextAttributes = [
+        NSForegroundColorAttributeName: UIColor.lightGray,
+        NSFontAttributeName: UIFont.systemFont(ofSize: 14)
+    ]
+    readMoreTextView.attributedReadMoreText = NSAttributedString(string: "... Read more", attributes: readMoreTextAttributes)
+    readMoreTextView.attributedReadLessText = NSAttributedString(string: " Read less", attributes: readLessTextAttributes)
+    readMoreTextView.maximumNumberOfLines = 3
+    readMoreTextView.shouldTrim = true
+    //readMoreTextView.attributedReadLessText.
+    //readMoreTextView.target(forAction: "pinChanged:", withSender: UIControlEvents.editingChanged)
+    //readMoreTextView.attributedReadMoreText?.forwardingTarget(for: "pinChanged:")
+    //readMoreTextView.increaseSize(self.scrollView.scrollToBottom())
+    //readMoreTextView.hit
+    
+    
+    self.scrollView.contentSize = CGSize(width: 375, height: 659)
+   // self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height+100)
+    self.scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+    self.scrollView.minimumZoomScale=1
+    self.scrollView.maximumZoomScale=3
+    self.scrollView.bounces=false
+    self.scrollView.delegate=self
+    self.view.addSubview(self.scrollView)
+    
+    
     if self.detailMap.annotations.count != 0
     {
 
@@ -158,7 +227,25 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     //self.title = detailTour?.name
     self.lengthLabel.text = String(detailTour?.length ?? 0) + " min"
     self.ratingLabel.text = String(describing: detailTour?.star)
-    self.descLabel.text = detailTour?.desc
+    let fulldesArr = detailTour?.desc.components(separatedBy: " ")
+    if (fulldesArr?.count)! >= 31{
+        let halfdesArr  = fulldesArr?[0 ..< 31]
+        let descText = halfdesArr?.joined(separator: " ")
+        //self.descLabel.text = descText
+    }else{
+        //self.descLabel.text = detailTour?.desc
+        //self.seemoreBtn.isHidden = true
+    }
+    
+    
+   // if (detailTour?.desc.characters.count)! < 207{
+   //     self.descLabel.text = detailTour?.desc
+   //     self.seemoreBtn.isHidden = true
+  //  }else{
+  //      let startIndex = detailTour?.desc.index((detailTour?.desc.startIndex)!, offsetBy: 207)
+  //      self.descLabel.text = descText//detailTour?.desc.substring(to: startIndex!)
+ //   }
+    
     detailMap.delegate = self
     let sourceLocation = detailTour?.startLocation
     self.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
@@ -199,21 +286,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     directionRequest.source = sourceMapItem
     directionRequest.destination = destinationMapItem
     directionRequest.transportType = .any
-   // let directions = MKDirections(request: directionRequest)
-//    directions.calculate {(response, error) -> Void in
-//        guard let response = response else
-//        {
-//            if let error = error {
-//                print("Error: \(error)")
-//            }
-//            return
-//        }
-//                    let route = response.routes[0]
-//                    self.detailMap.add(route.polyline, level: MKOverlayLevel.aboveRoads)
-//            let rect = route.polyline.boundingMapRect
-//                    self.detailMap.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
-//            
-//            }
     let center = CLLocationCoordinate2D(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
     let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01))
     self.detailMap.setRegion(region, animated: true)
@@ -258,4 +330,33 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     
 
 }
+extension UIScrollView {
+    
+    // Scroll to a specific view so that it's top is at the top our scrollview
+    func scrollToView(view:UIView, animated: Bool) {
+        if let origin = view.superview {
+            // Get the Y position of your child view
+            let childStartPoint = origin.convert(view.frame.origin, to: self)
+            // Scroll to a rectangle starting at the Y of your subview, with a height of the scrollview
+            self.scrollRectToVisible(CGRect(x:0, y:childStartPoint.y, width:1, height:self.frame.height), animated: animated)
+        }
+    }
+    
+    // Bonus: Scroll to top
+    func scrollToTop(animated: Bool) {
+        let topOffset = CGPoint(x: 0, y: -contentInset.top)
+        setContentOffset(topOffset, animated: animated)
+    }
+    
+    // Bonus: Scroll to bottom
+    func scrollToBottom() {
+        let bottomOffset = CGPoint(x: 0, y: contentSize.height - bounds.size.height + contentInset.bottom)
+        if(bottomOffset.y > 0) {
+            setContentOffset(bottomOffset, animated: true)
+        }
+    }
+    
+}
+
+
 
