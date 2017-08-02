@@ -15,6 +15,7 @@ target 'Roamni' do
   pod 'Firebase/Storage'
   pod 'ReadMoreTextView'
   pod 'ARNTransitionAnimator'
+  pod 'CircleProgressView', '~> 1.0'
   pod 'ReachabilitySwift', '~> 3'
   target 'RoamniTests' do
     inherit! :search_paths

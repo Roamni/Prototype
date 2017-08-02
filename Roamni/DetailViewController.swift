@@ -25,6 +25,7 @@ import MapKit
 import Firebase
 import AVFoundation
 import ReadMoreTextView
+import Foundation
 class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingViewDelegate,UIScrollViewDelegate  {
     /**
      Returns the rating value when touch events end
@@ -42,6 +43,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
 
     @IBOutlet weak var floatRatingView: FloatRatingView!
     @IBOutlet weak var detailMap: MKMapView!
+    @IBOutlet weak var priceBtn: UIButton!
+    @IBOutlet weak var circleProgressView: CircleProgressView!
     
     @IBOutlet weak var nextBn: UIBarButtonItem!
     @IBOutlet weak var preBn: UIBarButtonItem!
@@ -67,6 +70,15 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
 
     }
     
+    @IBAction func pressPriceBtn(_ sender: Any) {
+        priceBtn.backgroundColor = .clear
+        priceBtn.layer.cornerRadius = 5
+        priceBtn.layer.borderWidth = 1
+        priceBtn.setTitle("Buy Tour", for: .normal)
+        priceBtn.layer.borderColor = UIColor.green.cgColor
+        priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
+        //titleLabel?.tintColor = UIColor.green
+    }
 
     
     @IBAction func preViewBn(_ sender: Any) {
@@ -80,11 +92,19 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         UIApplication.shared.beginIgnoringInteractionEvents()
 
         aPlayer = AVPlayer(url: NSURL(string: (self.detailTour?.downloadUrl)!)! as URL)
-        let timeInterval: TimeInterval = 10.0
+        let timeInterval: TimeInterval = 30.0
         let cmtime:CMTime = CMTimeMake(Int64(timeInterval), 1)
         let timeArray = NSValue(time: cmtime)
+        
         timeObserver = aPlayer.addBoundaryTimeObserver(forTimes: [timeArray], queue:nil) { () -> Void in
-            print("10s reached")
+            //print("30s reached\(self.aPlayer.currentItem?.currentTime().seconds)")
+            
+            //let secondsDuration = CMTimeGetSeconds(self.aPlayer.currentItem!.asset.duration)
+            //self.circleProgressView.progress = Double(aPlayer.time/30)
+            //let time : Float64 = CMTimeGetSeconds(self.aPlayer!.currentTime());
+            //let secondsDuration = self.aPlayer.currentItem?.currentTime().seconds
+            //self.circleProgressView.progress = Double(secondsDuration!/30)
+            
             self.alertBn(title: "complete", message: "30 seconds reached")
 //            self.aPlayer.removeTimeObserver(timeObserver)
                self.aPlayer.pause()
@@ -92,6 +112,10 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             //self.aPlayer = nil
             } as AnyObject!
         aPlayer.currentItem?.addObserver(self, forKeyPath: "status", options: .new, context: nil)
+        //aPlayer.
+        let secondsDuration = self.aPlayer.currentItem?.currentTime().seconds
+        self.circleProgressView.progress = Double(secondsDuration!/30)
+        
         var player : AVAudioPlayer! = nil
         let delegate = UIApplication.shared.delegate as! AppDelegate
         player = delegate.player
@@ -99,7 +123,26 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         player.pause()
         }
         aPlayer.play()
-
+        //let interval: TimeInterval = 0.05
+        let interval = CMTime(seconds: 0.5,preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        aPlayer?.addPeriodicTimeObserver(forInterval:interval, queue: nil, using: { (time) in
+            let currentTime = floor(CMTimeGetSeconds(time))
+            print("30s reached\(self.aPlayer.currentTime().seconds)")
+            self.circleProgressView.progress = Double(Float(self.aPlayer.currentTime().seconds)/30.0)
+            // update UI should be in main thread
+            DispatchQueue.main.async {
+                //videoTimeRemainingLabel.text = String(currentTime)
+            }
+        })
+ //       if self.aPlayer!.currentItem?.status == .readyToPlay {
+ //           let time : Float64 = CMTimeGetSeconds(self.aPlayer!.currentTime());
+ //           let secondsDuration = self.aPlayer.currentItem?.currentTime().seconds
+        //print("30s reached\(self.aPlayer.currentTime().seconds)")
+        
+            
+            //self.playbackSlider!.value = Float ( time );
+//        }
+        
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
@@ -167,6 +210,11 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         
   override func viewDidLoad() {
     super.viewDidLoad()
+    priceBtn.backgroundColor = .clear
+    priceBtn.layer.cornerRadius = 5
+    priceBtn.layer.borderWidth = 1
+    priceBtn.layer.borderColor = UIColor.blue.cgColor
+    
     readMoreTextView.text = self.detailTour?.desc
     let readMoreTextAttributes: [String: Any] = [
         NSForegroundColorAttributeName: UIColor.lightGray,//view.tintColor,

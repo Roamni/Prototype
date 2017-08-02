@@ -76,11 +76,13 @@
 		F063DE211E239B0400424985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F063DE201E239B0400424985 /* Main.storyboard */; };
 		F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7661E2DF5AC0031B1CD /* TourForMap.swift */; };
 		F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */; };
+		F0833F4E1F31E37400B33576 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0833F4D1F31E37400B33576 /* StoreKit.framework */; };
 		F08A66131E7294D7008AE869 /* FilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66121E7294D7008AE869 /* FilterViewController.swift */; };
 		F08A66151E7294DF008AE869 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */; };
 		F0901AEA1E6057E300F23AC3 /* TourMusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */; };
 		F0BCCB141E362E52005162DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */; };
 		F0E3D7D11F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */; };
+		F0EE86301F31780B00BAA2B9 /* CircleProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0EE862F1F31780B00BAA2B9 /* CircleProgressView.swift */; };
 		F0F2D92B1E59F783004F21C4 /* img.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = F0F2D92A1E59F783004F21C4 /* img.jpeg */; };
 		F600FF01EC8FB4F541B41A03 /* Pods_Roamni.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A531D37C9D53C200DDC8D43A /* Pods_Roamni.framework */; };
 /* End PBXBuildFile section */
@@ -185,11 +187,13 @@
 		F063DE201E239B0400424985 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		F080D7661E2DF5AC0031B1CD /* TourForMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourForMap.swift; sourceTree = "<group>"; };
 		F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
+		F0833F4D1F31E37400B33576 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		F08A66121E7294D7008AE869 /* FilterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FilterViewController.swift; sourceTree = "<group>"; };
 		F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourMusicDetailViewController.swift; sourceTree = "<group>"; };
 		F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniEditToursViewController.swift; sourceTree = "<group>"; };
+		F0EE862F1F31780B00BAA2B9 /* CircleProgressView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleProgressView.swift; sourceTree = "<group>"; };
 		F0F2D92A1E59F783004F21C4 /* img.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = img.jpeg; sourceTree = "<group>"; };
 		F51C488CFB7EC4528C52017A /* Pods-RoamniUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RoamniUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-RoamniUITests/Pods-RoamniUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -201,6 +205,7 @@
 			files = (
 				F0296EB81E49492A00652816 /* AVFoundation.framework in Frameworks */,
 				F0296EB61E49491E00652816 /* MediaPlayer.framework in Frameworks */,
+				F0833F4E1F31E37400B33576 /* StoreKit.framework in Frameworks */,
 				A63EF1271E6E94D60064ACDF /* MapKit.framework in Frameworks */,
 				F600FF01EC8FB4F541B41A03 /* Pods_Roamni.framework in Frameworks */,
 			);
@@ -228,6 +233,7 @@
 		26415866E4836DD71E862909 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F0833F4D1F31E37400B33576 /* StoreKit.framework */,
 				A63EF1261E6E94D60064ACDF /* MapKit.framework */,
 				F0296EB71E49492A00652816 /* AVFoundation.framework */,
 				F0296EB51E49491E00652816 /* MediaPlayer.framework */,
@@ -372,6 +378,7 @@
 				A608342C1E24F06F00775187 /* MyRoamniTableCell */,
 				F05F19F41E1D186A00556CD6 /* NearbyTableCell */,
 				F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */,
+				F0EE862F1F31780B00BAA2B9 /* CircleProgressView.swift */,
 				F063DE201E239B0400424985 /* Main.storyboard */,
 				F05F19CB1E1BC26C00556CD6 /* Assets.xcassets */,
 				F0BCCB131E362E52005162DB /* LaunchScreen.storyboard */,
@@ -521,6 +528,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
 								enabled = 1;
 							};
 							com.apple.InterAppAudio = {
@@ -793,6 +803,7 @@
 				A68239511E8A97A100F62A68 /* testViewController.swift in Sources */,
 				A6B8983F1E84E88A00BCFE42 /* UploadLengthViewController.swift in Sources */,
 				F05F19FA1E1D191300556CD6 /* CyclingTableViewCell.swift in Sources */,
+				F0EE86301F31780B00BAA2B9 /* CircleProgressView.swift in Sources */,
 				A6E585851E8A268900DE8F04 /* FeedbackViewController.swift in Sources */,
 				A60834361E24F10000775187 /* MyRoamniDistributionCell.swift in Sources */,
 				F05F1A151E1D37F100556CD6 /* PreTableViewCell.swift in Sources */,
