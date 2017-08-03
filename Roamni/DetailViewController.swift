@@ -214,6 +214,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     priceBtn.layer.cornerRadius = 5
     priceBtn.layer.borderWidth = 1
     priceBtn.layer.borderColor = UIColor.blue.cgColor
+    priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
+    print("jjjjjjj\(self.detailTour!.price)")
     
     readMoreTextView.text = self.detailTour?.desc
     let readMoreTextAttributes: [String: Any] = [

@@ -21,6 +21,6 @@
         let difficulty:String
         let uploadUser:String
         let tourId:String
-        //let price: Float
+        let price: Float
     }
 
