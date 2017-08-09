@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="zHH-6e-uOa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -2394,11 +2394,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <outlet property="downLoadTimes" destination="RNI-Zh-7Qc" id="uy2-r1-Sua"/>
                         <outlet property="money" destination="N7g-kr-Wz7" id="tmn-M3-THc"/>
                         <outlet property="tableview" destination="gKT-4M-Bep" id="kmZ-eK-9YW"/>
+                        <segue destination="Opk-sC-MKG" kind="show" id="wXN-0P-9pP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIG-8y-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4450" y="-63"/>
+            <point key="canvasLocation" x="4228" y="-25"/>
         </scene>
         <!--Reports-->
         <scene sceneID="Ssr-0M-7z9">
@@ -2419,10 +2420,10 @@ Download the Roamni app today to make a tour or take a tour.</string>
             </objects>
             <point key="canvasLocation" x="6496.8000000000002" y="-63.418290854572717"/>
         </scene>
-        <!--Payment Details-->
+        <!--Payment Detail-->
         <scene sceneID="geE-u4-xTU">
             <objects>
-                <viewController id="Opk-sC-MKG" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PaymentDetailViewController" title="Payment Detail" id="Opk-sC-MKG" customClass="PaymentDetailViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Z70-YS-KGo"/>
                         <viewControllerLayoutGuide type="bottom" id="91z-uk-2LJ"/>
@@ -2432,13 +2433,13 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment Details" id="fMY-ye-J3m">
-                        <barButtonItem key="leftBarButtonItem" title="Item" systemItem="cancel" id="bT8-8y-mya"/>
+                    <navigationItem key="navigationItem" title="Payment Detial" id="jg9-O5-zGL">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zQo-o0-rWk"/>
                     </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHP-jG-Tqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6224.8000000000002" y="483.50824587706148"/>
+            <point key="canvasLocation" x="5364" y="159"/>
         </scene>
         <!--MyRoamni-->
         <scene sceneID="DgN-Qq-W5j">
@@ -3634,24 +3635,6 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8k-FP-EZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-84" y="-4689"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="l7c-fu-t7F">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LPe-a2-z6e" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WDa-WN-4v9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Opk-sC-MKG" kind="relationship" relationship="rootViewController" id="4TS-KM-3Ty"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UuM-2r-q9r" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5285.6000000000004" y="483.50824587706148"/>
         </scene>
     </scenes>
     <resources>

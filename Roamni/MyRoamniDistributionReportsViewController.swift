@@ -44,7 +44,8 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
             //Just dismiss the action sheet
         }
         let yesAction: UIAlertAction = UIAlertAction(title: "Provide now", style: .default) { action -> Void in
-            
+            let nv = self.storyboard!.instantiateViewController(withIdentifier: "PaymentDetailViewController") as! PaymentDetailViewController
+            self.present(nv, animated:true, completion:nil)
         }
         actionSheetController.addAction(yesAction)
         actionSheetController.addAction(noAction)
