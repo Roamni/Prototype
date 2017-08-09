@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 import CoreLocation
-class MyRoamniDistributionReportsViewController: UIViewController {
+class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var downLoadTimes: UILabel!
+   
 
+    @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var money: UILabel!
     var total:Int = 0
     override func viewDidLoad() {
@@ -21,6 +23,38 @@ class MyRoamniDistributionReportsViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellDownload", for: indexPath)
+        cell.textLabel?.text = "yes"
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+    }
+    
+    @IBAction func payout(_ sender: Any) {
+        let actionSheetController: UIAlertController = UIAlertController(title: "Need payment details!", message: "The tour will be removed permanently", preferredStyle: .alert)
+        let noAction: UIAlertAction = UIAlertAction(title: "Later", style: .cancel) { action -> Void in
+            //Just dismiss the action sheet
+        }
+        let yesAction: UIAlertAction = UIAlertAction(title: "Provide now", style: .default) { action -> Void in
+            
+        }
+        actionSheetController.addAction(yesAction)
+        actionSheetController.addAction(noAction)
+        self.present(actionSheetController, animated: true, completion: nil)
+    }
+    
+    @IBAction func viewReports(_ sender: Any) {
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

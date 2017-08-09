@@ -26,7 +26,8 @@ import Firebase
 import AVFoundation
 import ReadMoreTextView
 import Foundation
-class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingViewDelegate,UIScrollViewDelegate  {
+import StoreKit
+class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingViewDelegate,UIScrollViewDelegate, SKProductsRequestDelegate, SKPaymentTransactionObserver  {
     /**
      Returns the rating value when touch events end
      */
@@ -55,6 +56,107 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     //var scrollView: UIScrollView!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    var list = [SKProduct]()
+    var p = SKProduct()
+    
+    func buyProduct() {
+        print("buy " + p.productIdentifier)
+        let pay = SKPayment(product: p)
+        SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(pay as SKPayment)
+    }
+    
+    func removeAds() {
+       // lblAd.removeFromSuperview()
+    }
+    
+    func addCoins() {
+      //  coins += 50
+      //  lblCoinAmount.text = "\(coins)"
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        print("product request")
+        let myProduct = response.products
+        print(response.products.count)
+        
+        if !response.invalidProductIdentifiers.isEmpty {
+            print(response.invalidProductIdentifiers)
+            //print()
+        }
+        //productsRequestCompletionHandler?(true, products)
+        //clearRequestAndHandler()
+
+        for product in myProduct {
+            print("product added")
+            print(product.productIdentifier)
+            print(product.localizedTitle)
+            print(product.localizedDescription)
+            print(product.price)
+            
+            list.append(product)
+        }
+        
+        //outRemoveAds.isEnabled = true
+        //outAddCoins.isEnabled = true
+        //outRestorePurchases.isEnabled = true
+    }
+    
+    func paymentQueueRestoreCompletedTransactionsFinished(_ queue: SKPaymentQueue) {
+        print("transactions restored")
+        for transaction in queue.transactions {
+            let t: SKPaymentTransaction = transaction
+            let prodID = t.payment.productIdentifier as String
+            
+            switch prodID {
+            case "Roamni.Prototype.One.tourone":
+                print("remove ads")
+          //      removeAds()
+            case "seemu.iap.addcoins":
+                print("add coins to account")
+          //      addCoins()
+            default:
+                print("IAP not found")
+            }
+        }
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("add payment")
+        
+        for transaction: AnyObject in transactions {
+            let trans = transaction as! SKPaymentTransaction
+            print(trans.error)
+            
+            switch trans.transactionState {
+            case .purchased:
+                print("buy ok, unlock IAP HERE")
+                print(p.productIdentifier)
+                
+                let prodID = p.productIdentifier
+                switch prodID {
+                case "Roamni.Prototype.One.tourone":
+                    print("remove ads")
+            //        removeAds()
+                case "seemu.iap.addcoins":
+                    print("add coins to account")
+            //        addCoins()
+                default:
+                    print("IAP not found")
+                }
+                queue.finishTransaction(trans)
+            case .failed:
+                print("buy error")
+                queue.finishTransaction(trans)
+                break
+            default:
+                print("Default")
+                break
+            }
+        }
+    }
+
+    
     @IBAction func nextAc(_ sender: Any) {
         self.detailTour = self.allDetailTour[currentIndex!+1]
         self.currentIndex! += 1
@@ -71,13 +173,24 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
     
     @IBAction func pressPriceBtn(_ sender: Any) {
-        priceBtn.backgroundColor = .clear
-        priceBtn.layer.cornerRadius = 5
-        priceBtn.layer.borderWidth = 1
-        priceBtn.setTitle("Buy Tour", for: .normal)
-        priceBtn.layer.borderColor = UIColor.green.cgColor
-        priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
-        //titleLabel?.tintColor = UIColor.green
+        if self.priceBtn.titleLabel?.text != "Buy Tour"{
+            priceBtn.backgroundColor = .clear
+            priceBtn.layer.cornerRadius = 5
+            priceBtn.layer.borderWidth = 1
+            priceBtn.setTitle("Buy Tour", for: .normal)
+            priceBtn.layer.borderColor = UIColor.green.cgColor
+            priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
+            //titleLabel?.tintColor = UIColor.green
+        }else{
+            print("in app purchase")
+            for product in list {
+                let prodID = product.productIdentifier
+                if(prodID == "Roamni.Prototype.One.tourone") {
+                    p = product
+                    buyProduct()
+                }
+            }
+        }
     }
 
     
@@ -210,6 +323,16 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         
   override func viewDidLoad() {
     super.viewDidLoad()
+    if(SKPaymentQueue.canMakePayments()) {
+        print("IAP is enabled, loading")
+        let productID: NSSet = NSSet(objects: "Roamni.Prototype.One.tourone","Roamni.Prototype.One.tourtwo")
+        let request: SKProductsRequest = SKProductsRequest(productIdentifiers: productID as! Set<String>)
+        request.delegate = self
+        request.start()
+    } else {
+        print("please enable IAPS")
+    }
+
     priceBtn.backgroundColor = .clear
     priceBtn.layer.cornerRadius = 5
     priceBtn.layer.borderWidth = 1
