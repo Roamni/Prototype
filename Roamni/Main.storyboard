@@ -2393,8 +2393,9 @@ Download the Roamni app today to make a tour or take a tour.</string>
                     <connections>
                         <outlet property="downLoadTimes" destination="RNI-Zh-7Qc" id="uy2-r1-Sua"/>
                         <outlet property="money" destination="N7g-kr-Wz7" id="tmn-M3-THc"/>
+                        <outlet property="payout" destination="fU1-h1-pva" id="Ycq-bF-Dpz"/>
                         <outlet property="tableview" destination="gKT-4M-Bep" id="kmZ-eK-9YW"/>
-                        <segue destination="Opk-sC-MKG" kind="show" id="wXN-0P-9pP"/>
+                        <segue destination="LfP-SD-WO0" kind="show" identifier="paymentSegue" id="wXN-0P-9pP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIG-8y-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2418,7 +2419,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cN-We-I4z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6496.8000000000002" y="-63.418290854572717"/>
+            <point key="canvasLocation" x="7436" y="-63.418290854572717"/>
         </scene>
         <!--Payment Detail-->
         <scene sceneID="geE-u4-xTU">
@@ -2431,15 +2432,108 @@ Download the Roamni app today to make a tour or take a tour.</string>
                     <view key="view" contentMode="scaleToFill" id="9qh-g6-Qxn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To receive your earnings from downloaded tours, please ensure we have the below bank details:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64U-2f-s3F">
+                                <rect key="frame" x="16" y="81" width="343" height="81"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FB-ar-fub">
+                                <rect key="frame" x="16" y="189" width="85" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BSB:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EsA-QQ-QE9">
+                                <rect key="frame" x="16" y="245" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Acct#:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="unT-oj-FBd">
+                                <rect key="frame" x="16" y="296" width="60" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="ABN/ACN:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lfe-UU-Fhb">
+                                <rect key="frame" x="16" y="353" width="94" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0bK-bk-SgX">
+                                <rect key="frame" x="16" y="407" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="checkboxno"/>
+                                <connections>
+                                    <action selector="checkbox:" destination="Opk-sC-MKG" eventType="touchUpInside" id="quL-Rp-kCa"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a1f-3e-rJn">
+                                <rect key="frame" x="84" y="185" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PNQ-VI-sH6">
+                                <rect key="frame" x="84" y="240" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tEe-iY-0tl">
+                                <rect key="frame" x="84" y="292" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oDp-RN-PWI">
+                                <rect key="frame" x="107" y="350" width="226" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yes, I agree to the terms &amp; conditions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ob-as-tjC">
+                                <rect key="frame" x="60" y="395" width="291" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvO-QI-BW7">
+                                <rect key="frame" x="164" y="481" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Payment Detial" id="jg9-O5-zGL">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="zQo-o0-rWk"/>
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="MHh-d3-c7w">
+                            <connections>
+                                <action selector="cancel:" destination="Opk-sC-MKG" id="XOm-Nb-Frk"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="cancel" destination="MHh-d3-c7w" id="mxk-zL-iMU"/>
+                        <outlet property="checkBtn" destination="0bK-bk-SgX" id="0Nx-wK-IET"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rHP-jG-Tqe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5364" y="159"/>
+            <point key="canvasLocation" x="6170.3999999999996" y="435.83208395802103"/>
         </scene>
         <!--MyRoamni-->
         <scene sceneID="DgN-Qq-W5j">
@@ -3636,6 +3730,24 @@ Download the Roamni app today to make a tour or take a tour.</string>
             </objects>
             <point key="canvasLocation" x="-84" y="-4689"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="yIU-Ge-Ipd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="LfP-SD-WO0" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="kYJ-qn-UAd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Opk-sC-MKG" kind="relationship" relationship="rootViewController" id="Wdv-Lo-Vlb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GAr-0r-0Ad" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5367" y="454"/>
+        </scene>
     </scenes>
     <resources>
         <image name="1" width="143" height="143"/>
@@ -3654,6 +3766,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="StarFull" width="22" height="22"/>
         <image name="about" width="256" height="256"/>
         <image name="bluetable" width="86" height="816"/>
+        <image name="checkboxno" width="54" height="46"/>
         <image name="download" width="128" height="128"/>
         <image name="footprint" width="1056" height="1020"/>
         <image name="ic_keyboard_arrow_left" width="24" height="24"/>
@@ -3676,8 +3789,8 @@ Download the Roamni app today to make a tour or take a tour.</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YIB-t0-b6L"/>
-        <segue reference="aGK-Qo-5oV"/>
-        <segue reference="xMV-R0-9wp"/>
-        <segue reference="s2S-wb-XYy"/>
+        <segue reference="PdS-dB-Clc"/>
+        <segue reference="qvF-ri-teb"/>
+        <segue reference="QhX-ar-Mny"/>
     </inferredMetricsTieBreakers>
 </document>

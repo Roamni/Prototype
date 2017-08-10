@@ -12,6 +12,7 @@ import CoreLocation
 class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var downLoadTimes: UILabel!
    
+    @IBOutlet weak var payout: UIButton!
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var money: UILabel!
@@ -44,13 +45,20 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
             //Just dismiss the action sheet
         }
         let yesAction: UIAlertAction = UIAlertAction(title: "Provide now", style: .default) { action -> Void in
-            let nv = self.storyboard!.instantiateViewController(withIdentifier: "PaymentDetailViewController") as! PaymentDetailViewController
-            self.present(nv, animated:true, completion:nil)
+       //     let nv = self.storyboard!.instantiateViewController(withIdentifier: "PaymentDetailViewController") as!
+            //PaymentDetailViewController
+      //      self.present(nv, animated:true, completion:nil)
+     //   }
+        self.performSegue(withIdentifier: "paymentSegue", sender: self)
         }
         actionSheetController.addAction(yesAction)
         actionSheetController.addAction(noAction)
         self.present(actionSheetController, animated: true, completion: nil)
+        
     }
+    
+
+
     
     @IBAction func viewReports(_ sender: Any) {
         

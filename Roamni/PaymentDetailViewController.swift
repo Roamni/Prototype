@@ -10,9 +10,15 @@ import UIKit
 
 class PaymentDetailViewController: UIViewController {
 
+    @IBOutlet weak var checkBtn: UIButton!
+
+    @IBOutlet weak var cancel: UIBarButtonItem!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        cancel.tintColor = UIColor.white
+    
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +27,18 @@ class PaymentDetailViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancel(_ sender: Any) {
+                dismiss(animated: true, completion: nil)
+    }
+
+
+    @IBAction func checkbox(_ sender: Any) {
+        if self.checkBtn.currentImage == UIImage(named: "checkboxno"){
+            self.checkBtn.setImage(UIImage(named: "checkboxyes"), for: .normal)
+        }else{
+            self.checkBtn.setImage(UIImage(named: "checkboxno"), for: .normal)
+        }
+    }
 
     /*
     // MARK: - Navigation
