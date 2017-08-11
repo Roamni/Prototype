@@ -239,13 +239,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 
                 
                 let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["star"] as! Float))
-                
-                //            tour.Price = dictionary["Price"] as! String?
-                //            tour.Star = dictionary["Star"] as! String?
-                //            tour.StartPoint = dictionary["StartPoint"] as! String?
-                //            tour.Time = dictionary["Time"] as! String?
-                //            tour.TourType = dictionary["TourType"] as! String?
-                //            tour.WholeTour = dictionary["WholeTour"] as! String?
+
                 
                 //self.artworks.removeAll()
                 if let user = FIRAuth.auth()?.currentUser{

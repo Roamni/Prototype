@@ -16,11 +16,15 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var money: UILabel!
+    var downloadTours = [DownloadTour]()
     var total:Int = 0
     var hasPaymentDetial = false
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchTours()
+        self.downloadTours.removeAll()
+        fetchTours1()
+        print("lll\(self.downloadTours.count)")
         self.money.text = "0"
         var ref:FIRDatabaseReference?
         let user = FIRAuth.auth()?.currentUser
@@ -51,18 +55,24 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return self.downloadTours.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReportsPayoutViewCell", for: indexPath)
         as! MyRoamniReportsPayoutViewCell
         //cell.textLabel?.text = "yes"
-        if indexPath.row == 0{
-            cell.nameField.text = "Tour Name"
-            cell.moneyField.text = "$"
-            cell.downloadsField.text = "Downloads"
-        }
+//        if indexPath.row == 0{
+ //           cell.nameField.text = "Tour Name"
+ //           cell.moneyField.text = "$"
+ //           cell.downloadsField.text = "Downloads"
+  //      }
+        //if indexPath.row == 1{
+            cell.nameField.text = self.downloadTours[indexPath.row].name
+            //cell.moneyField.text = self.downloadTours[0]
+            //cell.downloadsField.text = "Downloads"
+        //}
+        //self.downloadTours
         return cell
     }
     
@@ -127,19 +137,63 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                 }
                 
             }
-            
-            //            tour.Price = dictionary["Price"] as! String?
-            //            tour.Star = dictionary["Star"] as! String?
-            //            tour.StartPoint = dictionary["StartPoint"] as! String?
-            //            tour.Time = dictionary["Time"] as! String?
-            //            tour.TourType = dictionary["TourType"] as! String?
-            //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            
-            //self.artworks.removeAll()
-           
-            
-            
-            
+
+        })
+        
+        
+    }
+
+    func fetchTours1(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                // tour.setValuesForKeys(dictionary)
+                let startLocation = dictionary["startPoint"] as!  [String : Any]
+                
+                let endLocation = dictionary["endPoint"] as!  [String : Any]
+                
+                let latitude1 = String(describing: startLocation["lat"]!)
+                
+                let latitude = Double(latitude1)
+                
+                let longitude1 = String(describing: startLocation["lon"]!)
+                
+                let longitude = Double(longitude1)
+                let latitude2 = String(describing: endLocation["lat"]!)
+                
+                let latitude22 = Double(latitude2)
+                
+                let longitude2 = String(describing: endLocation["lon"]!)
+                
+                let longitude22 = Double(longitude2)
+                
+                //let longitude = (location["lon"] as! NSString).doubleValue
+                let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+                
+                
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["star"] as! Float))
+                
+                
+                //self.artworks.removeAll()
+                if let user = FIRAuth.auth()?.currentUser{
+                    let uid = user.uid
+                    if downloadTour.uploadUser == uid
+                    {
+                        self.downloadTours.append(downloadTour)
+                        print(self.downloadTours)
+                        DispatchQueue.main.async(execute: {self.tableview.reloadData() } )
+                        
+                    }
+                    
+                }
+                else{
+                    print("no permission")
+                }
+            }
         })
         
         
