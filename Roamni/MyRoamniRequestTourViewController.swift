@@ -25,13 +25,14 @@ class MyRoamniRequestTourViewController: UIViewController {
     @IBOutlet weak var descTextView: UITextView!
     
     @IBAction func submitRequest(_ sender: Any) {
-        if self.anno != nil{
-
-        self.ref?.child("requestTours").childByAutoId().setValue(["Attraction":self.AttraTxetField.text!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"TourType":self.pickString,"desc":self.getText!])
-            dismiss(animated: true, completion: nil)
+        if self.anno == nil || self.AttraTxetField.text == "" || self.descTextView.text == ""{
+            self.alertBn(title: "warning", message: "Please drop a pin and fill all fields ")
+        
         }
         else{
-            self.alertBn(title: "warning", message: "Please drop a pin ")
+        self.ref?.child("requestTours").childByAutoId().setValue(["Attraction":self.AttraTxetField.text!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"TourType":self.pickString,"desc":self.getText!])
+            dismiss(animated: true, completion: nil)
+            
         }
     }
     @IBOutlet weak var scrollView: UIScrollView!

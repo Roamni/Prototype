@@ -180,7 +180,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-88-h5Y">
-                                        <rect key="frame" x="268" y="93" width="61" height="30"/>
+                                        <rect key="frame" x="268" y="93" width="67" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="pressPriceBtn:" destination="fwU-xU-6CH" eventType="touchUpInside" id="9nX-6e-7E6"/>
@@ -224,7 +224,7 @@
                                     <constraint firstItem="ot6-88-h5Y" firstAttribute="centerY" secondItem="LVj-T9-arK" secondAttribute="centerY" id="wPA-DZ-clz"/>
                                     <constraint firstItem="KJm-vG-U9j" firstAttribute="leading" secondItem="HkF-wI-cqc" secondAttribute="leading" id="wmF-Pn-qN4"/>
                                     <constraint firstItem="evP-fS-BWT" firstAttribute="leading" secondItem="KJm-vG-U9j" secondAttribute="leading" constant="441" id="xv5-AO-O6M"/>
-                                    <constraint firstAttribute="trailing" secondItem="ot6-88-h5Y" secondAttribute="trailing" constant="46" id="zxu-uo-Uau"/>
+                                    <constraint firstAttribute="trailing" secondItem="ot6-88-h5Y" secondAttribute="trailing" constant="40" id="zxu-uo-Uau"/>
                                 </constraints>
                             </scrollView>
                         </subviews>
@@ -267,7 +267,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa0-wI-kDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-508" y="1296.7016491754123"/>
+            <point key="canvasLocation" x="-509.4202898550725" y="1296.6032608695652"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">
