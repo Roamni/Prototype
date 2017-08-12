@@ -21,6 +21,11 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     var hasPaymentDetial = false
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        // Do any additional setup after loading the view.
+    }
+
+    override func viewDidAppear(_ animated: Bool) {
         fetchTours()
         self.downloadTours.removeAll()
         fetchTours1()
@@ -50,9 +55,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                 
             } })
 
-        // Do any additional setup after loading the view.
     }
-
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.downloadTours.count
