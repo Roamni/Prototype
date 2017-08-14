@@ -12,12 +12,14 @@ import CoreLocation
 class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var downLoadTimes: UILabel!
    
+    @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var payout: UIButton!
 
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var money: UILabel!
     var downloadTours = [DownloadTour]()
     var total:Int = 0
+    var userNumber = 0
     var hasPaymentDetial = false
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +31,13 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
         fetchTours()
         self.downloadTours.removeAll()
         fetchTours1()
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        let result = formatter.string(from: date)
+        dateLabel.text = "(as of \(result))"
         print("lll\(self.downloadTours.count)")
-        self.money.text = "0"
+        self.money.text = "$ 0.00"
         var ref:FIRDatabaseReference?
         let user = FIRAuth.auth()?.currentUser
         let uid = user!.uid
@@ -64,16 +71,49 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReportsPayoutViewCell", for: indexPath)
         as! MyRoamniReportsPayoutViewCell
-        //cell.textLabel?.text = "yes"
-//        if indexPath.row == 0{
- //           cell.nameField.text = "Tour Name"
- //           cell.moneyField.text = "$"
- //           cell.downloadsField.text = "Downloads"
-  //      }
-        //if indexPath.row == 1{
+        var ref:FIRDatabaseReference?
+ //       ref = FIRDatabase.database().reference()
+//        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+ //           let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+  //          for child in result!{
+  //              let dictionary = child.value as!  [String : Any]
+                
+                
+              //  let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
+                
+                
+                //self.artworks.removeAll()
+      //          if let user = FIRAuth.auth()?.currentUser{
+       //             let uid = user.uid
+      //              if downloadTour.uploadUser == uid
+      //              {
+      //                  self.downloadTours.append(downloadTour)
+       //                 print(self.downloadTours)
+      //                  let users = dictionary["user"] as!  [String : String]
+                        
+      //                  for user in users{
+      //                      if user.value == "buy"{
+      //                          print("buy")
+     //                           self.userNumber = self.userNumber + 1
+      //                          print("hhhhh\(self.userNumber)")
+     //                       }
+    //                    }
+    //                    self.downLoadTimes.text = "\(self.userNumber)"
+   //                     DispatchQueue.main.async(execute: {self.tableview.reloadData() } )
+                        
+  //                  }
+                    
+  //              }
+ //               else{
+  //                  print("no permission")
+  //              }
+ //           }
+//        })
+
             cell.nameField.text = self.downloadTours[indexPath.row].name
             //cell.moneyField.text = self.downloadTours[0]
-            //cell.downloadsField.text = "Downloads"
+            cell.downloadsField.text = "Downloads"
+            cell.moneyField.text = "0.00"
         //}
         //self.downloadTours
         return cell
@@ -136,7 +176,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                     
                     print(counts)
                     self.total += counts
-                    self.downLoadTimes.text = String(self.total)
+                    //self.downLoadTimes.text = String(self.total)
                 }
                 
             }
@@ -173,12 +213,14 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                 
                 let longitude22 = Double(longitude2)
                 
+                
+                
                 //let longitude = (location["lon"] as! NSString).doubleValue
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
                 
                 
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["star"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
                 
                 
                 //self.artworks.removeAll()
@@ -188,6 +230,16 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                     {
                         self.downloadTours.append(downloadTour)
                         print(self.downloadTours)
+                        let users = dictionary["user"] as!  [String : String]
+                        
+                        for user in users{
+                            if user.value == "buy"{
+                                print("buy")
+                                self.userNumber = self.userNumber + 1
+                                print("hhhhh\(self.userNumber)")
+                            }
+                        }
+                        self.downLoadTimes.text = "\(self.userNumber)"
                         DispatchQueue.main.async(execute: {self.tableview.reloadData() } )
                         
                     }
