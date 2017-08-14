@@ -188,9 +188,14 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         
             }
         
-      //      if indexPath.section == 4{
-      //           self.alertBn(title: "Upload", message: "Please open the Voice Memo => choose a record => share => Roamni")
-      //  }
+            if indexPath.section == 4{
+                if let user = FIRAuth.auth()?.currentUser{
+                    performSegue(withIdentifier: "reportSegue", sender: self)
+                }
+                else{
+                    self.alertBn(title: "Reminder", message: "Please Log In to access your reports & payout.")
+                }
+        }
         
         
     }

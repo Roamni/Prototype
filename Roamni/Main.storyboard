@@ -872,9 +872,6 @@
                                                 <constraint firstItem="Xm8-C8-X9e" firstAttribute="centerY" secondItem="t5w-4T-gJY" secondAttribute="centerY" id="wSt-24-wMB"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="TWy-0X-R0C" kind="show" id="KCR-He-Cqr"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniHowCell" rowHeight="45" id="Csn-Wc-Ida" customClass="MyRoamniHowCell" customModule="Roamni">
                                         <rect key="frame" x="0.0" y="278" width="414" height="45"/>
@@ -1017,6 +1014,7 @@
                     <navigationItem key="navigationItem" title="My Roamni" id="ScV-jt-bqL"/>
                     <connections>
                         <outlet property="tableView" destination="de0-Wq-rzT" id="itU-hw-r3r"/>
+                        <segue destination="TWy-0X-R0C" kind="show" identifier="reportSegue" id="2GT-ee-ODb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaP-25-slM" userLabel="First Responder" sceneMemberID="firstResponder"/>

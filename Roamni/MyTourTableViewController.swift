@@ -93,11 +93,10 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         self.modalVC.modalPresentationStyle = .overFullScreen
         
         if let user = FIRAuth.auth()?.currentUser{
-        
             if self.segCon.selectedSegmentIndex == 0 {
-        self.downloadTours.removeAll()
-        fetchTours()
-        tableView.reloadData()
+                self.downloadTours.removeAll()
+                fetchTours()
+                tableView.reloadData()
             }
             else{
                 self.downloadTours.removeAll()
@@ -105,8 +104,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 tableView.reloadData()
 
             }
-        //tableView
-        
         }
         else{
             self.alertBn(title: "Reminder", message: "Please Log In to access the tours")
