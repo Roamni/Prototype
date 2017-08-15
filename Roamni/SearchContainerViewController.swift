@@ -55,9 +55,6 @@ class SearchContainerViewController: UIViewController {
         self.activityIndicator.startAnimating()
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-       // navigationController?.navigationBar.setBackgroundImage(generateImageWithColor(UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)), for: UIBarPosition.any, barMetrics: UIBarMetrics.default)
-        //navigationController?.navigationBar.shadowImage = UIImage()
-        //self.tourCategory = "currentLocation"
         container!.segueIdentifierReceivedFromParent("first")
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
@@ -151,6 +148,19 @@ class SearchContainerViewController: UIViewController {
                     //print("nonotype")
                 }
                 self.activityIndicator.stopAnimating()
+    //            if self.filteredTours.count == 0 || self.tours.count == 0{
+    //                self.getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (self.getTableVCObject?.tableView.bounds.size.width)!, height: (self.getTableVCObject?.tableView.bounds.size.height)!))
+   //                 self.getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+   //                 self.getTableVCObject?.noDataLabel?.numberOfLines = 3
+  //                  self.getTableVCObject?.noDataLabel?.text = "There are no \(self.tourCategory!) tours in your area. Be the first to create one! Open Voicememos, record and upload!"
+  //                  self.getTableVCObject?.noDataLabel?.textColor = UIColor.black
+ //                   self.getTableVCObject?.noDataLabel?.textAlignment = .center
+ //                   self.getTableVCObject?.tableView.backgroundView = self.getTableVCObject?.noDataLabel
+ //                   self.getTableVCObject?.tableView.separatorStyle = .none
+ //               }else{
+//                    self.getTableVCObject?.noDataLabel?.text = ""
+//                }
+
             }
             
         })
@@ -292,7 +302,8 @@ class SearchContainerViewController: UIViewController {
             
         }
         
-        if filteredTours.count == 0 || tours.count == 0{
+        if filteredTours.count == 0 || tours.count == 0 {
+            if self.activityIndicator.isAnimating == false{
             getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (getTableVCObject?.tableView.bounds.size.width)!, height: (getTableVCObject?.tableView.bounds.size.height)!))
             getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
             getTableVCObject?.noDataLabel?.numberOfLines = 3
@@ -301,6 +312,9 @@ class SearchContainerViewController: UIViewController {
             getTableVCObject?.noDataLabel?.textAlignment = .center
             getTableVCObject?.tableView.backgroundView = getTableVCObject?.noDataLabel
             getTableVCObject?.tableView.separatorStyle = .none
+            }else{
+                getTableVCObject?.noDataLabel?.text = ""
+            }
         }else{
             getTableVCObject?.noDataLabel?.text = ""
         }
