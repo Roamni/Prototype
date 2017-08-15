@@ -111,6 +111,8 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
                 self.controller.getTableVCObject?.tours = self.controller.tours
                 self.controller.getTableVCObject?.tableView.reloadData()
                 
+
+                
             }
         })
         

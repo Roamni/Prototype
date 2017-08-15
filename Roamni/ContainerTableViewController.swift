@@ -171,8 +171,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
             tour = tours[indexPath.row]
             //print("lllllllllll")
         }
-
-        
+        print("careful\(tours.count)")
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
         cell.StarLabel.text = String(tour.length) + " min"
