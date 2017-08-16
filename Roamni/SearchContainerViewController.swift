@@ -304,17 +304,17 @@ class SearchContainerViewController: UIViewController {
         
         if filteredTours.count == 0 || tours.count == 0 {
             if self.activityIndicator.isAnimating == false{
-            getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (getTableVCObject?.tableView.bounds.size.width)!, height: (getTableVCObject?.tableView.bounds.size.height)!))
-            getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-            getTableVCObject?.noDataLabel?.numberOfLines = 3
-            getTableVCObject?.noDataLabel?.text = "There are no \(searchText) tours in your area. Be the first to create one! Open Voicememos, record and upload!"
-            getTableVCObject?.noDataLabel?.textColor = UIColor.black
-            getTableVCObject?.noDataLabel?.textAlignment = .center
-            getTableVCObject?.tableView.backgroundView = getTableVCObject?.noDataLabel
-            getTableVCObject?.tableView.separatorStyle = .none
+                getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (getTableVCObject?.tableView.bounds.size.width)!, height: (getTableVCObject?.tableView.bounds.size.height)!))
+                getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
+                getTableVCObject?.noDataLabel?.numberOfLines = 3
+                getTableVCObject?.noDataLabel?.text = "There are no \(searchText) tours in your area. Be the first to create one! Open Voicememos, record and upload!"
+                getTableVCObject?.noDataLabel?.textColor = UIColor.black
+                getTableVCObject?.noDataLabel?.textAlignment = .center
+                getTableVCObject?.tableView.backgroundView = getTableVCObject?.noDataLabel
+                getTableVCObject?.tableView.separatorStyle = .none
             }else{
                 getTableVCObject?.noDataLabel?.text = ""
-            }
+                }
         }else{
             getTableVCObject?.noDataLabel?.text = ""
         }

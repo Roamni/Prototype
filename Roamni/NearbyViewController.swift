@@ -113,7 +113,7 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
             //            tour.TourType = dictionary["TourType"] as! String?
             //            tour.WholeTour = dictionary["WholeTour"] as! String?
             
-            //self.artworks.removeAll()
+//            self.artworks.removeAll()
             print(startCoordinate)
                     self.tours.append(downloadTour)
             

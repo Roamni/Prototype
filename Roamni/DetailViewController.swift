@@ -109,7 +109,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             let prodID = t.payment.productIdentifier as String
             
             switch prodID {
-            case "Roamni.Prototype.One.tourone":
+            case "Roamni.Prototype.One.tourtwo":
                 print("remove ads")
           //      removeAds()
             case "seemu.iap.addcoins":
@@ -135,7 +135,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 
                 let prodID = p.productIdentifier
                 switch prodID {
-                case "Roamni.Prototype.One.tourone":
+                case "Roamni.Prototype.One.tourtwo":
                     print("remove ads")
             //        removeAds()
                 case "seemu.iap.addcoins":
@@ -185,7 +185,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             print("in app purchase")
             for product in list {
                 let prodID = product.productIdentifier
-                if(prodID == "Roamni.Prototype.One.tourone") {
+                if(prodID == "Roamni.Prototype.One.tourtwo") {
                     p = product
                     buyProduct()
                 }
@@ -325,7 +325,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     super.viewDidLoad()
     if(SKPaymentQueue.canMakePayments()) {
         print("IAP is enabled, loading")
-        let productID: NSSet = NSSet(objects: "Roamni.Prototype.One.tourone","Roamni.Prototype.One.tourtwo")
+        let productID: NSSet = NSSet(objects: "Roamni.Prototype.One.tourtwo"/*,"Roamni.Prototype.One.tourtwo"*/)
         let request: SKProductsRequest = SKProductsRequest(productIdentifiers: productID as! Set<String>)
         request.delegate = self
         request.start()
@@ -354,13 +354,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     readMoreTextView.attributedReadLessText = NSAttributedString(string: " Read less", attributes: readLessTextAttributes)
     readMoreTextView.maximumNumberOfLines = 3
     readMoreTextView.shouldTrim = true
-    //readMoreTextView.attributedReadLessText.
-    //readMoreTextView.target(forAction: "pinChanged:", withSender: UIControlEvents.editingChanged)
-    //readMoreTextView.attributedReadMoreText?.forwardingTarget(for: "pinChanged:")
-    //readMoreTextView.increaseSize(self.scrollView.scrollToBottom())
-    //readMoreTextView.hit
-    
-    
     self.scrollView.contentSize = CGSize(width: 375, height: 659)
    // self.scrollView.contentSize = CGSizeMake(self.view.frame.width, self.view.frame.height+100)
     self.scrollView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
@@ -369,8 +362,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     self.scrollView.bounces=false
     self.scrollView.delegate=self
     self.view.addSubview(self.scrollView)
-    
-    
     if self.detailMap.annotations.count != 0
     {
 
@@ -409,16 +400,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         //self.descLabel.text = detailTour?.desc
         //self.seemoreBtn.isHidden = true
     }
-    
-    
-   // if (detailTour?.desc.characters.count)! < 207{
-   //     self.descLabel.text = detailTour?.desc
-   //     self.seemoreBtn.isHidden = true
-  //  }else{
-  //      let startIndex = detailTour?.desc.index((detailTour?.desc.startIndex)!, offsetBy: 207)
-  //      self.descLabel.text = descText//detailTour?.desc.substring(to: startIndex!)
- //   }
-    
+
     detailMap.delegate = self
     let sourceLocation = detailTour?.startLocation
     self.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
