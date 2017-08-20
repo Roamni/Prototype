@@ -173,15 +173,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             
             
             let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
-        
-            //            tour.Price = dictionary["Price"] as! String?
-            //            tour.Star = dictionary["Star"] as! String?
-            //            tour.StartPoint = dictionary["StartPoint"] as! String?
-            //            tour.Time = dictionary["Time"] as! String?
-            //            tour.TourType = dictionary["TourType"] as! String?
-            //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            
-            //self.artworks.removeAll()
+
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
                 
@@ -549,9 +541,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             print("couldn't load file :(")
             
         }
-        
-//        musicSlider.maximumValue = Float(player.duration)
-//        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.updateMusicSlider), userInfo: nil, repeats: true)
         player.delegate = self
         if error == nil {
      //       print("is playing!!!")
@@ -570,17 +559,12 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         print("counter is \(counter)")
         let audioPath = Bundle.main.path(forResource: "\(counter)", ofType: "m4a")!
         let error : NSError? = nil
-        //player = AVAudioPlayer(contentsOfURL: URL(string: audioPath), error: error)
-        
         do {
             player = try AVAudioPlayer(contentsOf: URL(string: audioPath)!)
             print("hello")
         } catch {
             // couldn't load file :(
         }
-        
-        //        musicSlider.maximumValue = Float(player.duration)
-        //        var timer = Timer.scheduledTimer(timeInterval: 0.05, target: self, selector: #selector(ViewController.updateMusicSlider), userInfo: nil, repeats: true)
         player.delegate = self
         if error == nil {
             print("is playing!!!")
@@ -606,12 +590,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goMusicDetail"
         {
-            //Lead user from currnet controller to NewCategoryViewController
             let controller = segue.destination as! ModalViewController
-           // let controller: NewCategoryViewController = navController.viewControllers[0] as! NewCategoryViewController
-            // Get managedObjectContext and pass to controller
-            //controller.managedObjectContext = self.managedObjectContext
-
             controller.counter = self.counter
             controller.downloadTours = self.downloadTours
             print("calling!!")
