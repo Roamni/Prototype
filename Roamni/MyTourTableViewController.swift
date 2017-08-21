@@ -202,35 +202,19 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
             for child in result!{
                 let dictionary = child.value as!  [String : Any]
-                // tour.setValuesForKeys(dictionary)
                 let startLocation = dictionary["startPoint"] as!  [String : Any]
-                
                 let endLocation = dictionary["endPoint"] as!  [String : Any]
-                
                 let latitude1 = String(describing: startLocation["lat"]!)
-                
                 let latitude = Double(latitude1)
-                
                 let longitude1 = String(describing: startLocation["lon"]!)
-                
                 let longitude = Double(longitude1)
                 let latitude2 = String(describing: endLocation["lat"]!)
-                
                 let latitude22 = Double(latitude2)
-                
                 let longitude2 = String(describing: endLocation["lon"]!)
-                
                 let longitude22 = Double(longitude2)
-                
-                //let longitude = (location["lon"] as! NSString).doubleValue
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                
-                
                 let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
-
-                
-                //self.artworks.removeAll()
                 if let user = FIRAuth.auth()?.currentUser{
                     let uid = user.uid
                     if downloadTour.uploadUser == uid
@@ -238,7 +222,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                         self.downloadTours.append(downloadTour)
                         print(self.downloadTours)
                         DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
-                        
                     }
                     
                 }

@@ -127,14 +127,6 @@ class SearchContainerViewController: UIViewController {
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
                 
                 let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: child.key, price: Float(dictionary["price"] as! Float))
-                //            tour.Price = dictionary["Price"] as! String?
-                //            tour.Star = dictionary["Star"] as! String?
-                //            tour.StartPoint = dictionary["StartPoint"] as! String?
-                //            tour.Time = dictionary["Time"] as! String?
-                //            tour.TourType = dictionary["TourType"] as! String?
-                //            tour.WholeTour = dictionary["WholeTour"] as! String?
-                
-                //self.artworks.removeAll()
                 print(startCoordinate)
                 self.tours.append(downloadTour)
                 if flag == "type"
@@ -148,18 +140,6 @@ class SearchContainerViewController: UIViewController {
                     //print("nonotype")
                 }
                 self.activityIndicator.stopAnimating()
-    //            if self.filteredTours.count == 0 || self.tours.count == 0{
-    //                self.getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (self.getTableVCObject?.tableView.bounds.size.width)!, height: (self.getTableVCObject?.tableView.bounds.size.height)!))
-   //                 self.getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
-   //                 self.getTableVCObject?.noDataLabel?.numberOfLines = 3
-  //                  self.getTableVCObject?.noDataLabel?.text = "There are no \(self.tourCategory!) tours in your area. Be the first to create one! Open Voicememos, record and upload!"
-  //                  self.getTableVCObject?.noDataLabel?.textColor = UIColor.black
- //                   self.getTableVCObject?.noDataLabel?.textAlignment = .center
- //                   self.getTableVCObject?.tableView.backgroundView = self.getTableVCObject?.noDataLabel
- //                   self.getTableVCObject?.tableView.separatorStyle = .none
- //               }else{
-//                    self.getTableVCObject?.noDataLabel?.text = ""
-//                }
 
             }
             

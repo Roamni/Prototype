@@ -57,11 +57,13 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     //var scrollView: UIScrollView!
     @IBOutlet weak var scrollView: UIScrollView!
     var downloadTours = [DownloadTour]()
+    var uploadTours = [DownloadTour]()
     var list = [SKProduct]()
     var p = SKProduct()
     var hasUserbought = false
     fileprivate var modalVC : ModalViewController!
     var counter = 0
+    var counter1 = 0
     
     func buyProduct() {
         print("buy " + p.productIdentifier)
@@ -277,6 +279,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             downloadTask.observe(.progress) { (snapshot) in
                 guard let progress = snapshot.progress else {return}
                 self.downloadprogress.progress  = Float(progress.fractionCompleted)
+                
                 if Int(self.downloadprogress.progress) == 1{
                     //cell.downloadButton.setTitle("Downloaded", for:.normal)
                     self.priceBtn.backgroundColor = .clear
@@ -286,26 +289,50 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                     self.priceBtn.layer.borderColor = UIColor.green.cgColor
                     self.priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
                     self.downloadprogress.isHidden = true
+                    self.fetchTours()
+                    //self.counter = self.downloadTours.count
                 }
             }
 
         }else if self.priceBtn.titleLabel?.text == "Play"{
-            modalVC.counter = 1//self.counter
-            print("countercounter\(self.counter)")
-            modalVC.downloadTours = self.downloadTours
-            print("calling!!")
-            let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-            let documentsDirectory = paths[0]
-            let filePath = "\(documentsDirectory)/voices/\(self.detailTour!.name).m4a"
-            //        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-            let filemanager = FileManager.default
-            print(filemanager.fileExists(atPath: filePath))
-            if(filemanager.fileExists(atPath: filePath)){
-                print("playing!!")
-                modalVC.music()
-                modalVC.setLockView()
+            let user = FIRAuth.auth()?.currentUser
+            let uidd = user?.uid
+            if self.detailTour?.uploadUser != uidd{
+                modalVC.counter = self.counter
+                print("countercounter\(self.counter)")
+                modalVC.downloadTours = self.downloadTours
+                print("calling!!")
+                let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                let documentsDirectory = paths[0]
+                let filePath = "\(documentsDirectory)/voices/\(self.detailTour!.name).m4a"
+                //        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+                let filemanager = FileManager.default
+                print(filemanager.fileExists(atPath: filePath))
+                if(filemanager.fileExists(atPath: filePath)){
+                    print("playing!!")
+                    modalVC.music()
+                    modalVC.setLockView()
+                }
+                self.present(self.modalVC, animated: true, completion: nil)
+            }else{
+                modalVC.counter = self.counter1
+                print("countercounter\(self.counter1)")
+                modalVC.downloadTours = self.uploadTours
+                print("calling!!")
+                let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                let documentsDirectory = paths[0]
+                let filePath = "\(documentsDirectory)/voices/\(self.detailTour!.name).m4a"
+                //        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
+                let filemanager = FileManager.default
+                print(filemanager.fileExists(atPath: filePath))
+                if(filemanager.fileExists(atPath: filePath)){
+                    print("playing!!")
+                    modalVC.music()
+                    modalVC.setLockView()
+                }
+                self.present(self.modalVC, animated: true, completion: nil)
             }
-            self.present(self.modalVC, animated: true, completion: nil)
+            
         
         }else if self.priceBtn.titleLabel?.text == "Buy Tour"{
             if let user = FIRAuth.auth()?.currentUser{
@@ -514,48 +541,48 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
 
     func fetchTours(){
         var ref:FIRDatabaseReference?
+        self.downloadTours.removeAll()
         var number = 0
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
         ref = FIRDatabase.database().reference()
         ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            if result?.count == 0
+            {
+                self.activityIndicator.stopAnimating()
+                
+            }
             for child in result!{
                 let dictionary = child.value as!  [String : Any]
-                // tour.setValuesForKeys(dictionary)
                 let startLocation = dictionary["startPoint"] as!  [String : Any]
-                
                 let endLocation = dictionary["endPoint"] as!  [String : Any]
-                
                 let latitude1 = String(describing: startLocation["lat"]!)
-                
                 let latitude = Double(latitude1)
-                
                 let longitude1 = String(describing: startLocation["lon"]!)
-                
                 let longitude = Double(longitude1)
                 let latitude2 = String(describing: endLocation["lat"]!)
-                
                 let latitude22 = Double(latitude2)
-                
                 let longitude2 = String(describing: endLocation["lon"]!)
-                
                 let longitude22 = Double(longitude2)
-                
                 //let longitude = (location["lon"] as! NSString).doubleValue
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                
-                
                 let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
-                
                 if let user = FIRAuth.auth()?.currentUser{
                     let uid = user.uid
-                    
                     if child.childSnapshot(forPath: "user").hasChild(uid) && downloadTour.uploadUser != uid
                     {
                         number = number + 1
-                        if downloadTour.name == self.detailTour?.name{
+                        if downloadTour.name == self.detailTour!.name{
+                            print("number\(number)")
+                            print("number\(self.detailTour!.name)")
                             self.hasUserbought = true
-                            self.counter = number
+                            print("number\(self.hasUserbought)")
+                            self.counter = number - 1
                         }
                         self.downloadTours.append(downloadTour)
                         print(self.downloadTours)
@@ -563,6 +590,89 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                         
                         DispatchQueue.main.async(execute: {} )
                         
+                    }
+                    let user = FIRAuth.auth()?.currentUser
+                    let uidd = user?.uid
+                    print("ififif\(self.hasUserbought)")
+                    
+                    if self.detailTour?.uploadUser == uidd || self.hasUserbought == true{
+                        self.priceBtn.backgroundColor = .clear
+                        self.priceBtn.layer.cornerRadius = 5
+                        self.priceBtn.layer.borderWidth = 1
+                        self.priceBtn.setTitle("Download", for: .normal)
+                        self.priceBtn.layer.borderColor = UIColor.green.cgColor
+                        self.priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
+                        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+                        let documentsDirectory = paths[0]
+                        let filePath = "\(documentsDirectory)/voices/\(self.detailTour!.name).m4a"
+                        let filemanager = FileManager.default
+                        print(filemanager.fileExists(atPath: filePath))
+                        if(filemanager.fileExists(atPath: filePath)){
+                            self.priceBtn.backgroundColor = .clear
+                            self.priceBtn.layer.cornerRadius = 5
+                            self.priceBtn.layer.borderWidth = 1
+                            self.priceBtn.setTitle("Play", for: .normal)
+                            self.priceBtn.layer.borderColor = UIColor.green.cgColor
+                            self.priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
+                        }
+                        self.activityIndicator.stopAnimating()
+                    }else{
+                        self.priceBtn.backgroundColor = .clear
+                        self.priceBtn.layer.cornerRadius = 5
+                        self.priceBtn.layer.borderWidth = 1
+                        self.priceBtn.layer.borderColor = UIColor.blue.cgColor
+                        self.priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
+                        print("jjjjjjj\(self.detailTour!.price)")
+                        self.activityIndicator.stopAnimating()
+                    }
+                    
+                    
+                }
+                else{
+                    print("no permission")
+                }
+            }
+        })
+        
+        
+    }
+    
+    func fetchTours1(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        var number = 0
+        ref?.child("tours").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                let startLocation = dictionary["startPoint"] as!  [String : Any]
+                let endLocation = dictionary["endPoint"] as!  [String : Any]
+                let latitude1 = String(describing: startLocation["lat"]!)
+                let latitude = Double(latitude1)
+                let longitude1 = String(describing: startLocation["lon"]!)
+                let longitude = Double(longitude1)
+                let latitude2 = String(describing: endLocation["lat"]!)
+                let latitude22 = Double(latitude2)
+                let longitude2 = String(describing: endLocation["lon"]!)
+                let longitude22 = Double(longitude2)
+                let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
+                let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
+                if let user = FIRAuth.auth()?.currentUser{
+                    let uid = user.uid
+                    if downloadTour.uploadUser == uid
+                    {
+                        number = number + 1
+                        if downloadTour.name == self.detailTour!.name{
+                            print("number\(number)")
+                            print("number\(self.detailTour!.name)")
+                            self.hasUserbought = true
+                            print("number\(self.hasUserbought)")
+                            self.counter1 = number - 1
+                        }
+                        self.uploadTours.append(downloadTour)
+                        print(self.uploadTours)
+                        DispatchQueue.main.async(execute: {} )
                     }
                     
                 }
@@ -576,35 +686,23 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("count\(list.count)")
+        print("viewview")
         //SKPaymentQueue.default().remove(self)
         //SKPaymentQueue.default().add(self)
         list.removeAll()
         self.counter = 0
-        //self.downloadTours.removeAll()
-        fetchTours()
-        if self.hasUserbought == true{
-            priceBtn.backgroundColor = .clear
-            priceBtn.layer.cornerRadius = 5
-            priceBtn.layer.borderWidth = 1
-            priceBtn.setTitle("Download", for: .normal)
-            priceBtn.layer.borderColor = UIColor.green.cgColor
-            priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
+        if let user = FIRAuth.auth()?.currentUser{
+            fetchTours()
+        }else{
+            self.priceBtn.backgroundColor = .clear
+            self.priceBtn.layer.cornerRadius = 5
+            self.priceBtn.layer.borderWidth = 1
+            self.priceBtn.layer.borderColor = UIColor.blue.cgColor
+            self.priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
+            print("jjjjjjj\(self.detailTour!.price)")
+            self.activityIndicator.stopAnimating()
         }
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let documentsDirectory = paths[0]
-        let filePath = "\(documentsDirectory)/voices/\(self.detailTour?.name).m4a"
-        //        let fileURL = URL(string: filePath.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!)
-        let filemanager = FileManager.default
-        print(filemanager.fileExists(atPath: filePath))
-        if(filemanager.fileExists(atPath: filePath)){
-            priceBtn.backgroundColor = .clear
-            priceBtn.layer.cornerRadius = 5
-            priceBtn.layer.borderWidth = 1
-            priceBtn.setTitle("Play", for: .normal)
-            priceBtn.layer.borderColor = UIColor.green.cgColor
-            priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
-        }
+        
         self.modalVC = storyboard?.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
         self.modalVC.modalPresentationStyle = .overFullScreen
         
@@ -618,32 +716,21 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             print("please enable IAPS")
         }
         
+        uploadTours.removeAll()
+        fetchTours1()
+        
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewviewdid")
         //SKPaymentQueue.default().add(self)
-        fetchTours()
-        self.downloadprogress.isHidden = true
-        let user = FIRAuth.auth()?.currentUser
-        let uid = user?.uid
-        if detailTour?.uploadUser == uid || self.hasUserbought == true{
-            priceBtn.backgroundColor = .clear
-            priceBtn.layer.cornerRadius = 5
-            priceBtn.layer.borderWidth = 1
-            priceBtn.setTitle("Download", for: .normal)
-            priceBtn.layer.borderColor = UIColor.green.cgColor
-            priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
-        }else{
-            priceBtn.backgroundColor = .clear
-            priceBtn.layer.cornerRadius = 5
-            priceBtn.layer.borderWidth = 1
-            priceBtn.layer.borderColor = UIColor.blue.cgColor
-            priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
-            print("jjjjjjj\(self.detailTour!.price)")
-        }
+        //fetchTours()
 
+        //fetchTours()
+        self.downloadprogress.isHidden = true
+        
     readMoreTextView.text = self.detailTour?.desc
     let readMoreTextAttributes: [String: Any] = [
         NSForegroundColorAttributeName: UIColor.lightGray,//view.tintColor,
