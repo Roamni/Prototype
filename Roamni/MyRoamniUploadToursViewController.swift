@@ -55,9 +55,17 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.lengthBn.tintColor = UIColor.black
     }
 
+    @IBAction func priceButton(_ segue: UIStoryboardSegue) {
+        let secondVC :UploadPiceViewController = segue.source as! UploadPiceViewController
+        self.priceBn.setTitle(secondVC.pickString, for: .normal)
+        self.priceBn.tintColor = UIColor.black
+
+        
+    }
 
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
+    @IBOutlet weak var priceBn: UIButton!
     @IBOutlet weak var categoryBn: UIButton!
 
     @IBOutlet weak var naviBar: UINavigationBar!
@@ -113,21 +121,98 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             if self.data == nil {
                 self.alertBn(title: "Error", message: "no file")
             }
-            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == "click to choose type" || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == "click to choose length"
+            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == "click to choose type" || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == "click to choose length" || self.priceBn.titleLabel?.text == "click to choose price"
                 {
                     self.alertBn(title: "Error", message: "please input all field")
                 }
-                else
+            else if self.priceBn.titleLabel?.text! == "Free"
             {
+                let actionSheetController: UIAlertController = UIAlertController(title: "Are you sure you want your tour be Free?", message: "Your Roamni tour will be free", preferredStyle: .alert)
+                let noAction: UIAlertAction = UIAlertAction(title: "No", style: .cancel) { action -> Void in
+                    //Just dismiss the action sheet
+                }
+                let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
+                    self.activityIndicator.center = self.view.center
+                    self.activityIndicator.hidesWhenStopped = true
+                    self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+                    self.view.addSubview(self.activityIndicator)
+                    self.activityIndicator.startAnimating()
+                    UIApplication.shared.beginIgnoringInteractionEvents()
+                    let uploadTask = voiceRef.put(self.data! as Data, metadata: uploadMetadata) { metadata, error in
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                            self.alertBn(title: "Error", message: "upload file failed")
+                            print(error.localizedDescription)
+                        } else {
+                            // Metadata contains file metadata such as size, content-type, and download URL.
+                            let downloadURL = metadata!.downloadURL()
+                            let downloadurl:String = (downloadURL?.absoluteString)!
+                            
+                            var price = 0.00
+                            if self.priceBn.titleLabel?.text! == "Free"{
+                                price = 0.00
+                            }
+                            if self.priceBn.titleLabel?.text! == "$1.99"{
+                                price = 1.99
+                            }
+                            if self.priceBn.titleLabel?.text! == "$2.99"{
+                                price = 2.99
+                            }
+                            if self.priceBn.titleLabel?.text! == "$3.99"{
+                                price = 3.99
+                            }
+                            if self.priceBn.titleLabel?.text! == "$4.99"{
+                                price = 4.99
+                            }
+                            if self.priceBn.titleLabel?.text! == "$5.99"{
+                                price = 5.99
+                            }
+                            if self.priceBn.titleLabel?.text! == "$6.99"{
+                                price = 6.99
+                            }
+                            
+                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                        }
+                    }
+                    
+                    uploadTask.observe(.progress) { [weak self] (snapshot) in
+                        guard let strongSelf = self else { return }
+                        guard let progress = snapshot.progress else {return}
+                        strongSelf.progressView.progress  = Float(progress.fractionCompleted)
+                        if Int(strongSelf.progressView.progress) == 1{
+                        }
+                        uploadTask.observe(.success, handler: {_ in
+                            self?.deregisterFromKeyboardNotifications()
+                            
+                            if  self?.presentedViewController == nil {
+                                let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+                                let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
+                                alertController.addAction(ok)
+                                self?.dismiss(animated: false, completion: nil)
+                                self?.present(alertController, animated: true, completion: {() -> Void in
+                                    self?.activityIndicator.stopAnimating()
+                                    UIApplication.shared.endIgnoringInteractionEvents()
+                                }
+                                )
+                            }
+                        })
+                    }
+
+                }
+                actionSheetController.addAction(yesAction)
+                actionSheetController.addAction(noAction)
+                self.present(actionSheetController, animated: true, completion: nil)
+
+                //self.alertBn(title: "Error", message: "please do not set free")
+            }else
+                {
                 self.activityIndicator.center = self.view.center
                 self.activityIndicator.hidesWhenStopped = true
                 self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
                 self.view.addSubview(self.activityIndicator)
                 self.activityIndicator.startAnimating()
                 UIApplication.shared.beginIgnoringInteractionEvents()
-            
-
-            let uploadTask = voiceRef.put(data as! Data, metadata: uploadMetadata) { metadata, error in
+                let uploadTask = voiceRef.put(data as! Data, metadata: uploadMetadata) { metadata, error in
                 if let error = error {
                     // Uh-oh, an error occurred!
                     self.alertBn(title: "Error", message: "upload file failed")
@@ -137,40 +222,54 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     let downloadURL = metadata!.downloadURL()
                     let downloadurl:String = (downloadURL?.absoluteString)!
                     
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    var price = 0.0
+                    if self.priceBn.titleLabel?.text! == "Free"{
+                        price = 0.0
+                    }
+                    if self.priceBn.titleLabel?.text! == "$1.99"{
+                        price = 1.99
+                    }
+                    if self.priceBn.titleLabel?.text! == "$2.99"{
+                        price = 2.99
+                    }
+                    if self.priceBn.titleLabel?.text! == "$3.99"{
+                        price = 3.99
+                    }
+                    if self.priceBn.titleLabel?.text! == "$4.99"{
+                        price = 4.99
+                    }
+                    if self.priceBn.titleLabel?.text! == "$5.99"{
+                        price = 5.99
+                    }
+                    if self.priceBn.titleLabel?.text! == "$6.99"{
+                        price = 6.99
+                    }
                     
-
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                 }
-                }
+                    }
           
-            uploadTask.observe(.progress) { [weak self] (snapshot) in
+                uploadTask.observe(.progress) { [weak self] (snapshot) in
                 guard let strongSelf = self else { return }
                 guard let progress = snapshot.progress else {return}
                 strongSelf.progressView.progress  = Float(progress.fractionCompleted)
                 if Int(strongSelf.progressView.progress) == 1{
-
-//              self?.performSegue(withIdentifier: "backView", sender: self)
                     }
                 uploadTask.observe(.success, handler: {_ in
-                   
-                    //                    self?.alertBn(title: "complete", message: "Uploading Successful")
                     self?.deregisterFromKeyboardNotifications()
                     
                  if  self?.presentedViewController == nil {
-                                        let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
-                                        let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
-                                        
-                                        alertController.addAction(ok)
+                        let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+                        let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
+                        alertController.addAction(ok)
                     self?.dismiss(animated: false, completion: nil)
                     self?.present(alertController, animated: true, completion: {() -> Void in
                     self?.activityIndicator.stopAnimating()
                     UIApplication.shared.endIgnoringInteractionEvents()
                     }
-)
+                    )
                     }
                     })
-                
-         
                 }
             }
             
@@ -190,11 +289,9 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
 
             refreshAlert.addAction(UIAlertAction(title: "Go to Login", style: .default, handler: { (action: UIAlertAction!) in
                 let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
-                
                 controller.modalPresentationStyle = .overCurrentContext
                 controller.goMyRoamni = true
                 self.present(controller, animated: true, completion: nil)
-                
             }))
             
             refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
@@ -202,8 +299,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             
             present(refreshAlert, animated: true, completion: nil)
 
-}
-    }
+        }
+            }
     
     func handleok(action: UIAlertAction){
         let controller  =   self.storyboard?.instantiateViewController(withIdentifier: "firstView") as! testViewController
@@ -402,6 +499,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             controller.sender = "endPoint"
         
         }
+        
     }
 
 }

@@ -25,6 +25,7 @@ class UploadPickerViewController: UIViewController,UIPickerViewDelegate,UIPicker
     var pickString:String = "Walking"
 
     let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Real Estate","Accessible"]
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

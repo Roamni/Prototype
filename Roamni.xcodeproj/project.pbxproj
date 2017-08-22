@@ -74,6 +74,7 @@
 		F063DE1D1E22929D00424985 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F063DE1C1E22929D00424985 /* DetailViewController.swift */; };
 		F063DE1F1E2355DC00424985 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = F063DE1E1E2355DC00424985 /* Tour.swift */; };
 		F063DE211E239B0400424985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F063DE201E239B0400424985 /* Main.storyboard */; };
+		F07D7CDA1F4B154400985701 /* UploadPiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D7CD91F4B154400985701 /* UploadPiceViewController.swift */; };
 		F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7661E2DF5AC0031B1CD /* TourForMap.swift */; };
 		F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */; };
 		F0833F4E1F31E37400B33576 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0833F4D1F31E37400B33576 /* StoreKit.framework */; };
@@ -187,6 +188,7 @@
 		F063DE1C1E22929D00424985 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F063DE1E1E2355DC00424985 /* Tour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		F063DE201E239B0400424985 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F07D7CD91F4B154400985701 /* UploadPiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPiceViewController.swift; sourceTree = "<group>"; };
 		F080D7661E2DF5AC0031B1CD /* TourForMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourForMap.swift; sourceTree = "<group>"; };
 		F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
 		F0833F4D1F31E37400B33576 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
@@ -295,6 +297,7 @@
 				A69FD85F1E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift */,
 				A63EF1241E6E70810064ACDF /* UploadPickerViewController.swift */,
 				A6B8983E1E84E88A00BCFE42 /* UploadLengthViewController.swift */,
+				F07D7CD91F4B154400985701 /* UploadPiceViewController.swift */,
 				A60834401E24F2AA00775187 /* MyRoamniUploadToursViewController.swift */,
 				F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */,
 				F08E1B2D1F3B6B2F00B8FBA7 /* PaymentDetailViewController.swift */,
@@ -802,6 +805,7 @@
 				F05F1A0B1E1D379800556CD6 /* ShopTableViewCell.swift in Sources */,
 				F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */,
 				A608343F1E24F29A00775187 /* MyRoamniDownloadToursViewController.swift in Sources */,
+				F07D7CDA1F4B154400985701 /* UploadPiceViewController.swift in Sources */,
 				A60A3BEC1E4CA156005E2D0A /* KeyboardHideExtension.swift in Sources */,
 				F05F1A0F1E1D37BE00556CD6 /* AccTableViewCell.swift in Sources */,
 				F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */,
