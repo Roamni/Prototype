@@ -104,16 +104,7 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
     @IBOutlet weak var endPointText: UITextField!
     @IBAction func uploadAction(_ sender: Any) {
         
-//        let storageRef = storage.reference()
-//        if let user = FIRAuth.auth()?.currentUser{
-//            
-//            let uid = user.uid
-//            let voiceRef = storageRef.child("\(uid)/\(FilenameLabel.text!)")
-//            let uploadMetadata = FIRStorageMetadata()
-//            uploadMetadata.contentType = "voice/m4a"
-//            if self.data == nil {
-//                self.alertBn(title: "Error", message: "no file")
-//            }
+
            if (self.tourNameText.text?.isEmpty)! || (self.getText?.isEmpty)! || self.startPointLocation == nil || self.endPointLocation == nil
             {
                 print("alert!")
@@ -125,15 +116,7 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
            }
             else
             {
-//                self.activityIndicator.center = self.view.center
-//                self.activityIndicator.hidesWhenStopped = true
-//                self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-//                self.view.addSubview(self.activityIndicator)
-//                self.activityIndicator.startAnimating()
-//                UIApplication.shared.beginIgnoringInteractionEvents()
-        
-    
-                        // Metadata contains file metadata such as size, content-type, and download URL.
+
         let nameRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("tours/\(self.tourId!)/name")
         nameRef.setValue(self.tourNameText.text)
         let typeRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("tours/\(self.tourId!)/TourType")
@@ -162,40 +145,6 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
                 UIApplication.shared.endIgnoringInteractionEvents()
         }
         
-//        ref.updateChildValues([
-//
-//                            "name":"\(self.tourNameText.text)"])
-     
-                
-//                uploadTask.observe(.progress) { [weak self] (snapshot) in
-//                    guard let strongSelf = self else { return }
-//                    guard let progress = snapshot.progress else {return}
-//                    strongSelf.progressView.progress  = Float(progress.fractionCompleted)
-//                    if Int(strongSelf.progressView.progress) == 1{
-//                        
-//                        //              self?.performSegue(withIdentifier: "backView", sender: self)
-//                    }
-//                    uploadTask.observe(.success, handler: {_ in
-//                        
-//                        //                    self?.alertBn(title: "complete", message: "Uploading Successful")
-//                        self?.deregisterFromKeyboardNotifications()
-                
-                      //  if  self?.presentedViewController == nil {
-
-
-//                            )
-        
-//                    })
-//                    
-//                    
-//                }
-//            }
-//            
-//        }
-//        else{
-//            self.alertBn(title: "Reminder", message: "Please log in first")
-//            print("no user")
-//        }
         
     }
     
@@ -329,60 +278,10 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
         self.cancelBn.tintColor = UIColor.white
         self.descText.returnKeyType = UIReturnKeyType.done
         
-        
-        // Do any additional setup after loading the view.
+
     }
     
-    //    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
-    //        if sender.state == UIGestureRecognizerState.began{
-    //            let touchPoint = sender.location(in: mapView)
-    //            let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-    //            let annotation = MKPointAnnotation()
-    //            annotation.coordinate = newCoordinates
-    //            self.endPointLocation = annotation.coordinate
-    //            annotation.title = "EndPoint"
-    //            self.mapView.removeAnnotations(mapView.annotations)
-    //            self.mapView.addAnnotation(annotation)
-    //            self.endPointText.text = annotation.title
-    //        }
-    //
-    //    }
-    //    func addAnnotation(gestureRecognizer:UILongPressGestureRecognizer){
-    ////        let touchPoint = gestureRecognizer.location(in: mapView)
-    ////        let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-    ////        let annotation = MKPointAnnotation()
-    ////        annotation.coordinate = newCoordinates
-    ////        mapView.addAnnotation(annotation)
-    //        if gestureRecognizer.state == UIGestureRecognizerState.began{
-    //            let touchPoint = gestureRecognizer.location(in: mapView)
-    //            let newCoordinates = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-    //            let annotation = MKPointAnnotation()
-    //            annotation.coordinate = newCoordinates
-    //
-    //            CLGeocoder().reverseGeocodeLocation(CLLocation(latitude:newCoordinates.latitude, longitude:newCoordinates.longitude), completionHandler: {(placemarks,error) -> Void in
-    //                if error != nil {
-    //                    print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
-    //                    return
-    //                }
-    //                if (placemarks?.count)! > 0 {
-    //                    let pm = (placemarks?[0])! as CLPlacemark
-    //                    // not all places have thoroughfare & subThoroughfare so validate those values
-    //                    annotation.title = pm.thoroughfare! + ", " + pm.subThoroughfare!
-    //                    annotation.subtitle = pm.subLocality
-    //                    self.mapView.addAnnotation(annotation)
-    //                    print(pm)
-    //
-    //                }
-    //                else {
-    //                    annotation.title = "Unknown Place"
-    //                    self.mapView.addAnnotation(annotation)
-    //                    print("Problem with the data received from geocoder")
-    //                }
-    //
-    //            })
-    //        }
-    //
-    //    }
+
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation{
             return nil

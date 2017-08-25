@@ -9,8 +9,20 @@
 import UIKit
 import Firebase
 import CoreLocation
-class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FloatRatingViewDelegate {
+    /**
+     Returns the rating value when touch events end
+     */
+    func floatRatingView(_ ratingView: FloatRatingView, isUpdating rating:Float) {
+        //self.rating = Int(self.floatRatingView.rating)
+    }
+    
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
+        //self.updatedLabel.text = NSString(format: "%.2f", self.floatRatingView.rating) as String
+    }
 
+
+    @IBOutlet weak var floatRatingView: FloatRatingView!
     @IBOutlet weak var totalEarn: UILabel!
     @IBOutlet weak var totalDownloads: UILabel!
     
@@ -18,12 +30,24 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
     @IBOutlet weak var tableview: UITableView!
     var downloadTours = [DownloadTour]()
     var downloads = [String : String]()
+    var countDownloads = [String : Int]()
     var userNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         fetchTours1()
         
+        self.floatRatingView.emptyImage = UIImage(named: "StarEmpty")
+        self.floatRatingView.fullImage = UIImage(named: "StarFull")
+        // Optional params
+        self.floatRatingView.delegate = self
+        self.floatRatingView.contentMode = UIViewContentMode.scaleAspectFit
+        self.floatRatingView.maxRating = 5
+        self.floatRatingView.minRating = 1
+        //Set star rating
+        self.floatRatingView.rating = 4
+        self.floatRatingView.editable = false
+
         // Do any additional setup after loading the view.
     }
 
@@ -34,17 +58,23 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
     
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var totalEarn : Float = 0.0
+        var totalEarn : Double = 0.0
         print("aaaaaaa\(self.downloadTours.count)")
         for tour in self.downloadTours{
             let downloadNumber = self.downloads[tour.name]
             let numberFormatter = NumberFormatter()
             let number = numberFormatter.number(from: downloadNumber!)
             let numberFloatValue = number!.floatValue
-            let money = tour.price * numberFloatValue * 0.35
+            let money = Double(tour.price * numberFloatValue * 0.35).rounded(toPlaces: 2)//tour.price * numberFloatValue * 0.35
             totalEarn = totalEarn + money
         }
-        self.totalEarn.text = "$\(totalEarn)"
+        let money = Double(totalEarn).rounded(toPlaces: 2)
+        self.totalEarn.text = cleanDollars("\(totalEarn)")//"$\(totalEarn)"
+        //self.downloads.values.
+        //self.downloadTours.sorted({ $0. > $1.fileID })
+
+        let fruitsTupleArray = self.countDownloads.sorted{ $0.value > $1.value }
+        self.mostPopularTour.text = fruitsTupleArray.first?.key
 
         return self.downloadTours.count
     }
@@ -54,15 +84,26 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReportsViewCell", for: indexPath)
             as! MyRoamniReportsViewCell
         cell.nameField.text = self.downloadTours[indexPath.row].name
-        print("wwwwwwwww\(self.downloads[self.downloadTours[indexPath.row].name])")
         cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
         let numberFormatter = NumberFormatter()
         let number = numberFormatter.number(from: cell.downloadsField.text!)
         let numberFloatValue = number!.floatValue
-        let money = self.downloadTours[indexPath.row].price * numberFloatValue * 0.35
-        cell.moneyField.text = "$\(money)"
+        let money = Double(self.downloadTours[indexPath.row].price * numberFloatValue * 0.35).rounded(toPlaces: 2)//self.downloadTours[indexPath.row].price * numberFloatValue * 0.35
+        cell.moneyField.text = cleanDollars("\(money)")//"$\(money)"
         
         return cell
+    }
+    
+    func cleanDollars(_ value: String?) -> String {
+        guard value != nil else { return "$0.00" }
+        let doubleValue = Double(value!) ?? 0.0
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
+        formatter.minimumFractionDigits = (value!.contains(".00")) ? 0 : 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .currencyAccounting
+        return formatter.string(from: NSNumber(value: doubleValue)) ?? "$\(doubleValue)"
     }
     
     func fetchTours1(){
@@ -96,16 +137,14 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
                         //self.downloads.
                         for user in users{
                             if user.value == "buy"{
-                                //print("buy")
                                 self.userNumber = self.userNumber + 1
-                                numberofusers = numberofusers + 1
+                                numberofusers = numberofusers + 1 
                                 print("hhhhh\(self.userNumber)")
                             }
                         }
-                        self.downloads.update(other: [downloadTour.name : "\(numberofusers)"])
-                        //([downloadTour.name : "\(numberofusers)"])
-                        print("wwwwwwwww\(self.downloads)")
-                        self.totalDownloads.text = "\(self.userNumber)"
+                        self.downloads.update(other: [downloadTour.name : "\(numberofusers - 1)"])
+                        self.countDownloads.update(other: [downloadTour.name : numberofusers - 1])
+                        self.totalDownloads.text = "\(self.userNumber - self.downloadTours.count)"
                         print("yyy\(downloadTour.name ) and \(numberofusers)")
                         DispatchQueue.main.async(execute: {self.tableview.reloadData() } )
                         
@@ -133,4 +172,30 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
     }
     */
 
+}
+extension Dictionary {
+    func sortedKeys(isOrderedBefore:(Key,Key) -> Bool) -> [Key] {
+        return Array(self.keys).sorted(by: isOrderedBefore)
+    }
+    
+    // Slower because of a lot of lookups, but probably takes less memory (this is equivalent to Pascals answer in an generic extension)
+    func sortedKeysByValue(isOrderedBefore:(Value, Value) -> Bool) -> [Key] {
+        return sortedKeys {
+            isOrderedBefore(self[$0]!, self[$1]!)
+        }
+    }
+    
+    // Faster because of no lookups, may take more memory because of duplicating contents
+    func keysSortedByValue(isOrderedBefore:(Value, Value) -> Bool) -> [Key] {
+        return Array(self)
+            .sorted() {
+                let (_, lv) = $0
+                let (_, rv) = $1
+                return isOrderedBefore(lv, rv)
+            }
+            .map {
+                let (k, _) = $0
+                return k
+        }
+    }
 }

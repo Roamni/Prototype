@@ -17,6 +17,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     @IBOutlet weak var tableview: UITableView!
     @IBOutlet weak var money: UILabel!
     var downloadTours = [DownloadTour]()
+    var payoutTours = [PayoutTour]()
     var total:Int = 0
     var userNumber = 0
     var hasPaymentDetial = false
@@ -27,16 +28,19 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        fetchTours()
         self.downloadTours.removeAll()
+        self.payoutTours.removeAll()
+        fetchTours()
         fetchTours1()
-        let date = Date()
-        let formatter = DateFormatter()
-        formatter.dateFormat = "dd.MM.yyyy"
-        let result = formatter.string(from: date)
-        dateLabel.text = "(as of \(result))"
+        fetchTours2()
+        //let date = Date()
+        //let formatter = DateFormatter()
+       // formatter.dateFormat = "dd.MM.yyyy"
+        //let result = formatter.string(from: date)
+
+        
         print("lll\(self.downloadTours.count)")
-        self.money.text = "$ 0.00"
+        //self.money.text = "$ 0.00"
         var ref:FIRDatabaseReference?
         let user = FIRAuth.auth()?.currentUser
         let uid = user!.uid
@@ -48,12 +52,8 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                 
             }
             for child in result!{
-                let dictionary = child.value as!  [String : Any]            // tour.setValuesForKeys(dictionary)
-                print(dictionary)
-                print("sssssss\(uid)")
+                let dictionary = child.value as!  [String : Any]
                 let uploadUser = dictionary["uploadUser"] as! String
-                //tourType: dictionary["TourType"] as! String
-                
                 if uid == uploadUser{
                     self.hasPaymentDetial = true
                     print("bbbb\(self.hasPaymentDetial)")
@@ -64,29 +64,77 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        var totalEarn : Double = 0.0
+        print("aaaaaaa\(self.downloadTours.count)")
+        for tour in self.downloadTours{
+            let downloadNumber = self.downloads[tour.name]
+            let numberFormatter = NumberFormatter()
+            let number = numberFormatter.number(from: downloadNumber!)
+            let numberFloatValue = number!.floatValue
+            let money = tour.price * numberFloatValue * 0.35
+            //totalEarn = totalEarn + money
+        }
+        self.money.text = "$\(totalEarn)"
+        
+        for nnn in 0..<self.downloadTours.count{
+            var payoutMoney = Double(0)
+            if nnn < self.payoutTours.count{
+                payoutMoney = Double(self.payoutTours[nnn].money).rounded(toPlaces: 2)
+            }else{
+                payoutMoney = Double(0)
+            }
+            
+            let numberFormatter = NumberFormatter()
+            let number = numberFormatter.number(from: self.downloads[self.downloadTours[nnn].name]!)
+            let numberFloatValue = number!.floatValue
+            var calMoney = Double(self.downloadTours[nnn].price * numberFloatValue * 0.35).rounded(toPlaces: 2)
+            calMoney = calMoney - payoutMoney
+            totalEarn =  totalEarn + calMoney
+            
+        }
+        self.money.text = cleanDollars("\(totalEarn)")
         return self.downloadTours.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReportsPayoutViewCell", for: indexPath)
         as! MyRoamniReportsPayoutViewCell
-    
-            cell.nameField.text = self.downloadTours[indexPath.row].name
-            //cell.moneyField.text = self.downloadTours[0]
-        print("wwwwwwwww\(self.downloads[self.downloadTours[indexPath.row].name])")
-        
-        //        for index in 0...self.downloads.count-1 {
-            //print("\(index) times 5 is \(index * 5)")
-            //if self.downloads
-       // }
-        //self.downloads.
-        //self.downloads[1].keys.
+        cell.nameField.text = self.downloadTours[indexPath.row].name
+        let numberFormatter = NumberFormatter()
+        let number = numberFormatter.number(from: cell.downloadsField.text!)
+        let numberFloatValue = number!.floatValue
+        var calMoney = Double(self.downloadTours[indexPath.row].price * numberFloatValue * 0.35).rounded(toPlaces: 2)//Float(self.downloadTours[indexPath.row].price * numberFloatValue * 0.35)
+        //calMoney = Float(round(1000 * calMoney)/1000)
+        print("dodododododododo \(calMoney)")
+        var payoutMoney = Double(0)
+        if indexPath.row < self.payoutTours.count{
+            payoutMoney = Double(self.payoutTours[indexPath.row].money).rounded(toPlaces: 2)
+        }else{
+            //let payoutMoney = Double(0)
+            payoutMoney = Double(0)
+        }
+        print("dodododododododohhh \(payoutMoney)")
+        calMoney = calMoney - payoutMoney
+        Double(calMoney).rounded(toPlaces: 2)
+        print("dodododododododohhhjjj \(cleanDollars("\(calMoney)"))")
         cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
-        cell.moneyField.text = "0.00"
-        //}
-        //self.downloadTours
+        cell.moneyField.text = cleanDollars("\(calMoney)")//"$\(calMoney)"
+        
         return cell
     }
+    
+    func cleanDollars(_ value: String?) -> String {
+        guard value != nil else { return "$0.00" }
+        let doubleValue = Double(value!) ?? 0.0
+        let formatter = NumberFormatter()
+        formatter.currencyCode = "USD"
+        formatter.currencySymbol = "$"
+        formatter.minimumFractionDigits = (value!.contains(".00")) ? 0 : 2
+        formatter.maximumFractionDigits = 2
+        formatter.numberStyle = .currencyAccounting
+        return formatter.string(from: NSNumber(value: doubleValue)) ?? "$\(doubleValue)"
+    }
+
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
@@ -107,12 +155,41 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
             actionSheetController.addAction(noAction)
             self.present(actionSheetController, animated: true, completion: nil)
         }else{
-            let actionSheetController: UIAlertController = UIAlertController(title: "Congratulation!", message: "You have earned $0.00. To be paid in 60 days", preferredStyle: .alert)
+            
+            let actionSheetController: UIAlertController = UIAlertController(title: "Congratulation!", message: "You have earned $\(self.money.text!). To be paid in 60 days", preferredStyle: .alert)
             let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
             
             }
             actionSheetController.addAction(okAction)
             self.present(actionSheetController, animated: true, completion: nil)
+            var ref:FIRDatabaseReference?
+            ref = FIRDatabase.database().reference()
+            let user = FIRAuth.auth()?.currentUser
+            let uid = user?.uid
+        ref?.child("payoutRecord").childByAutoId().setValue(["date":self.dateLabel.text,"money":self.money.text,"uploadUser":uid])
+            let date = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd.MM.yyyy"
+            let result = formatter.string(from: date)
+            let numberFormatter = NumberFormatter()
+            
+            for tour in self.downloadTours{
+                let number = numberFormatter.number(from: self.downloads[tour.name]!)
+                let numberFloatValue = number!.floatValue
+                let money = tour.price * numberFloatValue * 0.35
+                let nameRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/name")
+                nameRef.setValue(tour.name)
+                let downloadsRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/downloads")
+                downloadsRef.setValue(Int(number!))
+                let moneyRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/money")
+                moneyRef.setValue(money)
+                let uploaderRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/uploadUser")
+                uploaderRef.setValue(uid)
+                let dateRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/date")
+                dateRef.setValue(result)
+
+            }
+
         }
     }
     
@@ -131,12 +208,8 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     func fetchTours(){
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
-        
         ref?.child("tours").observe(.childAdded, with:{ (snapshot) in
-            
             let dictionary = snapshot.value as!  [String : Any]
-        
-            //let longitude = (location["lon"] as! NSString).doubleValue
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
                 if uid == dictionary["uploadUser"] as! String
@@ -192,13 +265,46 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                                 print("hhhhh\(self.userNumber)")
                             }
                         }
-                        self.downloads.update(other: [downloadTour.name : "\(numberofusers)"])
+                        self.downloads.update(other: [downloadTour.name : "\(numberofusers - 1)"])
                         //([downloadTour.name : "\(numberofusers)"])
                         print("wwwwwwwww\(self.downloads)")
-                        self.downLoadTimes.text = "\(self.userNumber)"
-                        print("yyy\(downloadTour.name ) and \(numberofusers)")
+                        //self.downLoadTimes.text = "\(self.userNumber)"
+                        print("yyy\(downloadTour.name ) and \(numberofusers - 1)")
                         DispatchQueue.main.async(execute: {self.tableview.reloadData() } )
                         
+                    }
+                    
+                }
+                else{
+                    print("no permission")
+                }
+            }
+        })
+        
+        
+    }
+    
+    
+    func fetchTours2(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("PreviousTotalPayout").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+            let dictionary = child.value as!  [String : Any]
+            let downloadTour = PayoutTour(name: dictionary["name"] as! String, uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, date: dictionary["date"] as! String, money: Float(dictionary["money"] as! Float), downloads: dictionary["downloads"] as! Int)
+                if let user = FIRAuth.auth()?.currentUser{
+                    let uid = user.uid
+                    if downloadTour.uploadUser == uid
+                    {
+                        self.payoutTours.append(downloadTour)
+                        //print("payoutpayoutpayout\(self.payoutTours)")
+                        DispatchQueue.main.async(execute: {if self.payoutTours.count != 0{
+                            self.dateLabel.text = "(as of \(self.payoutTours[0].date))"
+                        }else{
+                            self.dateLabel.text = "(You have not requested payout before)"
+                            }
+                        } )
                     }
                     
                 }
@@ -228,5 +334,12 @@ extension Dictionary {
         for (key,value) in other {
             self.updateValue(value, forKey:key)
         }
+    }
+}
+extension Double {
+    /// Rounds the double to decimal places value
+    func rounded(toPlaces places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
     }
 }
