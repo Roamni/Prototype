@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 import CoreLocation
-class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FloatRatingViewDelegate {
+import MessageUI
+class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FloatRatingViewDelegate, MFMailComposeViewControllerDelegate {
     /**
      Returns the rating value when touch events end
      */
@@ -56,7 +57,120 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
         // Dispose of any resources that can be recreated.
     }
     
+    class Task: NSObject {
+        var date: String = ""
+        var name: String = ""
+        var startTime: String = ""
+        var endTime: String = ""
+    }
+   
+    var taskArr = [Task]()
+    var task: Task!
 
+    //example data
+    //let filename = "testfile"
+    let strings = ["a","b"]
+    let fileName = "sample.csv"
+    
+    
+    @IBAction func exportCSV(_ sender: Any) {
+        let mailComposeViewController = configuredMailComposeViewController()
+        if MFMailComposeViewController.canSendMail() {
+            self.present(mailComposeViewController, animated: true, completion: nil)
+        } else {
+            self.showSendMailErrorAlert()
+        }
+    }
+    
+    func configuredMailComposeViewController() -> MFMailComposeViewController {
+        let mailComposerVC = MFMailComposeViewController()
+        mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
+        let joinedString = strings.joined(separator: "\n")
+        print(joinedString)
+        mailComposerVC.setToRecipients(["nurdin@gmail.com"])
+        mailComposerVC.setSubject("Sending you an in-app e-mail...")
+        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
+        if let data = (joinedString as NSString).data(using: String.Encoding.utf8.rawValue){
+            //Attach File
+            mailComposerVC.addAttachmentData(data, mimeType: "text/csv", fileName: "sample.csv")
+            //self.presentViewController(mailComposer, animated: true, completion: nil)
+        }
+        
+        return mailComposerVC
+    }
+    
+    func showSendMailErrorAlert() {
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        sendMailErrorAlert.show()
+    }
+    
+    // MARK: MFMailComposeViewControllerDelegate
+    
+    func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
+        controller.dismiss(animated: true, completion: nil)
+        
+    }
+    
+    // MARK: CSV file creating
+    func creatCSV() -> Void {
+        let fileName = "Tasks.csv"
+        let path = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(fileName)
+        var csvText = "Date,Task Name,Time Started,Time Ended\n"
+        
+        for task in taskArr {
+            let newLine = "\(task.date),\(task.name),\(task.startTime),\(task.endTime)\n"
+            csvText.append(newLine)
+        }
+        
+        do {
+            try csvText.write(to: path!, atomically: true, encoding: String.Encoding.utf8)
+        } catch {
+            print("Failed to create file")
+            print("\(error)")
+        }
+        print(path ?? "not found")
+    }
+
+
+
+    func sendEmail() {
+        if MFMailComposeViewController.canSendMail() {
+            let mail = MFMailComposeViewController()
+            mail.mailComposeDelegate = self
+            mail.setToRecipients(["paul@hackingwithswift.com"])
+            mail.setMessageBody("<p>You're so awesome!</p>", isHTML: true)
+            
+            present(mail, animated: true)
+        } else {
+            // show failure alert
+            print("gogogogogo")
+        }
+    }
+    
+    //发送邮件代理方法
+    func mailComposeController(_ controller: MFMailComposeViewController,
+                               didFinishWith result: MFMailComposeResult, error: Error?) {
+        controller.dismiss(animated: true, completion: nil)
+        
+        switch result{
+        case .sent:
+            print("邮件已发送")
+        case .cancelled:
+            print("邮件已取消")
+        case .saved:
+            print("邮件已保存")
+        case .failed:
+            print("邮件发送失败")
+        }
+    }
+  
+ 
+    
+    
+    
+
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var totalEarn : Double = 0.0
         print("aaaaaaa\(self.downloadTours.count)")

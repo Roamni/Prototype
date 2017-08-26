@@ -100,6 +100,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReportsPayoutViewCell", for: indexPath)
         as! MyRoamniReportsPayoutViewCell
         cell.nameField.text = self.downloadTours[indexPath.row].name
+        cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
         let numberFormatter = NumberFormatter()
         let number = numberFormatter.number(from: cell.downloadsField.text!)
         let numberFloatValue = number!.floatValue
@@ -117,7 +118,6 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
         calMoney = calMoney - payoutMoney
         Double(calMoney).rounded(toPlaces: 2)
         print("dodododododododohhhjjj \(cleanDollars("\(calMoney)"))")
-        cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
         cell.moneyField.text = cleanDollars("\(calMoney)")//"$\(calMoney)"
         
         return cell

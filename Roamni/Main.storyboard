@@ -2503,6 +2503,9 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                     <constraint firstAttribute="height" constant="29" id="hSI-T9-F63"/>
                                 </constraints>
                                 <state key="normal" title="Export .CSV"/>
+                                <connections>
+                                    <action selector="exportCSV:" destination="u0j-IP-iSB" eventType="touchUpInside" id="bq5-Zi-Ix1"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0ll-Sk-adm">
                                 <rect key="frame" x="206" y="106" width="133" height="21"/>
