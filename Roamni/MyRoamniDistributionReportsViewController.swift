@@ -30,9 +30,12 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     override func viewDidAppear(_ animated: Bool) {
         self.downloadTours.removeAll()
         self.payoutTours.removeAll()
+        //self.downloadTours.removeAll()
+        //self.payoutTours.removeAll()
         fetchTours()
         fetchTours1()
         fetchTours2()
+        //self.tableview.reloadData()
         //let date = Date()
         //let formatter = DateFormatter()
        // formatter.dateFormat = "dd.MM.yyyy"
@@ -74,25 +77,9 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
             let money = tour.price * numberFloatValue * 0.35
             //totalEarn = totalEarn + money
         }
-        self.money.text = "$\(totalEarn)"
+        //self.money.text = "$\(totalEarn)"
         
-        for nnn in 0..<self.downloadTours.count{
-            var payoutMoney = Double(0)
-            if nnn < self.payoutTours.count{
-                payoutMoney = Double(self.payoutTours[nnn].money).rounded(toPlaces: 2)
-            }else{
-                payoutMoney = Double(0)
-            }
-            
-            let numberFormatter = NumberFormatter()
-            let number = numberFormatter.number(from: self.downloads[self.downloadTours[nnn].name]!)
-            let numberFloatValue = number!.floatValue
-            var calMoney = Double(self.downloadTours[nnn].price * numberFloatValue * 0.35).rounded(toPlaces: 2)
-            calMoney = calMoney - payoutMoney
-            totalEarn =  totalEarn + calMoney
-            
-        }
-        self.money.text = cleanDollars("\(totalEarn)")
+        
         return self.downloadTours.count
     }
     
@@ -100,9 +87,19 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReportsPayoutViewCell", for: indexPath)
         as! MyRoamniReportsPayoutViewCell
         cell.nameField.text = self.downloadTours[indexPath.row].name
-        cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
+        
+        //cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
+        let a:Int = Int(self.downloads[self.downloadTours[indexPath.row].name]!)!
+        var b : Int = 0
+        if indexPath.row < self.payoutTours.count{
+            b = self.payoutTours[indexPath.row].downloads
+        }else{
+            b = 0
+        }
+        cell.downloadsField.text = "\(a - b)"
+        
         let numberFormatter = NumberFormatter()
-        let number = numberFormatter.number(from: cell.downloadsField.text!)
+        let number = numberFormatter.number(from: self.downloads[self.downloadTours[indexPath.row].name]!)
         let numberFloatValue = number!.floatValue
         var calMoney = Double(self.downloadTours[indexPath.row].price * numberFloatValue * 0.35).rounded(toPlaces: 2)//Float(self.downloadTours[indexPath.row].price * numberFloatValue * 0.35)
         //calMoney = Float(round(1000 * calMoney)/1000)
@@ -155,41 +152,53 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
             actionSheetController.addAction(noAction)
             self.present(actionSheetController, animated: true, completion: nil)
         }else{
+            if self.money.text! != "$0.00"{
+                let actionSheetController: UIAlertController = UIAlertController(title: "Congratulation!", message: "You have earned $\(self.money.text!). To be paid in 60 days", preferredStyle: .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
             
-            let actionSheetController: UIAlertController = UIAlertController(title: "Congratulation!", message: "You have earned $\(self.money.text!). To be paid in 60 days", preferredStyle: .alert)
-            let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+                }
+                actionSheetController.addAction(okAction)
+                self.present(actionSheetController, animated: true, completion: nil)
+                var ref:FIRDatabaseReference?
+                ref = FIRDatabase.database().reference()
+                let user = FIRAuth.auth()?.currentUser
+                let uid = user?.uid
+                ref?.child("payoutRecord").childByAutoId().setValue(["date":self.dateLabel.text,"money":self.money.text,"uploadUser":uid])
+                let date = Date()
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd.MM.yyyy"
+                let result = formatter.string(from: date)
+                let numberFormatter = NumberFormatter()
             
+                for tour in self.downloadTours{
+                    let number = numberFormatter.number(from: self.downloads[tour.name]!)
+                    let numberFloatValue = number!.floatValue
+                    let money = tour.price * numberFloatValue * 0.35
+                    let nameRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/name")
+                    nameRef.setValue(tour.name)
+                    let downloadsRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/downloads")
+                    downloadsRef.setValue(Int(number!))
+                    let moneyRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/money")
+                    moneyRef.setValue(money)
+                    let uploaderRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/uploadUser")
+                    uploaderRef.setValue(uid)
+                    let dateRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/date")
+                    dateRef.setValue(result)
+                }
+                self.downloadTours.removeAll()
+                self.payoutTours.removeAll()
+                fetchTours()
+                fetchTours1()
+                fetchTours2()
+            }else{
+                let actionSheetController: UIAlertController = UIAlertController(title: "Sorry!", message: "You have not earned money yet", preferredStyle: .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+                    
+                }
+                actionSheetController.addAction(okAction)
+                self.present(actionSheetController, animated: true, completion: nil)
+                
             }
-            actionSheetController.addAction(okAction)
-            self.present(actionSheetController, animated: true, completion: nil)
-            var ref:FIRDatabaseReference?
-            ref = FIRDatabase.database().reference()
-            let user = FIRAuth.auth()?.currentUser
-            let uid = user?.uid
-        ref?.child("payoutRecord").childByAutoId().setValue(["date":self.dateLabel.text,"money":self.money.text,"uploadUser":uid])
-            let date = Date()
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.MM.yyyy"
-            let result = formatter.string(from: date)
-            let numberFormatter = NumberFormatter()
-            
-            for tour in self.downloadTours{
-                let number = numberFormatter.number(from: self.downloads[tour.name]!)
-                let numberFloatValue = number!.floatValue
-                let money = tour.price * numberFloatValue * 0.35
-                let nameRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/name")
-                nameRef.setValue(tour.name)
-                let downloadsRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/downloads")
-                downloadsRef.setValue(Int(number!))
-                let moneyRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/money")
-                moneyRef.setValue(money)
-                let uploaderRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/uploadUser")
-                uploaderRef.setValue(uid)
-                let dateRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/date")
-                dateRef.setValue(result)
-
-            }
-
         }
     }
     
@@ -299,11 +308,32 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                     {
                         self.payoutTours.append(downloadTour)
                         //print("payoutpayoutpayout\(self.payoutTours)")
-                        DispatchQueue.main.async(execute: {if self.payoutTours.count != 0{
+                        DispatchQueue.main.async(execute: {
+                            
+                            if self.payoutTours.count != 0{
                             self.dateLabel.text = "(as of \(self.payoutTours[0].date))"
                         }else{
                             self.dateLabel.text = "(You have not requested payout before)"
                             }
+                            var totalEarn : Double = 0.0
+                            for nnn in 0..<self.downloadTours.count{
+                                var payoutMoney = Double(0)
+                                if nnn < self.payoutTours.count{
+                                    payoutMoney = Double(self.payoutTours[nnn].money).rounded(toPlaces: 2)
+                                }else{
+                                    payoutMoney = Double(0)
+                                }
+                                
+                                let numberFormatter = NumberFormatter()
+                                let number = numberFormatter.number(from: self.downloads[self.downloadTours[nnn].name]!)
+                                let numberFloatValue = number!.floatValue
+                                var calMoney = Double(self.downloadTours[nnn].price * numberFloatValue * 0.35).rounded(toPlaces: 2)
+                                calMoney = calMoney - payoutMoney
+                                totalEarn =  totalEarn + calMoney
+                                
+                            }
+                            self.money.text = self.cleanDollars("\(totalEarn)")
+                            self.tableview.reloadData()
                         } )
                     }
                     
