@@ -130,9 +130,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             let prodID = t.payment.productIdentifier as String
             
             switch prodID {
-            case "Roamni.Prototype.One.tourone":
-                print("Roamni.Prototype.One.tourone")
-          //      removeAds()
             case "Roamni.Prototype.One.tourtwo":
                 print("Roamni.Prototype.One.tourtwo")
           //      addCoins()
@@ -151,15 +148,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             case "Roamni.Prototype.One.toursevene":
                 print("Roamni.Prototype.One.toursevene")
                 //      addCoins()
-            case "Roamni.Prototype.One.toureighte":
-                print("Roamni.Prototype.One.toureighte")
-            //      addCoins()
-            case "Roamni.Prototype.One.tourninee":
-                print("Roamni.Prototype.One.tourninee")
-            //      addCoins()
-            case "Roamni.Prototype.One.tourtene":
-                print("Roamni.Prototype.One.tourtene")
-            //      addCoins()
             default:
                 print("IAP not found")
             }
@@ -184,9 +172,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 
                 let prodID = p.productIdentifier
                 switch prodID {
-                case "Roamni.Prototype.One.tourone":
-                    print("tourone")
-                    updatePriceButton()
                 case "Roamni.Prototype.One.tourtwo":
                     print("tourtwo")
                     updatePriceButton()
@@ -204,15 +189,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                     updatePriceButton()
                 case "Roamni.Prototype.One.toursevene":
                     print("toursevene")
-                    updatePriceButton()
-                case "Roamni.Prototype.One.toureighte":
-                    print("toureighte")
-                    updatePriceButton()
-                case "Roamni.Prototype.One.tourninee":
-                    print("tourninee")
-                    updatePriceButton()
-                case "Roamni.Prototype.One.tourtene":
-                    print("tourtene")
                     updatePriceButton()
                 default:
                     print("IAP not found")
@@ -252,7 +228,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
     
     @IBAction func pressPriceBtn(_ sender: Any) {
-        if self.priceBtn.titleLabel?.text != "Buy Tour" && self.priceBtn.titleLabel?.text != "Download" && self.priceBtn.titleLabel?.text != "Play"{
+        if self.priceBtn.titleLabel?.text != "Buy Tour" && self.priceBtn.titleLabel?.text != "Download" && self.priceBtn.titleLabel?.text != "Play" && self.priceBtn.titleLabel?.text != "Free"{
             priceBtn.backgroundColor = .clear
             priceBtn.layer.cornerRadius = 5
             priceBtn.layer.borderWidth = 1
@@ -294,6 +270,23 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 }
             }
 
+        }else if self.priceBtn.titleLabel?.text == "Free"{
+            priceBtn.backgroundColor = .clear
+            priceBtn.layer.cornerRadius = 5
+            priceBtn.layer.borderWidth = 1
+            priceBtn.setTitle("Download", for: .normal)
+            priceBtn.layer.borderColor = UIColor.green.cgColor
+            priceBtn.setTitleColor(UIColor.green, for: UIControlState.normal)
+            self.ref = FIRDatabase.database().reference()
+            let detaiTourId = self.detailTour?.tourId
+            let user = FIRAuth.auth()?.currentUser
+            ref?.child("tours").child("\(detaiTourId!)").child("user").observe(.value, with:{ (snapshot) in
+                if !snapshot.hasChild(user!.uid){
+                    self.ref?.child("tours").child("\(detaiTourId!)").child("user").child(user!.uid).setValue("buy")
+                }
+            })
+
+            
         }else if self.priceBtn.titleLabel?.text == "Play"{
             let user = FIRAuth.auth()?.currentUser
             let uidd = user?.uid
@@ -338,32 +331,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             if let user = FIRAuth.auth()?.currentUser{
                 //self.userID? = user.uid
                 print("in app purchase")
-                if self.detailTour!.price == 9.99{
-                    for product in list {
-                        let prodID = product.productIdentifier
-                        if(prodID == "Roamni.Prototype.One.tourtene") {
-                            p = product
-                            buyProduct()
-                        }
-                    }
-                }else if self.detailTour!.price == 8.99{
-                    for product in list {
-                        let prodID = product.productIdentifier
-                        if(prodID == "Roamni.Prototype.One.tourninee") {
-                            p = product
-                            buyProduct()
-                        }
-                    }
-                
-                }else if self.detailTour!.price == 7.99{
-                    for product in list {
-                        let prodID = product.productIdentifier
-                        if(prodID == "Roamni.Prototype.One.toureighte") {
-                            p = product
-                            buyProduct()
-                        }
-                    }
-                }else if self.detailTour!.price == 6.99{
+                if self.detailTour!.price == 6.99{
                     for product in list {
                         let prodID = product.productIdentifier
                         if(prodID == "Roamni.Prototype.One.toursevene") {
@@ -407,14 +375,6 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                     for product in list {
                         let prodID = product.productIdentifier
                         if(prodID == "Roamni.Prototype.One.tourtwo") {
-                            p = product
-                            buyProduct()
-                        }
-                    }
-                }else if self.detailTour!.price == 0.99{
-                    for product in list {
-                        let prodID = product.productIdentifier
-                        if(prodID == "Roamni.Prototype.One.tourone") {
                             p = product
                             buyProduct()
                         }
@@ -617,13 +577,26 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                         }
                         self.activityIndicator.stopAnimating()
                     }else{
-                        self.priceBtn.backgroundColor = .clear
-                        self.priceBtn.layer.cornerRadius = 5
-                        self.priceBtn.layer.borderWidth = 1
-                        self.priceBtn.layer.borderColor = UIColor.blue.cgColor
-                        self.priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
-                        print("jjjjjjj\(self.detailTour!.price)")
-                        self.activityIndicator.stopAnimating()
+                        if Int(self.detailTour!.price) != 0{
+                            self.priceBtn.backgroundColor = .clear
+                            self.priceBtn.layer.cornerRadius = 5
+                            self.priceBtn.layer.borderWidth = 1
+                            self.priceBtn.layer.borderColor = UIColor.blue.cgColor
+                            self.priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
+                            print("jjjjjjj\(self.detailTour!.price)")
+                            print("yesyesyesyesyespricepriceprice")
+                            self.activityIndicator.stopAnimating()
+                        }else{
+                            
+                            self.priceBtn.backgroundColor = .clear
+                            self.priceBtn.layer.cornerRadius = 5
+                            self.priceBtn.layer.borderWidth = 1
+                            self.priceBtn.layer.borderColor = UIColor.blue.cgColor
+                            self.priceBtn.setTitle("Free", for: .normal)
+                            print("jjjjjjj\(self.detailTour!.price)")
+                            print("nononononononopricepriceprice")
+                            self.activityIndicator.stopAnimating()
+                        }
                     }
                     
                     
@@ -689,18 +662,32 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         print("viewview")
         //SKPaymentQueue.default().remove(self)
         //SKPaymentQueue.default().add(self)
+        print("pricepriceprice\(self.detailTour!.price)")
         list.removeAll()
         self.counter = 0
         if let user = FIRAuth.auth()?.currentUser{
             fetchTours()
         }else{
-            self.priceBtn.backgroundColor = .clear
-            self.priceBtn.layer.cornerRadius = 5
-            self.priceBtn.layer.borderWidth = 1
-            self.priceBtn.layer.borderColor = UIColor.blue.cgColor
-            self.priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
-            print("jjjjjjj\(self.detailTour!.price)")
-            self.activityIndicator.stopAnimating()
+            if Int(self.detailTour!.price) != 0{
+                self.priceBtn.backgroundColor = .clear
+                self.priceBtn.layer.cornerRadius = 5
+                self.priceBtn.layer.borderWidth = 1
+                self.priceBtn.layer.borderColor = UIColor.blue.cgColor
+                self.priceBtn.setTitle("$ \(self.detailTour!.price)", for: .normal)
+                print("jjjjjjj\(self.detailTour!.price)")
+                print("yesyesyesyesyespricepriceprice")
+                self.activityIndicator.stopAnimating()
+            }else{
+                
+                self.priceBtn.backgroundColor = .clear
+                self.priceBtn.layer.cornerRadius = 5
+                self.priceBtn.layer.borderWidth = 1
+                self.priceBtn.layer.borderColor = UIColor.blue.cgColor
+                self.priceBtn.setTitle("Free", for: .normal)
+                print("jjjjjjj\(self.detailTour!.price)")
+                print("nononononononopricepriceprice")
+                self.activityIndicator.stopAnimating()
+            }
         }
         
         self.modalVC = storyboard?.instantiateViewController(withIdentifier: "ModalViewController") as? ModalViewController
@@ -708,7 +695,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         
         if(SKPaymentQueue.canMakePayments()) {
             print("IAP is enabled, loading")
-            let productID: NSSet = NSSet(objects: "Roamni.Prototype.One.tourone","Roamni.Prototype.One.tourtwo","Roamni.Prototype.One.tourthreee","Roamni.Prototype.One.tourfoure","Roamni.Prototype.One.tourfivee","Roamni.Prototype.One.toursixe","Roamni.Prototype.One.toursevene","Roamni.Prototype.One.toureighte","Roamni.Prototype.One.tourninee","Roamni.Prototype.One.tourtene")
+            let productID: NSSet = NSSet(objects: "Roamni.Prototype.One.tourtwo","Roamni.Prototype.One.tourthreee","Roamni.Prototype.One.tourfoure","Roamni.Prototype.One.tourfivee","Roamni.Prototype.One.toursixe","Roamni.Prototype.One.toursevene")
             let request: SKProductsRequest = SKProductsRequest(productIdentifiers: productID as! Set<String>)
             request.delegate = self
             request.start()
