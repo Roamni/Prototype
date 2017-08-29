@@ -67,16 +67,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        var totalEarn : Double = 0.0
-        print("aaaaaaa\(self.downloadTours.count)")
-        for tour in self.downloadTours{
-            let downloadNumber = self.downloads[tour.name]
-            let numberFormatter = NumberFormatter()
-            let number = numberFormatter.number(from: downloadNumber!)
-            let numberFloatValue = number!.floatValue
-            let money = tour.price * numberFloatValue * 0.35
-            //totalEarn = totalEarn + money
-        }
+
         //self.money.text = "$\(totalEarn)"
         
         
@@ -185,11 +176,14 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                     let dateRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("PreviousTotalPayout/\(tour.tourId)/date")
                     dateRef.setValue(result)
                 }
-                self.downloadTours.removeAll()
-                self.payoutTours.removeAll()
-                fetchTours()
-                fetchTours1()
-                fetchTours2()
+                self.money.text = "$0.00"
+                //for tickMark in 0..< self.downloads.count
+                //    self.downloadTours[tickMark].
+                //self.downloads[downdownload.key] = "0"
+                //}
+                
+                self.tableview.reloadData()
+                
             }else{
                 let actionSheetController: UIAlertController = UIAlertController(title: "Sorry!", message: "You have not earned money yet", preferredStyle: .alert)
                 let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
