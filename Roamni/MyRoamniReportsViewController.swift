@@ -69,7 +69,6 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
 
     //example data
     //let filename = "testfile"
-    let strings = ["a","b"]
     let fileName = "sample.csv"
     
     
@@ -85,12 +84,29 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
     func configuredMailComposeViewController() -> MFMailComposeViewController {
         let mailComposerVC = MFMailComposeViewController()
         mailComposerVC.mailComposeDelegate = self // Extremely important to set the --mailComposeDelegate-- property, NOT the --delegate-- property
-        let joinedString = strings.joined(separator: "\n")
-        print(joinedString)
-        mailComposerVC.setToRecipients(["nurdin@gmail.com"])
-        mailComposerVC.setSubject("Sending you an in-app e-mail...")
-        mailComposerVC.setMessageBody("Sending e-mail in-app is not so bad!", isHTML: false)
-        if let data = (joinedString as NSString).data(using: String.Encoding.utf8.rawValue){
+        
+       // for tour in self.downloadTours{
+            
+        //}
+        //cell.nameField.text = self.downloadTours[indexPath.row].name
+        //cell.downloadsField.text = self.downloads[self.downloadTours[indexPath.row].name]
+        //var strings = ["a","b"]
+        var mailString = NSMutableString()
+        mailString.append("Tour Name, Total Downloads, Total $\n")
+        for index in 0..<self.downloadTours.count{
+            let numberFormatter = NumberFormatter()
+            let number = numberFormatter.number(from: self.downloads[self.downloadTours[index].name]!)
+            let numberFloatValue = number!.floatValue
+            let money = Double(self.downloadTours[index].price * numberFloatValue * 0.35).rounded(toPlaces: 2)
+            mailString.append("\(self.downloadTours[index].name), \(self.downloads[self.downloadTours[index].name]!), \(cleanDollars("\(money)"))\n")
+        }
+        
+        //let joinedString = strings.joined(separator: "\n")
+        //print(joinedString)
+        mailComposerVC.setToRecipients(["info@roamni.com"])
+        mailComposerVC.setSubject("Sending you a Roamni report")
+        mailComposerVC.setMessageBody("The CSV file reports your Roamni statistics!", isHTML: false)
+        if let data = (mailString as NSString).data(using: String.Encoding.utf8.rawValue){
             //Attach File
             mailComposerVC.addAttachmentData(data, mimeType: "text/csv", fileName: "sample.csv")
             //self.presentViewController(mailComposer, animated: true, completion: nil)
@@ -100,7 +116,7 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
     }
     
     func showSendMailErrorAlert() {
-        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again.", delegate: self, cancelButtonTitle: "OK")
+        let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again, Please open Setting => iTunes => Turn on Mail", delegate: self, cancelButtonTitle: "OK")
         sendMailErrorAlert.show()
     }
     
@@ -108,7 +124,6 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
     
     func mailComposeController(controller: MFMailComposeViewController!, didFinishWithResult result: MFMailComposeResult, error: NSError!) {
         controller.dismiss(animated: true, completion: nil)
-        
     }
     
     // MARK: CSV file creating

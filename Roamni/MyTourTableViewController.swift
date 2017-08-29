@@ -259,8 +259,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         if self.segCon.selectedSegmentIndex == 1{
-            
-        
         let title1 = "       "
         let deleteAction = UITableViewRowAction(style: .default, title: title1) { (action, indexpath) in
             print("delete!!")
@@ -272,8 +270,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
                 
                 ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").removeValue()
-                //ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").
-                //ref.didChangeValue(forKey: <#T##String#>)
                 self.downloadTours.removeAll()
                 self.fetchTours1()
                 self.tableView.reloadData()
@@ -283,15 +279,6 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             actionSheetController.addAction(yesAction)
             actionSheetController.addAction(noAction)
             self.present(actionSheetController, animated: true, completion: nil)
-            
-
-//            let ref = FIRDatabase.database().reference(fromURL: "https://melbourne-footprint.firebaseio.com/")
-//            
-//            ref.child("users/\(self.userid!)/favorite/\(artworks[indexPath.row].Name!)").removeValue()
-//            self.artworks.remove(at: indexPath.row)
-//            self.favourateTableView.reloadData()
-            //self.contentArray.remove(at: indexPath.row)
-            //tableView.deleteRows(at: [indexPath], with: .automatic)
 
         }
         
