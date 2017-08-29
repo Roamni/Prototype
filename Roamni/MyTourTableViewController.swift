@@ -262,23 +262,31 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
         let title1 = "       "
         let deleteAction = UITableViewRowAction(style: .default, title: title1) { (action, indexpath) in
             print("delete!!")
-            let ref = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/")
-            let actionSheetController: UIAlertController = UIAlertController(title: "Do you want to delete the tour?", message: "The tour will be removed permanently", preferredStyle: .alert)
-            let noAction: UIAlertAction = UIAlertAction(title: "No", style: .cancel) { action -> Void in
-                //Just dismiss the action sheet
-            }
-            let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
+            if self.downloadTours[indexPath.row].price == 0.0{
+                let ref = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/")
+                let actionSheetController: UIAlertController = UIAlertController(title: "Do you want to delete the tour?", message: "The tour will be removed permanently", preferredStyle: .alert)
+                let noAction: UIAlertAction = UIAlertAction(title: "No", style: .cancel) { action -> Void in
+                }
+                let yesAction: UIAlertAction = UIAlertAction(title: "Yes", style: .default) { action -> Void in
+                    print("deletedeletedeletedeletedeletedelete\(self.downloadTours[indexPath.row].tourId)")
+                    ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").removeValue()
+                    self.downloadTours.removeAll()
+                    self.fetchTours1()
+                    self.tableView.reloadData()
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.shared.endIgnoringInteractionEvents()
+                }
+                actionSheetController.addAction(yesAction)
+                actionSheetController.addAction(noAction)
+                self.present(actionSheetController, animated: true, completion: nil)
+            }else{
+                let actionSheetController: UIAlertController = UIAlertController(title: "Sorry, you cannot delete a tour which is not free", message: "", preferredStyle: .alert)
+                let okAction: UIAlertAction = UIAlertAction(title: "OK", style: .default) { action -> Void in
+                }
+                actionSheetController.addAction(okAction)
+                self.present(actionSheetController, animated: true, completion: nil)
                 
-                ref.child("tours/\(self.downloadTours[indexPath.row].tourId)").removeValue()
-                self.downloadTours.removeAll()
-                self.fetchTours1()
-                self.tableView.reloadData()
-                self.activityIndicator.stopAnimating()
-                UIApplication.shared.endIgnoringInteractionEvents()
             }
-            actionSheetController.addAction(yesAction)
-            actionSheetController.addAction(noAction)
-            self.present(actionSheetController, animated: true, completion: nil)
 
         }
         
