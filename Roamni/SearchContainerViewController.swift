@@ -19,7 +19,6 @@ class SearchContainerViewController: UIViewController {
     fileprivate(set) weak var container: ContainerViewController!
     
     @IBOutlet weak var swtichBtn: UIBarButtonItem!
-    
     var tourCategory : String?
     var isCurrentInstruction = false
     var detailViewController: DetailViewController? = nil
@@ -37,11 +36,22 @@ class SearchContainerViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         //clearsSelectionOnViewWillAppear = splitViewController!.isCollapsed
         super.viewWillAppear(animated)
-        if self.swtichBtn.image == UIImage(named: "list") && (getTableVCObject?.tableView((getTableVCObject?.tableView)!, numberOfRowsInSection: 1))! != tours.count{
+        if self.swtichBtn.image == UIImage(named: "list") {//&& (getTableVCObject?.tableView((getTableVCObject?.tableView)!, numberOfRowsInSection: 1))! != tours.count{
             getMapVCObject = self.container.currentViewController as? ContainerMapViewController
             getMapVCObject?.places.removeAll()
-            getMapVCObject?.tours = finalTours
+            //getMapVCObject?.tours.removeAll()
+          //  if (getTableVCObject!.tours.count) != 0{
+            getMapVCObject?.tours = (getTableVCObject?.tours)!
+//            }else{
+//                getMapVCObject?.tours.removeAll()
+//                
+//            }
+            //finalTours//tours//finalTours
         }
+        
+        print("tourstourstoursGGGGG\(getTableVCObject!.tours.count)")
+        print("tourstourstoursFilter\(self.filteredTours.count)")
+        print("tourstourstoursFinal\(self.finalTours.count)\(self.finalTours)")
         print("aaaaaaa!")
     }
     
@@ -156,11 +166,13 @@ class SearchContainerViewController: UIViewController {
                 container!.segueIdentifierReceivedFromParent("second")
                 getMapVCObject = self.container.currentViewController as? ContainerMapViewController
             if finalTours.count == 0 || (getTableVCObject?.tableView((getTableVCObject?.tableView)!, numberOfRowsInSection: 1))! == tours.count{
-                getMapVCObject?.tours = self.tours
+                //getMapVCObject?.tours = self.tours
                 getMapVCObject?.places.removeAll()
+                getMapVCObject?.tours = (getTableVCObject?.tours)!
             }else{
-                getMapVCObject?.tours = finalTours
+                //getMapVCObject?.tours = finalTours
                  getMapVCObject?.places.removeAll()
+                getMapVCObject?.tours = (getTableVCObject?.tours)!
             }
         }else{
                 self.swtichBtn.image = UIImage(named: "map")
@@ -170,29 +182,7 @@ class SearchContainerViewController: UIViewController {
         
     }
 
-//    func setupAnimator() {
-//        let animation = MusicPlayerTransitionAnimation(rootVC: self, modalVC: self.modalVC)
-//        animation.completion = { [weak self] isPresenting in
-//            if isPresenting {
-//                guard let _self = self else { return }
-//                let modalGestureHandler = TransitionGestureHandler(targetVC: _self, direction: .bottom)
-//                modalGestureHandler.registerGesture(_self.modalVC.view)
-//                modalGestureHandler.panCompletionThreshold = 15.0
-//                _self.animator?.registerInteractiveTransitioning(.dismiss, gestureHandler: modalGestureHandler)
-//            } else {
-//                self?.setupAnimator()
-//            }
-//        }
-//        
-//        let gestureHandler = TransitionGestureHandler(targetVC: self, direction: .top)
-//        gestureHandler.registerGesture(self.miniPlayerView)
-//        gestureHandler.panCompletionThreshold = 15.0
-//        
-//        self.animator = ARNTransitionAnimator(duration: 0.5, animation: animation)
-//        self.animator?.registerInteractiveTransitioning(.present, gestureHandler: gestureHandler)
-//        
-//        self.modalVC.transitioningDelegate = self.animator
-//    }
+
 
     
     
@@ -222,16 +212,44 @@ class SearchContainerViewController: UIViewController {
             let controller:FilterViewController = segue.destination as! FilterViewController
             
             controller.tours = self.tours
-            controller.returnValueToCaller=handleFilter
+            controller.tourCategory = self.tourCategory
+            controller.returnValueToCaller = handleFilter
+            controller.returnValueToCaller1 = handleFilter1
         
         }
     }
     
     func handleFilter(returnedValue:Any){
+        print("tttttttttttttttttttttkkkkkkk")
         self.getTableVCObject?.tours = returnedValue as! [DownloadTour]
+        //self.getTableVCObject?.tourCategory = returnedValue as! String
         self.getTableVCObject?.tableView.reloadData()
     
     }
+    
+    func handleFilter1(returnedValue:Any){
+        print("ttttttttttttttttttttttt")
+        self.getTableVCObject?.tourCategory = returnedValue as! String
+        print("tttttttttttttttttttttttrrrrrrr\(self.tourCategory)")
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        //delegate.tourCategory = tType
+        self.tourCategory = delegate.tourCategory//"Driving"
+        let textFieldInsideSearchBar = self.searchController.searchBar.value(forKey: "searchField") as! UITextField
+            //controller.tourCategory = "walking"
+            textFieldInsideSearchBar.text = delegate.tourCategory
+//        if self.filteredTours.count == 0 || self.tours.count == 0 || self.finalTours.count == 0{
+//            getTableVCObject?.noDataLabel?.text = "There are no \(delegate.tourCategory!) tours in your area. Be the first to create one! Open Voicememos, record and upload!"
+//        }else{
+//            getTableVCObject?.noDataLabel?.text = ""
+//        }
+        //"Driving"
+        //self.tours.removeAll()
+        //viewDidLoad()
+        //self.getTableVCObject?.tourCategory = returnedValue as! String
+        //self.getTableVCObject?.tableView.reloadData()
+        
+    }
+
     
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -283,7 +301,9 @@ class SearchContainerViewController: UIViewController {
         }
         
         if filteredTours.count == 0 || tours.count == 0 {
+            print("1111111111111")
             if self.activityIndicator.isAnimating == false{
+                print("11112222222222")
                 getTableVCObject?.noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: (getTableVCObject?.tableView.bounds.size.width)!, height: (getTableVCObject?.tableView.bounds.size.height)!))
                 getTableVCObject?.noDataLabel?.lineBreakMode = NSLineBreakMode.byWordWrapping
                 getTableVCObject?.noDataLabel?.numberOfLines = 3
@@ -292,10 +312,18 @@ class SearchContainerViewController: UIViewController {
                 getTableVCObject?.noDataLabel?.textAlignment = .center
                 getTableVCObject?.tableView.backgroundView = getTableVCObject?.noDataLabel
                 getTableVCObject?.tableView.separatorStyle = .none
+                //getTableVCObject?.noDataLabel?.text = ""
+                if finalTours.count != 0{
+                    getTableVCObject?.noDataLabel?.text = ""
+                }
             }else{
+                print("11113333333333")
+
                 getTableVCObject?.noDataLabel?.text = ""
                 }
         }else{
+            print("1111444444444")
+
             getTableVCObject?.noDataLabel?.text = ""
         }
         //let getTableVCObject = self.container.currentViewController as? ContainerTableViewController

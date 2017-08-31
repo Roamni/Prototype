@@ -46,7 +46,6 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
         self.floatRatingView.maxRating = 5
         self.floatRatingView.minRating = 1
         //Set star rating
-        self.floatRatingView.rating = 4
         self.floatRatingView.editable = false
 
         // Do any additional setup after loading the view.
@@ -114,6 +113,7 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
         
         return mailComposerVC
     }
+    
     
     func showSendMailErrorAlert() {
         let sendMailErrorAlert = UIAlertView(title: "Could Not Send Email", message: "Your device could not send e-mail.  Please check e-mail configuration and try again, Please open Setting => iTunes => Turn on Mail", delegate: self, cancelButtonTitle: "OK")
@@ -275,7 +275,16 @@ class MyRoamniReportsViewController: UIViewController, UITableViewDelegate, UITa
                         self.countDownloads.update(other: [downloadTour.name : numberofusers - 1])
                         self.totalDownloads.text = "\(self.userNumber - self.downloadTours.count)"
                         print("yyy\(downloadTour.name ) and \(numberofusers)")
-                        DispatchQueue.main.async(execute: {self.tableview.reloadData() } )
+                        DispatchQueue.main.async(execute: {
+                            var averageRate : Float = 0.0
+                            for tour in self.downloadTours{
+                                averageRate = averageRate + tour.star
+                            }
+                            averageRate = averageRate/Float(self.downloadTours.count)
+                            
+                            self.floatRatingView.rating = averageRate
+                            print("rateraterate\(averageRate)")
+                            self.tableview.reloadData() } )
                         
                     }
                     

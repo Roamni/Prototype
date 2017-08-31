@@ -25,16 +25,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     
     func refresh(sender:AnyObject)
     {
-        // Updating your data here...
-        
-        //let containerVCObject = self.parent as? SearchContainerViewController
-        //containerVCObject?.viewDidLoad()
         print("refreshing")
-        //self.activityIndicator.startAnimating()
-        //UIApplication.shared.endIgnoringInteractionEvents()
-        //tours.removeAll()
-        //searchContainerViewController.viewDidLoad()
-        //tours = searchContainerViewController.finalTours
         self.tours.removeAll()
         fetchTours()
         self.tableView.reloadData()
@@ -98,6 +89,11 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         
         super.viewWillAppear(animated)
         tableView.reloadData()
+        if tours.count != 0{
+            self.noDataLabel?.text = ""
+        }else{
+            //self.noDataLabel?.text = "There are no tours in your area. Be the first to create one! Open Voicememos, record and upload!"
+        }
         let footerView = UIView()
         footerView.backgroundColor = UIColor.white
         footerView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 30)

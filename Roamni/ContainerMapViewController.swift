@@ -24,9 +24,6 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
         super.viewDidLoad()
         mapView.delegate = self
         self.locationManager.delegate = self
-        // Ask user for permission to use location
-        // Uses description from NSLocationAlwaysUsageDescription in Info.plist
-       // locationManager.requestAlwaysAuthorization()
         self.mapView.showsUserLocation = true
         mapView.showsUserLocation = true
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -59,20 +56,23 @@ class ContainerMapViewController: UIViewController,CLLocationManagerDelegate, MK
     
     
     override func viewDidAppear(_ animated: Bool) {
-
+        print("tourstourstoursGGGGGmapmapmapmap\(self.tours.count)")
         super.viewDidLoad()
                 //self.places.removeAll()
         if tours.count != 0
         {
-        mapView.removeAnnotations(mapView.annotations)
+            mapView.removeAnnotations(mapView.annotations)
         
-        for thetour in tours{
-            let place = TourForMap(title: thetour.name, info: thetour.tourType, coordinate: thetour.startLocation)
-            places.append(place)
-        }
+            for thetour in tours{
+                let place = TourForMap(title: thetour.name, info: thetour.tourType, coordinate: thetour.startLocation)
+                places.append(place)
+            }
         
-        mapView.addAnnotations(places)
-        //fetchTours()
+            mapView.addAnnotations(places)
+        }else{
+            //tours.removeAll()
+            mapView.removeAnnotations(mapView.annotations)
+
         }
         // Do any additional setup after loading the view.
     }

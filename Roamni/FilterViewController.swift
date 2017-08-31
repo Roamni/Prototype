@@ -11,9 +11,10 @@ import UIKit
 class FilterViewController: UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UIPickerViewDelegate,UITextFieldDelegate,UIPickerViewDataSource,ValueReturner {
     
     var returnValueToCaller: ((Any) -> ())?
+    var returnValueToCaller1: ((Any) -> ())?
     var Fcontroller:SearchContainerViewController?
     var tours = [DownloadTour]()
-
+    var tourCategory : String?
     
     @IBOutlet weak var textbox: UITextField!
     
@@ -66,7 +67,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
      //   btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Shooping"
+        tType = "Shopping"
 
     }
     
@@ -157,6 +158,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        
  //       btn9.setImage(UIImage(named: "91"), for: UIControlState.normal)
 
     }
@@ -221,7 +223,16 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
             tours = onetours
         
         }
+        let delegate = UIApplication.shared.delegate as! AppDelegate
+        if tType == "default"{
+            tType = ""
+        }
+        delegate.tourCategory = tType
+        //self.tourCategory = "Driving"
         returnValueToCaller?(self.tours)
+        //print("tttttttttttttttttpppppppp\(self.tourCategory!)")
+        returnValueToCaller1?("Driving")
+        
         navigationController!.popViewController(animated: true)
         
         
@@ -234,6 +245,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //print("ttttttttttttttttffff\( self.tourCategory!)")
         // Do any additional setup after loading the view, typically from a nib.
     }
 
