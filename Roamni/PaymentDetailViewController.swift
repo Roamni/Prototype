@@ -56,7 +56,7 @@ class PaymentDetailViewController: UIViewController {
         }else{
             let user = FIRAuth.auth()?.currentUser
             let uid = user?.uid
-            self.ref?.child("paymentDetail").childByAutoId().setValue(["tourName":self.nameField.text,"bsb":self.bsbField.text,"acct":self.acctField.text,"abn":self.abnField.text,"uploadUser":uid])
+            self.ref?.child("paymentDetail").childByAutoId().setValue(["bankName":self.nameField.text,"bsb":self.bsbField.text,"acct":self.acctField.text,"abn":self.abnField.text,"uploadUser":uid])
             dismiss(animated: true, completion: nil)
         }
 

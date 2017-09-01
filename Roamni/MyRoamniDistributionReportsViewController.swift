@@ -289,6 +289,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
     
     
     func fetchTours2(){
+        print("有")
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         ref?.child("PreviousTotalPayout").observeSingleEvent(of:.value, with:{ (snapshot) in
@@ -297,17 +298,19 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
             let dictionary = child.value as!  [String : Any]
             let downloadTour = PayoutTour(name: dictionary["name"] as! String, uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, date: dictionary["date"] as! String, money: Float(dictionary["money"] as! Float), downloads: dictionary["downloads"] as! Int)
                 if let user = FIRAuth.auth()?.currentUser{
+                    print("没有")
                     let uid = user.uid
                     if downloadTour.uploadUser == uid
                     {
                         self.payoutTours.append(downloadTour)
+                        print("没有！")
                         //print("payoutpayoutpayout\(self.payoutTours)")
                         DispatchQueue.main.async(execute: {
-                            
+                            print("有没有！")
                             if self.payoutTours.count != 0{
-                            self.dateLabel.text = "(as of \(self.payoutTours[0].date))"
-                        }else{
-                            self.dateLabel.text = "(You have not requested payout before)"
+                                self.dateLabel.text = "(as of \(self.payoutTours[0].date))"
+                            }else{
+                                self.dateLabel.text = "(You have not requested payout before)"
                             }
                             var totalEarn : Double = 0.0
                             for nnn in 0..<self.downloadTours.count{
@@ -326,6 +329,7 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                                 totalEarn =  totalEarn + calMoney
                                 
                             }
+                            
                             self.money.text = self.cleanDollars("\(totalEarn)")
                             self.tableview.reloadData()
                         } )
@@ -336,21 +340,39 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                     print("no permission")
                 }
             }
+            print("有没有！")
+            if self.payoutTours.count != 0{
+                self.dateLabel.text = "(as of \(self.payoutTours[0].date))"
+            }else{
+                self.dateLabel.text = "(You have not requested payout before)"
+            }
+            var totalEarn : Double = 0.0
+            for nnn in 0..<self.downloadTours.count{
+                var payoutMoney = Double(0)
+                if nnn < self.payoutTours.count{
+                    payoutMoney = Double(self.payoutTours[nnn].money).rounded(toPlaces: 2)
+                }else{
+                    payoutMoney = Double(0)
+                }
+                
+                let numberFormatter = NumberFormatter()
+                let number = numberFormatter.number(from: self.downloads[self.downloadTours[nnn].name]!)
+                let numberFloatValue = number!.floatValue
+                var calMoney = Double(self.downloadTours[nnn].price * numberFloatValue * 0.35).rounded(toPlaces: 2)
+                calMoney = calMoney - payoutMoney
+                totalEarn =  totalEarn + calMoney
+                
+            }
+            
+            self.money.text = self.cleanDollars("\(totalEarn)")
+            self.tableview.reloadData()
+
+            
         })
         
         
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 extension Dictionary {
