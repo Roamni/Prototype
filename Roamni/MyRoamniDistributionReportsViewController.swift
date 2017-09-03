@@ -177,10 +177,6 @@ class MyRoamniDistributionReportsViewController: UIViewController, UITableViewDe
                     dateRef.setValue(result)
                 }
                 self.money.text = "$0.00"
-                //for tickMark in 0..< self.downloads.count
-                //    self.downloadTours[tickMark].
-                //self.downloads[downdownload.key] = "0"
-                //}
                 
                 self.tableview.reloadData()
                 
