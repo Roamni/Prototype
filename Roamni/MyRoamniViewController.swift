@@ -226,11 +226,15 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
 
 }
 extension MyRoamniViewController:FBSDKLoginButtonDelegate{
-    
+
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         try!FIRAuth.auth()?.signOut()
         print("log out of facebook")
         self.tableView.reloadData()
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc: MyRoamniLogViewController = storyboard.instantiateViewController(withIdentifier: "MyRoamniLogViewController") as! MyRoamniLogViewController
+        
+        self.present(vc, animated: true, completion: nil)
         
     }
     
@@ -259,6 +263,5 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
     
     }
     }
-    
     
 }

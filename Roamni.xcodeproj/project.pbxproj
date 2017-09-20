@@ -59,6 +59,8 @@
 		F0296EC01E49D7DB00652816 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EBF1E49D7DB00652816 /* LineView.swift */; };
 		F0296EC21E49D7E200652816 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EC11E49D7E200652816 /* ModalViewController.swift */; };
 		F0296EC41E49DC8400652816 /* MusicPlayerTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */; };
+		F052D5C21F6BED6C00B0FA14 /* MyRoamniLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */; };
+		F052D5C41F7157AA00B0FA14 /* MyRoamniSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */; };
 		F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */; };
 		F05F19CA1E1BC26C00556CD6 /* Roamni.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F05F19C81E1BC26C00556CD6 /* Roamni.xcdatamodeld */; };
 		F05F19CC1E1BC26C00556CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05F19CB1E1BC26C00556CD6 /* Assets.xcassets */; };
@@ -170,6 +172,8 @@
 		F0296EBF1E49D7DB00652816 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		F0296EC11E49D7E200652816 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTransitionAnimation.swift; sourceTree = "<group>"; };
+		F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniLogViewController.swift; sourceTree = "<group>"; };
+		F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniSigninViewController.swift; sourceTree = "<group>"; };
 		F05F19BE1E1BC26C00556CD6 /* Roamni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roamni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05F19C91E1BC26C00556CD6 /* Roamni.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roamni.xcdatamodel; sourceTree = "<group>"; };
@@ -309,6 +313,8 @@
 				F0E3D7D01F20A88100DB9DE5 /* MyRoamniEditToursViewController.swift */,
 				F08E1B2D1F3B6B2F00B8FBA7 /* PaymentDetailViewController.swift */,
 				F012B52F1F4C7E36005159AC /* MyRoamniReportsViewController.swift */,
+				F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */,
+				F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */,
 			);
 			name = MyRoamniController;
 			sourceTree = "<group>";
@@ -554,6 +560,9 @@
 							com.apple.InterAppAudio = {
 								enabled = 0;
 							};
+							com.apple.Keychain = {
+								enabled = 1;
+							};
 							com.apple.Maps.iOS = {
 								enabled = 0;
 							};
@@ -776,11 +785,13 @@
 				F02618051E326252004697EA /* LengthTableViewCell.swift in Sources */,
 				A60834451E24F2D200775187 /* MyRoamniHowViewController.swift in Sources */,
 				F02617F91E2F97C0004697EA /* ContainerViewController.swift in Sources */,
+				F052D5C41F7157AA00B0FA14 /* MyRoamniSigninViewController.swift in Sources */,
 				A608342E1E24F0B100775187 /* MyRoamniUserCell.swift in Sources */,
 				F02617F71E2F95F1004697EA /* ContainerTableViewController.swift in Sources */,
 				A69FD8601E683CDB00167E18 /* MyRoamniIncomingRequestDetail.swift in Sources */,
 				F05F19F61E1D18B700556CD6 /* WalkingTableViewCell.swift in Sources */,
 				F08E1B2E1F3B6B2F00B8FBA7 /* PaymentDetailViewController.swift in Sources */,
+				F052D5C21F6BED6C00B0FA14 /* MyRoamniLogViewController.swift in Sources */,
 				A608343D1E24F27B00775187 /* MyRoamniRequestTourViewController.swift in Sources */,
 				F05F19F81E1D190800556CD6 /* DrivingTableViewCell.swift in Sources */,
 				F063DE1F1E2355DC00424985 /* Tour.swift in Sources */,
