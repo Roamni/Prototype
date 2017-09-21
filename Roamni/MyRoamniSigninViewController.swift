@@ -34,7 +34,7 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
     
     @IBOutlet weak var lastnameField: UITextField!
     
-    @IBOutlet weak var aboutmeText: UITextView!
+
     @IBOutlet weak var countryPicker: UIPickerView!
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var cancelBtn: UIBarButtonItem!
@@ -46,7 +46,7 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
         doneBtn.tintColor = UIColor.white
         countryPicker.delegate = self
         countryPicker.dataSource = self
-        aboutmeText.layer.borderWidth = 1.0
+        //aboutmeText.layer.borderWidth = 1.0
         //aboutmeText.layer.bor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0) as! CGColor
 
         
