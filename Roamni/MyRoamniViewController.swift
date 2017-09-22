@@ -112,7 +112,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 let ref = FIRDatabase.database().reference()
                 ref.child("users/\(uid)/email").setValue(email)
                 
-                cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                //cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
                 cell.userLabel.text = name
             }else
                 {

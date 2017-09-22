@@ -426,6 +426,9 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="HMo-IR-3Tj" eventType="touchUpInside" id="UsB-Kk-8co"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h9o-dc-FKh">
                                 <rect key="frame" x="169" y="499" width="76" height="30"/>
@@ -465,12 +468,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="emailField" destination="caM-32-3AH" id="PKc-2E-8nb"/>
                         <outlet property="loginBn" destination="GRw-GD-JaW" id="gaH-lX-30c"/>
+                        <outlet property="passwordField" destination="mYL-9x-M63" id="KI7-Ea-zZq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDo-CJ-Tzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2742.0289855072465" y="-2321.739130434783"/>
+            <point key="canvasLocation" x="-3365" y="-2322"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">

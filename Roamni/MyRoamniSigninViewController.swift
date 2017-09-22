@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPickerViewDelegate {
     
@@ -46,12 +48,6 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
         doneBtn.tintColor = UIColor.white
         countryPicker.delegate = self
         countryPicker.dataSource = self
-        //aboutmeText.layer.borderWidth = 1.0
-        //aboutmeText.layer.bor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0) as! CGColor
-
-        
-        
-        
         for code in NSLocale.isoCountryCodes as [String] {
             let id = NSLocale.localeIdentifier(fromComponents: [NSLocale.Key.countryCode.rawValue: code])
             let name = NSLocale(localeIdentifier: "en_UK").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
@@ -70,18 +66,35 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
     }
     
     @IBAction func done(_ sender: Any) {
-        if self.emailField.text == "" || self.passwordField.text == "" {
-            
-            //Alert to tell the user that there was an error because they didn't fill anything in the textfields because they didn't fill anything in
-            
-            let alertController = UIAlertController(title: "Error", message: "Please enter an email and password.", preferredStyle: .alert)
+        if self.emailField.text == "" || self.passwordField.text == "" || self.repassword.text == "" || self.firstnameField.text == "" || self.lastnameField.text == "" {
+            let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             
-            self.present(alertController, animated: true, completion: nil)
+            present(alertController, animated: true, completion: nil)
             
+        } else {
+            FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
+                
+                if error == nil {
+                    print("You have successfully signed up")
+                    //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
+                    
+                    let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyRoamniLogViewController")
+                    self.present(vc!, animated: true, completion: nil)
+                    
+                } else {
+                    let alertController = UIAlertController(title: "Error", message: error?.localizedDescription, preferredStyle: .alert)
+                    
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
         }
+    
     }
 
     override func didReceiveMemoryWarning() {
