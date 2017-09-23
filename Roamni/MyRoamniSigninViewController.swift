@@ -27,6 +27,10 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
         return 1
     }
 
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        self.countryname = countries[row]
+        print( self.countryname)
+    }
     
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
@@ -40,6 +44,7 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
     @IBOutlet weak var countryPicker: UIPickerView!
     @IBOutlet weak var doneBtn: UIBarButtonItem!
     @IBOutlet weak var cancelBtn: UIBarButtonItem!
+    var countryname : String!
 
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
