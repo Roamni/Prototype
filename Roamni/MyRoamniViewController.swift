@@ -45,6 +45,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         case 4: return 1
         case 5: return 1
         case 6: return 1
+        case 7: return 1
 //        case 7: return 1
 //        case 8: return 1
         default: return 0
@@ -82,6 +83,9 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             return 50.0//Choose your custom row height
         }
         if indexPath.section == 6{
+            return 50.0//Choose your custom row height
+        }
+        if indexPath.section == 7{
             return 50.0//Choose your custom row height
         }
 //        if indexPath.section == 7{
@@ -159,6 +163,11 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniAboutCell", for: indexPath as IndexPath)
                 as! MyRoamniAboutCell
+            return cell
+        }else if indexPath.section == 7{
+            //Return the cell with identifier AboutTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniEidtProfileCell", for: indexPath as IndexPath)
+                as! MyRoamniEidtProfileCell
             return cell
         }
         else {

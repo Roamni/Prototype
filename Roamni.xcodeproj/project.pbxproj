@@ -62,6 +62,7 @@
 		F052D5C21F6BED6C00B0FA14 /* MyRoamniLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */; };
 		F052D5C41F7157AA00B0FA14 /* MyRoamniSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */; };
 		F052D5C61F767AE100B0FA14 /* MyRoamniTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C51F767AE100B0FA14 /* MyRoamniTermsViewController.swift */; };
+		F052D5C81F76989500B0FA14 /* MyRoamniEidtProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C71F76989500B0FA14 /* MyRoamniEidtProfileCell.swift */; };
 		F05F19C21E1BC26C00556CD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */; };
 		F05F19CA1E1BC26C00556CD6 /* Roamni.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F05F19C81E1BC26C00556CD6 /* Roamni.xcdatamodeld */; };
 		F05F19CC1E1BC26C00556CD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05F19CB1E1BC26C00556CD6 /* Assets.xcassets */; };
@@ -176,6 +177,7 @@
 		F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniLogViewController.swift; sourceTree = "<group>"; };
 		F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniSigninViewController.swift; sourceTree = "<group>"; };
 		F052D5C51F767AE100B0FA14 /* MyRoamniTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniTermsViewController.swift; sourceTree = "<group>"; };
+		F052D5C71F76989500B0FA14 /* MyRoamniEidtProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniEidtProfileCell.swift; sourceTree = "<group>"; };
 		F05F19BE1E1BC26C00556CD6 /* Roamni.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Roamni.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F05F19C11E1BC26C00556CD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F05F19C91E1BC26C00556CD6 /* Roamni.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Roamni.xcdatamodel; sourceTree = "<group>"; };
@@ -289,6 +291,7 @@
 				A69FD85B1E6813B500167E18 /* MyRoamniIncomingTourCell.swift */,
 				F08E1B311F3D739000B8FBA7 /* MyRoamniReportsPayoutViewCell.swift */,
 				F012B5311F4C821A005159AC /* MyRoamniReportsViewCell.swift */,
+				F052D5C71F76989500B0FA14 /* MyRoamniEidtProfileCell.swift */,
 			);
 			name = MyRoamniTableCell;
 			sourceTree = "<group>";
@@ -803,6 +806,7 @@
 				F0296EB11E493EED00652816 /* MyTourTableViewController.swift in Sources */,
 				F05F1A131E1D37E200556CD6 /* RecomTableViewCell.swift in Sources */,
 				F02618031E326222004697EA /* RatingTableViewCell.swift in Sources */,
+				F052D5C81F76989500B0FA14 /* MyRoamniEidtProfileCell.swift in Sources */,
 				F05F1A111E1D37CC00556CD6 /* MoreTableViewCell.swift in Sources */,
 				F012B5321F4C821A005159AC /* MyRoamniReportsViewCell.swift in Sources */,
 				A608344D1E27592F00775187 /* MyRoamniLoginCell.swift in Sources */,
