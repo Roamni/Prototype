@@ -29,6 +29,8 @@ class FeedbackViewController: UIViewController,FloatRatingViewDelegate,UITextVie
         alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alertController, animated: true, completion: nil)
         }
+        
+        //dismiss(animated: true, completion: nil)
     }
     
     var ref:FIRDatabaseReference?
