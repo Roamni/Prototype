@@ -1408,6 +1408,19 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zah-Jq-cgB" id="3yC-yV-Tkt">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-bT-xUC">
+                                                    <rect key="frame" x="89" y="4" width="214" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-N9-H5V">
+                                                    <rect key="frame" x="20" y="4" width="40" height="35"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniLoginCell" id="Il0-0K-hCK" customClass="MyRoamniLoginCell" customModule="Roamni">
@@ -4535,6 +4548,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="play-preview" width="512" height="512"/>
         <image name="prev" width="207" height="211"/>
         <image name="ratingbtn" width="21" height="21"/>
+        <image name="setting" width="1280" height="1280"/>
         <image name="songplay" width="96" height="96"/>
         <image name="submit" width="150" height="63"/>
         <image name="tour" width="306" height="306"/>
