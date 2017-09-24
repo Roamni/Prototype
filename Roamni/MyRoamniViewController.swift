@@ -125,8 +125,12 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 
             }
             return cell
-        }
-        else if indexPath.section == 1{
+        }else if indexPath.section == 1{
+            //Return the cell with identifier AboutTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniEidtProfileCell", for: indexPath as IndexPath)
+                as! MyRoamniEidtProfileCell
+            return cell
+        }else if indexPath.section == 2{
             //Return the cell with identifier BackTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniRequestTourCell", for: indexPath as IndexPath) as! MyRoamniRequestTourCell
             return cell
@@ -163,11 +167,6 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniAboutCell", for: indexPath as IndexPath)
                 as! MyRoamniAboutCell
-            return cell
-        }else if indexPath.section == 7{
-            //Return the cell with identifier AboutTableViewCell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniEidtProfileCell", for: indexPath as IndexPath)
-                as! MyRoamniEidtProfileCell
             return cell
         }
         else {

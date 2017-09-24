@@ -1103,8 +1103,32 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                             <outlet property="userPhoto" destination="Xdj-e8-9zk" id="rWo-iQ-pXF"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniEidtProfileCell" id="7eg-Xs-4Me" customClass="MyRoamniEidtProfileCell" customModule="Roamni" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="98" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7eg-Xs-4Me" id="96Z-55-ZVq">
+                                            <rect key="frame" x="0.0" y="0.0" width="381" height="43.666666666666664"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View and Edit My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="712-GX-tk4">
+                                                    <rect key="frame" x="85" y="9" width="251" height="25"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="editprofile" translatesAutoresizingMaskIntoConstraints="NO" id="FCR-Lf-M9E">
+                                                    <rect key="frame" x="19" y="3" width="40" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="ueh-MK-Fal" kind="show" id="gAn-R4-fUD"/>
+                                        </connections>
+                                    </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniRequestTourCell" rowHeight="45" id="LrP-uZ-pLn" customClass="MyRoamniRequestTourCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="98" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="142" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LrP-uZ-pLn" id="HdA-AQ-QYn">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
@@ -1144,7 +1168,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniDownloadCell" rowHeight="45" id="sq1-aV-CUI" customClass="MyRoamniDownloadCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="143" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="187" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sq1-aV-CUI" id="kZ5-bK-sZx">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="44.5"/>
@@ -1175,7 +1199,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniUploadTourCell" rowHeight="45" id="7zu-Hh-3Ue" customClass="MyRoamniUploadTourCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="188" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="232" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7zu-Hh-3Ue" id="Mr1-TW-epL">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
@@ -1211,7 +1235,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniDistributionCell" rowHeight="45" id="KM0-Y0-ktS" customClass="MyRoamniDistributionCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="233" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="277" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KM0-Y0-ktS" id="t5w-4T-gJY">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="44.5"/>
@@ -1241,7 +1265,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniHowCell" rowHeight="45" id="Csn-Wc-Ida" customClass="MyRoamniHowCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="278" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="322" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Csn-Wc-Ida" id="QkJ-CK-dbh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="44.5"/>
@@ -1275,7 +1299,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniAboutCell" rowHeight="45" id="SNw-Qw-4Sn" customClass="MyRoamniAboutCell" customModule="Roamni">
-                                        <rect key="frame" x="0.0" y="323" width="414" height="45"/>
+                                        <rect key="frame" x="0.0" y="367" width="414" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SNw-Qw-4Sn" id="EIl-AD-gwt">
                                             <rect key="frame" x="0.0" y="0.0" width="381" height="44.5"/>
@@ -1309,23 +1333,6 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <connections>
                                             <segue destination="Bn6-4j-pU9" kind="show" id="pXj-Wf-6Kf"/>
                                         </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniEidtProfileCell" id="7eg-Xs-4Me" customClass="MyRoamniEidtProfileCell" customModule="Roamni" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="368" width="414" height="44"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="7eg-Xs-4Me" id="96Z-55-ZVq">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="View and Edit My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="712-GX-tk4">
-                                                    <rect key="frame" x="85" y="9" width="251" height="25"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniIncomingTourCell" id="hEM-RM-IKT" customClass="MyRoamniIncomingTourCell" customModule="Roamni">
                                         <rect key="frame" x="0.0" y="412" width="414" height="44"/>
@@ -1404,6 +1411,25 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaP-25-slM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2155.072463768116" y="265.76086956521743"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="Fxf-LI-yNQ">
+            <objects>
+                <viewController id="ueh-MK-Fal" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="wgG-gg-DbA"/>
+                        <viewControllerLayoutGuide type="bottom" id="Vg8-lh-tKd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="WlU-Ks-6zf">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Profile" id="pC1-Jx-fUX"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DJp-Ih-LEr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1325" y="376"/>
         </scene>
         <!--My Roamni Incoming Request Table View Controller-->
         <scene sceneID="hdM-Xt-RUm">
@@ -4450,6 +4476,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="bluetable" width="86" height="816"/>
         <image name="checkboxno" width="54" height="46"/>
         <image name="download" width="128" height="128"/>
+        <image name="editprofile" width="512" height="512"/>
         <image name="footprint" width="1056" height="1020"/>
         <image name="ic_keyboard_arrow_left" width="24" height="24"/>
         <image name="ic_keyboard_arrow_right" width="24" height="24"/>
