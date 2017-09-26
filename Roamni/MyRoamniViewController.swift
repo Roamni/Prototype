@@ -220,12 +220,9 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         
         switch(section) {
         case 0:return "  "
-        case 1:return "  "
-//        case 8:return "  "
-
-            
+        case 1:return "  "    
         default :return ""
-    }
+        }
     }
 
 

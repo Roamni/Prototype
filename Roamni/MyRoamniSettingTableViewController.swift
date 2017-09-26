@@ -42,6 +42,16 @@ class MyRoamniSettingTableViewController: UITableViewController {
         
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
+        
+        switch(section) {
+        case 0:return "  "
+        case 1:return "  "
+        default :return ""
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int{
         // #warning Incomplete implementation, return the number of sections
         return 4
