@@ -560,7 +560,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4hb-pD-9At" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3119" y="-2645"/>
+            <point key="canvasLocation" x="2638" y="1556"/>
         </scene>
         <!--My Roamni Log View Controller-->
         <scene sceneID="WXi-I1-Upf">
@@ -1402,26 +1402,39 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                             <segue destination="wcR-3m-5Cf" kind="show" id="2hD-WS-x4K"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Zah-Jq-cgB">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniSettingCell" id="Zah-Jq-cgB" customClass="MyRoamniSettingCell" customModule="Roamni" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="500" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Zah-Jq-cgB" id="3yC-yV-Tkt">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-bT-xUC">
-                                                    <rect key="frame" x="89" y="4" width="214" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tQd-bT-xUC">
+                                                    <rect key="frame" x="89" y="4" width="181" height="36"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-N9-H5V">
-                                                    <rect key="frame" x="20" y="4" width="40" height="35"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="setting" translatesAutoresizingMaskIntoConstraints="NO" id="eUG-N9-H5V">
+                                                    <rect key="frame" x="20" y="3" width="40" height="38"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="1oT-CN-PwQ"/>
+                                                    </constraints>
                                                 </imageView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="tQd-bT-xUC" secondAttribute="trailing" constant="64" id="8BI-u0-vMF"/>
+                                                <constraint firstItem="tQd-bT-xUC" firstAttribute="leading" secondItem="eUG-N9-H5V" secondAttribute="trailing" constant="29" id="Vaa-0w-C4i"/>
+                                                <constraint firstItem="eUG-N9-H5V" firstAttribute="centerY" secondItem="tQd-bT-xUC" secondAttribute="centerY" id="ZtF-jc-Gei"/>
+                                                <constraint firstItem="eUG-N9-H5V" firstAttribute="leading" secondItem="3yC-yV-Tkt" secondAttribute="leadingMargin" constant="12" id="efS-1V-L8o"/>
+                                                <constraint firstItem="tQd-bT-xUC" firstAttribute="top" secondItem="3yC-yV-Tkt" secondAttribute="topMargin" constant="-4" id="lS3-OQ-qgm"/>
+                                                <constraint firstItem="eUG-N9-H5V" firstAttribute="centerY" secondItem="3yC-yV-Tkt" secondAttribute="centerY" id="ohv-2f-Ole"/>
+                                                <constraint firstItem="eUG-N9-H5V" firstAttribute="top" secondItem="3yC-yV-Tkt" secondAttribute="topMargin" constant="-5" id="xvM-ip-eTQ"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="8nL-57-YKY" kind="show" id="Dml-BK-xVv"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniLoginCell" id="Il0-0K-hCK" customClass="MyRoamniLoginCell" customModule="Roamni">
                                         <rect key="frame" x="0.0" y="544" width="375" height="44"/>
@@ -1486,6 +1499,81 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
             </objects>
             <point key="canvasLocation" x="1325" y="376"/>
         </scene>
+        <!--Setting-->
+        <scene sceneID="kjS-uu-5Hv">
+            <objects>
+                <tableViewController id="8nL-57-YKY" customClass="MyRoamniSettingTableViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="78" sectionHeaderHeight="28" sectionFooterHeight="28" id="VjM-3r-fKC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniSettingNameTableViewCell" rowHeight="80" id="3ap-Ip-Mjv" customClass="MyRoamniSettingNameTableViewCell" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ap-Ip-Mjv" id="aSZ-Vn-fSL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIC-sI-Lnp">
+                                            <rect key="frame" x="166" y="28" width="102" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniSettingTermsTableViewCell" rowHeight="40" id="x0J-ui-zTH" customClass="MyRoamniSettingTermsTableViewCell" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="375" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0J-ui-zTH" id="ukl-Ll-PYi">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="39.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roamni Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoQ-rD-bIl">
+                                            <rect key="frame" x="63" y="10" width="217" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="8MR-Ff-k6y" kind="show" id="AJB-1N-7wd"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniSettingVersionTableViewCell" rowHeight="40" id="A9V-bB-paV" customClass="MyRoamniSettingVersionTableViewCell" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="148" width="375" height="40"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A9V-bB-paV" id="3XV-3L-qWs">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version 1.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-6J-T95">
+                                            <rect key="frame" x="63" y="10" width="217" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8nL-57-YKY" id="JHB-R0-OPG"/>
+                            <outlet property="delegate" destination="8nL-57-YKY" id="p0d-dd-YM2"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Setting" id="RFu-fC-lNK"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZEn-jH-cQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3301.5999999999999" y="831.63418290854577"/>
+        </scene>
         <!--Incoming Tours-->
         <scene sceneID="hdM-Xt-RUm">
             <objects>
@@ -1525,7 +1613,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHy-c2-6Vp" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3719.1999999999998" y="622.93853073463276"/>
+            <point key="canvasLocation" x="4177" y="533"/>
         </scene>
         <!--My Roamni Incoming Request Detail-->
         <scene sceneID="0nN-3o-6mo">
@@ -1633,6 +1721,108 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 <placeholder placeholderIdentifier="IBFirstResponder" id="522-wo-OVU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4464" y="1183"/>
+        </scene>
+        <!--Roamni Terms of Service-->
+        <scene sceneID="QEA-BG-XXn">
+            <objects>
+                <viewController id="8MR-Ff-k6y" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hpJ-Jn-He5"/>
+                        <viewControllerLayoutGuide type="bottom" id="lsz-eM-ypV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3r6-is-WBt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OQx-7H-myY">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="Your Acceptance">
+                                        <attributes>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
+                                            <font key="NSOriginalFont" size="14" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                    <fragment>
+                                        <string key="content">
+By visiting the Roamni website or any Roamni products, software, data feeds, and services provided to you on, from, or through the Roamni website (collectively the “Service”) you signify your agreement to these terms and conditions (the “Terms of Service”), Roamni’s Community Guidelines, found at https://www.roamni.com/community_guidelines . If you do not agree to any of these terms, the Roamni Privacy Policy, or the Community Guidelines, please do not use the Service.
+
+Roamni may, in its sole discretion, modify or revise these Terms of Service and policies at any time, and you agree to be bound by such modifications or revisions. Nothing in these Terms of Service shall be deemed to confer any third-party rights or benefits.
+
+Service
+These Terms of Service apply to all users of the Service, including users who are also contributors of Content on the Service. “Content” includes the text, software, scripts, graphics, photos, sounds, music, videos, audiovisual combinations, interactive features and other materials you may view on, access through, or contribute to the Service. The Service includes all aspects of Roamni, including but not limited to all products, software and services offered via the Roamni website, as well as software applications.
+
+The Service may contain links to third party services that are not owned or controlled by Roamni. Roamni has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third party services. In addition, Roamni will not and cannot censor or edit the content of any third-party service. By using the Service, you expressly relieve Roamni from any and all liability arising from your use of any third-party service.
+
+Roamni Accounts
+In order to access some features of the Service, you will have to create a Roamni Account. You may never use another’s account without permission. When creating your account, you must provide accurate and complete information. You are solely responsible for the activity that occurs on your account, and you must keep your account password secure. You must notify Roamni immediately of any breach of security or unauthorized use of your account.
+
+Although Roamni will not be liable for your losses caused by any unauthorized use of your account, you may be liable for the losses of Roamni or others due to such unauthorized use.
+
+General Use of the Service—Permissions and Restrictions
+In your use of the Service, you will comply with all applicable laws. Roamni reserves the right to discontinue any aspect of the Service at any time.
+
+Your Use of Content
+In addition to the general restrictions above, the following restrictions and conditions apply specifically to your use of Content.
+
+The Content on the Service, and the trademarks, service marks and logos (“Marks”) on the Service, are owned by or licensed to Roamni, subject to copyright and other intellectual property rights under the law.
+
+Content is provided to you AS IS. You may access Content for your information and personal use solely as intended through the provided functionality of the Service and as permitted under these Terms of Service. You shall not download any Content unless you see a “download” or similar link displayed by Roamni on the Service for that Content. You shall not copy, reproduce, make available online or electronically transmit, publish, adapt, distribute, transmit, broadcast, display, sell, license, or otherwise exploit any Content for any other purposes without the prior written consent of Roamni or the respective hosts of the Content. Roamni and its licensors reserve all rights not expressly granted in and to the Service and the Content.
+
+You understand that when using the Service, you will be exposed to Content from a variety of sources, and that Roamni is not responsible for the accuracy, usefulness, safety, or intellectual property rights of or relating to such Content. You further understand and acknowledge that you may be exposed to Content that is inaccurate, offensive, indecent, or objectionable, and you agree to waive, and hereby do waive, any legal or equitable rights or remedies you have or may have against Roamni with respect thereto, and, to the extent permitted by applicable law, agree to indemnify and hold harmless Roamni, its owners, operators, affiliates, licensors, and licensees to the fullest extent allowed by law regarding all matters related to your use of the Service.
+
+Your Content and Conduct
+As a Roamni account holder you may submit Content to the Service,. You understand that Roamni does not guarantee any confidentiality with respect to any Content you submit.
+
+You shall be solely responsible for your own Content and the consequences of submitting and publishing your Content on the Service. You affirm, represent, and warrant that you own or have the necessary licenses, rights, consents, and permissions to publish Content you submit; and you license to Roamni all patent, trademark, trade secret, copyright or other proprietary rights in and to such Content for publication on the Service pursuant to these Terms of Service.
+
+For clarity, you retain all of your ownership rights in your Content. However, by submitting Content to Roamni, you hereby grant Roamni a worldwide, non-exclusive, royalty-free, sublicenseable and transferable license to use, reproduce, distribute, prepare derivative works of, display, publish, adapt, make available online or electronically transmit, and perform the Content in connection with the Service and Roamni’s (and its successors’ and affiliates’) business, including without limitation for promoting and redistributing part or all of the Service (and derivative works thereof) in any media formats and through any media channels. You also hereby grant each user of the Service a non-exclusive license to access your Content through the Service, and to use, reproduce, distribute, display, publish, make available online or electronically transmit, and perform such Content as permitted through the functionality of the Service and under these Terms of Service. The above licenses granted by you in video Content you submit to the Service terminate within a commercially reasonable time after you remove or delete your videos from the Service. You understand and agree, however, that Roamni may retain, but not display, distribute, or perform, server copies of your videos that have been removed or deleted. The above licenses granted by you in user comments you submit are perpetual and irrevocable.
+
+You further agree that Content you submit to the Service will not contain third party copyrighted material, or material that is subject to other third party proprietary rights, unless you have permission from the rightful owner of the material or you are otherwise legally entitled to post the material and to grant Roamni all of the license rights granted herein.
+
+You further agree that you will not submit to the Service any Content or other material that is contrary to the Roamni Community Guidelines, currently found at http://www.roamni.com/community_guidelines, which may be updated from time to time, or contrary to applicable local, national, and international laws and regulations.
+
+Roamni does not endorse any Content submitted to the Service by any user or other licensor, or any opinion, recommendation, or advice expressed therein, and Roamni expressly disclaims any and all liability in connection with Content. Roamni does not permit copyright infringing activities and infringement of intellectual property rights on the Service, and Roamni will remove all Content if properly notified that such Content infringes on another’s intellectual property rights. Roamni reserves the right to remove or reject Content without prior notice.
+
+Warranty Disclaimer
+YOU AGREE THAT YOUR USE OF THE SERVICES SHALL BE AT YOUR SOLE RISK. TO THE FULLEST EXTENT PERMITTED BY LAW, ROAMNI, ITS OFFICERS, DIRECTORS, EMPLOYEES, AND AGENTS EXCLUDE ALL WARRANTIES, EXPRESS OR IMPLIED, IN CONNECTION WITH THE SERVICES AND YOUR USE THEREOF. TO THE FULLEST EXTENT PERMITTED BY LAW, ROAMNI EXCLUDES ALL WARRANTIES, CONDITIONS, TERMS OR REPRESENTATIONS ABOUT THE ACCURACY OR COMPLETENESS OF THIS SITE’S CONTENT OR THE CONTENT OF ANY SITES LINKED TO THIS SITE AND ASSUMES NO LIABILITY OR RESPONSIBILITY FOR ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT, (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF OUR SERVICES, (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM OUR SERVICES, (IV) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE WHICH MAY BE TRANSMITTED TO OR THROUGH OUR SERVICES BY ANY THIRD PARTY, AND/OR (V) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SERVICES. ROAMNI DOES NOT WARRANT, ENDORSE, GUARANTEE, OR ASSUME RESPONSIBILITY FOR ANY PRODUCT OR SERVICE ADVERTISED OR OFFERED BY A THIRD PARTY THROUGH THE SERVICES OR ANY HYPERLINKED SERVICES OR FEATURED IN ANY BANNER OR OTHER ADVERTISING, AND ROAMNI WILL NOT BE A PARTY TO OR IN ANY WAY BE RESPONSIBLE FOR MONITORING ANY TRANSACTION BETWEEN YOU AND THIRD-PARTY PROVIDERS OF PRODUCTS OR SERVICES. AS WITH THE PURCHASE OF A PRODUCT OR SERVICE THROUGH ANY MEDIUM OR IN ANY ENVIRONMENT, YOU SHOULD USE YOUR BEST JUDGMENT AND EXERCISE CAUTION WHERE APPROPRIATE.
+
+Limitation of Liability
+TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT SHALL ROAMNI, ITS OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS, BE LIABLE TO YOU FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, PUNITIVE, LOSSES OR EXPENSES OR CONSEQUENTIAL DAMAGES WHATSOEVER RESULTING FROM ANY (I) ERRORS, MISTAKES, OR INACCURACIES OF CONTENT, (II) PERSONAL INJURY OR PROPERTY DAMAGE, OF ANY NATURE WHATSOEVER, RESULTING FROM YOUR ACCESS TO AND USE OF OUR SERVICES, (III) ANY UNAUTHORIZED ACCESS TO OR USE OF OUR SECURE SERVERS AND/OR ANY AND ALL PERSONAL INFORMATION AND/OR FINANCIAL INFORMATION STORED THEREIN, (IV) ANY INTERRUPTION OR CESSATION OF TRANSMISSION TO OR FROM OUR SERVICES, (IV) ANY BUGS, VIRUSES, TROJAN HORSES, OR THE LIKE, WHICH MAY BE TRANSMITTED TO OR THROUGH OUR SERVICES BY ANY THIRD PARTY, AND/OR (V) ANY ERRORS OR OMISSIONS IN ANY CONTENT OR FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF YOUR USE OF ANY CONTENT POSTED, EMAILED, TRANSMITTED, OR OTHERWISE MADE AVAILABLE VIA THE SERVICES, WHETHER BASED ON WARRANTY, CONTRACT, TORT, OR ANY OTHER LEGAL THEORY, AND WHETHER OR NOT THE COMPANY IS ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+
+The Service is controlled and offered by Roamni from its facilities in Australia. Roamni makes no representations that the Service is appropriate or available for use in other locations. Those who access or use the Service from other jurisdictions do so at their own volition and are responsible for compliance with local law.
+
+Indemnity
+To the extent permitted by applicable law, you agree to defend, indemnify and hold harmless Roamni, its parent corporation, officers, directors, employees and agents, from and against any and all claims, damages, obligations, losses, liabilities, costs or debt, and expenses (including but not limited to attorney’s fees) arising from: (i) your use of and access to the Service; (ii) your violation of any term of these Terms of Service; (iii) your violation of any third party right, including without limitation any copyright, property, or privacy right; or (iv) any claim that your Content caused damage to a third party. This defense and indemnification obligation will survive these Terms of Service and your use of the Service.
+
+Ability to Accept Terms of Service
+You affirm that you are either more than 18 years of age, or an emancipated minor, or possess legal parental or guardian consent, and are fully able and competent to enter into the terms, conditions, obligations, affirmations, representations, and warranties set forth in these Terms of Service, and to abide by and comply with these Terms of Service. In any case, you affirm that you are over the age of 13, as the Service is not intended for children under 13. If you are under 13 years of age, then please do not use the Service.
+
+We provide these Terms of Service with our Service so that you know what terms apply to your use. You acknowledge that we have given you a reasonable opportunity to review these Terms of Service and that you have agreed to them.
+
+Assignment
+These Terms of Service, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by Roamni without restriction.</string>
+                                        <attributes>
+                                            <font key="NSFont" size="14" name=".SFNSText"/>
+                                            <font key="NSOriginalFont" size="13" name=".SFNSText"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Roamni Terms of Service" id="j3K-Ps-1h7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQs-yF-ec3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3927" y="1344"/>
         </scene>
         <!--Request A Tour-->
         <scene sceneID="dgz-2J-u2f">

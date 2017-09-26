@@ -30,6 +30,7 @@ class MyRoamniLogViewController: UIViewController {
 
     override func viewDidAppear(_ animated: Bool) {
         //login()
+        logggin()
     }
     
     func logggin(){
