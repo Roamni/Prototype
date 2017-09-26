@@ -12,7 +12,7 @@ class MyRoamniSettingTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.tableFooterView = UIView()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -35,7 +35,7 @@ class MyRoamniSettingTableViewController: UITableViewController {
         case 0: return 1
         case 1: return 1
         case 2: return 1
-            //        case 7: return 1
+        case 3: return 1
         //        case 8: return 1
         default: return 0
         }
@@ -44,7 +44,7 @@ class MyRoamniSettingTableViewController: UITableViewController {
     
     override func numberOfSections(in tableView: UITableView) -> Int{
         // #warning Incomplete implementation, return the number of sections
-        return 3
+        return 4
     }
 
     
@@ -55,10 +55,13 @@ class MyRoamniSettingTableViewController: UITableViewController {
             return 80.0//Choose your custom row height
         }
         if indexPath.section == 1{
-            return 40.0//Choose your custom row height
+            return 50.0//Choose your custom row height
         }
         if indexPath.section == 2{
-            return 40.0//Choose your custom row height
+            return 50.0//Choose your custom row height
+        }
+        if indexPath.section == 3{
+            return 50.0//Choose your custom row height
         }
         return 100.0
     }
@@ -72,6 +75,12 @@ class MyRoamniSettingTableViewController: UITableViewController {
                 as! MyRoamniSettingNameTableViewCell
             return cell
         }else if indexPath.section == 1{
+            //Return the cell with identifier AboutTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniSettingPaymentTableViewCell", for: indexPath as IndexPath)
+                as! MyRoamniSettingPaymentTableViewCell
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            return cell
+        }else if indexPath.section == 2{
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniSettingTermsTableViewCell", for: indexPath as IndexPath)
                 as! MyRoamniSettingTermsTableViewCell

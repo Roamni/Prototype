@@ -468,7 +468,7 @@
                                         </attributes>
                                     </fragment>
                                     <fragment>
-                                        <mutableString key="content">
+                                        <string key="content">
 By visiting the Roamni website or any Roamni products, software, data feeds, and services provided to you on, from, or through the Roamni website (collectively the “Service”) you signify your agreement to these terms and conditions (the “Terms of Service”), Roamni’s Community Guidelines, found at https://www.roamni.com/community_guidelines . If you do not agree to any of these terms, the Roamni Privacy Policy, or the Community Guidelines, please do not use the Service.
 
 Roamni may, in its sole discretion, modify or revise these Terms of Service and policies at any time, and you agree to be bound by such modifications or revisions. Nothing in these Terms of Service shall be deemed to confer any third-party rights or benefits.
@@ -525,7 +525,7 @@ You affirm that you are either more than 18 years of age, or an emancipated mino
 We provide these Terms of Service with our Service so that you know what terms apply to your use. You acknowledge that we have given you a reasonable opportunity to review these Terms of Service and that you have agreed to them.
 
 Assignment
-These Terms of Service, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by Roamni without restriction.</mutableString>
+These Terms of Service, and any rights and licenses granted hereunder, may not be transferred or assigned by you, but may be assigned by Roamni without restriction.</string>
                                         <attributes>
                                             <font key="NSFont" size="14" name=".SFNSText"/>
                                             <font key="NSOriginalFont" size="13" name=".SFNSText"/>
@@ -1111,7 +1111,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="View and Edit My Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="712-GX-tk4">
-                                                    <rect key="frame" x="85" y="9" width="251" height="25"/>
+                                                    <rect key="frame" x="85" y="9" width="212" height="25"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1278,7 +1278,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <rect key="frame" x="0.0" y="322" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Csn-Wc-Ida" id="QkJ-CK-dbh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="money" translatesAutoresizingMaskIntoConstraints="NO" id="sGb-4Z-0Rp">
@@ -1322,7 +1322,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Roamni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6K-Tw-0tK">
-                                                    <rect key="frame" x="88" y="0.0" width="154" height="43"/>
+                                                    <rect key="frame" x="88" y="0.0" width="115" height="43"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1358,7 +1358,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Incoming Tours" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlZ-wo-Aan">
-                                                    <rect key="frame" x="89" y="5" width="222" height="32"/>
+                                                    <rect key="frame" x="89" y="5" width="183" height="32"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -1515,8 +1515,12 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="79.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Roamni" translatesAutoresizingMaskIntoConstraints="NO" id="Uya-5Y-ya9">
+                                            <rect key="frame" x="26" y="6" width="70" height="70"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zIC-sI-Lnp">
-                                            <rect key="frame" x="166" y="28" width="102" height="21"/>
+                                            <rect key="frame" x="136" y="30" width="133" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -1525,40 +1529,69 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniSettingTermsTableViewCell" rowHeight="40" id="x0J-ui-zTH" customClass="MyRoamniSettingTermsTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="108" width="375" height="40"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniSettingPaymentTableViewCell" rowHeight="50" id="pvl-ch-Fzp" customClass="MyRoamniSettingPaymentTableViewCell" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="108" width="375" height="50"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pvl-ch-Fzp" id="b1W-9S-zW5">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Payment Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fu7-RD-tkO">
+                                            <rect key="frame" x="62" y="14" width="208" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paymentdetial" translatesAutoresizingMaskIntoConstraints="NO" id="kWr-6x-wlw">
+                                            <rect key="frame" x="14" y="4" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniSettingTermsTableViewCell" rowHeight="50" id="x0J-ui-zTH" customClass="MyRoamniSettingTermsTableViewCell" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="158" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x0J-ui-zTH" id="ukl-Ll-PYi">
-                                    <rect key="frame" x="0.0" y="0.0" width="342" height="39.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Roamni Terms of Service" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoQ-rD-bIl">
-                                            <rect key="frame" x="63" y="10" width="217" height="21"/>
+                                            <rect key="frame" x="63" y="14" width="217" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="termsofservice" translatesAutoresizingMaskIntoConstraints="NO" id="IC6-e9-oQ6">
+                                            <rect key="frame" x="0.0" y="7" width="68" height="35"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <segue destination="8MR-Ff-k6y" kind="show" id="AJB-1N-7wd"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniSettingVersionTableViewCell" rowHeight="40" id="A9V-bB-paV" customClass="MyRoamniSettingVersionTableViewCell" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="148" width="375" height="40"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniSettingVersionTableViewCell" rowHeight="50" id="A9V-bB-paV" customClass="MyRoamniSettingVersionTableViewCell" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="208" width="375" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A9V-bB-paV" id="3XV-3L-qWs">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="39.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="49.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Version 1.01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9FX-6J-T95">
-                                            <rect key="frame" x="63" y="10" width="217" height="21"/>
+                                            <rect key="frame" x="63" y="14" width="217" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="version" translatesAutoresizingMaskIntoConstraints="NO" id="tsi-Y9-C7g">
+                                            <rect key="frame" x="14" y="4" width="37" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -1822,7 +1855,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQs-yF-ec3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3927" y="1344"/>
+            <point key="canvasLocation" x="3511" y="1625"/>
         </scene>
         <!--Request A Tour-->
         <scene sceneID="dgz-2J-u2f">
@@ -3066,31 +3099,31 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FQ-6T-W0m">
-                                                    <rect key="frame" x="8" y="11" width="190.5" height="21"/>
+                                                    <rect key="frame" x="8" y="11" width="171" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetable" translatesAutoresizingMaskIntoConstraints="NO" id="EEt-bI-MYv">
-                                                    <rect key="frame" x="296.5" y="0.0" width="1" height="816"/>
+                                                    <rect key="frame" x="277" y="0.0" width="1" height="816"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="0V6-jp-mqX"/>
                                                     </constraints>
                                                 </imageView>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetable" translatesAutoresizingMaskIntoConstraints="NO" id="Qcb-Ym-8qW">
-                                                    <rect key="frame" x="206.5" y="0.0" width="1" height="816"/>
+                                                    <rect key="frame" x="187" y="0.0" width="1" height="816"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="1" id="20L-ur-QIh"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XBJ-Ej-qpd">
-                                                    <rect key="frame" x="311.5" y="11" width="99.5" height="21"/>
+                                                    <rect key="frame" x="292" y="11" width="80" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tm4-0J-mM0">
-                                                    <rect key="frame" x="226.5" y="11" width="62" height="21"/>
+                                                    <rect key="frame" x="207" y="11" width="62" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="62" id="Qrk-4j-0n7"/>
                                                     </constraints>
@@ -4734,6 +4767,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="navigator" width="128" height="128"/>
         <image name="next" width="206" height="211"/>
         <image name="partner" width="256" height="256"/>
+        <image name="paymentdetial" width="512" height="512"/>
         <image name="play-download" width="256" height="256"/>
         <image name="play-preview" width="512" height="512"/>
         <image name="prev" width="207" height="211"/>
@@ -4741,8 +4775,10 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="setting" width="1280" height="1280"/>
         <image name="songplay" width="96" height="96"/>
         <image name="submit" width="150" height="63"/>
+        <image name="termsofservice" width="1200" height="632"/>
         <image name="tour" width="306" height="306"/>
         <image name="upload" width="128" height="128"/>
+        <image name="version" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="YIB-t0-b6L"/>
