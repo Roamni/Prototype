@@ -1392,15 +1392,15 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="about" translatesAutoresizingMaskIntoConstraints="NO" id="dj1-RY-d30">
-                                                    <rect key="frame" x="20.999999999999993" y="5" width="40" height="35"/>
+                                                    <rect key="frame" x="21" y="5" width="40" height="35"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="40" id="5UQ-xG-zQN"/>
+                                                        <constraint firstAttribute="width" constant="40" id="Xaf-rH-Jkx"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Roamni" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F6K-Tw-0tK">
-                                                    <rect key="frame" x="86.999999999999986" y="8" width="107.66666666666664" height="29"/>
+                                                    <rect key="frame" x="84" y="8" width="203" height="29"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="191" id="04n-Oz-Ajv"/>
+                                                        <constraint firstAttribute="width" constant="203" id="04n-Oz-Ajv"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -1408,12 +1408,12 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                                 </label>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="dj1-RY-d30" firstAttribute="leading" secondItem="EIl-AD-gwt" secondAttribute="leadingMargin" constant="13" id="0ff-5N-qUD"/>
                                                 <constraint firstItem="F6K-Tw-0tK" firstAttribute="centerY" secondItem="EIl-AD-gwt" secondAttribute="centerY" id="315-YN-4MW"/>
-                                                <constraint firstItem="dj1-RY-d30" firstAttribute="top" secondItem="EIl-AD-gwt" secondAttribute="topMargin" constant="-3" id="KU7-d0-5hC"/>
-                                                <constraint firstItem="dj1-RY-d30" firstAttribute="leading" secondItem="EIl-AD-gwt" secondAttribute="leadingMargin" constant="13" id="MpC-XI-b5a"/>
-                                                <constraint firstItem="dj1-RY-d30" firstAttribute="centerY" secondItem="F6K-Tw-0tK" secondAttribute="centerY" id="RUY-LX-ucA"/>
-                                                <constraint firstItem="F6K-Tw-0tK" firstAttribute="leading" secondItem="dj1-RY-d30" secondAttribute="trailing" constant="26" id="khq-OV-fE9"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="F6K-Tw-0tK" secondAttribute="trailing" constant="56" id="qyB-3c-zSO"/>
+                                                <constraint firstItem="F6K-Tw-0tK" firstAttribute="leading" secondItem="dj1-RY-d30" secondAttribute="trailing" constant="23" id="6ja-CE-719"/>
+                                                <constraint firstItem="dj1-RY-d30" firstAttribute="centerY" secondItem="F6K-Tw-0tK" secondAttribute="centerY" id="eXZ-K2-YDj"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="F6K-Tw-0tK" secondAttribute="trailing" constant="86" id="qyB-3c-zSO"/>
+                                                <constraint firstItem="dj1-RY-d30" firstAttribute="top" secondItem="EIl-AD-gwt" secondAttribute="topMargin" constant="-3" id="wcQ-hC-jYP"/>
                                                 <constraint firstItem="F6K-Tw-0tK" firstAttribute="top" secondItem="EIl-AD-gwt" secondAttribute="topMargin" id="ww9-nQ-CDU"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -3143,7 +3143,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Roamni Stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-tA-Nan">
-                                <rect key="frame" x="14" y="109" width="193" height="29"/>
+                                <rect key="frame" x="14" y="69" width="193" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="XAU-JL-Yqv"/>
                                     <constraint firstAttribute="width" constant="193" id="p1B-Sn-noK"/>
