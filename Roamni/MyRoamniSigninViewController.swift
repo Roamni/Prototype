@@ -73,14 +73,22 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
     
     @IBAction func done(_ sender: Any) {
         if self.emailField.text == "" || self.passwordField.text == "" || self.repassword.text == "" || self.firstnameField.text == "" || self.lastnameField.text == "" {
-            let alertController = UIAlertController(title: "Error", message: "Please enter your email and password", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Error", message: "Please enter your all your information", preferredStyle: .alert)
             
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
             
             present(alertController, animated: true, completion: nil)
             
-        } else {
+        }else if(self.passwordField.text!.caseInsensitiveCompare(self.repassword.text!) != ComparisonResult.orderedSame){
+            print("not same")
+            let alertController = UIAlertController(title: "Error", message: "Your passwords must to be the same", preferredStyle: .alert)
+            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+            alertController.addAction(defaultAction)
+            
+            present(alertController, animated: true, completion: nil)
+            
+        }else {
             FIRAuth.auth()?.createUser(withEmail: emailField.text!, password: passwordField.text!) { (user, error) in
                 
                 if error == nil {
