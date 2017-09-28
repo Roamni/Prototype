@@ -59,6 +59,7 @@
 		F0296EC01E49D7DB00652816 /* LineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EBF1E49D7DB00652816 /* LineView.swift */; };
 		F0296EC21E49D7E200652816 /* ModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EC11E49D7E200652816 /* ModalViewController.swift */; };
 		F0296EC41E49DC8400652816 /* MusicPlayerTransitionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */; };
+		F03B12E61F7CB88000F3EE36 /* MyRoamniMyProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F03B12E51F7CB88000F3EE36 /* MyRoamniMyProfileViewController.swift */; };
 		F052D5C21F6BED6C00B0FA14 /* MyRoamniLogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */; };
 		F052D5C41F7157AA00B0FA14 /* MyRoamniSigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */; };
 		F052D5C61F767AE100B0FA14 /* MyRoamniTermsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F052D5C51F767AE100B0FA14 /* MyRoamniTermsViewController.swift */; };
@@ -182,6 +183,7 @@
 		F0296EBF1E49D7DB00652816 /* LineView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineView.swift; sourceTree = "<group>"; };
 		F0296EC11E49D7E200652816 /* ModalViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ModalViewController.swift; sourceTree = "<group>"; };
 		F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MusicPlayerTransitionAnimation.swift; sourceTree = "<group>"; };
+		F03B12E51F7CB88000F3EE36 /* MyRoamniMyProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRoamniMyProfileViewController.swift; sourceTree = "<group>"; };
 		F052D5C11F6BED6C00B0FA14 /* MyRoamniLogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniLogViewController.swift; sourceTree = "<group>"; };
 		F052D5C31F7157AA00B0FA14 /* MyRoamniSigninViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniSigninViewController.swift; sourceTree = "<group>"; };
 		F052D5C51F767AE100B0FA14 /* MyRoamniTermsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniTermsViewController.swift; sourceTree = "<group>"; };
@@ -345,6 +347,7 @@
 				F052D5C51F767AE100B0FA14 /* MyRoamniTermsViewController.swift */,
 				F052D5CD1F7A256800B0FA14 /* MyRoamniSettingTableViewController.swift */,
 				F0AA81871F7BEDCF002922E8 /* MyRoamniPaymentEditViewController.swift */,
+				F03B12E51F7CB88000F3EE36 /* MyRoamniMyProfileViewController.swift */,
 			);
 			name = MyRoamniController;
 			sourceTree = "<group>";
@@ -825,6 +828,7 @@
 				A608343D1E24F27B00775187 /* MyRoamniRequestTourViewController.swift in Sources */,
 				F05F19F81E1D190800556CD6 /* DrivingTableViewCell.swift in Sources */,
 				F063DE1F1E2355DC00424985 /* Tour.swift in Sources */,
+				F03B12E61F7CB88000F3EE36 /* MyRoamniMyProfileViewController.swift in Sources */,
 				F00B334E1E696559004752B2 /* RatingViewController.swift in Sources */,
 				F05F19CA1E1BC26C00556CD6 /* Roamni.xcdatamodeld in Sources */,
 				F0296EB11E493EED00652816 /* MyTourTableViewController.swift in Sources */,
