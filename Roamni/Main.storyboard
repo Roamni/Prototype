@@ -1144,24 +1144,6 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
             </objects>
             <point key="canvasLocation" x="510.14492753623193" y="-1620.6521739130435"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="r7n-jR-gJe">
-            <objects>
-                <viewController id="bFM-pg-aWJ" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="cVp-RK-qPv"/>
-                        <viewControllerLayoutGuide type="bottom" id="PVW-0I-SYZ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="csE-xJ-eu8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="g6H-nO-Btq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2049" y="-78"/>
-        </scene>
         <!--My Roamni-->
         <scene sceneID="suh-fE-5e0">
             <objects>
@@ -1646,8 +1628,17 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z9t-db-KHG" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
+                                                    <rect key="frame" x="249" y="4" width="118" height="31"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </view>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="rating" destination="z9t-db-KHG" id="oMH-bo-6fz"/>
+                                            <outlet property="tourName" destination="J07-gx-1nT" id="paQ-OQ-s3C"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -1677,9 +1668,10 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IB-ec-Dd0">
-                                <rect key="frame" x="267" y="84" width="92" height="40"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IB-ec-Dd0">
+                                <rect key="frame" x="271" y="84" width="104" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Change photo"/>
                                 <connections>
                                     <action selector="changePhoto:" destination="jLj-8J-qNf" eventType="touchUpInside" id="QGM-0G-Vbm"/>
@@ -1694,18 +1686,8 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="60x-Je-LOf">
-                                <rect key="frame" x="16" y="189" width="343" height="82"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="pDI-fb-5qr"/>
-                                </constraints>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB3-Ai-nkI">
-                                <rect key="frame" x="16" y="279" width="80" height="21"/>
+                                <rect key="frame" x="30" y="279" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1715,9 +1697,13 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="2D7-Fc-pPX"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="jLj-8J-qNf" id="0lk-RH-nrT"/>
+                                    <outlet property="delegate" destination="jLj-8J-qNf" id="BHk-fA-0Na"/>
+                                </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tours Uploaded:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB4-AC-Onc">
-                                <rect key="frame" x="16" y="402" width="137" height="21"/>
+                                <rect key="frame" x="30" y="402" width="137" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="SEw-FW-3xz"/>
                                 </constraints>
@@ -1726,7 +1712,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-xK-tGf">
-                                <rect key="frame" x="161" y="403.5" width="92" height="19.5"/>
+                                <rect key="frame" x="175" y="403.5" width="92" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Col-be-qRC"/>
                                 </constraints>
@@ -1735,13 +1721,13 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded Tours &amp; Reviews:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dG-W8-ZhS">
-                                <rect key="frame" x="16" y="431" width="228" height="21"/>
+                                <rect key="frame" x="30" y="431" width="214" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-ZO-6HF">
-                                <rect key="frame" x="83" y="454" width="76" height="21"/>
+                                <rect key="frame" x="87" y="454" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4BY-eA-Gzd"/>
                                     <constraint firstAttribute="width" constant="76" id="ANv-VA-xzD"/>
@@ -1750,78 +1736,68 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Avg. Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLA-pT-UwY">
-                                <rect key="frame" x="267" y="454" width="92" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="E94-Th-b5P"/>
-                                    <constraint firstAttribute="width" constant="92" id="xOt-U4-UI7"/>
-                                </constraints>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Avg. Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eLA-pT-UwY">
+                                <rect key="frame" x="286" y="454" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="60x-Je-LOf">
+                                <rect key="frame" x="38" y="189" width="339" height="82"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="3dG-W8-ZhS" firstAttribute="trailing" secondItem="VqQ-cc-9yI" secondAttribute="trailing" constant="-22" id="03c-oQ-5Kj"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="412" id="0c4-zR-I5n"/>
-                            <constraint firstItem="3IB-ec-Dd0" firstAttribute="centerY" secondItem="GR7-y1-RSE" secondAttribute="centerY" constant="-3" id="79c-nT-cYF"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" constant="87" id="813-Hg-646"/>
-                            <constraint firstItem="qB3-Ai-nkI" firstAttribute="leading" secondItem="60x-Je-LOf" secondAttribute="leading" id="8Dv-mg-ypf"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="top" secondItem="XMG-d4-8Rt" secondAttribute="top" constant="454" id="8vd-ao-5Kw"/>
-                            <constraint firstItem="60x-Je-LOf" firstAttribute="top" secondItem="Bl8-Cg-7Ub" secondAttribute="bottom" constant="8" symbolic="YES" id="ADn-wh-16s"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="top" secondItem="XMG-d4-8Rt" secondAttribute="top" constant="454" id="AZP-oO-b8w"/>
                             <constraint firstItem="qB3-Ai-nkI" firstAttribute="trailing" secondItem="GR7-y1-RSE" secondAttribute="trailing" id="EiI-jV-C8e"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="leading" secondItem="4lJ-KX-VMp" secondAttribute="leading" id="EmH-GJ-MmU"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="top" secondItem="VqQ-cc-9yI" secondAttribute="bottom" constant="28" id="FPq-aL-Zxj"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="top" secondItem="X2Z-ZO-6HF" secondAttribute="bottom" constant="1" id="Gkw-Rq-4m6"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leadingMargin" constant="67" id="Jam-NR-icc"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="trailing" secondItem="3IB-ec-Dd0" secondAttribute="trailing" id="KKo-rJ-oeP"/>
-                            <constraint firstItem="qB3-Ai-nkI" firstAttribute="top" secondItem="60x-Je-LOf" secondAttribute="bottom" constant="8" symbolic="YES" id="KiL-mn-1by"/>
-                            <constraint firstItem="4lJ-KX-VMp" firstAttribute="top" secondItem="eLA-pT-UwY" secondAttribute="bottom" constant="1" id="KlA-XD-cyW"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="trailing" secondItem="4lJ-KX-VMp" secondAttribute="trailing" id="MpM-Nx-rjb"/>
                             <constraint firstItem="VqQ-cc-9yI" firstAttribute="leading" secondItem="GR7-y1-RSE" secondAttribute="trailing" constant="19" id="ONH-Xl-mrZ"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" constant="302" id="PIt-uD-BPx"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="top" secondItem="GR7-y1-RSE" secondAttribute="bottom" constant="4" id="Pl8-Mf-wux"/>
                             <constraint firstItem="IB4-AC-Onc" firstAttribute="top" secondItem="ZWe-dk-Ztt" secondAttribute="bottom" constant="8" id="Pz3-zt-F67"/>
                             <constraint firstItem="GR7-y1-RSE" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="3" id="Reu-Du-bzL"/>
-                            <constraint firstAttribute="trailing" secondItem="eLA-pT-UwY" secondAttribute="trailing" constant="20" id="Rqf-gk-xpc"/>
                             <constraint firstAttribute="trailing" secondItem="4lJ-KX-VMp" secondAttribute="trailing" id="Tdq-8z-qJ4"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="top" secondItem="ZWe-dk-Ztt" secondAttribute="bottom" constant="60" id="UGK-0y-cJR"/>
-                            <constraint firstItem="3IB-ec-Dd0" firstAttribute="leading" secondItem="VqQ-cc-9yI" secondAttribute="trailing" constant="1" id="UGn-4K-XPQ"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="bottom" secondItem="bLf-Xl-1RJ" secondAttribute="top" id="VuT-N5-YCe"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" constant="87" id="YXy-7W-F2b"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" id="Yq2-5s-tJe"/>
                             <constraint firstItem="Bl8-Cg-7Ub" firstAttribute="top" secondItem="d3P-tv-X5r" secondAttribute="bottom" constant="8" symbolic="YES" id="aWE-8d-dTg"/>
-                            <constraint firstItem="3IB-ec-Dd0" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="20" id="bA9-B4-FnI"/>
                             <constraint firstItem="VqQ-cc-9yI" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="17" id="bL8-KM-xjL"/>
                             <constraint firstItem="3dG-W8-ZhS" firstAttribute="leading" secondItem="IB4-AC-Onc" secondAttribute="leading" id="bna-Z7-fKt"/>
                             <constraint firstItem="ZWe-dk-Ztt" firstAttribute="top" secondItem="qB3-Ai-nkI" secondAttribute="bottom" constant="2" id="cpQ-Ls-038"/>
                             <constraint firstItem="IB4-AC-Onc" firstAttribute="leading" secondItem="qB3-Ai-nkI" secondAttribute="leading" id="cuv-Ul-3iN"/>
                             <constraint firstItem="gHC-xK-tGf" firstAttribute="leading" secondItem="IB4-AC-Onc" secondAttribute="trailing" constant="8" symbolic="YES" id="dsB-Na-4jE"/>
-                            <constraint firstItem="3IB-ec-Dd0" firstAttribute="trailing" secondItem="XMG-d4-8Rt" secondAttribute="trailingMargin" id="eBX-CP-Kjp"/>
-                            <constraint firstItem="Bl8-Cg-7Ub" firstAttribute="leading" secondItem="60x-Je-LOf" secondAttribute="leading" id="egu-Qt-jSt"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="trailing" secondItem="60x-Je-LOf" secondAttribute="trailing" id="eud-Kg-kYp"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="bottom" secondItem="X2Z-ZO-6HF" secondAttribute="bottom" id="iHu-j1-lo0"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="top" secondItem="X2Z-ZO-6HF" secondAttribute="top" id="iXV-1W-o5t"/>
                             <constraint firstItem="GR7-y1-RSE" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leadingMargin" id="kYs-aE-yjO"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="top" secondItem="3dG-W8-ZhS" secondAttribute="bottom" constant="2" id="l2i-Fi-FEt"/>
-                            <constraint firstAttribute="bottom" secondItem="eLA-pT-UwY" secondAttribute="bottom" constant="261" id="lKu-pI-voG"/>
-                            <constraint firstItem="60x-Je-LOf" firstAttribute="trailing" secondItem="3IB-ec-Dd0" secondAttribute="trailing" id="nxC-l4-qvF"/>
                             <constraint firstItem="3dG-W8-ZhS" firstAttribute="top" secondItem="IB4-AC-Onc" secondAttribute="bottom" constant="8" symbolic="YES" id="r4k-Q2-cfw"/>
                             <constraint firstItem="ZWe-dk-Ztt" firstAttribute="leading" secondItem="d3P-tv-X5r" secondAttribute="leading" id="sXt-D0-tUu"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="centerY" secondItem="X2Z-ZO-6HF" secondAttribute="centerY" id="vqh-Eq-zpE"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="trailing" secondItem="XMG-d4-8Rt" secondAttribute="trailingMargin" id="wYh-aL-5ce"/>
                             <constraint firstItem="gHC-xK-tGf" firstAttribute="baseline" secondItem="IB4-AC-Onc" secondAttribute="baseline" id="wZL-m0-rfR"/>
                             <constraint firstAttribute="bottom" secondItem="X2Z-ZO-6HF" secondAttribute="bottom" constant="261" id="xEI-L1-flh"/>
                             <constraint firstItem="ZWe-dk-Ztt" firstAttribute="trailing" secondItem="d3P-tv-X5r" secondAttribute="trailing" id="ymn-gK-vvK"/>
-                            <constraint firstItem="eLA-pT-UwY" firstAttribute="trailing" secondItem="XMG-d4-8Rt" secondAttribute="trailingMargin" id="zZ6-uZ-LJJ"/>
                             <constraint firstItem="Bl8-Cg-7Ub" firstAttribute="leading" secondItem="GR7-y1-RSE" secondAttribute="leading" id="zv7-z2-nET"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="My Profile" id="mXj-7D-73s"/>
+                    <navigationItem key="navigationItem" title="My Profile" id="mXj-7D-73s">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="ue0-g9-cci">
+                            <connections>
+                                <action selector="done:" destination="jLj-8J-qNf" id="iyt-GD-5Ah"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="aboutme" destination="60x-Je-LOf" id="dXn-JA-yCU"/>
+                        <outlet property="countryPicker" destination="ZWe-dk-Ztt" id="hgR-rY-MFp"/>
                         <outlet property="tableview" destination="4lJ-KX-VMp" id="l2E-sC-b8q"/>
                         <outlet property="uploadTourNumber" destination="gHC-xK-tGf" id="6mU-Nv-ret"/>
                         <outlet property="userImage" destination="GR7-y1-RSE" id="Vdz-mp-yPz"/>
@@ -1830,7 +1806,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtG-ud-FNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1454" y="-211"/>
+            <point key="canvasLocation" x="1453.5999999999999" y="-211.84407796101951"/>
         </scene>
         <!--Setting-->
         <scene sceneID="kjS-uu-5Hv">
@@ -4394,7 +4370,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-yw-XOe" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="65" y="139" width="245" height="24"/>
+                                <rect key="frame" x="65" y="119" width="245" height="44"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>

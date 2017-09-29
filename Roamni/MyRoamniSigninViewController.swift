@@ -59,7 +59,7 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
             let name = NSLocale(localeIdentifier: "en_UK").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
             countries.append(name)
         }
-        
+        self.hideKeyboardWhenTappedAround()
         print(countries)
         //countryPicker.
 

@@ -112,14 +112,17 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             cell.loginBn.readPermissions =  ["public_profile","email"]
             cell.loginBn.delegate = self
             if let user = FIRAuth.auth()?.currentUser{
+                //user.
                 let email = user.email
                 let uid = user.uid
                 let name = user.displayName
                 let photo = user.photoURL
                 let ref = FIRDatabase.database().reference()
                 ref.child("users/\(uid)/email").setValue(email)
+                if user.photoURL != nil{
+                    cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                }
                 
-                //cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
                 cell.userLabel.text = name
             }else
                 {

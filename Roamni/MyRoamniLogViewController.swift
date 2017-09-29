@@ -22,6 +22,7 @@ class MyRoamniLogViewController: UIViewController {
         super.viewDidLoad()
         //loginButton.delegate = self
         //print("loglog")
+        self.hideKeyboardWhenTappedAround()
         self.loginBn.readPermissions =  ["public_profile","email"]
         self.loginBn.delegate = self
        
