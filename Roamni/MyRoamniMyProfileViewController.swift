@@ -155,7 +155,10 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                         //self.totalDownloads.text = "\(self.userNumber - self.downloadTours.count)"
                         print("yyy\(downloadTour.name ) and \(numberofusers)")
                         DispatchQueue.main.async(execute: {
-                            self.tableview.reloadData() } )
+                            self.tableview.reloadData()
+                            self.uploadTourNumber.text = "\(self.downloadTours.count)"
+                            
+                        } )
                         
                     }
                     
