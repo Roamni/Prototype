@@ -25,12 +25,15 @@ class MyRoamniLogViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         self.loginBn.readPermissions =  ["public_profile","email"]
         self.loginBn.delegate = self
+        
+
        
         // Do any additional setup after loading the view.
     }
 
     override func viewDidAppear(_ animated: Bool) {
         //login()
+        loginBn.applyDesign()
         logggin()
     }
     
@@ -150,3 +153,27 @@ extension MyRoamniLogViewController:FBSDKLoginButtonDelegate{
     }
     
 }
+extension FBSDKLoginButton{
+    func applyDesign(){
+        self.backgroundColor = UIColor.darkGray
+        self.layer.cornerRadius = self.frame.height / 2
+        self.setTitleColor(UIColor.white, for: .normal)
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset =  CGSize(width:0,height:0)
+    }
+}
+
+class roundButton : UIButton{
+    override func didMoveToWindow() {
+        self.backgroundColor = UIColor.darkGray
+        self.layer.cornerRadius = self.frame.height / 2
+        self.setTitleColor(UIColor.white, for: .normal)
+        self.layer.shadowColor = UIColor.darkGray.cgColor
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowOffset =  CGSize(width:0,height:0)
+    }
+}
+

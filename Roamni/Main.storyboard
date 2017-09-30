@@ -1688,7 +1688,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Change photo"/>
                                 <connections>
-                                    <action selector="changePhoto:" destination="jLj-8J-qNf" eventType="touchUpInside" id="QGM-0G-Vbm"/>
+                                    <action selector="setImage:" destination="jLj-8J-qNf" eventType="touchUpInside" id="tNF-nO-DGL"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl8-Cg-7Ub">

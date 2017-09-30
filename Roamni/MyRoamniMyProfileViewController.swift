@@ -52,6 +52,17 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     }
 
     
+    @IBAction func setImage(_ sender: Any) {
+        let image = UIImagePickerController()
+        image.delegate = self
+        image.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        image.allowsEditing = false
+        self.present(image, animated:true){
+            
+        }
+    }
+    
+    
     var countries: [String] = []
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
@@ -73,6 +84,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     }
     
     @IBAction func done(_ sender: Any) {
+        
     }
     
     
@@ -83,6 +95,15 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     
 
     @IBAction func changePhoto(_ sender: Any) {
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            userImage.image = image
+        }else{
+            print("error image")
+        }
+        self.dismiss(animated: true, completion: nil)
     }
     
     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: NSDictionary!){
