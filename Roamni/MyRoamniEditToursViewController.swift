@@ -145,7 +145,6 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
                 UIApplication.shared.endIgnoringInteractionEvents()
         }
         
-        
     }
     
     func checkLogin() -> Void {

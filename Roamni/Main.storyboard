@@ -495,6 +495,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="checkboxno"/>
                                 <connections>
+                                    <action selector="checkbox:" destination="86r-Xr-CoK" eventType="touchUpInside" id="ASU-Xm-Rn6"/>
                                     <action selector="checkbox:" destination="Opk-sC-MKG" eventType="touchUpInside" id="Pej-kq-E4T"/>
                                 </connections>
                             </button>
@@ -536,7 +537,20 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment Detial" id="RdN-Bs-M9q"/>
+                    <navigationItem key="navigationItem" title="Payment Detial" id="RdN-Bs-M9q">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="TEE-kt-wgY">
+                            <connections>
+                                <action selector="submit:" destination="86r-Xr-CoK" id="42x-tg-zJP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="abnField" destination="PJF-Ad-yvV" id="Gie-ic-jII"/>
+                        <outlet property="acctField" destination="8S4-Q6-c1J" id="Ga1-hv-iOh"/>
+                        <outlet property="bsbField" destination="6Pb-7d-a34" id="dzt-C6-2V1"/>
+                        <outlet property="checkBtn" destination="c4K-is-nvB" id="OoK-2a-4AJ"/>
+                        <outlet property="nameField" destination="mA8-22-nny" id="XIL-oO-O6z"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24K-t5-kZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

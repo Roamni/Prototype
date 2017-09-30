@@ -89,6 +89,7 @@
 		F063DE1D1E22929D00424985 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F063DE1C1E22929D00424985 /* DetailViewController.swift */; };
 		F063DE1F1E2355DC00424985 /* Tour.swift in Sources */ = {isa = PBXBuildFile; fileRef = F063DE1E1E2355DC00424985 /* Tour.swift */; };
 		F063DE211E239B0400424985 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F063DE201E239B0400424985 /* Main.storyboard */; };
+		F07B70881F7FAFF400BDB2CC /* PaymentDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07B70871F7FAFF400BDB2CC /* PaymentDetail.swift */; };
 		F07D7CDA1F4B154400985701 /* UploadPiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D7CD91F4B154400985701 /* UploadPiceViewController.swift */; };
 		F080D7671E2DF5AC0031B1CD /* TourForMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7661E2DF5AC0031B1CD /* TourForMap.swift */; };
 		F080D7691E2F4A510031B1CD /* SearchContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */; };
@@ -220,6 +221,7 @@
 		F063DE1C1E22929D00424985 /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		F063DE1E1E2355DC00424985 /* Tour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tour.swift; sourceTree = "<group>"; };
 		F063DE201E239B0400424985 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		F07B70871F7FAFF400BDB2CC /* PaymentDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetail.swift; sourceTree = "<group>"; };
 		F07D7CD91F4B154400985701 /* UploadPiceViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadPiceViewController.swift; sourceTree = "<group>"; };
 		F080D7661E2DF5AC0031B1CD /* TourForMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourForMap.swift; sourceTree = "<group>"; };
 		F080D7681E2F4A510031B1CD /* SearchContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContainerViewController.swift; sourceTree = "<group>"; };
@@ -385,6 +387,7 @@
 				F080D7661E2DF5AC0031B1CD /* TourForMap.swift */,
 				A60A3BED1E4CE4B2005E2D0A /* DownloadTour.swift */,
 				F012B5331F504DB0005159AC /* PayoutTour.swift */,
+				F07B70871F7FAFF400BDB2CC /* PaymentDetail.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -446,7 +449,6 @@
 				A6A639911E1DF5AA0026E207 /* GoogleService-Info.plist */,
 				A6B901981E3A446500516908 /* Extensions.swift */,
 				F0296EBF1E49D7DB00652816 /* LineView.swift */,
-				F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */,
 				A60A3BEB1E4CA156005E2D0A /* KeyboardHideExtension.swift */,
 				A670A1C51E5FD99D0044D4F3 /* ViewController.swift */,
 				A670A1C71E5FD9F20044D4F3 /* LocationSearchTable.swift */,
@@ -456,6 +458,7 @@
 				F08A66121E7294D7008AE869 /* FilterViewController.swift */,
 				F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */,
 				A68239501E8A97A100F62A68 /* testViewController.swift */,
+				F0296EC31E49DC8400652816 /* MusicPlayerTransitionAnimation.swift */,
 				F0F2D92A1E59F783004F21C4 /* img.jpeg */,
 				F05F19D01E1BC26C00556CD6 /* Info.plist */,
 				F0296EB41E49480600652816 /* Supporting Files */,
@@ -860,6 +863,7 @@
 				F08A66151E7294DF008AE869 /* ImageCollectionViewCell.swift in Sources */,
 				F00B334C1E696551004752B2 /* FloatRatingView.swift in Sources */,
 				F052D5CA1F77808D00B0FA14 /* MyRoamniGiveFeedbackCell.swift in Sources */,
+				F07B70881F7FAFF400BDB2CC /* PaymentDetail.swift in Sources */,
 				F052D5D21F7A2D2B00B0FA14 /* MyRoamniSettingTermsTableViewCell.swift in Sources */,
 				F05F1A0D1E1D37A900556CD6 /* RealTableViewCell.swift in Sources */,
 				A63EF1231E6E3E2E0064ACDF /* NearByCollectionViewController.swift in Sources */,
