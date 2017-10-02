@@ -181,6 +181,8 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         controller.filterContentForSearchText(categories[indexPath.item]["name"]!, scope: "Tour Name")
     }
     
+    
+
     // MARK: UICollectionViewDelegate
 
     /*

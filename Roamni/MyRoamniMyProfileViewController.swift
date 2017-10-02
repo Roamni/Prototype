@@ -17,6 +17,9 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
 
 
     
+    @IBOutlet weak var firstname: UITextField!
+    @IBOutlet weak var lastname: UITextField!
+    
     @IBOutlet weak var setImage: UIButton!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
@@ -113,9 +116,11 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                             let downloadURL = metadata!.downloadURL()
                             let downloadurl:String = (downloadURL?.absoluteString)!
                             
-                            let imageRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("users/\(self.userid!)/image")
-                            
+                            let imageRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("usersinfor/\(self.userid!)/image")
+                            let aboutmeRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("usersinfor/\(self.userid!)/aboutme")
                             imageRef.setValue(downloadurl)
+                            aboutmeRef.setValue(self.aboutme.text!)
+                            self.dismiss(animated: true, completion: nil)
                             
                             //self?.child("users").childByAutoId().setValue(["image":downloadurl])
                         }
@@ -233,35 +238,49 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     }
     
     func fetchUser(){
+        print("1111111111111111")
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
-        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
+        ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
             for child in result!{
+                print("1111111111111122")
                 let dictionary = child.value as!  [String : Any]
-                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
-                
-                //print("aaaaaa\(dictionary["uploadUser"])")
-                if let user = FIRAuth.auth()?.currentUser{
-                    
-                    let uemail = user.email
-                    if  downloaduser.email == uemail
-                    {
-                        
-                        self.logedUser = downloaduser
-                        self.userName.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
-                        self.aboutme.text = self.logedUser?.aboutme
-                        self.userImage.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
-                        print("\(self.logedUser!.userimage) andand \(self.logedUser!.firstname) \(self.logedUser!.email)")
-                        self.userid = child.key
-                        //self.downloadPayments.append(downloadTour)
-                        //print(self.downloadTours)
-                        DispatchQueue.main.async(execute: { } )
+//                let lastname = dictionary["lastname"] as? String
+//                print("testestest\(lastname)")
+//                if lastname != nil{
+                    let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                    if let user = FIRAuth.auth()?.currentUser{
+                        print("1111111111111133")
+                        let uemail = user.email
+                        if  downloaduser.email == uemail
+                        {
+                            print("1111111111111144")
+                            self.logedUser = downloaduser
+                            print("\(self.logedUser!.firstname)  andand \(self.logedUser!.lastname)")
+                            self.firstname.text = self.logedUser!.firstname
+                            self.lastname.text = self.logedUser!.lastname
+                            self.aboutme.text = self.logedUser?.aboutme
+                            if self.logedUser!.userimage != "image"{
+                                self.userImage.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                            }
+                            print("\(self.logedUser!.userimage) andand \(self.logedUser!.firstname) \(self.logedUser!.email)")
+                            self.userid = child.key
+                            //self.downloadPayments.append(downloadTour)
+                            //print(self.downloadTours)
+                            DispatchQueue.main.async(execute: { } )
+                        }
                     }
-                }
-                else{
-                    print("no permission")
-                }
+                    else{
+                        print("1111111111111144")
+                        print("no permission")
+                    }
+//                }else{
+//                    ref?.child("users/\(child.key)").removeValue()
+//                }
+                
+                
+                
             }
         })
         

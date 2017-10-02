@@ -1673,17 +1673,8 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <constraint firstAttribute="height" constant="1" id="YPH-3q-oZk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VqQ-cc-9yI">
-                                <rect key="frame" x="115" y="81" width="151" height="42"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="151" id="aAB-iT-LAc"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IB-ec-Dd0">
-                                <rect key="frame" x="271" y="68" width="104" height="40"/>
+                                <rect key="frame" x="271" y="87" width="104" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <state key="normal" title="Change Photo">
@@ -1737,7 +1728,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded Tours &amp; Reviews:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dG-W8-ZhS">
-                                <rect key="frame" x="30" y="431" width="214" height="21"/>
+                                <rect key="frame" x="30" y="431" width="209" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -1766,28 +1757,31 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNi-h4-4go">
-                                <rect key="frame" x="271" y="113" width="103" height="30"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mlh-ya-AdA">
+                                <rect key="frame" x="113" y="72" width="144" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Change Name">
-                                    <color key="titleColor" red="0.026751240715384483" green="0.64703506231307983" blue="0.88431596755981445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                            </button>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VDR-5o-xm2">
+                                <rect key="frame" x="115" y="110" width="144" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="3dG-W8-ZhS" firstAttribute="trailing" secondItem="VqQ-cc-9yI" secondAttribute="trailing" constant="-22" id="03c-oQ-5Kj"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="412" id="0c4-zR-I5n"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" constant="87" id="813-Hg-646"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="top" secondItem="XMG-d4-8Rt" secondAttribute="top" constant="454" id="AZP-oO-b8w"/>
                             <constraint firstItem="qB3-Ai-nkI" firstAttribute="trailing" secondItem="GR7-y1-RSE" secondAttribute="trailing" id="EiI-jV-C8e"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="leading" secondItem="4lJ-KX-VMp" secondAttribute="leading" id="EmH-GJ-MmU"/>
-                            <constraint firstItem="d3P-tv-X5r" firstAttribute="top" secondItem="VqQ-cc-9yI" secondAttribute="bottom" constant="28" id="FPq-aL-Zxj"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="top" secondItem="X2Z-ZO-6HF" secondAttribute="bottom" constant="1" id="Gkw-Rq-4m6"/>
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leadingMargin" constant="67" id="Jam-NR-icc"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="trailing" secondItem="4lJ-KX-VMp" secondAttribute="trailing" id="MpM-Nx-rjb"/>
-                            <constraint firstItem="VqQ-cc-9yI" firstAttribute="leading" secondItem="GR7-y1-RSE" secondAttribute="trailing" constant="19" id="ONH-Xl-mrZ"/>
                             <constraint firstItem="d3P-tv-X5r" firstAttribute="top" secondItem="GR7-y1-RSE" secondAttribute="bottom" constant="4" id="Pl8-Mf-wux"/>
                             <constraint firstItem="IB4-AC-Onc" firstAttribute="top" secondItem="ZWe-dk-Ztt" secondAttribute="bottom" constant="8" id="Pz3-zt-F67"/>
                             <constraint firstItem="GR7-y1-RSE" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="3" id="Reu-Du-bzL"/>
@@ -1796,7 +1790,6 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                             <constraint firstItem="X2Z-ZO-6HF" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" constant="87" id="YXy-7W-F2b"/>
                             <constraint firstItem="4lJ-KX-VMp" firstAttribute="leading" secondItem="XMG-d4-8Rt" secondAttribute="leading" id="Yq2-5s-tJe"/>
                             <constraint firstItem="Bl8-Cg-7Ub" firstAttribute="top" secondItem="d3P-tv-X5r" secondAttribute="bottom" constant="8" symbolic="YES" id="aWE-8d-dTg"/>
-                            <constraint firstItem="VqQ-cc-9yI" firstAttribute="top" secondItem="Zli-OH-Yxw" secondAttribute="bottom" constant="17" id="bL8-KM-xjL"/>
                             <constraint firstItem="3dG-W8-ZhS" firstAttribute="leading" secondItem="IB4-AC-Onc" secondAttribute="leading" id="bna-Z7-fKt"/>
                             <constraint firstItem="ZWe-dk-Ztt" firstAttribute="top" secondItem="qB3-Ai-nkI" secondAttribute="bottom" constant="2" id="cpQ-Ls-038"/>
                             <constraint firstItem="IB4-AC-Onc" firstAttribute="leading" secondItem="qB3-Ai-nkI" secondAttribute="leading" id="cuv-Ul-3iN"/>
@@ -1821,16 +1814,17 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                     <connections>
                         <outlet property="aboutme" destination="60x-Je-LOf" id="dXn-JA-yCU"/>
                         <outlet property="countryPicker" destination="ZWe-dk-Ztt" id="hgR-rY-MFp"/>
+                        <outlet property="firstname" destination="Mlh-ya-AdA" id="Wro-SI-Tc1"/>
+                        <outlet property="lastname" destination="VDR-5o-xm2" id="HhN-wY-vLW"/>
                         <outlet property="setImage" destination="3IB-ec-Dd0" id="JRy-8n-g6Y"/>
                         <outlet property="tableview" destination="4lJ-KX-VMp" id="l2E-sC-b8q"/>
                         <outlet property="uploadTourNumber" destination="gHC-xK-tGf" id="6mU-Nv-ret"/>
                         <outlet property="userImage" destination="GR7-y1-RSE" id="Vdz-mp-yPz"/>
-                        <outlet property="userName" destination="VqQ-cc-9yI" id="4Fw-kc-15d"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtG-ud-FNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1647" y="-307"/>
+            <point key="canvasLocation" x="1137" y="-574"/>
         </scene>
         <!--Setting-->
         <scene sceneID="kjS-uu-5Hv">

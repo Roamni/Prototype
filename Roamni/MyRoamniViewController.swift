@@ -25,8 +25,32 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         
         
     }
+    
+    func removeDuplicateUser(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                
+                let dictionary = child.value as!  [String : Any]
+                let lastname = dictionary["lastname"] as? String
+                print("testestest\(lastname)")
+                if lastname == nil{
+                    
+                    
+                    ref?.child("users/\(child.key)").removeValue()
+                }
+                
+            }
+        })
+        
+        
+    }
+    
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        //removeDuplicateUser()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
     }
     override func didReceiveMemoryWarning() {
