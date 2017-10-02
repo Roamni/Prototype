@@ -87,6 +87,10 @@ class MyRoamniPaymentEditViewController: UIViewController {
                     {
                         
                         self.downloadPayment = downloadPayment
+                        self.abnField.text = self.downloadPayment?.abn
+                        self.acctField.text = self.downloadPayment?.acct
+                        self.bsbField.text = self.downloadPayment?.bsb
+                        self.nameField.text = self.downloadPayment?.bankname
                         //self.downloadPayments.append(downloadTour)
                         //print(self.downloadTours)
                         DispatchQueue.main.async(execute: { } )

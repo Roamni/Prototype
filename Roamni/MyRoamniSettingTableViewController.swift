@@ -7,14 +7,21 @@
 //
 
 import UIKit
-
+import Firebase
+import FBSDKCoreKit
+import AVFoundation
+import FirebaseAuth
+import FBSDKLoginKit
 class MyRoamniSettingTableViewController: UITableViewController {
 
+    var logedUser : User?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        fetchUser()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -85,6 +92,7 @@ class MyRoamniSettingTableViewController: UITableViewController {
         if indexPath.section == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniSettingNameTableViewCell", for: indexPath as IndexPath)
                 as! MyRoamniSettingNameTableViewCell
+            //cell.name.text = "\(self.lgoedUser!.firstname) \(self.lgoedUser!.lastname)"
             return cell
         }else if indexPath.section == 1{
             //Return the cell with identifier AboutTableViewCell
@@ -106,6 +114,40 @@ class MyRoamniSettingTableViewController: UITableViewController {
             return cell
         }
     
+    }
+    
+    func fetchUser(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                
+                //print("aaaaaa\(dictionary["uploadUser"])")
+                if let user = FIRAuth.auth()?.currentUser{
+                    
+                    let uemail = user.email
+                    if  downloaduser.email == uemail
+                    {
+                        
+                        self.logedUser = downloaduser
+                        print("there is a logedUser")
+                        //self.userName.text = "\(self.lgoedUser!.firstname) \(self.lgoedUser!.lastname)"
+                        //self.aboutme.text = self.lgoedUser?.aboutme
+                        //self.downloadPayments.append(downloadTour)
+                        //print(self.downloadTours)
+                        DispatchQueue.main.async(execute: { } )
+                    }
+                }
+                else{
+                    print("no permission")
+                }
+            }
+        })
+        
+        
     }
 
     /*

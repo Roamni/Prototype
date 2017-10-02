@@ -96,7 +96,7 @@ class MyRoamniSigninViewController: UIViewController,UIPickerViewDataSource,UIPi
                     //Goes to the Setup page which lets the user take a photo for their profile picture and also chose a username
                     let ref = FIRDatabase.database().reference()
                     //let ref = FIRDatabase.database().reference()
-                    ref.child("users").childByAutoId().setValue(["email" : self.emailField.text!,"firstname":self.firstnameField.text!,"lastname":self.lastnameField.text!,"country":self.countryname])
+                    ref.child("users").childByAutoId().setValue(["email" : self.emailField.text!,"firstname":self.firstnameField.text!,"lastname":self.lastnameField.text!,"country":self.countryname,"aboutme":"","image":"image"])
                    // ref.child("users/\(uid)/email").setValue(email)
                     
                     let vc = self.storyboard?.instantiateViewController(withIdentifier: "MyRoamniLogViewController")

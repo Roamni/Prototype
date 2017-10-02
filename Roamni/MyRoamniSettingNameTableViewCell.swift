@@ -10,6 +10,7 @@ import UIKit
 
 class MyRoamniSettingNameTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var name: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

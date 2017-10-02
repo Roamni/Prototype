@@ -1861,6 +1861,9 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="name" destination="zIC-sI-Lnp" id="4Jb-GQ-tg1"/>
+                                </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniSettingPaymentTableViewCell" rowHeight="50" id="pvl-ch-Fzp" customClass="MyRoamniSettingPaymentTableViewCell" customModule="Roamni" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="108" width="375" height="50"/>

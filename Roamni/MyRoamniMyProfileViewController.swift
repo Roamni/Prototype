@@ -26,8 +26,9 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     @IBOutlet weak var uploadTourNumber: UILabel!
     
     @IBOutlet weak var countryPicker: UIPickerView!
-    var lgoedUser : User?
-    var lgoedUsers = [User]()
+    var logedUser : User?
+    var userid : String?
+    //var lgoedUsers = [User]()
     
     var imagePicker = UIImagePickerController()
     var countryname : String!
@@ -90,7 +91,37 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     }
     
     @IBAction func done(_ sender: Any) {
-        print("done")
+
+        var ref:FIRDatabaseReference?
+        let storage = FIRStorage.storage()
+        let storageRef = storage.reference()
+        if let user = FIRAuth.auth()?.currentUser{
+            
+            let uid = user.uid
+            let voiceRef = storageRef.child("\(uid)/\(self.logedUser!.email)")
+            let uploadMetadata = FIRStorageMetadata()
+            var data = NSData()
+            data = UIImageJPEGRepresentation(self.userImage.image!, 0.8)! as NSData
+            uploadMetadata.contentType = "image/jpg"
+            let uploadTask = voiceRef.put(data as Data, metadata: uploadMetadata) { metadata, error in
+                        if let error = error {
+                            // Uh-oh, an error occurred!
+                            self.alertBn(title: "Error", message: "upload file failed")
+                            print(error.localizedDescription)
+                        } else {
+                            // Metadata contains file metadata such as size, content-type, and download URL.
+                            let downloadURL = metadata!.downloadURL()
+                            let downloadurl:String = (downloadURL?.absoluteString)!
+                            
+                            let imageRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("users/\(self.userid!)/image")
+                            
+                            imageRef.setValue(downloadurl)
+                            
+                            //self?.child("users").childByAutoId().setValue(["image":downloadurl])
+                        }
+    
+            }
+        }
         
     }
     
@@ -102,6 +133,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     
 
     @IBAction func changePhoto(_ sender: Any) {
+       
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -216,9 +248,12 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                     if  downloaduser.email == uemail
                     {
                         
-                        self.lgoedUser = downloaduser
-                        self.userName.text = "\(self.lgoedUser!.firstname) \(self.lgoedUser!.lastname)"
-                        self.aboutme.text = self.lgoedUser?.aboutme
+                        self.logedUser = downloaduser
+                        self.userName.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
+                        self.aboutme.text = self.logedUser?.aboutme
+                        self.userImage.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                        print("\(self.logedUser!.userimage) andand \(self.logedUser!.firstname) \(self.logedUser!.email)")
+                        self.userid = child.key
                         //self.downloadPayments.append(downloadTour)
                         //print(self.downloadTours)
                         DispatchQueue.main.async(execute: { } )
