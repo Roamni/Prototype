@@ -1198,9 +1198,11 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                                     <state key="normal" title="Button"/>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X1z-6c-cI8">
-                                                    <rect key="frame" x="257" y="37" width="123" height="30"/>
+                                                    <rect key="frame" x="248" y="37" width="123" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Log out"/>
+                                                    <state key="normal" title="Log out">
+                                                        <color key="titleColor" red="0.02675124072" green="0.64703506229999996" blue="0.88431596759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -1805,7 +1807,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Profile" id="mXj-7D-73s">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="ue0-g9-cci">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="edit" id="ue0-g9-cci">
                             <connections>
                                 <action selector="done:" destination="jLj-8J-qNf" id="iyt-GD-5Ah"/>
                             </connections>

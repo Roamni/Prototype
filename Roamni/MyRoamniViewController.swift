@@ -13,6 +13,8 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
 
     @IBOutlet weak var tableView: UITableView!
     let loginButton = FBSDKLoginButton()
+    var logedUser : User?
+    var userid : String?
     
     override func viewWillAppear(_ animated: Bool) {
          self.tableView.dataSource = self
@@ -20,38 +22,69 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.tableFooterView = UIView()
         //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
         self.tableView.reloadData()
-            
+        
         //})
         
         
     }
     
-    func removeDuplicateUser(){
-        var ref:FIRDatabaseReference?
-        ref = FIRDatabase.database().reference()
-        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
-            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
-            for child in result!{
-                
-                let dictionary = child.value as!  [String : Any]
-                let lastname = dictionary["lastname"] as? String
-                print("testestest\(lastname)")
-                if lastname == nil{
-                    
-                    
-                    ref?.child("users/\(child.key)").removeValue()
-                }
-                
-            }
-        })
-        
-        
-    }
+//    func removeDuplicateUser(){
+//        var ref:FIRDatabaseReference?
+//        ref = FIRDatabase.database().reference()
+//        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
+//            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+//            for child in result!{
+//
+//                let dictionary = child.value as!  [String : Any]
+//                let lastname = dictionary["lastname"] as? String
+//                print("testestest\(lastname)")
+//                if lastname == nil{
+//
+//
+//                    ref?.child("users/\(child.key)").removeValue()
+//                }
+//
+//            }
+//        })
+//
+//
+//    }
+    
+//    func fetchUser(){
+//        var ref:FIRDatabaseReference?
+//        ref = FIRDatabase.database().reference()
+//        ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+//            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+//            for child in result!{
+//                let dictionary = child.value as!  [String : Any]
+//                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+//                if let user = FIRAuth.auth()?.currentUser{
+//                    let uemail = user.email
+//                    if  downloaduser.email == uemail
+//                    {
+//                        self.logedUser = downloaduser
+//                        print("\(self.logedUser!.firstname)  andand \(self.logedUser!.lastname)")
+//
+//                        print("\(self.logedUser!.userimage) andand \(self.logedUser!.firstname) \(self.logedUser!.email)")
+//                        self.userid = child.key
+//                        //self.downloadPayments.append(downloadTour)
+//                        //print(self.downloadTours)
+//                        DispatchQueue.main.async(execute: { } )
+//                    }
+//                }
+//                else{
+//                    print("1111111111111144")
+//                    print("no permission")
+//                }
+//            }
+//        })
+//
+//    }
     
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-        //removeDuplicateUser()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+       
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -135,6 +168,9 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniUserCell", for: indexPath as IndexPath) as! MyRoamniUserCell
             cell.loginBn.readPermissions =  ["public_profile","email"]
             cell.loginBn.delegate = self
+            if FIRAuth.auth()?.currentUser != nil {
+                cell.loginBn.isHidden = true
+            }
             if let user = FIRAuth.auth()?.currentUser{
                 //user.
                 let email = user.email
@@ -144,8 +180,37 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 let ref = FIRDatabase.database().reference()
                 ref.child("users/\(uid)/email").setValue(email)
                 if user.photoURL != nil{
-                    cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                    //cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+//                    if self.logedUser!.userimage != "image"{
+//                        cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+//                    }
                 }
+                var ref1:FIRDatabaseReference?
+                ref1 = FIRDatabase.database().reference()
+                ref1?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+                    let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+                    for child in result!{
+                        let dictionary = child.value as!  [String : Any]
+                        let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                        if let user = FIRAuth.auth()?.currentUser{
+                            let uemail = user.email
+                            if  downloaduser.email == uemail
+                            {
+                                self.logedUser = downloaduser
+                                self.userid = child.key
+                                cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                                cell.userLabel.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
+                                //self.downloadPayments.append(downloadTour)
+                                //print(self.downloadTours)
+                                DispatchQueue.main.async(execute: { } )
+                            }
+                        }
+                        else{
+                            print("1111111111111144")
+                            print("no permission")
+                        }
+                    }
+                })
                 
                 cell.userLabel.text = name
             }else
