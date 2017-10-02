@@ -843,7 +843,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FhC-BT-Wm0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1486.9565217391305" y="-2961.684782608696"/>
+            <point key="canvasLocation" x="-1671" y="-3129"/>
         </scene>
         <!--Nearby Tours-->
         <scene sceneID="msu-cW-MZh">
@@ -1093,7 +1093,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bjU-lw-oCW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="892" y="-1235.5322338830586"/>
+            <point key="canvasLocation" x="1521" y="-1220"/>
         </scene>
         <!--Log in-->
         <scene sceneID="saU-9q-iwJ">
@@ -1156,7 +1156,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WNS-Mf-nLm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="510.14492753623193" y="-1620.6521739130435"/>
+            <point key="canvasLocation" x="142" y="-1491"/>
         </scene>
         <!--My Roamni-->
         <scene sceneID="suh-fE-5e0">
@@ -3782,8 +3782,9 @@ Download the Roamni app today to make a tour or take a tour.</string>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-sd-wES">
                                 <rect key="frame" x="-6" y="20" width="387" height="539"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSG-pW-ia1">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TSG-pW-ia1">
                                 <rect key="frame" x="16" y="52" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button" image="navigator">
                                     <color key="titleShadowColor" red="0.040172906091370586" green="0.036983293992378277" blue="0.036606424358276594" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -3796,12 +3797,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <constraints>
                             <constraint firstItem="zRY-pg-lqr" firstAttribute="top" secondItem="V1H-sd-wES" secondAttribute="bottom" id="1EC-WD-Rbh"/>
                             <constraint firstAttribute="trailingMargin" secondItem="V1H-sd-wES" secondAttribute="trailing" constant="-22" id="7CE-lT-wru"/>
-                            <constraint firstItem="TSG-pW-ia1" firstAttribute="top" secondItem="9NT-zD-Sui" secondAttribute="top" constant="52" id="BKs-qm-xMe"/>
-                            <constraint firstItem="TSG-pW-ia1" firstAttribute="leading" secondItem="9NT-zD-Sui" secondAttribute="leadingMargin" id="GWy-oy-oWk"/>
-                            <constraint firstItem="V1H-sd-wES" firstAttribute="top" secondItem="TSG-pW-ia1" secondAttribute="bottom" constant="-77" id="HII-Bd-T4a"/>
-                            <constraint firstItem="zRY-pg-lqr" firstAttribute="top" secondItem="TSG-pW-ia1" secondAttribute="bottom" constant="462" id="JOn-Im-gAm"/>
                             <constraint firstItem="V1H-sd-wES" firstAttribute="bottom" secondItem="zRY-pg-lqr" secondAttribute="top" id="Jp1-23-aJe"/>
-                            <constraint firstItem="V1H-sd-wES" firstAttribute="leading" secondItem="TSG-pW-ia1" secondAttribute="trailing" constant="-67" id="eOH-bI-xKF"/>
                             <constraint firstItem="V1H-sd-wES" firstAttribute="top" secondItem="hPf-5w-1Vp" secondAttribute="bottom" id="eyM-X8-FPK"/>
                             <constraint firstItem="V1H-sd-wES" firstAttribute="leading" secondItem="9NT-zD-Sui" secondAttribute="leadingMargin" constant="-22" id="ins-SM-5oS"/>
                         </constraints>

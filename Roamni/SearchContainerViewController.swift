@@ -65,6 +65,10 @@ class SearchContainerViewController: UIViewController {
         self.activityIndicator.startAnimating()
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
          navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        navigationController?.navigationBar.tintColor = UIColor.white
+        navigationController?.navigationBar.backgroundColor = UIColor.white
+        UINavigationBar.appearance().tintColor = UIColor.white
+        
         container!.segueIdentifierReceivedFromParent("first")
         // Setup the Search Controller
         searchController.searchResultsUpdater = self
