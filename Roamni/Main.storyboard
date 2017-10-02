@@ -1683,10 +1683,12 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3IB-ec-Dd0">
-                                <rect key="frame" x="271" y="84" width="104" height="40"/>
+                                <rect key="frame" x="271" y="68" width="104" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <state key="normal" title="Change photo"/>
+                                <state key="normal" title="Change Photo">
+                                    <color key="titleColor" red="0.02675124072" green="0.64703506229999996" blue="0.88431596759999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="setImage:" destination="jLj-8J-qNf" eventType="touchUpInside" id="tNF-nO-DGL"/>
                                 </connections>
@@ -1761,10 +1763,17 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <rect key="frame" x="38" y="189" width="339" height="82"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VNi-h4-4go">
+                                <rect key="frame" x="271" y="113" width="103" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="Change Name">
+                                    <color key="titleColor" red="0.026751240715384483" green="0.64703506231307983" blue="0.88431596755981445" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1812,6 +1821,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                     <connections>
                         <outlet property="aboutme" destination="60x-Je-LOf" id="dXn-JA-yCU"/>
                         <outlet property="countryPicker" destination="ZWe-dk-Ztt" id="hgR-rY-MFp"/>
+                        <outlet property="setImage" destination="3IB-ec-Dd0" id="JRy-8n-g6Y"/>
                         <outlet property="tableview" destination="4lJ-KX-VMp" id="l2E-sC-b8q"/>
                         <outlet property="uploadTourNumber" destination="gHC-xK-tGf" id="6mU-Nv-ret"/>
                         <outlet property="userImage" destination="GR7-y1-RSE" id="Vdz-mp-yPz"/>
@@ -1820,7 +1830,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtG-ud-FNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1453.5999999999999" y="-211.84407796101951"/>
+            <point key="canvasLocation" x="1647" y="-307"/>
         </scene>
         <!--Setting-->
         <scene sceneID="kjS-uu-5Hv">
@@ -2181,7 +2191,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lQs-yF-ec3" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3510.144927536232" y="1624.7282608695652"/>
+            <point key="canvasLocation" x="3508.6956521739135" y="1623.913043478261"/>
         </scene>
         <!--Request A Tour-->
         <scene sceneID="dgz-2J-u2f">

@@ -71,23 +71,21 @@ class MyRoamniPaymentEditViewController: UIViewController {
     
     
     func fetchTours(){
-        print("1111")
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         ref?.child("paymentDetail").observeSingleEvent(of:.value, with:{ (snapshot) in
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
             for child in result!{
-                print("2222")
                 let dictionary = child.value as!  [String : Any]
                 let downloadPayment = PaymentDetail(bsb: dictionary["bsb"] as! String, bankname: dictionary["bankName"] as! String, acct: dictionary["acct"] as! String, abn: dictionary["abn"] as! String,detailId:child.key, uploadUser: dictionary["uploadUser"] as! String)
-                print("33333")
+               
                 //print("aaaaaa\(dictionary["uploadUser"])")
                 if let user = FIRAuth.auth()?.currentUser{
-                    print("44444")
+                  
                     let uid = user.uid
                     if  downloadPayment.uploadUser == uid
                     {
-                        print("5555")
+                        
                         self.downloadPayment = downloadPayment
                         //self.downloadPayments.append(downloadTour)
                         //print(self.downloadTours)

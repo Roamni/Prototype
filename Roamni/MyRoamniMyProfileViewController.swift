@@ -17,6 +17,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
 
 
     
+    @IBOutlet weak var setImage: UIButton!
     @IBOutlet weak var userName: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     @IBOutlet weak var tableview: UITableView!
@@ -25,6 +26,8 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     @IBOutlet weak var uploadTourNumber: UILabel!
     
     @IBOutlet weak var countryPicker: UIPickerView!
+    var lgoedUser : User?
+    var lgoedUsers = [User]()
     
     var imagePicker = UIImagePickerController()
     var countryname : String!
@@ -45,7 +48,10 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
             let name = NSLocale(localeIdentifier: "en_UK").displayName(forKey: NSLocale.Key.identifier, value: id) ?? "Country not found for code: \(code)"
             countries.append(name)
         }
+        aboutme.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
+        aboutme.layer.borderWidth = 1.0
         fetchTours1()
+        fetchUser()
         //self.hideKeyboardWhenTappedAround() 
         //self.tableView.rowHeight = 40.0
         // Do any additional setup after loading the view.
@@ -191,6 +197,39 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
             }
             
         })
+        
+    }
+    
+    func fetchUser(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                
+                //print("aaaaaa\(dictionary["uploadUser"])")
+                if let user = FIRAuth.auth()?.currentUser{
+                    
+                    let uemail = user.email
+                    if  downloaduser.email == uemail
+                    {
+                        
+                        self.lgoedUser = downloaduser
+                        self.userName.text = "\(self.lgoedUser!.firstname) \(self.lgoedUser!.lastname)"
+                        self.aboutme.text = self.lgoedUser?.aboutme
+                        //self.downloadPayments.append(downloadTour)
+                        //print(self.downloadTours)
+                        DispatchQueue.main.async(execute: { } )
+                    }
+                }
+                else{
+                    print("no permission")
+                }
+            }
+        })
+        
         
     }
     /*
