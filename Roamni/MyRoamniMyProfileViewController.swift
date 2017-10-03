@@ -17,6 +17,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
 
 
     
+    @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var firstname: UITextField!
     @IBOutlet weak var lastname: UITextField!
@@ -32,7 +33,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     @IBOutlet weak var countryPicker: UIPickerView!
     var logedUser : User?
     var userid : String?
-    //var lgoedUsers = [User]()
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     var imagePicker = UIImagePickerController()
     var countryname : String!
@@ -91,28 +92,35 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         self.countryname = countries[row]
+        self.countryLabel.text = self.countryname
         print( self.countryname)
     }
     
     @IBAction func done(_ sender: Any) {
 
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
         var ref:FIRDatabaseReference?
         let storage = FIRStorage.storage()
         let storageRef = storage.reference()
         if let user = FIRAuth.auth()?.currentUser{
-            
+            if user.photoURL == nil{
             let uid = user.uid
             let voiceRef = storageRef.child("\(uid)/\(self.logedUser!.email)")
             let uploadMetadata = FIRStorageMetadata()
             var data = NSData()
             data = UIImageJPEGRepresentation(self.userImage.image!, 0.8)! as NSData
             uploadMetadata.contentType = "image/jpg"
-            let uploadTask = voiceRef.put(data as Data, metadata: uploadMetadata) { metadata, error in
+            
+                let uploadTask = voiceRef.put(data as Data, metadata: uploadMetadata) { metadata, error in
                         if let error = error {
                             // Uh-oh, an error occurred!
                             self.alertBn(title: "Error", message: "upload file failed")
                             print(error.localizedDescription)
-                        } else {
+                        }else {
                             // Metadata contains file metadata such as size, content-type, and download URL.
                             let downloadURL = metadata!.downloadURL()
                             let downloadurl:String = (downloadURL?.absoluteString)!
@@ -122,18 +130,23 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                              let firstRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("usersinfor/\(self.userid!)/firstname")
                              let lastRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("usersinfor/\(self.userid!)/lastname")
                              let countryRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("usersinfor/\(self.userid!)/country")
-                            imageRef.setValue(downloadurl)
-                            aboutmeRef.setValue(self.aboutme.text!)
-                            let alertController = UIAlertController(title: "Sucess", message: "Your information is updated", preferredStyle: .alert)
-                            
+                                imageRef.setValue(downloadurl)
+                                firstRef.setValue(self.firstname.text!)
+                                lastRef.setValue(self.lastname.text!)
+                                aboutmeRef.setValue(self.aboutme.text!)
+                                countryRef.setValue(self.countryname!)
+                            self.activityIndicator.stopAnimating()
+                            let alertController = UIAlertController(title: "Success", message: "Your information is updated", preferredStyle: .alert)
                             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                             alertController.addAction(defaultAction)
-                            
                             self.present(alertController, animated: true, completion: nil)
-                            
-                            //self?.child("users").childByAutoId().setValue(["image":downloadurl])
                         }
-    
+                }
+            }else{
+                let alertController = UIAlertController(title: "Sorry", message: "Facebook user cannot edit infor, please resiger an email account", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
         
@@ -275,6 +288,8 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                             self.firstname.text = self.logedUser!.firstname
                             self.lastname.text = self.logedUser!.lastname
                             self.aboutme.text = self.logedUser?.aboutme
+                            self.countryname = self.logedUser!.country
+                            self.countryLabel.text = self.countryname
                                 //user.
     
                                 if self.logedUser!.userimage != "image"{

@@ -104,7 +104,7 @@ class MyRoamniSettingTableViewController: UITableViewController {
                 if user.photoURL != nil{
                     if photo != nil{
                         
-                        cell.imageView!.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                        cell.userImage.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
                         cell.name.text = user.displayName
                     }
                     
@@ -123,11 +123,11 @@ class MyRoamniSettingTableViewController: UITableViewController {
                                     self.logedUser = downloaduser
                                    
                                     //if self.logedUser!.userimage != "image"{
-                                       cell.imageView!.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                                       cell.userImage.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
                                     //}
 
                                     cell.name.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
-                                    DispatchQueue.main.async(execute: { } )
+                                    DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
                                 }
                             }
                             else{
