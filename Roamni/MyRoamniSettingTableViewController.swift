@@ -21,7 +21,7 @@ class MyRoamniSettingTableViewController: UITableViewController {
         tableView.tableFooterView = UIView()
         navigationController?.navigationBar.tintColor = UIColor.white
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-        fetchUser()
+        //fetchUser()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -89,10 +89,57 @@ class MyRoamniSettingTableViewController: UITableViewController {
     //type UITableViewCell. These are the objects that users see in the table's rows.
     //This function basically returns a cell, for a table view.
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         if indexPath.section == 0{
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniSettingNameTableViewCell", for: indexPath as IndexPath)
                 as! MyRoamniSettingNameTableViewCell
-            //cell.name.text = "\(self.lgoedUser!.firstname) \(self.lgoedUser!.lastname)"
+            if let user = FIRAuth.auth()?.currentUser{
+                let email = user.email
+                let uid = user.uid
+                let name = user.displayName
+                let photo = user.photoURL
+                let ref = FIRDatabase.database().reference()
+                ref.child("users/\(uid)/email").setValue(email)
+                if user.photoURL != nil{
+                    if photo != nil{
+                        
+                        cell.imageView!.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                        cell.name.text = user.displayName
+                    }
+                    
+                }else{
+                    var ref:FIRDatabaseReference?
+                    ref = FIRDatabase.database().reference()
+                    ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+                        let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+                        for child in result!{
+                            let dictionary = child.value as!  [String : Any]
+                            let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                            if let user = FIRAuth.auth()?.currentUser{
+                                let uemail = user.email
+                                if  downloaduser.email == uemail
+                                {
+                                    self.logedUser = downloaduser
+                                   
+                                    //if self.logedUser!.userimage != "image"{
+                                       cell.imageView!.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                                    //}
+
+                                    cell.name.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
+                                    DispatchQueue.main.async(execute: { } )
+                                }
+                            }
+                            else{
+                                print("1111111111111144")
+                                print("no permission")
+                            }
+                        }
+                    })
+                    
+                }
+            }
+            
             return cell
         }else if indexPath.section == 1{
             //Return the cell with identifier AboutTableViewCell
@@ -116,40 +163,8 @@ class MyRoamniSettingTableViewController: UITableViewController {
     
     }
     
-    func fetchUser(){
-        var ref:FIRDatabaseReference?
-        ref = FIRDatabase.database().reference()
-        ref?.child("users").observeSingleEvent(of:.value, with:{ (snapshot) in
-            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
-            for child in result!{
-                let dictionary = child.value as!  [String : Any]
-                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
-                
-                //print("aaaaaa\(dictionary["uploadUser"])")
-                if let user = FIRAuth.auth()?.currentUser{
-                    
-                    let uemail = user.email
-                    if  downloaduser.email == uemail
-                    {
-                        
-                        self.logedUser = downloaduser
-                        print("there is a logedUser")
-                        //self.userName.text = "\(self.lgoedUser!.firstname) \(self.lgoedUser!.lastname)"
-                        //self.aboutme.text = self.lgoedUser?.aboutme
-                        //self.downloadPayments.append(downloadTour)
-                        //print(self.downloadTours)
-                        DispatchQueue.main.async(execute: { } )
-                    }
-                }
-                else{
-                    print("no permission")
-                }
-            }
-        })
-        
-        
-    }
 
+    
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

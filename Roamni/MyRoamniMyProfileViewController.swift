@@ -17,6 +17,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
 
 
     
+    @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var firstname: UITextField!
     @IBOutlet weak var lastname: UITextField!
     
@@ -123,7 +124,12 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                              let countryRef = FIRDatabase.database().reference(fromURL: "https://romin-ff29a.firebaseio.com/").child("usersinfor/\(self.userid!)/country")
                             imageRef.setValue(downloadurl)
                             aboutmeRef.setValue(self.aboutme.text!)
-                            self.dismiss(animated: true, completion: nil)
+                            let alertController = UIAlertController(title: "Sucess", message: "Your information is updated", preferredStyle: .alert)
+                            
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            
+                            self.present(alertController, animated: true, completion: nil)
                             
                             //self?.child("users").childByAutoId().setValue(["image":downloadurl])
                         }
@@ -249,6 +255,18 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                 let dictionary = child.value as!  [String : Any]
                     let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
                     if let user = FIRAuth.auth()?.currentUser{
+                        print("photophoto\(user.photoURL)")
+                        let photo = user.photoURL
+                        if user.photoURL != nil{
+                            print("photophoto")
+                            self.firstname.isHidden = true
+                            self.lastname.isHidden = true
+                            self.setImage.isHidden = true
+                            self.userImage.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                            self.nameLabel.text = user.displayName
+                            
+                            
+                        }
                         let uemail = user.email
                         if  downloaduser.email == uemail
                         {
@@ -257,10 +275,15 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
                             self.firstname.text = self.logedUser!.firstname
                             self.lastname.text = self.logedUser!.lastname
                             self.aboutme.text = self.logedUser?.aboutme
-                            if self.logedUser!.userimage != "image"{
-                                self.userImage.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
-                            }
-                            print("\(self.logedUser!.userimage) andand \(self.logedUser!.firstname) \(self.logedUser!.email)")
+                                //user.
+    
+                                if self.logedUser!.userimage != "image"{
+                                    self.userImage.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                                }
+                                
+                            
+                            
+                          
                             self.userid = child.key
                             //self.downloadPayments.append(downloadTour)
                             //print(self.downloadTours)

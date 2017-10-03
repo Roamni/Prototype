@@ -168,9 +168,9 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniUserCell", for: indexPath as IndexPath) as! MyRoamniUserCell
             cell.loginBn.readPermissions =  ["public_profile","email"]
             cell.loginBn.delegate = self
-            if FIRAuth.auth()?.currentUser != nil {
-                cell.loginBn.isHidden = true
-            }
+//            if FIRAuth.auth()?.currentUser != nil {
+//                cell.loginBn.isHidden = true
+//            }
             if let user = FIRAuth.auth()?.currentUser{
                 //user.
                 let email = user.email
@@ -180,10 +180,17 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 let ref = FIRDatabase.database().reference()
                 ref.child("users/\(uid)/email").setValue(email)
                 if user.photoURL != nil{
-                    //cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
-//                    if self.logedUser!.userimage != "image"{
-//                        cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
-//                    }
+                    if photo != nil{
+                    
+                     cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                     //cell.loginBn.isHidden = false
+                    cell.logoutBn.isHidden = true
+                        
+                    
+                    }
+
+                }else{
+                    cell.loginBn.isHidden = true
                 }
                 var ref1:FIRDatabaseReference?
                 ref1 = FIRDatabase.database().reference()
@@ -198,7 +205,11 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                             {
                                 self.logedUser = downloaduser
                                 self.userid = child.key
+                                if self.logedUser!.userimage != "image"{
                                 cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                                }else{
+                                 cell.userPhoto.image = UIImage(named: "Roamni")
+                                }
                                 cell.userLabel.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
                                 //self.downloadPayments.append(downloadTour)
                                 //print(self.downloadTours)
