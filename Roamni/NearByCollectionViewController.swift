@@ -21,14 +21,25 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
     var controller : SearchContainerViewController!
     var locationManager = CLLocationManager()
     let categories =  [
-        ["name":"Walking","pic":"walk"],
-        ["name":"Driving","pic":"drive"],
-        ["name":"Cycling","pic":"cycling"],
-        ["name":"Shopping","pic":"shooping"],
-        ["name":"Real Estate","pic":"realestate"],
-        ["name":"Accessible","pic":"accessible"]
+        ["name":"Orientation","pic":"orientation"],
+        ["name":"Food and Cafe","pic":"food"],
+        ["name":"Historical","pic":"historical"],
+        ["name":"Shopping","pic":"shopping"],
+        ["name":"Architecture","pic":"architecture"],
+        ["name":"Accessible","pic":"accessible"],
+        ["name":"Fitness","pic":"fitness"],
+        ["name":"Sightseeing","pic":"sightseeing"],
+        ["name":"Premium","pic":"premium"]
         //["name":"More","pic":"moretour"]
     ]
+    
+    let columnLayout = ColumnFlowLayout(
+        cellsPerRow: 3,
+        minimumInteritemSpacing: 10,
+        minimumLineSpacing: 30,
+        sectionInset: UIEdgeInsets(top: 80, left: 1, bottom: 10, right: 1)
+    )
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -38,6 +49,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         }catch{
             print("could not start reachability notifier")
         }
+        collectionView?.collectionViewLayout = columnLayout
             //self.fetchTours()
         
         //fetchTours()
@@ -161,12 +173,13 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
+
         return categories.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCell", for: indexPath) as UICollectionViewCell
+        print("imageimageimageimage\(categories[indexPath.item]["pic"]!)")
         (cell.contentView.viewWithTag(1) as! UIImageView).image = UIImage(named:categories[indexPath.item]["pic"]!)
         return cell
     }

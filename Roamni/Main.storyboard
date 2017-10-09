@@ -182,7 +182,9 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ot6-88-h5Y">
                                         <rect key="frame" x="268" y="94" width="119" height="30"/>
-                                        <state key="normal" title="  "/>
+                                        <state key="normal" title="  ">
+                                            <color key="titleColor" red="0.47732905289999999" green="0.61547039780000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="pressPriceBtn:" destination="fwU-xU-6CH" eventType="touchUpInside" id="9nX-6e-7E6"/>
                                         </connections>
@@ -194,7 +196,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="8VY-8g-3ea">
-                                        <rect key="frame" x="268" y="127" width="80" height="2"/>
+                                        <rect key="frame" x="268" y="127" width="119" height="2"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </progressView>
                                 </subviews>
@@ -277,7 +279,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa0-wI-kDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-509.4202898550725" y="1296.6032608695652"/>
+            <point key="canvasLocation" x="-477" y="1273"/>
         </scene>
         <!--Sign in-->
         <scene sceneID="l8m-L9-8EQ">
@@ -1847,7 +1849,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UtG-ud-FNO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="971.01449275362324" y="-634.23913043478262"/>
+            <point key="canvasLocation" x="823" y="-655"/>
         </scene>
         <!--Setting-->
         <scene sceneID="kjS-uu-5Hv">
@@ -2696,7 +2698,9 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="HhK-wX-RtY"/>
                                         </constraints>
-                                        <state key="normal" title="Upload"/>
+                                        <state key="normal" title="Upload">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <action selector="uploadAction:" destination="ARn-za-RXE" eventType="touchUpInside" id="ABW-fh-i1U"/>
                                         </connections>
@@ -3326,7 +3330,9 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="1ax-e2-aHF"/>
                                 </constraints>
-                                <state key="normal" title="Pay Out!"/>
+                                <state key="normal" title="Pay Out!">
+                                    <color key="titleColor" red="0.1354636549949646" green="0.54978889226913452" blue="0.99413257837295532" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <action selector="payout:" destination="TWy-0X-R0C" eventType="touchUpInside" id="p1i-xN-0bn"/>
                                 </connections>
@@ -3417,7 +3423,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Roamni Stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-tA-Nan">
-                                <rect key="frame" x="14" y="109" width="193" height="29"/>
+                                <rect key="frame" x="14" y="69" width="193" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="XAU-JL-Yqv"/>
                                     <constraint firstAttribute="width" constant="193" id="p1B-Sn-noK"/>
@@ -5099,12 +5105,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="143" height="143"/>
-        <image name="2" width="143" height="143"/>
-        <image name="3" width="143" height="143"/>
-        <image name="4" width="143" height="143"/>
-        <image name="5" width="143" height="143"/>
-        <image name="6" width="143" height="143"/>
+        <image name="1" width="1562" height="1562"/>
+        <image name="2" width="1562" height="1562"/>
+        <image name="3" width="781" height="781"/>
+        <image name="4" width="1562" height="1562"/>
+        <image name="5" width="1562" height="1562"/>
+        <image name="6" width="1562" height="1562"/>
         <image name="7" width="143" height="143"/>
         <image name="8" width="143" height="143"/>
         <image name="CollapseArrow" width="48" height="48"/>
