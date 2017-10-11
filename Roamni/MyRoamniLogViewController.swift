@@ -35,6 +35,7 @@ class MyRoamniLogViewController: UIViewController {
         //login()
         loginBn.applyDesign()
         logggin()
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
     func logggin(){

@@ -58,6 +58,7 @@ class MyRoamniMyProfileViewController: UIViewController, UINavigationControllerD
         aboutme.layer.borderWidth = 1.0
         fetchTours1()
         fetchUser()
+        
         //self.hideKeyboardWhenTappedAround() 
         //self.tableView.rowHeight = 40.0
         // Do any additional setup after loading the view.

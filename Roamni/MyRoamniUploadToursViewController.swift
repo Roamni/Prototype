@@ -96,11 +96,13 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBAction func cancleButton(_ sender: Any) {
         self.deregisterFromKeyboardNotifications()
-        
+        self.dismiss(animated: false, completion: nil)
     }
 
     @IBAction func naviCancel(_ sender: Any) {
         self.deregisterFromKeyboardNotifications()
+        self.dismiss(animated: false, completion: nil)
+
 
     }
     
@@ -259,8 +261,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     self?.deregisterFromKeyboardNotifications()
                     
                  if  self?.presentedViewController == nil {
-                        let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
-                        let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
+                    let alertController = UIAlertController(title: "complete ", message: "Uploading Successful", preferredStyle: UIAlertControllerStyle.alert)
+                    let ok = UIAlertAction(title: "OK", style: .default, handler: self?.handleok)
                         alertController.addAction(ok)
                     self?.dismiss(animated: false, completion: nil)
                     self?.present(alertController, animated: true, completion: {() -> Void in
@@ -408,6 +410,9 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         UITextView.appearance().tintColor = UIColor.black
         self.cancelBn.tintColor = UIColor.white
         self.descText.returnKeyType = UIReturnKeyType.done
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
 
 
         // Do any additional setup after loading the view.

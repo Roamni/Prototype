@@ -27,10 +27,8 @@ class MyRoamniUserCell: UITableViewCell {
             do {
                 try FIRAuth.auth()?.signOut()
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                print("loggggggggggggout")
-                //let vc: MyRoamniLogViewController = storyboard.instantiateViewController(withIdentifier: "MyRoamniLogViewController") as! MyRoamniLogViewController
-                
-               // self.present(vc, animated: true, completion: nil)
+                let vc: MyRoamniLogViewController = storyboard.instantiateViewController(withIdentifier: "MyRoamniLogViewController") as! MyRoamniLogViewController
+                //present(vc, animated: true, completion: nil)
                 
             } catch let error as NSError {
                 print(error.localizedDescription)

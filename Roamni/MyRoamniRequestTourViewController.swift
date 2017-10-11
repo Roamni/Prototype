@@ -86,6 +86,10 @@ class MyRoamniRequestTourViewController: UIViewController {
         self.descTextView.delegate = self
         self.AttraTxetField.delegate = self
         // Do any additional setup after loading the view.
+        navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        
     }
     func registerForKeyboardNotifications(){
         //Adding notifies on keyboard appearing

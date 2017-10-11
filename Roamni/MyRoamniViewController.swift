@@ -86,6 +86,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -181,12 +182,10 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 ref.child("users/\(uid)/email").setValue(email)
                 if user.photoURL != nil{
                     if photo != nil{
-                    
                      cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
                      //cell.loginBn.isHidden = false
                     cell.logoutBn.isHidden = true
                         
-                    
                     }
 
                 }else{
@@ -348,9 +347,7 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
         self.tableView.reloadData()
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc: MyRoamniLogViewController = storyboard.instantiateViewController(withIdentifier: "MyRoamniLogViewController") as! MyRoamniLogViewController
-        
         self.present(vc, animated: true, completion: nil)
-        
     }
     
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
@@ -361,8 +358,7 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
         else if result.isCancelled {
             // Handle cancellations
             return
-        }
-        else{
+        }else{
          let credential = FIRFacebookAuthProvider.credential(withAccessToken: FBSDKAccessToken.current().tokenString)
         
         FIRAuth.auth()?.signIn(with: credential) { (user, error) in
@@ -374,9 +370,7 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
             self.tableView.reloadData()
         }
         print("successfully logged in ")
-        
-    
-    }
+        }
     }
     
 }

@@ -754,7 +754,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDo-CJ-Tzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="577" y="-99"/>
+            <point key="canvasLocation" x="1146" y="45"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">
@@ -1207,7 +1207,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                                     </state>
                                                     <connections>
                                                         <action selector="logout:" destination="AVM-eO-BKb" eventType="touchUpInside" id="zT1-x3-mOG"/>
-                                                        <segue destination="HMo-IR-3Tj" kind="showDetail" action="showViewController:sender:" id="7GE-0Q-nLE"/>
+                                                        <segue destination="HMo-IR-3Tj" kind="presentation" id="Nqh-Au-dTu"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -1615,7 +1615,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jaP-25-slM" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1798" y="107"/>
+            <point key="canvasLocation" x="2136" y="-169"/>
         </scene>
         <!--My Profile-->
         <scene sceneID="IB0-aq-kQV">
@@ -2667,28 +2667,36 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51w-LJ-7xJ">
                                         <rect key="frame" x="132" y="256" width="274" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Btv-qx-eKH" kind="show" identifier="startPoint" id="xMV-R0-9wp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kB-Vvi">
                                         <rect key="frame" x="132" y="283" width="274" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Btv-qx-eKH" kind="show" identifier="endPoint" id="0AN-x8-xfG"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3K-Ui-juH">
                                         <rect key="frame" x="132" y="228" width="274" height="30"/>
-                                        <state key="normal" title="click to choose length"/>
+                                        <state key="normal" title="click to choose length">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="rh6-T9-Anb" kind="show" id="s2S-wb-XYy"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-7t-2Lv">
                                         <rect key="frame" x="131" y="374" width="275" height="30"/>
-                                        <state key="normal" title="click to choose type"/>
+                                        <state key="normal" title="click to choose type">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="pDG-LF-bui" kind="show" id="aGK-Qo-5oV"/>
                                         </connections>
@@ -2710,7 +2718,9 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1Q-UY-n9s">
                                         <rect key="frame" x="132" y="406" width="274" height="30"/>
-                                        <state key="normal" title="click to choose price"/>
+                                        <state key="normal" title="click to choose price">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="JKB-80-4pt" kind="show" id="Uhr-H0-QJM"/>
                                         </connections>
@@ -4426,7 +4436,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-yw-XOe" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="69" y="119" width="276" height="113"/>
+                                <rect key="frame" x="69" y="139" width="276" height="93"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
@@ -4755,28 +4765,36 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n38-wd-uRg">
                                         <rect key="frame" x="132" y="325" width="274" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Btv-qx-eKH" kind="show" identifier="startPoint" id="qvF-ri-teb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p7a-tb-9J5">
                                         <rect key="frame" x="132" y="353" width="274" height="30"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="Btv-qx-eKH" kind="show" identifier="endPoint" id="XsX-dC-dnn"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e9j-s8-hkp">
                                         <rect key="frame" x="132" y="290" width="274" height="30"/>
-                                        <state key="normal" title="click to choose length"/>
+                                        <state key="normal" title="click to choose length">
+                                            <color key="titleColor" red="0.13725490196078433" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="rh6-T9-Anb" kind="show" id="PdS-dB-Clc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EvU-Lr-Zhm">
                                         <rect key="frame" x="132" y="429" width="274" height="30"/>
-                                        <state key="normal" title="click to choose type"/>
+                                        <state key="normal" title="click to choose type">
+                                            <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
                                             <segue destination="pDG-LF-bui" kind="show" id="QhX-ar-Mny"/>
                                         </connections>
