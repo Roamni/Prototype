@@ -105,7 +105,6 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         case 6: return 1
         case 7: return 1
         case 8: return 1
-        case 9: return 1
 //        case 7: return 1
 //        case 8: return 1
         default: return 0
@@ -150,9 +149,6 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             return 50.0//Choose your custom row height
         }
         if indexPath.section == 8{
-            return 50.0//Choose your custom row height
-        }
-        if indexPath.section == 9{
             return 50.0//Choose your custom row height
         }
 
@@ -256,32 +252,23 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
             
-            
         }else if indexPath.section == 5{
+            //Return the cell with identifier AboutTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniGiveFeedbackCell", for: indexPath as IndexPath)
+                as! MyRoamniGiveFeedbackCell
+            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
+            return cell
+        }else if indexPath.section == 6{
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniHowCell", for: indexPath as IndexPath)
                 as! MyRoamniHowCell
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
             
-            
-        }else if indexPath.section == 6{
+        }else if indexPath.section == 7{
             //Return the cell with identifier AboutTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniAboutCell", for: indexPath as IndexPath)
                 as! MyRoamniAboutCell
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            return cell
-        }else if indexPath.section == 7{
-            //Return the cell with identifier AboutTableViewCell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniGiveFeedbackCell", for: indexPath as IndexPath)
-                as! MyRoamniGiveFeedbackCell
-            cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-            return cell
-        }
-        else if indexPath.section == 8{
-            //Return the cell with identifier AboutTableViewCell
-            let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniIncomingTourCell", for: indexPath as IndexPath)
-                as! MyRoamniIncomingTourCell
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }else{

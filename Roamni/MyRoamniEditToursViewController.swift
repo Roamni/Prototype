@@ -94,7 +94,7 @@ class MyRoamniEditToursViewController: UIViewController,MKMapViewDelegate,CLLoca
     
     @IBAction func naviCancel(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
-        
+        self.dismiss(animated: true, completion: nil)
     }
     
     @IBOutlet weak var cancelBn: UIBarButtonItem!

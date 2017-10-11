@@ -101,8 +101,8 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
 
     @IBAction func naviCancel(_ sender: Any) {
         self.deregisterFromKeyboardNotifications()
-        self.dismiss(animated: false, completion: nil)
-
+        self.dismiss(animated: true, completion: nil)
+        exit(0)
 
     }
     
