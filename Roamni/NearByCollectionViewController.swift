@@ -42,7 +42,8 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let user = FIRAuth.auth()?.currentUser
+        print("gogogogogogogog  \(user!.photoURL!)")
         NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
         do{
             try reachability.startNotifier()

@@ -84,7 +84,9 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-       
+
+        //let photo = user.photoURL
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -174,11 +176,14 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 let uid = user.uid
                 let name = user.displayName
                 let photo = user.photoURL
+                cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(user.photoURL!)")
                 let ref = FIRDatabase.database().reference()
                 ref.child("users/\(uid)/email").setValue(email)
                 if user.photoURL != nil{
                     if photo != nil{
                      cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
+                        print("jijijijiji11111")
+                        print("\(photo!)")
                      //cell.loginBn.isHidden = false
                     cell.logoutBn.isHidden = true
                         
@@ -202,8 +207,10 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                                 self.userid = child.key
                                 if self.logedUser!.userimage != "image"{
                                 cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(self.logedUser!.userimage)")
+                                    print("jijijijiji2222")
                                 }else{
                                  cell.userPhoto.image = UIImage(named: "Roamni")
+                                    print("jijijijiji3333")
                                 }
                                 cell.userLabel.text = "\(self.logedUser!.firstname) \(self.logedUser!.lastname)"
                                 //self.downloadPayments.append(downloadTour)
@@ -222,6 +229,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             }else
                 {
                     cell.userPhoto.image = UIImage(named: "Roamni")
+                    print("jijijijiji4444")
                     cell.userLabel.text = "Please log in"
                 
             }

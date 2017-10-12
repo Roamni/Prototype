@@ -754,7 +754,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDo-CJ-Tzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-542" y="-4227"/>
+            <point key="canvasLocation" x="-3836" y="-5740"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">
@@ -816,6 +816,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="zVq-Xh-N3P"/>
                     <connections>
                         <outlet property="miniPlayerButton" destination="ERi-Af-8jj" id="taJ-1E-zEZ"/>
                         <outlet property="miniPlayerView" destination="EL0-8A-AKa" id="rUU-Oj-4NZ"/>
@@ -825,7 +826,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7H6-39-JIU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1002.8985507246377" y="-2635.5978260869565"/>
+            <point key="canvasLocation" x="-3154" y="-5630"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="CIV-in-uTT">
@@ -2565,7 +2566,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <rect key="frame" x="0.0" y="64" width="414" height="672"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Open Voice Memos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpk-AN-qAa">
-                                        <rect key="frame" x="132" y="311" width="274" height="55"/>
+                                        <rect key="frame" x="132" y="311" width="275" height="55"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2595,7 +2596,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k4H-Sn-VAr">
-                                        <rect key="frame" x="132" y="190" width="274" height="30"/>
+                                        <rect key="frame" x="132" y="190" width="275" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -2619,20 +2620,20 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xst-6e-pb5">
-                                        <rect key="frame" x="132" y="444" width="274" height="110"/>
+                                        <rect key="frame" x="132" y="444" width="275" height="110"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="vvR-T7-c5z">
-                                        <rect key="frame" x="1" y="0.0" width="413" height="176"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="415" height="176"/>
                                         <gestureRecognizers/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="176" id="szI-0O-Y0v"/>
                                         </constraints>
                                     </mapView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="51w-LJ-7xJ">
-                                        <rect key="frame" x="132" y="256" width="274" height="30"/>
+                                        <rect key="frame" x="132" y="256" width="275" height="30"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -2641,7 +2642,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KqX-kB-Vvi">
-                                        <rect key="frame" x="132" y="283" width="274" height="30"/>
+                                        <rect key="frame" x="132" y="283" width="275" height="30"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -2650,7 +2651,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A3K-Ui-juH">
-                                        <rect key="frame" x="132" y="228" width="274" height="30"/>
+                                        <rect key="frame" x="132" y="228" width="275" height="30"/>
                                         <state key="normal" title="click to choose length">
                                             <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -2659,7 +2660,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-7t-2Lv">
-                                        <rect key="frame" x="131" y="374" width="275" height="30"/>
+                                        <rect key="frame" x="131" y="374" width="276" height="30"/>
                                         <state key="normal" title="click to choose type">
                                             <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -2668,7 +2669,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FhR-D7-mKU">
-                                        <rect key="frame" x="0.0" y="553" width="414" height="38"/>
+                                        <rect key="frame" x="203" y="553" width="211" height="38"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="38" id="HhK-wX-RtY"/>
                                         </constraints>
@@ -2680,10 +2681,10 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </button>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fuR-MX-q3c">
-                                        <rect key="frame" x="1" y="589" width="413" height="2"/>
+                                        <rect key="frame" x="0.0" y="589" width="415" height="2"/>
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f1Q-UY-n9s">
-                                        <rect key="frame" x="132" y="406" width="274" height="30"/>
+                                        <rect key="frame" x="132" y="406" width="275" height="30"/>
                                         <state key="normal" title="click to choose price">
                                             <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
@@ -2697,6 +2698,16 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bLz-Xo-lXw">
+                                        <rect key="frame" x="59" y="557" width="65" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Cancel">
+                                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="zHH-6e-uOa" kind="show" id="zr0-zS-0ar"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="QTe-7t-2Lv" firstAttribute="baseline" secondItem="PZ8-6a-ySK" secondAttribute="firstBaseline" id="18Y-qa-dBU"/>
@@ -2713,7 +2724,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <constraint firstItem="k4H-Sn-VAr" firstAttribute="trailing" secondItem="A3K-Ui-juH" secondAttribute="trailing" id="9hk-fg-ZC2"/>
                                     <constraint firstItem="vpk-AN-qAa" firstAttribute="leading" secondItem="xst-6e-pb5" secondAttribute="leading" id="AVm-Wf-AXJ"/>
                                     <constraint firstItem="vvR-T7-c5z" firstAttribute="top" secondItem="RUP-bJ-qDQ" secondAttribute="top" id="CVK-Wd-blZ"/>
-                                    <constraint firstItem="FhR-D7-mKU" firstAttribute="trailing" secondItem="fuR-MX-q3c" secondAttribute="trailing" id="CdF-ov-rcs"/>
+                                    <constraint firstItem="FhR-D7-mKU" firstAttribute="trailing" secondItem="fuR-MX-q3c" secondAttribute="trailing" constant="-1" id="CdF-ov-rcs"/>
                                     <constraint firstItem="f1Q-UY-n9s" firstAttribute="top" secondItem="QTe-7t-2Lv" secondAttribute="bottom" constant="2" id="Dk5-6N-xdx"/>
                                     <constraint firstItem="FhR-D7-mKU" firstAttribute="bottom" secondItem="fuR-MX-q3c" secondAttribute="bottom" id="FhY-fm-rKl"/>
                                     <constraint firstItem="vpk-AN-qAa" firstAttribute="trailing" secondItem="QTe-7t-2Lv" secondAttribute="trailing" id="GE0-nU-d3k"/>
@@ -2724,7 +2735,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <constraint firstItem="KqX-kB-Vvi" firstAttribute="trailing" secondItem="vpk-AN-qAa" secondAttribute="trailing" id="HqQ-gw-3mp"/>
                                     <constraint firstItem="G4t-wX-zWO" firstAttribute="top" secondItem="xst-6e-pb5" secondAttribute="top" id="I0B-xD-oaK"/>
                                     <constraint firstItem="G4t-wX-zWO" firstAttribute="top" secondItem="PZ8-6a-ySK" secondAttribute="bottom" constant="45" id="K9t-uz-dS2"/>
-                                    <constraint firstItem="FhR-D7-mKU" firstAttribute="leading" secondItem="RUP-bJ-qDQ" secondAttribute="leading" id="KpN-dm-5gY"/>
+                                    <constraint firstItem="FhR-D7-mKU" firstAttribute="leading" secondItem="RUP-bJ-qDQ" secondAttribute="leading" constant="203" id="KpN-dm-5gY"/>
                                     <constraint firstItem="Q7S-OC-u2z" firstAttribute="leading" secondItem="THD-TK-hEc" secondAttribute="leading" id="Nre-pr-afO"/>
                                     <constraint firstItem="k4H-Sn-VAr" firstAttribute="leading" secondItem="A3K-Ui-juH" secondAttribute="leading" id="OG9-rE-FZN"/>
                                     <constraint firstItem="vvR-T7-c5z" firstAttribute="trailing" secondItem="fuR-MX-q3c" secondAttribute="trailing" id="PCL-4c-Kby"/>
@@ -2734,7 +2745,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <constraint firstItem="vvR-T7-c5z" firstAttribute="centerX" secondItem="RUP-bJ-qDQ" secondAttribute="centerX" id="WQp-tj-gDy"/>
                                     <constraint firstItem="51w-LJ-7xJ" firstAttribute="top" secondItem="k4H-Sn-VAr" secondAttribute="bottom" constant="36" id="XDy-Oa-6vG"/>
                                     <constraint firstAttribute="bottom" secondItem="FhR-D7-mKU" secondAttribute="bottom" constant="81" id="Zzv-z2-20b"/>
-                                    <constraint firstItem="FhR-D7-mKU" firstAttribute="centerX" secondItem="fuR-MX-q3c" secondAttribute="centerX" id="atW-k8-zHB"/>
+                                    <constraint firstItem="FhR-D7-mKU" firstAttribute="centerX" secondItem="fuR-MX-q3c" secondAttribute="centerX" constant="101" id="atW-k8-zHB"/>
                                     <constraint firstItem="PCK-tW-BcZ" firstAttribute="leading" secondItem="RUP-bJ-qDQ" secondAttribute="leadingMargin" id="eCS-Kn-O2G"/>
                                     <constraint firstItem="THD-TK-hEc" firstAttribute="top" secondItem="Q7S-OC-u2z" secondAttribute="bottom" constant="14" id="eXr-2d-Wub"/>
                                     <constraint firstItem="f1Q-UY-n9s" firstAttribute="leading" secondItem="vpk-AN-qAa" secondAttribute="leading" id="eeL-1W-vOj"/>
@@ -2762,13 +2773,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FzY-dN-F1T">
                                 <rect key="frame" x="0.0" y="20" width="414" height="44"/>
                                 <items>
-                                    <navigationItem title="Upload A Tour" id="xRR-zH-J6R">
-                                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="afg-MU-doE">
-                                            <connections>
-                                                <action selector="naviCancel:" destination="ARn-za-RXE" id="8Bs-wc-LmV"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Upload A Tour" id="xRR-zH-J6R"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -2785,7 +2790,6 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                     </view>
                     <connections>
                         <outlet property="FilenameLabel" destination="vpk-AN-qAa" id="yuV-Ai-rcc"/>
-                        <outlet property="cancelBn" destination="afg-MU-doE" id="hdf-rW-IBN"/>
                         <outlet property="categoryBn" destination="QTe-7t-2Lv" id="gVc-LI-j4C"/>
                         <outlet property="descText" destination="xst-6e-pb5" id="ByK-Q7-EdJ"/>
                         <outlet property="endPointBn" destination="KqX-kB-Vvi" id="ITY-Mj-dOd"/>
@@ -2801,7 +2805,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="089-c0-A6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1904" y="-4784"/>
+            <point key="canvasLocation" x="-2259.4202898550725" y="-5940.489130434783"/>
         </scene>
         <!--Choose Length-->
         <scene sceneID="Nng-eD-snB">
@@ -4401,7 +4405,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WHr-yw-XOe" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                <rect key="frame" x="69" y="139" width="276" height="93"/>
+                                <rect key="frame" x="69" y="119" width="276" height="113"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
@@ -5048,7 +5052,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcY-6l-rNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-838" y="-4948"/>
+            <point key="canvasLocation" x="-49" y="-5107"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="My3-Aq-41J">
@@ -5134,7 +5138,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <segue reference="s2S-wb-XYy"/>
         <segue reference="aGK-Qo-5oV"/>
         <segue reference="2hD-WS-x4K"/>
-        <segue reference="0AN-x8-xfG"/>
+        <segue reference="xMV-R0-9wp"/>
         <segue reference="YxH-q0-g5X"/>
     </inferredMetricsTieBreakers>
 </document>

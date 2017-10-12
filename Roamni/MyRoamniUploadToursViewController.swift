@@ -12,6 +12,9 @@ import MapKit
 class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITextViewDelegate {
     
    
+    @IBAction func cancelButton(_ sender: Any) {
+        print("a~~~~~~~")
+    }
     
        @IBAction func startButton(_ segue: UIStoryboardSegue) {
         let secondVC :ViewController = segue.source as! ViewController
@@ -96,13 +99,14 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBAction func cancleButton(_ sender: Any) {
         self.deregisterFromKeyboardNotifications()
-        self.dismiss(animated: false, completion: nil)
+        //self.dismiss(animated: false, completion: nil)
     }
 
     @IBAction func naviCancel(_ sender: Any) {
         self.deregisterFromKeyboardNotifications()
-        self.dismiss(animated: true, completion: nil)
-        exit(0)
+        print("cancelcancelcancelcancel")
+        //self.dismiss(animated: true, completion: nil)
+        //exit(0)
 
     }
     
@@ -408,14 +412,27 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.naviBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         UITextField.appearance().tintColor = UIColor.black
         UITextView.appearance().tintColor = UIColor.black
-        self.cancelBn.tintColor = UIColor.white
+        //self.cancelBn.tintColor = UIColor.white
         self.descText.returnKeyType = UIReturnKeyType.done
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-
+        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
+        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
+        let play = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped))
+        
+        navigationItem.rightBarButtonItems = [add, play]
 
         // Do any additional setup after loading the view.
+    }
+    
+    func addTapped(){
+        
+    }
+    
+    func playTapped(){
+        
     }
     
 //    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
@@ -471,8 +488,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         if annotation is MKUserLocation{
             return nil
-        }
-        else{
+        }else{
             let pinIdent = "Pin"
             var pinView:MKPinAnnotationView
             if let dequeuedView = mapView.dequeueReusableAnnotationView(withIdentifier: pinIdent) as? MKPinAnnotationView {
