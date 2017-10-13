@@ -2617,8 +2617,8 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please Open Voice Memos" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpk-AN-qAa">
-                                        <rect key="frame" x="132" y="311" width="236" height="55"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <rect key="frame" x="132" y="311" width="236" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -2659,7 +2659,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PZ8-6a-ySK">
-                                        <rect key="frame" x="8" y="378" width="75" height="21"/>
+                                        <rect key="frame" x="8" y="381" width="75" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -2711,8 +2711,8 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QTe-7t-2Lv">
-                                        <rect key="frame" x="131" y="374" width="237" height="30"/>
-                                        <state key="normal" title="click to choose type">
+                                        <rect key="frame" x="131" y="377" width="237" height="30"/>
+                                        <state key="normal" title="click to choose category">
                                             <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -2759,24 +2759,40 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                             <segue destination="zHH-6e-uOa" kind="show" id="zr0-zS-0ar"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PGs-Ve-qFr">
+                                        <rect key="frame" x="8" y="354" width="75" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmq-fA-VI0">
+                                        <rect key="frame" x="132" y="349" width="236" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="click to choose mode"/>
+                                        <connections>
+                                            <action selector="modeButton:" destination="ARn-za-RXE" eventType="touchUpInside" id="298-lE-GZ3"/>
+                                            <segue destination="cCS-PQ-ted" kind="show" id="KBI-dT-1oq"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="QTe-7t-2Lv" firstAttribute="baseline" secondItem="PZ8-6a-ySK" secondAttribute="firstBaseline" id="18Y-qa-dBU"/>
-                                    <constraint firstItem="QTe-7t-2Lv" firstAttribute="top" secondItem="vpk-AN-qAa" secondAttribute="bottom" constant="8" id="1YJ-Gv-ek6"/>
+                                    <constraint firstItem="QTe-7t-2Lv" firstAttribute="baseline" secondItem="PZ8-6a-ySK" secondAttribute="firstBaseline" constant="0.5" id="18Y-qa-dBU"/>
+                                    <constraint firstItem="QTe-7t-2Lv" firstAttribute="top" secondItem="vpk-AN-qAa" secondAttribute="bottom" constant="23" id="1YJ-Gv-ek6"/>
                                     <constraint firstItem="k4H-Sn-VAr" firstAttribute="trailing" secondItem="RUP-bJ-qDQ" secondAttribute="trailingMargin" id="29w-lN-u6d"/>
                                     <constraint firstItem="QTe-7t-2Lv" firstAttribute="trailing" secondItem="xst-6e-pb5" secondAttribute="trailing" id="2rx-45-fJL"/>
                                     <constraint firstItem="PCK-tW-BcZ" firstAttribute="centerY" secondItem="k4H-Sn-VAr" secondAttribute="centerY" id="47F-S4-9LA"/>
                                     <constraint firstItem="A3K-Ui-juH" firstAttribute="leading" secondItem="ZLb-pd-31j" secondAttribute="trailing" constant="27" id="47b-49-RII"/>
                                     <constraint firstItem="THD-TK-hEc" firstAttribute="leading" secondItem="PZ8-6a-ySK" secondAttribute="leading" id="6vH-NU-0Xc"/>
                                     <constraint firstItem="Dm2-Yz-R9i" firstAttribute="trailing" secondItem="PZ8-6a-ySK" secondAttribute="trailing" id="7Az-xB-4GG"/>
-                                    <constraint firstItem="PZ8-6a-ySK" firstAttribute="firstBaseline" secondItem="QTe-7t-2Lv" secondAttribute="firstBaseline" id="83l-O3-fQ9"/>
+                                    <constraint firstItem="PZ8-6a-ySK" firstAttribute="firstBaseline" secondItem="QTe-7t-2Lv" secondAttribute="firstBaseline" constant="-0.5" id="83l-O3-fQ9"/>
                                     <constraint firstItem="PCK-tW-BcZ" firstAttribute="leading" secondItem="ZLb-pd-31j" secondAttribute="leading" id="8fK-Iy-m6I"/>
                                     <constraint firstItem="Dm2-Yz-R9i" firstAttribute="firstBaseline" secondItem="f1Q-UY-n9s" secondAttribute="baseline" id="9Z8-qz-WTv"/>
                                     <constraint firstItem="k4H-Sn-VAr" firstAttribute="trailing" secondItem="A3K-Ui-juH" secondAttribute="trailing" id="9hk-fg-ZC2"/>
                                     <constraint firstItem="vpk-AN-qAa" firstAttribute="leading" secondItem="xst-6e-pb5" secondAttribute="leading" id="AVm-Wf-AXJ"/>
                                     <constraint firstItem="vvR-T7-c5z" firstAttribute="top" secondItem="RUP-bJ-qDQ" secondAttribute="top" id="CVK-Wd-blZ"/>
                                     <constraint firstItem="FhR-D7-mKU" firstAttribute="trailing" secondItem="fuR-MX-q3c" secondAttribute="trailing" constant="-1" id="CdF-ov-rcs"/>
-                                    <constraint firstItem="f1Q-UY-n9s" firstAttribute="top" secondItem="QTe-7t-2Lv" secondAttribute="bottom" constant="2" id="Dk5-6N-xdx"/>
+                                    <constraint firstItem="f1Q-UY-n9s" firstAttribute="top" secondItem="QTe-7t-2Lv" secondAttribute="bottom" constant="-1" id="Dk5-6N-xdx"/>
                                     <constraint firstItem="FhR-D7-mKU" firstAttribute="bottom" secondItem="fuR-MX-q3c" secondAttribute="bottom" id="FhY-fm-rKl"/>
                                     <constraint firstItem="vpk-AN-qAa" firstAttribute="trailing" secondItem="QTe-7t-2Lv" secondAttribute="trailing" id="GE0-nU-d3k"/>
                                     <constraint firstItem="51w-LJ-7xJ" firstAttribute="trailing" secondItem="KqX-kB-Vvi" secondAttribute="trailing" id="GKh-7d-svD"/>
@@ -2785,7 +2801,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <constraint firstItem="QTe-7t-2Lv" firstAttribute="centerX" secondItem="xst-6e-pb5" secondAttribute="centerX" id="Ghb-MT-fUs"/>
                                     <constraint firstItem="KqX-kB-Vvi" firstAttribute="trailing" secondItem="vpk-AN-qAa" secondAttribute="trailing" id="HqQ-gw-3mp"/>
                                     <constraint firstItem="G4t-wX-zWO" firstAttribute="top" secondItem="xst-6e-pb5" secondAttribute="top" id="I0B-xD-oaK"/>
-                                    <constraint firstItem="G4t-wX-zWO" firstAttribute="top" secondItem="PZ8-6a-ySK" secondAttribute="bottom" constant="45" id="K9t-uz-dS2"/>
+                                    <constraint firstItem="G4t-wX-zWO" firstAttribute="top" secondItem="PZ8-6a-ySK" secondAttribute="bottom" constant="42" id="K9t-uz-dS2"/>
                                     <constraint firstItem="FhR-D7-mKU" firstAttribute="leading" secondItem="RUP-bJ-qDQ" secondAttribute="leading" constant="203" id="KpN-dm-5gY"/>
                                     <constraint firstItem="Q7S-OC-u2z" firstAttribute="leading" secondItem="THD-TK-hEc" secondAttribute="leading" id="Nre-pr-afO"/>
                                     <constraint firstItem="k4H-Sn-VAr" firstAttribute="leading" secondItem="A3K-Ui-juH" secondAttribute="leading" id="OG9-rE-FZN"/>
@@ -2807,11 +2823,11 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <constraint firstItem="FhR-D7-mKU" firstAttribute="top" secondItem="G4t-wX-zWO" secondAttribute="bottom" constant="88" id="k0X-pW-NMc"/>
                                     <constraint firstItem="A3K-Ui-juH" firstAttribute="trailing" secondItem="51w-LJ-7xJ" secondAttribute="trailing" id="k2G-P6-5S1"/>
                                     <constraint firstItem="k4H-Sn-VAr" firstAttribute="top" secondItem="vvR-T7-c5z" secondAttribute="bottom" constant="14" id="kKa-5X-UaU"/>
-                                    <constraint firstItem="xst-6e-pb5" firstAttribute="top" secondItem="QTe-7t-2Lv" secondAttribute="bottom" constant="40" id="kKe-0X-zqu"/>
+                                    <constraint firstItem="xst-6e-pb5" firstAttribute="top" secondItem="QTe-7t-2Lv" secondAttribute="bottom" constant="37" id="kKe-0X-zqu"/>
                                     <constraint firstAttribute="trailing" secondItem="vvR-T7-c5z" secondAttribute="trailing" id="kgX-Fu-Ql1"/>
                                     <constraint firstItem="23V-dY-X7v" firstAttribute="leading" secondItem="Q7S-OC-u2z" secondAttribute="leading" id="kwE-Gt-aQs"/>
                                     <constraint firstItem="ZLb-pd-31j" firstAttribute="leading" secondItem="23V-dY-X7v" secondAttribute="leading" id="oaZ-f5-UGP"/>
-                                    <constraint firstItem="PZ8-6a-ySK" firstAttribute="top" secondItem="THD-TK-hEc" secondAttribute="bottom" constant="34" id="pJf-Is-K7s"/>
+                                    <constraint firstItem="PZ8-6a-ySK" firstAttribute="top" secondItem="THD-TK-hEc" secondAttribute="bottom" constant="37" id="pJf-Is-K7s"/>
                                     <constraint firstItem="Q7S-OC-u2z" firstAttribute="centerY" secondItem="KqX-kB-Vvi" secondAttribute="centerY" id="ptX-hS-lkr"/>
                                     <constraint firstItem="A3K-Ui-juH" firstAttribute="baseline" secondItem="ZLb-pd-31j" secondAttribute="firstBaseline" id="qMO-4O-vMS"/>
                                     <constraint firstItem="KqX-kB-Vvi" firstAttribute="leading" secondItem="vpk-AN-qAa" secondAttribute="leading" id="tKD-6e-kXy"/>
@@ -2846,6 +2862,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                         <outlet property="endPointBn" destination="KqX-kB-Vvi" id="ITY-Mj-dOd"/>
                         <outlet property="lengthBn" destination="A3K-Ui-juH" id="10f-T6-tH8"/>
                         <outlet property="mapView" destination="vvR-T7-c5z" id="hR0-hs-8sq"/>
+                        <outlet property="modeBn" destination="bmq-fA-VI0" id="0dw-LY-EL7"/>
                         <outlet property="naviBar" destination="FzY-dN-F1T" id="Uup-UJ-keu"/>
                         <outlet property="priceBn" destination="f1Q-UY-n9s" id="XeN-eH-M5i"/>
                         <outlet property="progressView" destination="fuR-MX-q3c" id="QHx-Ku-LA9"/>
@@ -2856,7 +2873,44 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="089-c0-A6e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2259.4202898550725" y="-5940.489130434783"/>
+            <point key="canvasLocation" x="-2260" y="-5941.0794602698652"/>
+        </scene>
+        <!--Choose a Mode-->
+        <scene sceneID="vfH-62-ac1">
+            <objects>
+                <viewController id="vbI-Vx-Nr3" customClass="UploadModeViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zpy-t7-3Sc"/>
+                        <viewControllerLayoutGuide type="bottom" id="z5E-1W-UUP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="aJP-lh-Tgh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-gH-Bv1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Choose a Mode" id="Tb0-hi-LzH">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="KlM-8z-QRH">
+                            <connections>
+                                <action selector="cancelBtn:" destination="vbI-Vx-Nr3" id="ELR-WK-gxJ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="gUy-hy-JbO"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="cancel" destination="KlM-8z-QRH" id="22c-sh-jA0"/>
+                        <outlet property="done" destination="gUy-hy-JbO" id="rWW-L2-stl"/>
+                        <outlet property="pricePicker" destination="lXV-gH-Bv1" id="RGX-tw-99b"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XKk-G1-YBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-849" y="-5771"/>
         </scene>
         <!--Choose Length-->
         <scene sceneID="Nng-eD-snB">
@@ -2949,7 +3003,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8FT-Nm-H2N" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="wal-0F-UaT" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="846.37681159420299" y="-2913.5869565217395"/>
+            <point key="canvasLocation" x="102" y="-3031"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="1PJ-Pm-jbS">
@@ -3453,7 +3507,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Roamni Stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-tA-Nan">
-                                <rect key="frame" x="10" y="109" width="193" height="29"/>
+                                <rect key="frame" x="10" y="69" width="193" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="XAU-JL-Yqv"/>
                                     <constraint firstAttribute="width" constant="193" id="p1B-Sn-noK"/>
@@ -3941,7 +3995,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pNN-Kz-n8I">
-                                            <rect key="frame" x="210" y="53" width="131" height="21"/>
+                                            <rect key="frame" x="210" y="54" width="131" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <nil key="textColor"/>
@@ -4634,7 +4688,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oc3-fc-3dU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-131.8840579710145" y="-3368.4782608695655"/>
+            <point key="canvasLocation" x="-913" y="-3902"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="vou-fo-co3">
@@ -4698,7 +4752,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVH-CT-t93" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rhY-VX-C1A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-107" y="-4977"/>
+            <point key="canvasLocation" x="184.80000000000001" y="-5575.8620689655181"/>
         </scene>
         <!--Upload A Tour-->
         <scene sceneID="gv1-d0-l2y">
@@ -5070,7 +5124,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="O8k-FP-EZk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="765" y="-4919"/>
+            <point key="canvasLocation" x="1007.2" y="-5341.0794602698652"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yIU-Ge-Ipd">
@@ -5106,7 +5160,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zcY-6l-rNx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="242" y="-5347"/>
+            <point key="canvasLocation" x="927.20000000000005" y="-6088.6056971514245"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="My3-Aq-41J">
@@ -5208,6 +5262,25 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0A-eL-KEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-133.33333333333334" y="1104.6195652173915"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Nxh-Iq-de1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cCS-PQ-ted" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="BSx-T2-QKG"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="tds-Yp-jaM">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="vbI-Vx-Nr3" kind="relationship" relationship="rootViewController" id="DMQ-bJ-Njx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fz7-PA-vIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1738" y="-5774"/>
         </scene>
     </scenes>
     <resources>

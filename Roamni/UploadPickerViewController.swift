@@ -22,9 +22,9 @@ class UploadPickerViewController: UIViewController,UIPickerViewDelegate,UIPicker
     @IBOutlet weak var done: UIBarButtonItem!
     
     
-    var pickString:String = "Walking"
+    var pickString:String = "Orientation"
 
-    let categoryPickerValues = ["Walking","Driving","Cycling","Shopping","Real Estate","Accessible"]
+    let categoryPickerValues = ["Orientation","Food and Cafe","Historical","Shopping","Architecture","Accessible","Fitness","Sightseeing"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

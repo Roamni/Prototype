@@ -66,12 +66,22 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
 
         
     }
+    
+    @IBAction func modeButton(_ sender: UIStoryboardSegue) {
+        let secondVC :UploadModeViewController = segue.source as! UploadModeViewController
+        self.modeBn.setTitle(secondVC.pickString, for: .normal)
+        self.modeBn.tintColor = UIColor.black
+        
+    }
+    
+    
 
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     @IBOutlet weak var priceBn: UIButton!
     @IBOutlet weak var categoryBn: UIButton!
 
+    @IBOutlet weak var modeBn: UIButton!
     @IBOutlet weak var naviBar: UINavigationBar!
     
     @IBOutlet weak var startpointBn: UIButton!
