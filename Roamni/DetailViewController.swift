@@ -47,6 +47,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     @IBOutlet weak var priceBtn: UIButton!
     @IBOutlet weak var circleProgressView: CircleProgressView!
     
+    @IBOutlet weak var hostName: UIButton!
     @IBOutlet weak var nextBn: UIBarButtonItem!
     @IBOutlet weak var preBn: UIBarButtonItem!
     @IBOutlet weak var seemoreBtn: UIButton!
@@ -64,6 +65,10 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     fileprivate var modalVC : ModalViewController!
     var counter = 0
     var counter1 = 0
+    
+    @IBOutlet weak var mode: UILabel!
+    
+    @IBOutlet weak var category: UILabel!
     
     func buyProduct() {
         print("buy " + p.productIdentifier)
@@ -531,7 +536,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 //let longitude = (location["lon"] as! NSString).doubleValue
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
                 if let user = FIRAuth.auth()?.currentUser{
                     let uid = user.uid
                     if child.childSnapshot(forPath: "user").hasChild(uid) && downloadTour.uploadUser != uid
@@ -630,7 +635,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 let longitude22 = Double(longitude2)
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
                 if let user = FIRAuth.auth()?.currentUser{
                     let uid = user.uid
                     if downloadTour.uploadUser == uid
@@ -768,6 +773,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
 
     //self.title = detailTour?.name
     self.lengthLabel.text = String(detailTour?.length ?? 0) + " min"
+    self.mode.text = detailTour!.mode
+    self.category.text = detailTour!.tourType
     self.ratingLabel.text = String(describing: detailTour?.star)
     let fulldesArr = detailTour?.desc.components(separatedBy: " ")
     if (fulldesArr?.count)! >= 31{
@@ -799,6 +806,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
     let sourceAnnotation = MKPointAnnotation()
     sourceAnnotation.title = detailTour?.name
+    //sourceAnnotation.lef
     if let location = sourcePlacemark.location{
         sourceAnnotation.coordinate = location.coordinate
     }
@@ -851,6 +859,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 view.canShowCallout = true
+                view.rightCalloutAccessoryView = UIButton(type: .infoDark)
+                view.rightCalloutAccessoryView?.tintColor = UIColor.blue
                 view.calloutOffset = CGPoint(x: -5, y: 5)
                 //view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure) as UIView
             }
@@ -860,7 +870,14 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         return nil
     }
 
-    
+    func mapView(_ mapView: MKMapView!, annotationView view: MKAnnotationView!, calloutAccessoryControlTapped control: UIControl!){
+        //let anotation = view.annotation as! MyAnnotation
+        if (control == view.rightCalloutAccessoryView)
+        {
+            print("Button Right pressed!")
+        }
+    } 
+
 
 }
 extension UIScrollView {

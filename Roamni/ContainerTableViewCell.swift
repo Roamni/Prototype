@@ -16,6 +16,8 @@ class ContainerTableViewCell: UITableViewCell {
 
     @IBOutlet weak var detailTextlabel: UILabel!
     
+    @IBOutlet weak var hostLabel: UILabel!
+    @IBOutlet weak var modeLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     var starrating:CGFloat = 1
     override func awakeFromNib() {

@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         UITextField.appearance(whenContainedInInstancesOf: [UISearchBar.self]).tintColor = UIColor.candyGreen()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
         UINavigationBar.appearance().tintColor = UIColor.white
-        UIButton.appearance().tintColor = UIColor.white//UIColor.blue
+        UIButton.appearance().tintColor = UIColor.white//UIColor.blue 
         UIApplication.shared.setStatusBarStyle(UIStatusBarStyle.lightContent, animated: true)
         
         return true

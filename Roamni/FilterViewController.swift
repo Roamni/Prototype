@@ -20,6 +20,7 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
     
     @IBOutlet weak var dropdown: UIPickerView!
     
+    @IBOutlet weak var btn09: UIButton!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
     @IBOutlet weak var btn3: UIButton!
@@ -52,8 +53,9 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
  //       btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Accessible"
+        tType = "Historical"
         
     }
 
@@ -66,8 +68,9 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
      //   btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Shopping"
+        tType = "Architecture"
 
     }
     
@@ -80,8 +83,9 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
       //  btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Real Estate"
+        tType = "Orientation"
     }
     
     @IBAction func btn4(_ sender: Any) {
@@ -93,8 +97,9 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
       //  btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Walking"
+        tType = "Food and Cafe"
     }
     
     @IBAction func btn5(_ sender: Any) {
@@ -106,8 +111,9 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
 //        btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Cycling"
+        tType = "Accessible"
     }
     
     @IBAction func btn6(_ sender: Any) {
@@ -119,8 +125,9 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "61"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
     //    btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
-        tType = "Driving"
+        tType = "Sightseeing"
     }
     
     @IBAction func btn7(_ sender: Any) {
@@ -132,6 +139,8 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "71"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
+        tType = "Shopping"
   //      btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
 
     }
@@ -145,8 +154,24 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "81"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "9"), for: UIControlState.normal)
+        tType = "Premium"
+        
  //       btn9.setImage(UIImage(named: "9"), for: UIControlState.normal)
 
+    }
+    @IBAction func btn09(_ sender: Any) {
+        btn1.setImage(UIImage(named: "1"), for: UIControlState.normal)
+        btn2.setImage(UIImage(named: "2"), for: UIControlState.normal)
+        btn3.setImage(UIImage(named: "3"), for: UIControlState.normal)
+        btn4.setImage(UIImage(named: "4"), for: UIControlState.normal)
+        btn5.setImage(UIImage(named: "5"), for: UIControlState.normal)
+        btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
+        btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
+        btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
+        btn09.setImage(UIImage(named: "91"), for: UIControlState.normal)
+        tType = "Fitness"
+        
     }
     
     @IBAction func btn9(_ sender: Any) {
@@ -158,7 +183,8 @@ class FilterViewController: UIViewController,UICollectionViewDelegate,UICollecti
         btn6.setImage(UIImage(named: "6"), for: UIControlState.normal)
         btn7.setImage(UIImage(named: "7"), for: UIControlState.normal)
         btn8.setImage(UIImage(named: "8"), for: UIControlState.normal)
-        
+        btn09.setImage(UIImage(named: "91"), for: UIControlState.normal)
+         tType = "Fitness"
  //       btn9.setImage(UIImage(named: "91"), for: UIControlState.normal)
 
     }
