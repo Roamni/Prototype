@@ -21,6 +21,7 @@
         let length: Int
         let difficulty:String
         let uploadUser:String
+        let uploadUserEmail:String
         let tourId:String
         let price: Float
     }

@@ -11,7 +11,8 @@ import Firebase
 import MapKit
 class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLocationManagerDelegate,UITextViewDelegate {
     
-   
+   //var idUsers = [IDUser]()
+    //var userEmail : String?
     @IBAction func cancelButton(_ sender: Any) {
         print("a~~~~~~~")
     }
@@ -177,7 +178,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                                 price = 6.99
                             }
                             
-                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                         }
                     }
                     
@@ -251,7 +252,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                         price = 6.99
                     }
                     
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                 }
                     }
           
@@ -279,8 +280,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                 }
             }
             
-        }
-        else{
+        }else{
             self.alertBn(title: "Reminder", message: "Please log in first")
             print("no user")
         }
@@ -377,6 +377,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         return true
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.descText.delegate = self
@@ -417,23 +418,12 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(addTapped))
-        let add = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addTapped))
-        let play = UIBarButtonItem(title: "Play", style: .plain, target: self, action: #selector(playTapped))
         
-        navigationItem.rightBarButtonItems = [add, play]
 
         // Do any additional setup after loading the view.
     }
     
-    func addTapped(){
-        
-    }
-    
-    func playTapped(){
-        
-    }
+
     
 //    @IBAction func addPin(_ sender: UILongPressGestureRecognizer) {
 //        if sender.state == UIGestureRecognizerState.began{
@@ -524,6 +514,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     }
 
 }
+
 extension MyRoamniUploadToursViewController:UITextFieldDelegate{
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if (string == "\n") {

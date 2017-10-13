@@ -100,6 +100,7 @@
 		F08A66151E7294DF008AE869 /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */; };
 		F08A664F1F8F7C0700348D15 /* ReviewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A664E1F8F7C0700348D15 /* ReviewsTableViewController.swift */; };
 		F08A66511F8F889300348D15 /* HostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66501F8F889300348D15 /* HostViewController.swift */; };
+		F08A66531F9082E600348D15 /* IDUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08A66521F9082E600348D15 /* IDUser.swift */; };
 		F08E1B2E1F3B6B2F00B8FBA7 /* PaymentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08E1B2D1F3B6B2F00B8FBA7 /* PaymentDetailViewController.swift */; };
 		F08E1B321F3D739000B8FBA7 /* MyRoamniReportsPayoutViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08E1B311F3D739000B8FBA7 /* MyRoamniReportsPayoutViewCell.swift */; };
 		F0901AEA1E6057E300F23AC3 /* TourMusicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */; };
@@ -236,6 +237,7 @@
 		F08A66141E7294DF008AE869 /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F08A664E1F8F7C0700348D15 /* ReviewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewsTableViewController.swift; sourceTree = "<group>"; };
 		F08A66501F8F889300348D15 /* HostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostViewController.swift; sourceTree = "<group>"; };
+		F08A66521F9082E600348D15 /* IDUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDUser.swift; sourceTree = "<group>"; };
 		F08E1B2D1F3B6B2F00B8FBA7 /* PaymentDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaymentDetailViewController.swift; sourceTree = "<group>"; };
 		F08E1B311F3D739000B8FBA7 /* MyRoamniReportsPayoutViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyRoamniReportsPayoutViewCell.swift; sourceTree = "<group>"; };
 		F0901AE91E6057E300F23AC3 /* TourMusicDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TourMusicDetailViewController.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				F012B5331F504DB0005159AC /* PayoutTour.swift */,
 				F07B70871F7FAFF400BDB2CC /* PaymentDetail.swift */,
 				F047E91E1F82063F00479A60 /* User.swift */,
+				F08A66521F9082E600348D15 /* IDUser.swift */,
 			);
 			name = Class;
 			sourceTree = "<group>";
@@ -853,6 +856,7 @@
 				F05F19CA1E1BC26C00556CD6 /* Roamni.xcdatamodeld in Sources */,
 				F0296EB11E493EED00652816 /* MyTourTableViewController.swift in Sources */,
 				F05F1A131E1D37E200556CD6 /* RecomTableViewCell.swift in Sources */,
+				F08A66531F9082E600348D15 /* IDUser.swift in Sources */,
 				F02618031E326222004697EA /* RatingTableViewCell.swift in Sources */,
 				F052D5C81F76989500B0FA14 /* MyRoamniEidtProfileCell.swift in Sources */,
 				F05F1A111E1D37CC00556CD6 /* MoreTableViewCell.swift in Sources */,

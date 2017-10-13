@@ -21,6 +21,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var noDataLabel: UILabel?
     var voicememoLabel: UILabel?
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
+    var downloadUsers = [User]()
+    var idUsers = [IDUser]()
     //var refreshControl = UIRefreshControl()
     
     func refresh(sender:AnyObject)
@@ -58,7 +60,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
                 let longitude22 = Double(longitude2)
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String,tourId: child.key, price: Float(dictionary["price"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId: child.key, price: Float(dictionary["price"] as! Float))
                 self.tours.append(downloadTour)
                 self.tableView.reloadData()
                 self.activityIndicator.stopAnimating()
@@ -168,6 +170,27 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
             //print("lllllllllll")
         }
         print("careful\(tours.count)")
+        for user in downloadUsers{
+            //if user.email == tour.uploadUser
+        }
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                if tour.uploadUserEmail == downloaduser.email{
+                    cell.hostLabel.text! = "\(downloaduser.firstname) \(downloaduser.lastname)"
+                }
+                
+                //if
+                //self.downloadUsers.append(downloaduser)
+                
+            }
+        }
+        )
+        
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
         cell.StarLabel.text = String(tour.length) + " min"
@@ -201,6 +224,23 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         return cell
     }
     
+    func fetchUser(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                //if
+                //self.downloadUsers.append(downloaduser)
+   
+                }
+            }
+        )
+    }
+    
+   
 //    func filterContentForSearchText(_ searchText: String, scope: String = "Default") {
 //        filteredTours = tours.filter({( tour : Tour) -> Bool in
 //            let categoryMatch = (scope == "Default") || (tour.category == scope)
