@@ -15,6 +15,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     let loginButton = FBSDKLoginButton()
     var logedUser : User?
     var userid : String?
+    var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewWillAppear(_ animated: Bool) {
          self.tableView.dataSource = self
@@ -22,9 +23,11 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.tableFooterView = UIView()
         //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
         self.tableView.reloadData()
-        
-        //})
-        
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
         
     }
     
@@ -84,7 +87,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     override func viewDidLoad() {
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
-
+        
         //let photo = user.photoURL
         
     }
@@ -233,6 +236,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.userLabel.text = "Please log in"
                 
             }
+            self.activityIndicator.stopAnimating()
             return cell
         }else if indexPath.section == 1{
             //Return the cell with identifier AboutTableViewCell
