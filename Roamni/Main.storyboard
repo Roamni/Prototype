@@ -1646,7 +1646,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lJ-KX-VMp">
-                                <rect key="frame" x="0.0" y="476" width="375" height="142"/>
+                                <rect key="frame" x="0.0" y="516" width="375" height="102"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniMyProfileTableViewCell" rowHeight="40" id="uQz-TX-dxq" customClass="MyRoamniMyProfileTableViewCell" customModule="Roamni" customModuleProvider="target">
@@ -1686,14 +1686,14 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Roamni" translatesAutoresizingMaskIntoConstraints="NO" id="GR7-y1-RSE">
-                                <rect key="frame" x="16" y="67" width="80" height="80"/>
+                                <rect key="frame" x="16" y="107" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="2xb-pP-PR3"/>
                                     <constraint firstAttribute="height" constant="80" id="aoN-zE-3uf"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetable" translatesAutoresizingMaskIntoConstraints="NO" id="d3P-tv-X5r">
-                                <rect key="frame" x="0.0" y="151" width="375" height="1"/>
+                                <rect key="frame" x="0.0" y="191" width="375" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="YPH-3q-oZk"/>
                                 </constraints>
@@ -1710,7 +1710,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl8-Cg-7Ub">
-                                <rect key="frame" x="16" y="160" width="98" height="21"/>
+                                <rect key="frame" x="16" y="200" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="F2a-vW-OF9"/>
                                 </constraints>
@@ -1719,13 +1719,13 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB3-Ai-nkI">
-                                <rect key="frame" x="30" y="279" width="66" height="21"/>
+                                <rect key="frame" x="30" y="319" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-dk-Ztt">
-                                <rect key="frame" x="0.0" y="302" width="375" height="92"/>
+                                <rect key="frame" x="0.0" y="342" width="375" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="2D7-Fc-pPX"/>
                                 </constraints>
@@ -1735,7 +1735,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tours Uploaded:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB4-AC-Onc">
-                                <rect key="frame" x="30" y="402" width="137" height="21"/>
+                                <rect key="frame" x="30" y="442" width="137" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="SEw-FW-3xz"/>
                                 </constraints>
@@ -1744,7 +1744,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-xK-tGf">
-                                <rect key="frame" x="175" y="403.5" width="92" height="19.5"/>
+                                <rect key="frame" x="175" y="443.5" width="92" height="19.5"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Col-be-qRC"/>
                                 </constraints>
@@ -1753,13 +1753,13 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded Tours &amp; Reviews:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dG-W8-ZhS">
-                                <rect key="frame" x="30" y="431" width="209" height="21"/>
+                                <rect key="frame" x="30" y="471" width="209" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-ZO-6HF">
-                                <rect key="frame" x="87" y="454" width="76" height="21"/>
+                                <rect key="frame" x="87" y="494" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4BY-eA-Gzd"/>
                                     <constraint firstAttribute="width" constant="76" id="ANv-VA-xzD"/>
@@ -2769,9 +2769,10 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmq-fA-VI0">
                                         <rect key="frame" x="132" y="349" width="236" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="click to choose mode"/>
+                                        <state key="normal" title="click to choose mode">
+                                            <color key="titleColor" red="0.13546365499999999" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
                                         <connections>
-                                            <action selector="modeButton:" destination="ARn-za-RXE" eventType="touchUpInside" id="298-lE-GZ3"/>
                                             <segue destination="cCS-PQ-ted" kind="show" id="KBI-dT-1oq"/>
                                         </connections>
                                     </button>
@@ -2890,27 +2891,36 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lXV-gH-Bv1">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="vbI-Vx-Nr3" id="zs6-Kf-d1V"/>
+                                    <outlet property="delegate" destination="vbI-Vx-Nr3" id="Wzt-Fm-Myh"/>
+                                </connections>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Choose a Mode" id="Tb0-hi-LzH">
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="cancel" id="KlM-8z-QRH">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="KlM-8z-QRH">
                             <connections>
-                                <action selector="cancelBtn:" destination="vbI-Vx-Nr3" id="ELR-WK-gxJ"/>
+                                <action selector="CancelBn:" destination="vbI-Vx-Nr3" id="7pr-Ef-83X"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="done" id="gUy-hy-JbO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="gUy-hy-JbO">
+                            <connections>
+                                <segue destination="iVn-9c-Lsl" kind="unwind" unwindAction="modeButton:" id="cYU-Ss-3Rg"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="cancel" destination="KlM-8z-QRH" id="22c-sh-jA0"/>
-                        <outlet property="done" destination="gUy-hy-JbO" id="rWW-L2-stl"/>
-                        <outlet property="pricePicker" destination="lXV-gH-Bv1" id="RGX-tw-99b"/>
+                        <outlet property="cancel" destination="KlM-8z-QRH" id="8nh-Mf-HQd"/>
+                        <outlet property="categoryPicker" destination="lXV-gH-Bv1" id="p4f-Gj-Gax"/>
+                        <outlet property="done" destination="gUy-hy-JbO" id="MCl-mL-beR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XKk-G1-YBb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="iVn-9c-Lsl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="-849" y="-5771"/>
+            <point key="canvasLocation" x="-518" y="-5449"/>
         </scene>
         <!--Choose Length-->
         <scene sceneID="Nng-eD-snB">
@@ -4752,7 +4762,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVH-CT-t93" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="rhY-VX-C1A" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="184.80000000000001" y="-5575.8620689655181"/>
+            <point key="canvasLocation" x="169" y="-5617"/>
         </scene>
         <!--Upload A Tour-->
         <scene sceneID="gv1-d0-l2y">
@@ -5280,7 +5290,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fz7-PA-vIC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1738" y="-5774"/>
+            <point key="canvasLocation" x="-1305" y="-5547"/>
         </scene>
     </scenes>
     <resources>

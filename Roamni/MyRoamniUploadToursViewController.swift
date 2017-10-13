@@ -67,11 +67,11 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         
     }
     
-    @IBAction func modeButton(_ sender: UIStoryboardSegue) {
+
+    @IBAction func modeButton(_ segue: UIStoryboardSegue) {
         let secondVC :UploadModeViewController = segue.source as! UploadModeViewController
         self.modeBn.setTitle(secondVC.pickString, for: .normal)
         self.modeBn.tintColor = UIColor.black
-        
     }
     
     
@@ -138,7 +138,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
             if self.data == nil {
                 self.alertBn(title: "Error", message: "no file")
             }
-            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == "click to choose type" || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == "click to choose length" || self.priceBn.titleLabel?.text == "click to choose price"
+            else if self.tourNameText.text == nil || self.categoryBn.titleLabel?.text == "click to choose type" || self.getText == nil || self.startPointLocation == nil || self.endPointLocation == nil || self.lengthBn.titleLabel?.text == "click to choose length" || self.priceBn.titleLabel?.text == "click to choose price" || self.modeBn.titleLabel?.text == "click to choose mode"
                 {
                     self.alertBn(title: "Error", message: "please input all field")
                 }
@@ -188,7 +188,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                                 price = 6.99
                             }
                             
-                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"mode": self.modeBn.titleLabel?.text!,"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                         }
                     }
                     
@@ -262,7 +262,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                         price = 6.99
                     }
                     
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"star":5, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"mode": self.modeBn.titleLabel?.text!,"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                 }
                     }
           
