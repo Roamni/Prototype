@@ -191,6 +191,13 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         }
         )
         
+        cell.suburbLabel!.text = tour.suburb
+        if tour.price != 0{
+            cell.priceLabel!.text = "$\(tour.price)"
+        }else{
+            cell.priceLabel!.text = "Free"
+        }
+        
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
         cell.StarLabel.text = String(tour.length) + " min"

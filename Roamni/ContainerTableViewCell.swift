@@ -10,6 +10,10 @@ import UIKit
 
 class ContainerTableViewCell: UITableViewCell {
     
+    
+    @IBOutlet weak var reviewBtn: UIButton!
+    @IBOutlet weak var suburbLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var floatRatingView: FloatRatingView!
     @IBOutlet weak var StarLabel: UILabel!
     @IBOutlet weak var textlabel: UILabel!
