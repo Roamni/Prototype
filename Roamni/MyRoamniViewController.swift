@@ -23,6 +23,10 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.tableFooterView = UIView()
         //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
         self.tableView.reloadData()
+//      if let user = FIRAuth.auth()?.currentUser{
+//
+//      }
+        
         
         
     }
@@ -161,23 +165,12 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     //type UITableViewCell. These are the objects that users see in the table's rows.
     //This function basically returns a cell, for a table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        self.activityIndicator.center = self.view.center
-//        self.activityIndicator.hidesWhenStopped = true
-//        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-//        self.view.addSubview(self.activityIndicator)
-//        self.activityIndicator.startAnimating()
         if indexPath.section == 0{
             //Return the cell with identifier NotificationTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniUserCell", for: indexPath as IndexPath) as! MyRoamniUserCell
             cell.loginBn.readPermissions =  ["public_profile","email"]
             cell.loginBn.delegate = self
-//            if FIRAuth.auth()?.currentUser != nil {
-//                cell.loginBn.isHidden = true
-//            }
             if let user = FIRAuth.auth()?.currentUser{
-                //user.
-                //cell.loginBn.setTitle("Log out", for: UIControlState.normal)
-                //cell.loginBn.titleLabel?.tintColor = UIColor.blue
                 let email = user.email
                 let uid = user.uid
                 let name = user.displayName
@@ -195,8 +188,6 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.logoutBn.isHidden = true
                         
                     }
-                    
-
                 }else{
                     cell.loginBn.isHidden = true
                 }
@@ -238,7 +229,8 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 {
                     cell.userPhoto.image = UIImage(named: "Roamni")
                     print("jijijijiji4444")
-                    cell.userLabel.text = "Please log in"
+                    cell.userLabel.text = "loading..."
+                    cell.logoutBn.isHidden = true
                 
             }
             

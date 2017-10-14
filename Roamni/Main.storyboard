@@ -309,13 +309,18 @@
                             <outlet property="delegate" destination="Kc6-5Y-2oS" id="nPQ-GX-6IF"/>
                         </connections>
                     </tableView>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="XcF-1h-koB"/>
+                    </toolbarItems>
                     <navigationItem key="navigationItem" title="Reviews" id="V6s-Hw-tjn">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="szF-A2-aQg">
                             <connections>
                                 <action selector="back:" destination="Kc6-5Y-2oS" id="Wyi-QM-Mmv"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="NTy-oC-4SR"/>
                     </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-MQ-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1233,7 +1238,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserNameLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAW-ni-cW5">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="UserNameLabel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eAW-ni-cW5">
                                                     <rect key="frame" x="126" y="8" width="123" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -4054,7 +4059,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HBx-3m-2gK">
                                             <rect key="frame" x="138" y="25" width="78" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="5 Reivews">
                                                 <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
@@ -5273,7 +5278,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puN-vQ-5wD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="301" y="1884"/>
+            <point key="canvasLocation" x="20" y="1855"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TR5-j8-Z23">
@@ -5311,7 +5316,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N0A-eL-KEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-133.33333333333334" y="1104.6195652173915"/>
+            <point key="canvasLocation" x="141" y="1502"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nxh-Iq-de1">
