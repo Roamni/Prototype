@@ -776,6 +776,25 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     self.mode.text = detailTour!.mode
     self.category.text = detailTour!.tourType
     self.ratingLabel.text = String(describing: detailTour?.star)
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                if self.detailTour!.uploadUserEmail == downloaduser.email{
+                    //cell.hostLabel.text! = "\(downloaduser.firstname) \(downloaduser.lastname)"
+                     self.hostName.setTitle("\(downloaduser.firstname) \(downloaduser.lastname)", for: .normal)
+                }
+                
+                //if
+                //self.downloadUsers.append(downloaduser)
+                
+            }
+        }
+        )
+   
     let fulldesArr = detailTour?.desc.components(separatedBy: " ")
     if (fulldesArr?.count)! >= 31{
         let halfdesArr  = fulldesArr?[0 ..< 31]

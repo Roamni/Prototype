@@ -23,11 +23,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
         tableView.tableFooterView = UIView()
         //DispatchQueue.global(qos: DispatchQoS.QoSClass.default).async(execute: { () -> Void in
         self.tableView.reloadData()
-        self.activityIndicator.center = self.view.center
-        self.activityIndicator.hidesWhenStopped = true
-        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.view.addSubview(self.activityIndicator)
-        self.activityIndicator.startAnimating()
+        
         
     }
     
@@ -165,6 +161,11 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
     //type UITableViewCell. These are the objects that users see in the table's rows.
     //This function basically returns a cell, for a table view.
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        self.activityIndicator.center = self.view.center
+//        self.activityIndicator.hidesWhenStopped = true
+//        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+//        self.view.addSubview(self.activityIndicator)
+//        self.activityIndicator.startAnimating()
         if indexPath.section == 0{
             //Return the cell with identifier NotificationTableViewCell
             let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniUserCell", for: indexPath as IndexPath) as! MyRoamniUserCell
@@ -175,6 +176,8 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
 //            }
             if let user = FIRAuth.auth()?.currentUser{
                 //user.
+                //cell.loginBn.setTitle("Log out", for: UIControlState.normal)
+                //cell.loginBn.titleLabel?.tintColor = UIColor.blue
                 let email = user.email
                 let uid = user.uid
                 let name = user.displayName
@@ -183,6 +186,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                 let ref = FIRDatabase.database().reference()
                 ref.child("users/\(uid)/email").setValue(email)
                 if user.photoURL != nil{
+                    cell.logoutBn.isHidden = true
                     if photo != nil{
                      cell.userPhoto.loadImageUsingCacheWithUrlString(urlString: "\(photo!)")
                         print("jijijijiji11111")
@@ -191,6 +195,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.logoutBn.isHidden = true
                         
                     }
+                    
 
                 }else{
                     cell.loginBn.isHidden = true
@@ -236,7 +241,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                     cell.userLabel.text = "Please log in"
                 
             }
-            self.activityIndicator.stopAnimating()
+            
             return cell
         }else if indexPath.section == 1{
             //Return the cell with identifier AboutTableViewCell
@@ -290,7 +295,7 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
             cell.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
             return cell
         }
-
+        //self.activityIndicator.stopAnimating()
     }
     
     
@@ -367,6 +372,7 @@ extension MyRoamniViewController:FBSDKLoginButtonDelegate{
                 return
             }
             self.tableView.reloadData()
+           
         }
         print("successfully logged in ")
         }
