@@ -24,5 +24,6 @@
         let uploadUserEmail:String
         let tourId:String
         let price: Float
+        let suburb: String
     }
 

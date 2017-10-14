@@ -44,6 +44,12 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         super.viewDidLoad()
 //        let user = FIRAuth.auth()?.currentUser
 //        print("gogogogogogogog  \(user!.photoURL!)")
+        let locationManager = CLLocationManager()
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
         do{
             try reachability.startNotifier()
@@ -54,9 +60,9 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
             //self.fetchTours()
         
         //fetchTours()
-        locationManager.delegate = self
-        locationManager.requestAlwaysAuthorization()
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.delegate = self
+//        locationManager.requestAlwaysAuthorization()
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         navigationController?.navigationBar.barTintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
@@ -74,6 +80,9 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
 //        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
 
         // Do any additional setup after loading the view.
+        
+        
+        
     }
 
     func fetchTours(){
@@ -107,7 +116,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
                 
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId: child.key, price: Float(dictionary["price"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "Pleasant", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId: child.key, price: Float(dictionary["price"] as! Float), suburb: dictionary["suburb"] as! String)
                 //            tour.Price = dictionary["Price"] as! String?
                 //            tour.Star = dictionary["Star"] as! String?
                 //            tour.StartPoint = dictionary["StartPoint"] as! String?

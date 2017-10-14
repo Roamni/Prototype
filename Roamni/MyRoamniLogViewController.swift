@@ -9,7 +9,8 @@
 import UIKit
 import Firebase
 import FBSDKLoginKit
-class MyRoamniLogViewController: UIViewController {
+import CoreLocation
+class MyRoamniLogViewController: UIViewController, CLLocationManagerDelegate {
     
 
     @IBOutlet weak var loginBn: FBSDKLoginButton!

@@ -13,6 +13,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
    //var idUsers = [IDUser]()
     //var userEmail : String?
+    var suburb = "Melbourne"
     @IBAction func cancelButton(_ sender: Any) {
         print("a~~~~~~~")
     }
@@ -127,6 +128,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
     
     @IBOutlet weak var endPointText: UITextField!
     @IBAction func uploadAction(_ sender: Any) {
+        
 
         let storageRef = storage.reference()
         if let user = FIRAuth.auth()?.currentUser{
@@ -188,7 +190,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                                 price = 6.99
                             }
                             
-                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"mode": self.modeBn.titleLabel?.text!,"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                            self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"mode": self.modeBn.titleLabel?.text!,"star":4,"suburb":self.suburb, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                         }
                     }
                     
@@ -261,8 +263,26 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
                     if self.priceBn.titleLabel?.text! == "$6.99"{
                         price = 6.99
                     }
+//                    var suburb = "Melbourne"
+//                    let geoCoder = CLGeocoder()
+//                    let location = CLLocation(latitude: (self.startPointLocation?.latitude)!, longitude: (self.startPointLocation?.longitude)!)
+//                    geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
+//                        guard let addressDict = placemarks?[0].addressDictionary else {
+//                            return
+//                        }
+//                        addressDict.forEach { print($0) }
+//
+//                        // Print fully formatted address
+//                        if let formattedAddress = addressDict["FormattedAddressLines"] as? [String] {
+//                            print(formattedAddress.joined(separator: ", "))
+//                        }
+//                        if let city = addressDict["City"] as? String {
+//                            suburb = city
+//                            print(city)
+//                        }
+//                    })
                     
-                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"mode": self.modeBn.titleLabel?.text!,"star":4, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
+                    self.ref?.child("tours").childByAutoId().setValue(["name" : self.tourNameText.text!,"TourType":self.categoryBn.titleLabel?.text!,"price":price,"desc":self.getText!,"startPoint":["lat":self.startPointLocation?.latitude,"lon":self.startPointLocation?.longitude],"endPoint":["lat":self.endPointLocation?.latitude,"lon":self.endPointLocation?.longitude],"mode": self.modeBn.titleLabel?.text!,"star":4,"suburb":self.suburb, "duration":Int((self.lengthBn.titleLabel?.text)!),"uploadUser":uid,"uploadUserEmail":user.email,"downloadURL":downloadurl,"user":["\(uid)":"buy"]])
                 }
                     }
           
@@ -369,6 +389,29 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         self.scrollView.isScrollEnabled = false
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if self.startPointLocation != nil{
+            let geoCoder = CLGeocoder()
+            let location = CLLocation(latitude: (self.startPointLocation?.latitude)!, longitude: (self.startPointLocation?.longitude)!)
+            geoCoder.reverseGeocodeLocation(location, completionHandler: { placemarks, error in
+                guard let addressDict = placemarks?[0].addressDictionary else {
+                    return
+                }
+                addressDict.forEach { print($0) }
+                
+                // Print fully formatted address
+                if let formattedAddress = addressDict["FormattedAddressLines"] as? [String] {
+                    print(formattedAddress.joined(separator: ", "))
+                }
+                if let city = addressDict["City"] as? String {
+                    self.suburb = city
+                    print("citycitycity\(city)")
+                }
+            })
+        }
+
+    }
+    
     func textViewDidBeginEditing(_ textView: UITextView) {
         descText = textView
     }
@@ -429,7 +472,7 @@ class MyRoamniUploadToursViewController: UIViewController,MKMapViewDelegate,CLLo
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         tabBarController?.tabBar.tintColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
         
-
+       
         // Do any additional setup after loading the view.
     }
     

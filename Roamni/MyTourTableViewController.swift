@@ -160,7 +160,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
             let longitude22 = Double(longitude2)
             let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
             let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float), suburb: dictionary["suburb"] as! String)
             if let user = FIRAuth.auth()?.currentUser{
                 let uid = user.uid
                 
@@ -199,7 +199,7 @@ class MyTourTableViewController: UITableViewController,CLLocationManagerDelegate
                 let longitude22 = Double(longitude2)
                 let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
                 let endCoordinate = CLLocationCoordinate2D(latitude: latitude22!, longitude: longitude22!)
-                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float))
+                let downloadTour = DownloadTour(tourType: dictionary["TourType"] as! String, mode: dictionary["mode"] as! String, name: dictionary["name"] as! String, startLocation: startCoordinate, endLocation: endCoordinate, downloadUrl: dictionary["downloadURL"] as! String, desc: dictionary["desc"] as! String, star: Float(dictionary["star"] as! Float), length: dictionary["duration"] as! Int, difficulty: "walking", uploadUser: dictionary["uploadUser"] as! String, uploadUserEmail: dictionary["uploadUserEmail"] as! String,tourId:child.key, price: Float(dictionary["price"] as! Float), suburb: dictionary["suburb"] as! String)
                 if let user = FIRAuth.auth()?.currentUser{
                     let uid = user.uid
                     if downloadTour.uploadUser == uid
