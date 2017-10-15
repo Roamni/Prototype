@@ -44,11 +44,7 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         super.viewDidLoad()
 //        let user = FIRAuth.auth()?.currentUser
 //        print("gogogogogogogog  \(user!.photoURL!)")
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+       
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.reachabilityChanged),name: ReachabilityChangedNotification,object: reachability)
         do{
@@ -72,16 +68,12 @@ class NearByCollectionViewController: UICollectionViewController,CLLocationManag
         //change here to apply 5 km
         
         controller.tours = tours
-        locationManager.startUpdatingLocation()
-       
-        
-           
-        
         
         
     }
 
     func fetchTours(){
+        
         var ref:FIRDatabaseReference?
         ref = FIRDatabase.database().reference()
         controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController

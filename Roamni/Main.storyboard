@@ -799,7 +799,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDo-CJ-Tzh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3836" y="-5740"/>
+            <point key="canvasLocation" x="-3871" y="-5724"/>
         </scene>
         <!--Test View Controller-->
         <scene sceneID="SSq-oA-ScI">

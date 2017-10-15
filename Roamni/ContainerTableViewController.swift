@@ -11,6 +11,7 @@ import CoreLocation
 import Firebase
 class ContainerTableViewController: UITableViewController, CLLocationManagerDelegate, FloatRatingViewDelegate{
 
+    let locationManager = CLLocationManager()
     var tourCategory : String?
     var detailViewController: DetailViewController? = nil
     var tours = [DownloadTour]()
@@ -79,6 +80,12 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         self.refreshControl?.attributedTitle = NSAttributedString(string: "")
         self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl!)
+        
+//        let locationManager = CLLocationManager()
+//        locationManager.delegate = self
+//        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.startUpdatingLocation()
     }
 
     
@@ -140,6 +147,11 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
 
     // MARK: - Table View
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         return 1
     }
     
@@ -159,6 +171,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "ContainerTableViewCell", for: indexPath) as! ContainerTableViewCell
         let tour: DownloadTour
         
@@ -177,6 +191,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         ref = FIRDatabase.database().reference()
         ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
             let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            
+            
             for child in result!{
                 let dictionary = child.value as!  [String : Any]
                 let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
@@ -191,12 +207,15 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         }
         )
         
+        
+        
         cell.suburbLabel!.text = tour.suburb
         if tour.price != 0{
             cell.priceLabel!.text = "$\(tour.price)"
         }else{
             cell.priceLabel!.text = "Free"
         }
+        
         
         cell.textlabel!.text = tour.name
         cell.detailTextlabel!.text = tour.tourType
@@ -214,11 +233,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         cell.floatRatingView.rating = tour.star
         cell.floatRatingView.editable = false
 
-        let locationManager = CLLocationManager()
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.startUpdatingLocation()
+        
+       
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
         let currentlocation = CLLocation(latitude: locValue.latitude, longitude: locValue.longitude)
         let initialLocation = CLLocation(latitude: tour.startLocation.latitude, longitude: tour.startLocation.longitude)

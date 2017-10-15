@@ -53,6 +53,8 @@ class NearbyViewController: UIViewController, UITableViewDelegate, UITableViewDa
         controller.tours = tours
         locationManager.startUpdatingLocation()
         
+        
+        
     }
     
     
