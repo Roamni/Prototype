@@ -146,7 +146,7 @@ extension MyRoamniLogViewController:FBSDKLoginButtonDelegate{
                 
             }
             
-            print("successfully logged in ")
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc: testViewController = storyboard.instantiateViewController(withIdentifier: "firstView") as! testViewController
             
