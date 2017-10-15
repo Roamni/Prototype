@@ -324,7 +324,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-MQ-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1497.1014492753625" y="1126.6304347826087"/>
+            <point key="canvasLocation" x="1552" y="607"/>
         </scene>
         <!--Sign in-->
         <scene sceneID="l8m-L9-8EQ">
@@ -4060,9 +4060,12 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                             <rect key="frame" x="138" y="25" width="78" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <state key="normal" title="5 Reivews">
+                                            <state key="normal" title="0 Reivews">
                                                 <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <segue destination="kbY-Q6-Idv" kind="show" id="A5s-8r-R9O"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -4095,7 +4098,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4S-AZ-SFa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="168.84057971014494" y="456.929347826087"/>
+            <point key="canvasLocation" x="196" y="533"/>
         </scene>
         <!--Search-->
         <scene sceneID="kZw-7L-073">
@@ -5278,7 +5281,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="puN-vQ-5wD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="1855"/>
+            <point key="canvasLocation" x="-435" y="2019"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="TR5-j8-Z23">
@@ -5297,7 +5300,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IuC-B9-BxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="668.11594202898561" y="1138.858695652174"/>
+            <point key="canvasLocation" x="868" y="607"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xBn-wU-yhH">
@@ -5382,6 +5385,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="version" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="A5s-8r-R9O"/>
         <segue reference="s2S-wb-XYy"/>
         <segue reference="aGK-Qo-5oV"/>
         <segue reference="2hD-WS-x4K"/>
