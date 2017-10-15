@@ -200,22 +200,24 @@ class MyRoamniViewController: UIViewController, UITableViewDelegate, UITableView
                                 let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
                                 if downloaduser.email  == user.email{
                                     hasEmail = true
+                                    print("downloaddownload\(downloaduser.email) \(user.email) \(hasEmail)")
                                 }
-                                //if
-                                //self.downloadUsers.append(downloaduser)
+                                
                                 
                             }
+                            var urlString: String = user.photoURL!.absoluteString
+                            print("useruserusreuser\( user.email )")
+                            print("useruserusreuser\( user.displayName )")
+                            print("useruserusreuser\( user.photoURL )")
+                            if hasEmail == false{
+                                ref.child("usersinfor").childByAutoId().setValue(["email" : user.email as! String,"firstname":user.displayName as! String,"lastname":"","country":"Unknow","aboutme":"","image": urlString])
+                            }
+                            
                         }
                         )
-                        var urlString: String = user.photoURL!.absoluteString
-                        //let url = NSURL(string: user.photoURL)
-                        //let ph : String = user.photoURL
-                        print("useruserusreuser\( user.email )")
-                        print("useruserusreuser\( user.displayName )")
-                        print("useruserusreuser\( user.photoURL )")
-                        if hasEmail == false{
-                            ref.child("usersinfor").childByAutoId().setValue(["email" : user.email as! String,"firstname":user.displayName as! String,"lastname":"","country":"Unknow","aboutme":"","image": urlString])
-                        }
+                        print("downloaddownload\(hasEmail)")
+                        
+
                         
                     }
                 }else{
