@@ -81,11 +81,69 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl!)
         
+        
 //        let locationManager = CLLocationManager()
 //        locationManager.delegate = self
 //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
 //        locationManager.requestWhenInUseAuthorization()
 //        locationManager.startUpdatingLocation()
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let v = UIView()
+//        v.backgroundColor = UIColor.white
+//        let segmentedControl = UISegmentedControl(frame:CGRect(x:6, y:5, width: tableView.frame.width - 9, height:24))
+//        segmentedControl.insertSegment(withTitle: "one", at: 0, animated: false)
+//        segmentedControl.insertSegment(withTitle: "two", at: 1, animated: false)
+//        segmentedControl.addTarget(self, action: "changeMode:", for: .valueChanged)
+        // Initialize
+        let items = ["Walk", "Car", "Transit", "Accessible", "All"]
+        let customSC = UISegmentedControl(items: items)
+        customSC.selectedSegmentIndex = 0
+        
+        // Set up Frame and SegmentedControl
+        let frame = UIScreen.main.bounds
+        customSC.frame = CGRect(x:6, y:4, width: tableView.frame.width - 9, height:26)
+        
+        // Style the Segmented Control
+        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
+        customSC.backgroundColor = UIColor(red: 5.0/255.0, green: 24.0/255.0, blue: 57.0/255.0, alpha: 1.0)
+        customSC.tintColor = UIColor.white
+        
+        // Add target action method
+        customSC.addTarget(self, action: #selector(changeMode), for: .valueChanged)
+        
+        // Add this custom Segmented Control to our view
+        //self.view.addSubview(customSC)
+        v.addSubview(customSC)
+        
+        return v
+        
+    }
+    
+    
+    func changeMode(sender: UISegmentedControl) {
+        print("Changing Color to ")
+        switch sender.selectedSegmentIndex {
+        case 0:
+            //self.view.backgroundColor = UIColor.green
+            print("Walk")
+        case 1:
+            //self.view.backgroundColor = UIColor.blue
+            print("Car")
+        case 2:
+            //self.view.backgroundColor = UIColor.blue
+            print("Transit")
+        case 3:
+            //self.view.backgroundColor = UIColor.blue
+            print("Accessible")
+        case 4:
+            //self.view.backgroundColor = UIColor.blue
+            print("All")
+        default:
+            //self.view.backgroundColor = UIColor.purpleColor()
+            print("Default")
+        }
     }
 
     
