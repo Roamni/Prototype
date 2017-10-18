@@ -284,7 +284,7 @@ class SearchContainerViewController: UIViewController {
 
           //  let categoryMatch = (scope == "Default") || (tour.category == scope)
             
-            return fieldToSearch!.lowercased().contains(searchText.lowercased()) ||  tour.tourType.lowercased().contains(searchText.lowercased())
+                return fieldToSearch!.lowercased().contains(searchText.lowercased()) ||  tour.tourType.lowercased().contains(searchText.lowercased()) || tour.mode.lowercased().contains(searchText.lowercased())
 
         })
         
