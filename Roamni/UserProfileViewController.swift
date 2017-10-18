@@ -9,7 +9,15 @@
 import UIKit
 
 class UserProfileViewController: UIViewController {
-
+    
+    @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var userName: UILabel!
+    
+    @IBOutlet weak var country: UILabel!
+    
+    @IBOutlet weak var aboutUser: UITextView!
+    
     @IBAction func back(_ sender: Any) {
        dismiss(animated: true, completion: nil)
     }
