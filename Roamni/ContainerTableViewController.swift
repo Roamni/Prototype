@@ -24,6 +24,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var activityIndicator:UIActivityIndicatorView = UIActivityIndicatorView()
     var downloadUsers = [User]()
     var idUsers = [IDUser]()
+    var controller : SearchContainerViewController!
     //var refreshControl = UIRefreshControl()
     
     func refresh(sender:AnyObject)
@@ -80,8 +81,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         self.refreshControl?.attributedTitle = NSAttributedString(string: "")
         self.refreshControl?.addTarget(self, action: #selector(self.refresh), for: UIControlEvents.valueChanged)
         self.tableView.addSubview(refreshControl!)
-        
-        
+        controller = tabBarController?.viewControllers![1].childViewControllers[0] as! SearchContainerViewController
+        controller.tours = self.allTours
 //        let locationManager = CLLocationManager()
 //        locationManager.delegate = self
 //        locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -99,7 +100,21 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         // Initialize
         let items = ["Walk", "Car", "Transit", "Accessible", "All"]
         let customSC = UISegmentedControl(items: items)
-        customSC.selectedSegmentIndex = 0
+        
+        let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+        if textFieldInsideSearchBar.text == "Walk"{
+            customSC.selectedSegmentIndex = 0
+        }else if textFieldInsideSearchBar.text == "Car"{
+            customSC.selectedSegmentIndex = 1
+        }else if textFieldInsideSearchBar.text == "Transit"{
+            customSC.selectedSegmentIndex = 2
+        }else if textFieldInsideSearchBar.text == "Accessible"{
+            customSC.selectedSegmentIndex = 3
+        }else if textFieldInsideSearchBar.text == "All"{
+            customSC.selectedSegmentIndex = 4
+        }
+        
+        
         
         // Set up Frame and SegmentedControl
         let frame = UIScreen.main.bounds
@@ -124,25 +139,47 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     
     func changeMode(sender: UISegmentedControl) {
         print("Changing Color to ")
+       
         switch sender.selectedSegmentIndex {
         case 0:
             //self.view.backgroundColor = UIColor.green
             print("Walk")
-
-            
-            //return tours.count
-            
+            //sender.selectedSegmentIndex = 0
+             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+            controller.tourCategory = "Walk"
+            textFieldInsideSearchBar.text = "Walk"
+            controller.filterContentForSearchText("Walk", scope: "Tour Name")
         case 1:
             //self.view.backgroundColor = UIColor.blue
+            //sender.selectedSegmentIndex = 1
+             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+            controller.tourCategory = "Car"
+            textFieldInsideSearchBar.text = "Car"
+            controller.filterContentForSearchText("Car", scope: "Tour Name")
             print("Car")
         case 2:
+//            sender.selectedSegmentIndex = 2
             //self.view.backgroundColor = UIColor.blue
+             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+            controller.tourCategory = "Transit"
+            textFieldInsideSearchBar.text = "Transit"
+            controller.filterContentForSearchText("Transit", scope: "Tour Name")
             print("Transit")
         case 3:
-            //self.view.backgroundColor = UIColor.blue
+//            sender.selectedSegmentIndex = 3
+//            //self.view.backgroundColor = UIColor.blue
+             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+            controller.tourCategory = "Accessible"
+            textFieldInsideSearchBar.text = "Accessible"
+            controller.filterContentForSearchText("Accessible", scope: "Tour Name")
             print("Accessible")
         case 4:
-            //self.view.backgroundColor = UIColor.blue
+//            sender.selectedSegmentIndex = 4
+//            //self.view.backgroundColor = UIColor.blue
+             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+            controller.tourCategory = ""
+            textFieldInsideSearchBar.text = ""
+            controller.filterContentForSearchText("", scope: "Tour Name")
             print("All")
         default:
             //self.view.backgroundColor = UIColor.purpleColor()
