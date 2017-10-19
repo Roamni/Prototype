@@ -391,6 +391,12 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5tg-7f-oOA" id="5Xy-rK-tah">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NE6-sh-7au">
+                                            <rect key="frame" x="22" y="0.0" width="40" height="40"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
@@ -414,7 +420,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-MQ-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2439.130434782609" y="790.76086956521749"/>
+            <point key="canvasLocation" x="2114.4927536231885" y="1068.75"/>
         </scene>
         <!--Sign in-->
         <scene sceneID="l8m-L9-8EQ">
@@ -1741,7 +1747,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4lJ-KX-VMp">
-                                <rect key="frame" x="0.0" y="516" width="414" height="171"/>
+                                <rect key="frame" x="0.0" y="476" width="414" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniMyProfileTableViewCell" rowHeight="40" id="uQz-TX-dxq" customClass="MyRoamniMyProfileTableViewCell" customModule="Roamni" customModuleProvider="target">
@@ -1781,14 +1787,14 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 </connections>
                             </tableView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Roamni" translatesAutoresizingMaskIntoConstraints="NO" id="GR7-y1-RSE">
-                                <rect key="frame" x="20" y="107" width="80" height="80"/>
+                                <rect key="frame" x="20" y="67" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="80" id="2xb-pP-PR3"/>
                                     <constraint firstAttribute="height" constant="80" id="aoN-zE-3uf"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bluetable" translatesAutoresizingMaskIntoConstraints="NO" id="d3P-tv-X5r">
-                                <rect key="frame" x="0.0" y="191" width="414" height="1"/>
+                                <rect key="frame" x="0.0" y="151" width="414" height="1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="YPH-3q-oZk"/>
                                 </constraints>
@@ -1805,7 +1811,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About me:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bl8-Cg-7Ub">
-                                <rect key="frame" x="20" y="200" width="98" height="21"/>
+                                <rect key="frame" x="20" y="160" width="98" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="98" id="F2a-vW-OF9"/>
                                 </constraints>
@@ -1814,13 +1820,13 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qB3-Ai-nkI">
-                                <rect key="frame" x="34" y="319" width="66" height="21"/>
+                                <rect key="frame" x="34" y="279" width="66" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZWe-dk-Ztt">
-                                <rect key="frame" x="0.0" y="342" width="414" height="92"/>
+                                <rect key="frame" x="0.0" y="302" width="414" height="92"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="92" id="2D7-Fc-pPX"/>
                                 </constraints>
@@ -1830,7 +1836,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 </connections>
                             </pickerView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tours Uploaded:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IB4-AC-Onc">
-                                <rect key="frame" x="34" y="442" width="137" height="21"/>
+                                <rect key="frame" x="34" y="402" width="137" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="137" id="SEw-FW-3xz"/>
                                 </constraints>
@@ -1839,7 +1845,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHC-xK-tGf">
-                                <rect key="frame" x="179" y="443.66666666666674" width="92" height="19.333333333333314"/>
+                                <rect key="frame" x="179" y="403.66666666666674" width="92" height="19.333333333333314"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="92" id="Col-be-qRC"/>
                                 </constraints>
@@ -1848,13 +1854,13 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Uploaded Tours &amp; Reviews:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dG-W8-ZhS">
-                                <rect key="frame" x="34" y="471" width="209" height="21"/>
+                                <rect key="frame" x="34" y="431" width="209" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tour Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="X2Z-ZO-6HF">
-                                <rect key="frame" x="87" y="494" width="76" height="21"/>
+                                <rect key="frame" x="87" y="454" width="76" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="4BY-eA-Gzd"/>
                                     <constraint firstAttribute="width" constant="76" id="ANv-VA-xzD"/>
