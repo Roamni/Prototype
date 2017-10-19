@@ -65,6 +65,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     fileprivate var modalVC : ModalViewController!
     var counter = 0
     var counter1 = 0
+    var touruploaduser : User!
+    fileprivate var profileController : UserProfileViewController!
     
     @IBOutlet weak var mode: UILabel!
     
@@ -714,6 +716,27 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     }
     
     
+    @IBAction func gotoProfile(_ sender: Any) {
+        //performSegue(withIdentifier: "goToProfile", sender: self)
+        
+        profileController = storyboard?.instantiateViewController(withIdentifier: "UserProfileViewController") as? UserProfileViewController
+        profileController.profileuser = self.touruploaduser
+        self.present(profileController, animated: true, completion: nil)
+    }
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToProfile"
+        {
+            let controller:UserProfileViewController = segue.destination as! UserProfileViewController
+
+            controller.profileuser = self.touruploaduser
+
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewviewdid")
@@ -786,6 +809,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
                 if self.detailTour!.uploadUserEmail == downloaduser.email{
                     //cell.hostLabel.text! = "\(downloaduser.firstname) \(downloaduser.lastname)"
                      self.hostName.setTitle("\(downloaduser.firstname) \(downloaduser.lastname)", for: .normal)
+                     self.touruploaduser = downloaduser
                 }
                 
                 //if
