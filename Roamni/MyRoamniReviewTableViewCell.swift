@@ -10,6 +10,9 @@ import UIKit
 
 class MyRoamniReviewTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var userImage: UIImageView!
+    
+    @IBOutlet weak var reviewLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

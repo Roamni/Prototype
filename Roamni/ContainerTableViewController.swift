@@ -118,7 +118,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         
         // Set up Frame and SegmentedControl
         let frame = UIScreen.main.bounds
-        customSC.frame = CGRect(x:0, y:4, width: tableView.frame.width , height:26)
+        customSC.frame = CGRect(x:0, y:0, width: tableView.frame.width , height:26)
         
         // Style the Segmented Control
         customSC.layer.cornerRadius = 5.0  // Don't let background bleed
