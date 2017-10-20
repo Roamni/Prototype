@@ -11,5 +11,6 @@ struct Review {
     let comment : String
     let useremail:String
     let tourid:String
+    var star : Float
     //let username : String
 }
