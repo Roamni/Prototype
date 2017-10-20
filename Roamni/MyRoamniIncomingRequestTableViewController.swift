@@ -49,37 +49,16 @@ class MyRoamniIncomingRequestTableViewController: UITableViewController {
         ref?.child("requestTours").observe(.childAdded, with:{ (snapshot) in
             
             let dictionary = snapshot.value as!  [String : Any]
-            // tour.setValuesForKeys(dictionary)
             let startLocation = dictionary["startPoint"] as!  [String : Any]
-            
             let latitude1 = String(describing: startLocation["lat"]!)
-            
             let latitude = Double(latitude1)
-            
             let longitude1 = String(describing: startLocation["lon"]!)
-            
             let longitude = Double(longitude1)
-            //let longitude = (location["lon"] as! NSString).doubleValue
             let startCoordinate = CLLocationCoordinate2D(latitude: latitude!, longitude: longitude!)
-            
             let downloadTour = Tour(attraction: dictionary["Attraction"] as! String, locations: startCoordinate, desc:dictionary["desc"] as! String,tourType: dictionary["TourType"] as! String)
-            
-            //            tour.Price = dictionary["Price"] as! String?
-            //            tour.Star = dictionary["Star"] as! String?
-            //            tour.StartPoint = dictionary["StartPoint"] as! String?
-            //            tour.Time = dictionary["Time"] as! String?
-            //            tour.TourType = dictionary["TourType"] as! String?
-            //            tour.WholeTour = dictionary["WholeTour"] as! String?
-            
-            //self.artworks.removeAll()
-                    self.downloadTours.append(downloadTour)
-                    DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
-                    
-            
-            
+            self.downloadTours.append(downloadTour)
+            DispatchQueue.main.async(execute: {self.tableView.reloadData() } )
         })
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

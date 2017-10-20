@@ -59,6 +59,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     @IBOutlet weak var scrollView: UIScrollView!
     var downloadTours = [DownloadTour]()
     var uploadTours = [DownloadTour]()
+    var reviews  = [Review]()
     var list = [SKProduct]()
     var p = SKProduct()
     var hasUserbought = false
@@ -68,6 +69,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     var touruploaduser : User!
     fileprivate var profileController : UserProfileViewController!
     
+    @IBOutlet weak var reviewBtn: UIButton!
     @IBOutlet weak var mode: UILabel!
     
     @IBOutlet weak var category: UILabel!
@@ -670,6 +672,8 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         //SKPaymentQueue.default().remove(self)
         //SKPaymentQueue.default().add(self)
         print("pricepriceprice\(self.detailTour!.price)")
+        self.reviews.removeAll()
+        fetchReviews()
         list.removeAll()
         self.counter = 0
         if let user = FIRAuth.auth()?.currentUser{
@@ -736,7 +740,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             //let controller:ReviewsTableViewController = segue.destination as! ReviewsTableViewController
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController  as! ReviewsTableViewController
-            
+            targetController.reviews = self.reviews
             targetController.tourID = self.detailTour!.tourId
             
         }
@@ -746,6 +750,23 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
     
     @IBAction func reviews(_ sender: Any) {
         performSegue(withIdentifier: "goToReviews", sender: self)
+        
+    }
+    
+    func fetchReviews(){
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        
+        ref?.child("Reviews").observe(.childAdded, with:{ (snapshot) in
+            
+            let dictionary = snapshot.value as!  [String : Any]
+            let downloadReview = Review(comment: dictionary["review"] as! String, useremail:dictionary["reviewUser"] as! String,tourid: dictionary["tourid"] as! String)
+            if downloadReview.tourid == self.detailTour!.tourId{
+                self.reviews.append(downloadReview)
+            }
+            self.reviewBtn.setTitle("\(self.reviews.count) Review", for: UIControlState.normal)
+            DispatchQueue.main.async(execute: {} )
+        })
         
     }
     

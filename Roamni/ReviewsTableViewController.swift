@@ -11,6 +11,7 @@ import UIKit
 class ReviewsTableViewController: UITableViewController {
     
     var tourID : String!
+    var reviews  = [Review]()
 
     @IBAction func back(_ sender: Any) {
        dismiss(animated: true, completion: nil)
@@ -58,7 +59,7 @@ class ReviewsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return self.reviews.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

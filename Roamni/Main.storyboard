@@ -262,9 +262,9 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </progressView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sPh-3w-7AL">
-                                        <rect key="frame" x="77" y="80" width="65" height="25"/>
+                                        <rect key="frame" x="77" y="80" width="78" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Reviews">
+                                        <state key="normal">
                                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -367,6 +367,7 @@
                         <outlet property="priceBtn" destination="ot6-88-h5Y" id="iSV-wq-KVd"/>
                         <outlet property="ratingLabel" destination="pOq-nI-348" id="k7r-Fe-ePC"/>
                         <outlet property="readMoreTextView" destination="C88-7d-Bog" id="WdG-yj-6IZ"/>
+                        <outlet property="reviewBtn" destination="sPh-3w-7AL" id="Ya3-mf-OFY"/>
                         <outlet property="scrollView" destination="HkF-wI-cqc" id="nMn-OJ-2Ea"/>
                         <outlet property="titleLabel" destination="Kgd-de-mO6" id="ERf-6c-8BW"/>
                         <outletCollection property="detailMap" destination="KJm-vG-U9j" id="6RJ-U1-348"/>
@@ -375,7 +376,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fa0-wI-kDU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="367" y="1256"/>
+            <point key="canvasLocation" x="366.66666666666669" y="1255.4347826086957"/>
         </scene>
         <!--Reviews-->
         <scene sceneID="EWt-cU-aaU">
@@ -4212,7 +4213,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                             <rect key="frame" x="138" y="25" width="78" height="19"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                            <state key="normal" title="0 Reviews">
+                                            <state key="normal" title="0 Review">
                                                 <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
                                         </button>
