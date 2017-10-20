@@ -27,6 +27,22 @@ class ReviewsTableViewController: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    @IBAction func addComment(_ sender: Any) {
+        performSegue(withIdentifier: "addComment", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "addComment"
+        {
+            let controller:AddReviewViewController = segue.destination as! AddReviewViewController
+            
+            controller.tourID = self.tourID
+            
+        }
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

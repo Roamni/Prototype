@@ -737,7 +737,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
             let destinationNavigationController = segue.destination as! UINavigationController
             let targetController = destinationNavigationController.topViewController  as! ReviewsTableViewController
             
-            targetController.tourID = self.detailTour!.mode
+            targetController.tourID = self.detailTour!.tourId
             
         }
         // Get the new view controller using segue.destinationViewController.

@@ -428,11 +428,14 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="NTy-oC-4SR">
                             <connections>
-                                <segue destination="gw3-Gy-S6M" kind="push" id="J3t-rQ-bRh"/>
+                                <action selector="addComment:" destination="Kc6-5Y-2oS" id="1tO-1L-QX6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="gw3-Gy-S6M" kind="show" identifier="addComment" id="kbR-OF-rPz"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-MQ-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -637,7 +640,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSk-G1-gSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921.739130434783" y="1287.2282608695652"/>
+            <point key="canvasLocation" x="3307" y="995"/>
         </scene>
         <!--Payment Detial-->
         <scene sceneID="cX8-bc-peL">
@@ -750,7 +753,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="24K-t5-kZW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3949.275362318841" y="1173.913043478261"/>
+            <point key="canvasLocation" x="4455" y="1183"/>
         </scene>
         <!--Roamni Terms of Service-->
         <scene sceneID="Cqb-dc-Msa">
