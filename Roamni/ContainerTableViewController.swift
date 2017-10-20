@@ -319,7 +319,9 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
             
             DispatchQueue.main.async(execute: {} )
         })
-
+//        cell.reviews = aareviews
+//        cell.tourId = tour.tourId
+//        cell.reviewBtn.addTarget(self, action: "someAction", for: .touchUpInside)
         //aareviews.removeAll()
         
         
@@ -380,6 +382,9 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     }
     
    
+//    func someAction() {
+//        performSegue(withIdentifier: "goToReviews", sender: self)
+//    }
 //    func filterContentForSearchText(_ searchText: String, scope: String = "Default") {
 //        filteredTours = tours.filter({( tour : Tour) -> Bool in
 //            let categoryMatch = (scope == "Default") || (tour.category == scope)

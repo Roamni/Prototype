@@ -3675,7 +3675,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Roamni Stats:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w3E-tA-Nan">
-                                <rect key="frame" x="14" y="109" width="193" height="29"/>
+                                <rect key="frame" x="14" y="69" width="193" height="29"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="29" id="XAU-JL-Yqv"/>
                                     <constraint firstAttribute="width" constant="193" id="p1B-Sn-noK"/>
@@ -4214,8 +4214,11 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                             <state key="normal" title="0 Review">
-                                                <color key="titleColor" red="0.13725490200000001" green="0.54978889230000005" blue="0.99413257840000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </state>
+                                            <connections>
+                                                <action selector="gotoReview:" destination="w2v-DP-KkY" eventType="touchUpInside" id="MaI-qi-TPQ"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </tableViewCellContentView>
@@ -5537,7 +5540,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <image name="version" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="q6G-4J-H2Z"/>
+        <segue reference="Ecl-MR-cB0"/>
         <segue reference="s2S-wb-XYy"/>
         <segue reference="aGK-Qo-5oV"/>
         <segue reference="2hD-WS-x4K"/>
