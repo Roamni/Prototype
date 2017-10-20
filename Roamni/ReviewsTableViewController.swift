@@ -66,6 +66,7 @@ class ReviewsTableViewController: UITableViewController {
         
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReviewTableViewCell", for: indexPath) as! MyRoamniReviewTableViewCell
+        cell.reviewLabel.text = self.reviews[indexPath.row].comment
         return cell
     }
 

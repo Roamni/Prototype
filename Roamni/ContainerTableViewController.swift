@@ -25,6 +25,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var downloadUsers = [User]()
     var idUsers = [IDUser]()
     var controller : SearchContainerViewController!
+    var reviews  = [Review]()
     //var refreshControl = UIRefreshControl()
     
     func refresh(sender:AnyObject)
@@ -305,7 +306,21 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
             }
         }
         )
-        
+
+        var aareviews  = [Review]()
+        ref?.child("Reviews").observe(.childAdded, with:{ (snapshot) in
+            
+            let dictionary = snapshot.value as!  [String : Any]
+            let downloadReview = Review(comment: dictionary["review"] as! String, useremail:dictionary["reviewUser"] as! String,tourid: dictionary["tourid"] as! String)
+            if downloadReview.tourid == tour.tourId{
+                aareviews.append(downloadReview)
+            }
+            cell.reviewBtn.setTitle("\(aareviews.count) Review", for: UIControlState.normal)
+            
+            DispatchQueue.main.async(execute: {} )
+        })
+
+        //aareviews.removeAll()
         
         
         cell.suburbLabel!.text = tour.suburb
@@ -331,7 +346,9 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         //Set star rating
         cell.floatRatingView.rating = tour.star
         cell.floatRatingView.editable = false
-
+        //var ref:FIRDatabaseReference?
+        
+       
         
        
         let locValue:CLLocationCoordinate2D = locationManager.location!.coordinate
