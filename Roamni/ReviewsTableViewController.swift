@@ -81,6 +81,7 @@ class ReviewsTableViewController: UITableViewController, FloatRatingViewDelegate
         //Set star rating
         cell.reviewRating.rating = 3
         cell.reviewRating.editable = false
+        cell.reviewRating.rating = self.reviews[indexPath.row].star
         return cell
     }
 

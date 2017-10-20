@@ -387,11 +387,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyRoamniReviewTableViewCell" rowHeight="50" id="5tg-7f-oOA" customClass="MyRoamniReviewTableViewCell" customModule="Roamni" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyRoamniReviewTableViewCell" rowHeight="50" id="5tg-7f-oOA" customClass="MyRoamniReviewTableViewCell" customModule="Roamni" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5tg-7f-oOA" id="5Xy-rK-tah">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="381" height="49.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-HU-vSY" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
@@ -419,6 +419,7 @@
                                     <outlet property="reviewLabel" destination="UJb-e0-hRE" id="0IA-Z4-FmO"/>
                                     <outlet property="reviewRating" destination="gUg-HU-vSY" id="5qu-D5-dJC"/>
                                     <outlet property="userName" destination="m6n-z4-S6m" id="aIe-Dt-Jj4"/>
+                                    <segue destination="1ct-a8-bbJ" kind="show" id="Ibg-qC-RTX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -615,6 +616,52 @@
             </objects>
             <point key="canvasLocation" x="-4367.1999999999998" y="-2064.9175412293853"/>
         </scene>
+        <!--Review-->
+        <scene sceneID="1uB-yz-bRu">
+            <objects>
+                <viewController id="1ct-a8-bbJ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U6n-kc-9sJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="ees-nP-2LE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="85v-8j-Tlq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4QV-8H-7mB">
+                                <rect key="frame" x="20" y="260" width="374" height="265"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PJR-l0-qg1" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="59" y="150" width="297" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Review" id="o5n-6M-axd"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5K5-oV-R1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3012" y="818"/>
+        </scene>
         <!--Add Comment-->
         <scene sceneID="TYQ-Vc-sTB">
             <objects>
@@ -669,7 +716,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSk-G1-gSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3184.057971014493" y="769.56521739130437"/>
+            <point key="canvasLocation" x="3886" y="712"/>
         </scene>
         <!--Payment Detial-->
         <scene sceneID="cX8-bc-peL">

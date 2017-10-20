@@ -760,7 +760,7 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
         ref?.child("Reviews").observe(.childAdded, with:{ (snapshot) in
             
             let dictionary = snapshot.value as!  [String : Any]
-            let downloadReview = Review(comment: dictionary["review"] as! String, useremail:dictionary["reviewUser"] as! String,tourid: dictionary["tourid"] as! String, star: 3)
+            let downloadReview = Review(comment: dictionary["review"] as! String, useremail:dictionary["reviewUser"] as! String,tourid: dictionary["tourid"] as! String, star: Float(dictionary["rating"] as! Float))
             if downloadReview.tourid == self.detailTour!.tourId{
                 self.reviews.append(downloadReview)
             }

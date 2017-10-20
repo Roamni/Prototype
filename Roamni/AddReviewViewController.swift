@@ -29,7 +29,7 @@ class AddReviewViewController: UIViewController, FloatRatingViewDelegate {
             if let user = FIRAuth.auth()?.currentUser{
                 
                let emial = user.email!
-                ref?.child("Reviews").childByAutoId().setValue(["review":self.reviewText.text!,"tourid":tourID,"reviewUser":emial,"rating":tourID])
+                ref?.child("Reviews").childByAutoId().setValue(["review":self.reviewText.text!,"tourid":tourID,"reviewUser":emial,"rating":self.rating])
             }
             dismiss(animated: true, completion: nil)
             
