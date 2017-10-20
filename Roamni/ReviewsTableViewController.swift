@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ReviewsTableViewController: UITableViewController, FloatRatingViewDelegate {
     func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
@@ -44,6 +45,15 @@ class ReviewsTableViewController: UITableViewController, FloatRatingViewDelegate
             
             controller.tourID = self.tourID
             
+        }else  if segue.identifier == "goToReviewDetail" {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let controller = segue.destination as! ReviewDetailViewController
+                
+                //controller.currentIndex = indexPath.row
+                controller.review = self.reviews[indexPath.row]
+                //controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
+                //controller.navigationItem.leftItemsSupplementBackButton = true
+            }
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
@@ -71,6 +81,22 @@ class ReviewsTableViewController: UITableViewController, FloatRatingViewDelegate
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReviewTableViewCell", for: indexPath) as! MyRoamniReviewTableViewCell
         cell.reviewLabel.text = self.reviews[indexPath.row].comment
+
+        var ref:FIRDatabaseReference?
+        ref = FIRDatabase.database().reference()
+        ref?.child("usersinfor").observeSingleEvent(of:.value, with:{ (snapshot) in
+            let result = snapshot.children.allObjects as? [FIRDataSnapshot]
+            for child in result!{
+                let dictionary = child.value as!  [String : Any]
+//                let downloaduser = User(email: dictionary["email"] as! String, firstname: dictionary["firstname"] as! String, lastname: dictionary["lastname"] as! String, aboutme: dictionary["aboutme"] as! String, country: dictionary["country"] as! String, userimage: dictionary["image"] as! String)
+                let email = dictionary["email"] as! String
+
+                if email == self.reviews[indexPath.row].useremail{
+                    cell.userName.text = "\(dictionary["firstname"]!) \(dictionary["lastname"]!)"
+                }
+            }
+        })
+        
         cell.reviewRating.emptyImage = UIImage(named: "StarEmpty")
         cell.reviewRating.fullImage = UIImage(named: "StarFull")
         // Optional params
@@ -84,6 +110,8 @@ class ReviewsTableViewController: UITableViewController, FloatRatingViewDelegate
         cell.reviewRating.rating = self.reviews[indexPath.row].star
         return cell
     }
+    
+
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

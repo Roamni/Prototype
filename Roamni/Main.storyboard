@@ -395,19 +395,19 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-HU-vSY" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
-                                            <rect key="frame" x="151" y="13" width="144" height="22"/>
+                                            <rect key="frame" x="151" y="1" width="144" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-z4-S6m">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-z4-S6m">
                                             <rect key="frame" x="30" y="3" width="110" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJb-e0-hRE">
-                                            <rect key="frame" x="30" y="29" width="214" height="17"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJb-e0-hRE">
+                                            <rect key="frame" x="30" y="27" width="214" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -419,7 +419,7 @@
                                     <outlet property="reviewLabel" destination="UJb-e0-hRE" id="0IA-Z4-FmO"/>
                                     <outlet property="reviewRating" destination="gUg-HU-vSY" id="5qu-D5-dJC"/>
                                     <outlet property="userName" destination="m6n-z4-S6m" id="aIe-Dt-Jj4"/>
-                                    <segue destination="1ct-a8-bbJ" kind="show" id="Ibg-qC-RTX"/>
+                                    <segue destination="1ct-a8-bbJ" kind="show" identifier="goToReviewDetail" id="Ibg-qC-RTX"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -450,7 +450,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-MQ-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1924.6376811594205" y="817.66304347826099"/>
+            <point key="canvasLocation" x="1775" y="814"/>
         </scene>
         <!--Sign in-->
         <scene sceneID="l8m-L9-8EQ">
@@ -619,7 +619,7 @@
         <!--Review-->
         <scene sceneID="1uB-yz-bRu">
             <objects>
-                <viewController id="1ct-a8-bbJ" sceneMemberID="viewController">
+                <viewController id="1ct-a8-bbJ" customClass="ReviewDetailViewController" customModule="Roamni" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="U6n-kc-9sJ"/>
                         <viewControllerLayoutGuide type="bottom" id="ees-nP-2LE"/>
@@ -628,7 +628,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4QV-8H-7mB">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="4QV-8H-7mB">
                                 <rect key="frame" x="20" y="260" width="374" height="265"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -657,10 +657,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Review" id="o5n-6M-axd"/>
+                    <connections>
+                        <outlet property="commentText" destination="4QV-8H-7mB" id="eRV-qF-xfR"/>
+                        <outlet property="reviewRating" destination="PJR-l0-qg1" id="NSV-gb-QGZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5K5-oV-R1R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3012" y="818"/>
+            <point key="canvasLocation" x="2949" y="721"/>
         </scene>
         <!--Add Comment-->
         <scene sceneID="TYQ-Vc-sTB">
