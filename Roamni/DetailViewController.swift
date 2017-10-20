@@ -732,10 +732,23 @@ class DetailViewController: UIViewController, MKMapViewDelegate, FloatRatingView
 
             controller.profileuser = self.touruploaduser
 
+        }else if segue.identifier == "goToReviews"{
+            //let controller:ReviewsTableViewController = segue.destination as! ReviewsTableViewController
+            let destinationNavigationController = segue.destination as! UINavigationController
+            let targetController = destinationNavigationController.topViewController  as! ReviewsTableViewController
+            
+            targetController.tourID = self.detailTour!.mode
+            
         }
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
+    
+    @IBAction func reviews(_ sender: Any) {
+        performSegue(withIdentifier: "goToReviews", sender: self)
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

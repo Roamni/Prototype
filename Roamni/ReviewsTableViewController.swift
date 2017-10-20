@@ -9,6 +9,8 @@
 import UIKit
 
 class ReviewsTableViewController: UITableViewController {
+    
+    var tourID : String!
 
     @IBAction func back(_ sender: Any) {
        dismiss(animated: true, completion: nil)
