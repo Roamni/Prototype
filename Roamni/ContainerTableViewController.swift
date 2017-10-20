@@ -311,7 +311,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         ref?.child("Reviews").observe(.childAdded, with:{ (snapshot) in
             
             let dictionary = snapshot.value as!  [String : Any]
-            let downloadReview = Review(comment: dictionary["review"] as! String, useremail:dictionary["reviewUser"] as! String,tourid: dictionary["tourid"] as! String)
+            let downloadReview = Review(comment: dictionary["review"] as! String, useremail:dictionary["reviewUser"] as! String,tourid: dictionary["tourid"] as! String, star: 1)
             if downloadReview.tourid == tour.tourId{
                 aareviews.append(downloadReview)
             }

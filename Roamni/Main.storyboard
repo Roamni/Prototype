@@ -394,24 +394,31 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="49.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJb-e0-hRE">
-                                            <rect key="frame" x="30" y="31" width="240" height="15"/>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gUg-HU-vSY" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
+                                            <rect key="frame" x="151" y="13" width="144" height="22"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-z4-S6m">
+                                            <rect key="frame" x="30" y="3" width="110" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6n-z4-S6m">
-                                            <rect key="frame" x="30" y="0.0" width="135" height="14"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJb-e0-hRE">
+                                            <rect key="frame" x="30" y="29" width="214" height="17"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="reviewLabel" destination="UJb-e0-hRE" id="0IA-Z4-FmO"/>
+                                    <outlet property="reviewRating" destination="gUg-HU-vSY" id="5qu-D5-dJC"/>
+                                    <outlet property="userName" destination="m6n-z4-S6m" id="aIe-Dt-Jj4"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -442,7 +449,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dBS-MQ-qVH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2021.7391304347827" y="556.79347826086962"/>
+            <point key="canvasLocation" x="1924.6376811594205" y="817.66304347826099"/>
         </scene>
         <!--Sign in-->
         <scene sceneID="l8m-L9-8EQ">
@@ -621,12 +628,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="LlK-lV-2qL">
-                                <rect key="frame" x="20" y="136" width="374" height="297"/>
+                                <rect key="frame" x="20" y="192" width="374" height="297"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hAZ-6X-XAb" customClass="FloatRatingView" customModule="Roamni" customModuleProvider="target">
+                                <rect key="frame" x="59" y="118" width="297" height="47"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="emptyImage" value="StarEmpty"/>
+                                    <userDefinedRuntimeAttribute type="image" keyPath="fullImage" value="StarFull"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minRating">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maxRating">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -638,12 +663,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="floatRatingView" destination="hAZ-6X-XAb" id="aWE-UN-d4p"/>
                         <outlet property="reviewText" destination="LlK-lV-2qL" id="x5T-vQ-yCH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vSk-G1-gSm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3307" y="995"/>
+            <point key="canvasLocation" x="3184.057971014493" y="769.56521739130437"/>
         </scene>
         <!--Payment Detial-->
         <scene sceneID="cX8-bc-peL">
@@ -2149,7 +2175,7 @@ These Terms of Service, and any rights and licenses granted hereunder, may not b
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZEn-jH-cQq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4634.7826086956529" y="790.76086956521749"/>
+            <point key="canvasLocation" x="4839" y="508"/>
         </scene>
         <!--Incoming Tours-->
         <scene sceneID="hdM-Xt-RUm">
@@ -3662,7 +3688,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIG-8y-VYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4122" y="-149"/>
+            <point key="canvasLocation" x="4454" y="-249"/>
         </scene>
         <!--Reports-->
         <scene sceneID="Ssr-0M-7z9">
@@ -4746,7 +4772,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rqd-2K-VGO">
-                                <rect key="frame" x="119" y="193" width="137" height="45"/>
+                                <rect key="frame" x="119" y="254" width="137" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Submit" image="submit"/>
                                 <connections>
@@ -4848,7 +4874,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pod-Qd-EWg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3471.0144927536235" y="531.52173913043487"/>
+            <point key="canvasLocation" x="4107" y="508"/>
         </scene>
         <!--My Tours-->
         <scene sceneID="0e8-1A-2I3">
@@ -5545,7 +5571,7 @@ Download the Roamni app today to make a tour or take a tour.</string>
         <segue reference="Ecl-MR-cB0"/>
         <segue reference="s2S-wb-XYy"/>
         <segue reference="aGK-Qo-5oV"/>
-        <segue reference="2hD-WS-x4K"/>
+        <segue reference="7bd-mF-oJW"/>
         <segue reference="xMV-R0-9wp"/>
         <segue reference="YIB-t0-b6L"/>
     </inferredMetricsTieBreakers>

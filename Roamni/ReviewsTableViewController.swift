@@ -8,7 +8,11 @@
 
 import UIKit
 
-class ReviewsTableViewController: UITableViewController {
+class ReviewsTableViewController: UITableViewController, FloatRatingViewDelegate {
+    func floatRatingView(_ ratingView: FloatRatingView, didUpdate rating: Float) {
+        //
+    }
+    
     
     var tourID : String!
     var reviews  = [Review]()
@@ -67,6 +71,16 @@ class ReviewsTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyRoamniReviewTableViewCell", for: indexPath) as! MyRoamniReviewTableViewCell
         cell.reviewLabel.text = self.reviews[indexPath.row].comment
+        cell.reviewRating.emptyImage = UIImage(named: "StarEmpty")
+        cell.reviewRating.fullImage = UIImage(named: "StarFull")
+        // Optional params
+        cell.reviewRating.delegate = self
+        cell.reviewRating.contentMode = UIViewContentMode.scaleAspectFit
+        cell.reviewRating.maxRating = 5
+        cell.reviewRating.minRating = 1
+        //Set star rating
+        cell.reviewRating.rating = 3
+        cell.reviewRating.editable = false
         return cell
     }
 
