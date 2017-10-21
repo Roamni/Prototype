@@ -16,6 +16,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var detailViewController: DetailViewController? = nil
     var tours = [DownloadTour]()
     var filteredTours = [DownloadTour]()
+    var originaltours = [DownloadTour]()
+    var originalfilteredTours = [DownloadTour]()
     let searchController = UISearchController(searchResultsController: nil)
     var allTours = [DownloadTour]()
     var numberOfRowsInSection : Int?
@@ -26,6 +28,8 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     var idUsers = [IDUser]()
     var controller : SearchContainerViewController!
     var reviews  = [Review]()
+    var customSC : UISegmentedControl!
+    var segmentFlag : String!
     //var refreshControl = UIRefreshControl()
     
     func refresh(sender:AnyObject)
@@ -100,18 +104,18 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
 //        segmentedControl.addTarget(self, action: "changeMode:", for: .valueChanged)
         // Initialize
         let items = ["Walk", "Car", "Transit", "Accessible", "All"]
-        let customSC = UISegmentedControl(items: items)
+        self.customSC = UISegmentedControl(items: items)
         
         let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
-        if textFieldInsideSearchBar.text == "Walk"{
+        if self.segmentFlag == "Walk"{
             customSC.selectedSegmentIndex = 0
-        }else if textFieldInsideSearchBar.text == "Car"{
+        }else if self.segmentFlag == "Car"{
             customSC.selectedSegmentIndex = 1
-        }else if textFieldInsideSearchBar.text == "Transit"{
+        }else if self.segmentFlag == "Transit"{
             customSC.selectedSegmentIndex = 2
-        }else if textFieldInsideSearchBar.text == "Accessible"{
+        }else if self.segmentFlag == "Accessible"{
             customSC.selectedSegmentIndex = 3
-        }else if textFieldInsideSearchBar.text == "All"{
+        }else if self.segmentFlag == "All"{
             customSC.selectedSegmentIndex = 4
         }
         
@@ -140,48 +144,168 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
     
     func changeMode(sender: UISegmentedControl) {
         print("Changing Color to ")
+        filteredTours.removeAll()
+        tours.removeAll()
+        self.filteredTours = self.originalfilteredTours
+        self.tours = self.originaltours
        
         switch sender.selectedSegmentIndex {
+            
         case 0:
             //self.view.backgroundColor = UIColor.green
             print("Walk")
             //sender.selectedSegmentIndex = 0
-             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
-            controller.tourCategory = "Walk"
-            textFieldInsideSearchBar.text = "Walk"
-            controller.filterContentForSearchText("Walk", scope: "Tour Name")
+//             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+//            controller.tourCategory = "Walk"
+//            textFieldInsideSearchBar.text = "Walk"
+//            controller.filterContentForSearchText("Walk", scope: "Tour Name")
+            
+            var modetours = [DownloadTour]()
+            if searchController.isActive && searchController.searchBar.text != "" {
+                for tour in filteredTours{
+                    if tour.mode == "Walk"{
+                       modetours.append(tour)
+                    }
+                }
+               filteredTours.removeAll()
+               filteredTours = modetours
+               self.tableView.reloadData()
+                
+            }else{
+                for tour in self.originalfilteredTours{
+                    if tour.mode == "Walk"{
+                        modetours.append(tour)
+                    }
+                }
+                tours.removeAll()
+                tours = modetours
+                self.tableView.reloadData()
+            }
+
+            self.segmentFlag = "Walk"
+            
         case 1:
             //self.view.backgroundColor = UIColor.blue
             //sender.selectedSegmentIndex = 1
-             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
-            controller.tourCategory = "Car"
-            textFieldInsideSearchBar.text = "Car"
-            controller.filterContentForSearchText("Car", scope: "Tour Name")
-            print("Car")
+//             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+//            controller.tourCategory = "Car"
+//            textFieldInsideSearchBar.text = "Car"
+//            controller.filterContentForSearchText("Car", scope: "Tour Name")
+//            print("Car")
+            var modetours = [DownloadTour]()
+            if searchController.isActive && searchController.searchBar.text != "" {
+                for tour in filteredTours{
+                    if tour.mode == "Car"{
+                        modetours.append(tour)
+                    }
+                }
+                filteredTours.removeAll()
+                filteredTours = modetours
+                self.tableView.reloadData()
+                
+            }else{
+                for tour in self.originalfilteredTours{
+                    if tour.mode == "Car"{
+                        modetours.append(tour)
+                    }
+                }
+                tours.removeAll()
+                tours = modetours
+                self.tableView.reloadData()
+            }
+            self.segmentFlag = "Car"
         case 2:
 //            sender.selectedSegmentIndex = 2
             //self.view.backgroundColor = UIColor.blue
-             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
-            controller.tourCategory = "Transit"
-            textFieldInsideSearchBar.text = "Transit"
-            controller.filterContentForSearchText("Transit", scope: "Tour Name")
-            print("Transit")
+//             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+//            controller.tourCategory = "Transit"
+//            textFieldInsideSearchBar.text = "Transit"
+//            controller.filterContentForSearchText("Transit", scope: "Tour Name")
+//            print("Transit")
+            var modetours = [DownloadTour]()
+            if searchController.isActive && searchController.searchBar.text != "" {
+                for tour in filteredTours{
+                    if tour.mode == "Transit"{
+                        modetours.append(tour)
+                    }
+                }
+                filteredTours.removeAll()
+                filteredTours = modetours
+                self.tableView.reloadData()
+                
+            }else{
+                for tour in self.originalfilteredTours{
+                    if tour.mode == "Transit"{
+                        modetours.append(tour)
+                    }
+                }
+                tours.removeAll()
+                tours = modetours
+                self.tableView.reloadData()
+            }
+            self.segmentFlag = "Transit"
         case 3:
 //            sender.selectedSegmentIndex = 3
 //            //self.view.backgroundColor = UIColor.blue
-             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
-            controller.tourCategory = "Accessible"
-            textFieldInsideSearchBar.text = "Accessible"
-            controller.filterContentForSearchText("Accessible", scope: "Tour Name")
-            print("Accessible")
+//             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+//            controller.tourCategory = "Accessible"
+//            textFieldInsideSearchBar.text = "Accessible"
+//            controller.filterContentForSearchText("Accessible", scope: "Tour Name")
+//            print("Accessible")
+            var modetours = [DownloadTour]()
+            if searchController.isActive && searchController.searchBar.text != "" {
+                for tour in filteredTours{
+                    if tour.mode == "Accessible"{
+                        modetours.append(tour)
+                    }
+                }
+                filteredTours.removeAll()
+                filteredTours = modetours
+                self.tableView.reloadData()
+                
+            }else{
+                for tour in self.originalfilteredTours{
+                    if tour.mode == "Accessible"{
+                        modetours.append(tour)
+                    }
+                }
+                tours.removeAll()
+                tours = modetours
+                self.tableView.reloadData()
+            }
+            self.segmentFlag = "Accessible"
         case 4:
 //            sender.selectedSegmentIndex = 4
 //            //self.view.backgroundColor = UIColor.blue
-             let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
-            controller.tourCategory = ""
-            textFieldInsideSearchBar.text = ""
-            controller.filterContentForSearchText("", scope: "Tour Name")
-            print("All")
+     //let textFieldInsideSearchBar = controller.searchController.searchBar.value(forKey: "searchField") as! UITextField
+//            controller.tourCategory = ""
+//            textFieldInsideSearchBar.text = ""
+//            controller.filterContentForSearchText("", scope: "Tour Name")
+//            print("All")
+            //self.segmentFlag = "Accessible"
+            var modetours = [DownloadTour]()
+            if searchController.isActive && searchController.searchBar.text != "" {
+                for tour in filteredTours{
+                    if tour.mode != "xxx"{
+                        modetours.append(tour)
+                    }
+                }
+                filteredTours.removeAll()
+                filteredTours = modetours
+                self.tableView.reloadData()
+                
+            }else{
+                for tour in self.originalfilteredTours{
+                    if tour.mode != "xxx"{
+                        modetours.append(tour)
+                    }
+                }
+                tours.removeAll()
+                tours = modetours
+                self.tableView.reloadData()
+            }
+             
+             self.segmentFlag = "All"
         default:
             //self.view.backgroundColor = UIColor.purpleColor()
             print("Default")
@@ -197,6 +321,7 @@ class ContainerTableViewController: UITableViewController, CLLocationManagerDele
         //print("the table category is \(self.tourCategory!)")
         
         super.viewWillAppear(animated)
+        
         tableView.reloadData()
         if tours.count != 0{
             self.noDataLabel?.text = ""

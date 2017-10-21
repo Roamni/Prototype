@@ -150,6 +150,8 @@ class SearchContainerViewController: UIViewController {
                 }
                 else{
                     self.getTableVCObject?.tours = self.tours
+                    self.getTableVCObject?.originaltours = (self.getTableVCObject?.tours)!
+                    self.getTableVCObject?.segmentFlag = ""
                     self.getTableVCObject?.tableView.reloadData()
                     //print("nonotype")
                 }
@@ -226,7 +228,9 @@ class SearchContainerViewController: UIViewController {
     func handleFilter(returnedValue:Any){
         print("tttttttttttttttttttttkkkkkkk")
         self.getTableVCObject?.tours = returnedValue as! [DownloadTour]
+        self.getTableVCObject?.originaltours = (self.getTableVCObject?.tours)!
         //self.getTableVCObject?.tourCategory = returnedValue as! String
+        self.getTableVCObject?.segmentFlag = ""
         self.getTableVCObject?.tableView.reloadData()
     
     }
@@ -261,6 +265,9 @@ class SearchContainerViewController: UIViewController {
         //searchController.dismissViewControllerAnimated()
         getTableVCObject?.tours = finalTours
         getTableVCObject?.filteredTours = finalTours
+        getTableVCObject?.originaltours = (getTableVCObject?.tours)!
+        getTableVCObject?.originalfilteredTours = (getTableVCObject?.filteredTours)!
+        self.getTableVCObject?.segmentFlag = ""
         getTableVCObject?.tableView.reloadData()
     }
     
@@ -293,11 +300,16 @@ class SearchContainerViewController: UIViewController {
         if filteredTours.count == 0 && textFieldInsideSearchBar.text == ""{
             getTableVCObject?.tours = tours
             getTableVCObject?.filteredTours = tours
+            getTableVCObject?.originalfilteredTours = (getTableVCObject?.filteredTours)!
+            self.getTableVCObject?.segmentFlag = ""
             getTableVCObject?.tableView.reloadData()
             
         }else{
             getTableVCObject?.tours = filteredTours
             getTableVCObject?.filteredTours = filteredTours
+            getTableVCObject?.originalfilteredTours = (getTableVCObject?.filteredTours)!
+            getTableVCObject?.originaltours = (getTableVCObject?.tours)!
+            self.getTableVCObject?.segmentFlag = ""
             getTableVCObject?.tableView.reloadData()
             finalTours.removeAll()
             finalTours = filteredTours
